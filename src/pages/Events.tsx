@@ -16,7 +16,8 @@ export default function Events() {
     eventType: '',
     guestCount: '',
     genre: '',
-    instruments: [],
+    combo: '',
+    instruments: [] as string[],
   });
 
   const steps = ['Your Information', 'Event Details', 'Music Genre', 'Music Combo', 'Instruments'];
@@ -54,7 +55,8 @@ export default function Events() {
       event_type: formData.eventType,
       guest_count: formData.guestCount,
       genre: formData.genre,
-      instruments: (formData.instruments as string[]).join(', ') || 'Not specified',
+      combo: formData.combo || 'Not specified',
+      instruments: formData.instruments.join(', ') || 'Not specified',
       to_email: formData.email,
       client_first_name: formData.firstName,
     };
@@ -77,7 +79,8 @@ export default function Events() {
         eventType: '',
         guestCount: '',
         genre: '',
-        instruments: [],
+        combo: '',
+        instruments: [] as string[],
       });
     } catch {
       setSubmitStatus('error');
@@ -292,8 +295,15 @@ export default function Events() {
                 <p className="text-gray-600">Tell us about your preferred ensemble size</p>
                 <div className="space-y-3">
                   {['Solo Musician', 'Duo', 'Trio', 'Small Ensemble (4-5)', 'Large Ensemble (6+)'].map((option) => (
-                    <label key={option} className="flex items-center">
-                      <input type="radio" name="combo" value={option} className="mr-3" />
+                    <label key={option} className="flex items-center cursor-pointer">
+                      <input
+                        type="radio"
+                        name="combo"
+                        value={option}
+                        checked={formData.combo === option}
+                        onChange={(e) => setFormData(prev => ({ ...prev, combo: e.target.value }))}
+                        className="mr-3 accent-gold"
+                      />
                       <span>{option}</span>
                     </label>
                   ))}
@@ -307,8 +317,20 @@ export default function Events() {
                 <p className="text-gray-600">Which instruments interest you?</p>
                 <div className="space-y-3">
                   {['Piano', 'Guitar', 'Violin', 'Cello', 'Drums', 'Bass', 'Trumpet', 'Saxophone', 'Vocals', 'Accordion'].map((instrument) => (
-                    <label key={instrument} className="flex items-center">
-                      <input type="checkbox" className="mr-3" />
+                    <label key={instrument} className="flex items-center cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={formData.instruments.includes(instrument)}
+                        onChange={(e) => {
+                          setFormData(prev => ({
+                            ...prev,
+                            instruments: e.target.checked
+                              ? [...prev.instruments, instrument]
+                              : prev.instruments.filter(i => i !== instrument)
+                          }));
+                        }}
+                        className="mr-3 accent-gold"
+                      />
                       <span>{instrument}</span>
                     </label>
                   ))}
