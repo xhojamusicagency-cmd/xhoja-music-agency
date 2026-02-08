@@ -136,7 +136,7 @@ export default function Events() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">SEE US IN ACTION</p>
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.1] tracking-[0.3px] mb-6">A Taste Of What We Bring To Your Event</h2>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-6">A Taste Of What We Bring To Your Event</h2>
           </div>
           <div className="relative w-full max-w-3xl mx-auto aspect-video rounded-lg overflow-hidden shadow-lg bg-dark" style={{ backgroundImage: 'url(https://i.ytimg.com/vi/X3erxpEimGI/hqdefault.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <iframe
@@ -185,7 +185,7 @@ export default function Events() {
           </div>
 
           <div className="text-center mb-8">
-            <h3 className="font-serif text-2xl font-medium">{steps[currentStep - 1]}</h3>
+            <h3 className="font-serif text-3xl font-medium">{steps[currentStep - 1]}</h3>
           </div>
 
           {/* Form */}
@@ -194,7 +194,7 @@ export default function Events() {
             {currentStep === 1 && (
               <div className="space-y-6">
                 <div className="text-center mb-2">
-                  <h4 className="font-serif text-xl font-medium mb-1">Tell Us About Yourself</h4>
+                  <h4 className="font-serif text-2xl font-medium mb-1">Tell Us About Yourself</h4>
                   <p className="text-gray-600 text-sm">We'll use this information to reach out with your personalized quote.</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
