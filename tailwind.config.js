@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         cream: '#E7E3DB',
+        'cream-mid': '#F4F1EC',
         'cream-light': '#F9F8F5',
         gold: '#CC9433',
         dark: '#141414',
