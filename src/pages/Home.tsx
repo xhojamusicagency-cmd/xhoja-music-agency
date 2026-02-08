@@ -8,7 +8,7 @@ export default function Home() {
       <section className="bg-cream py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
           <p className="font-serif italic text-lg sm:text-xl md:text-2xl text-dark/70 tracking-[1.6px]">Customized Music Lessons and Event Bookings</p>
-          <div className="mt-4 mb-4">
+          <div className="mt-1 mb-4">
             <h1 className="font-serif text-[38px] sm:text-[48px] md:text-[72px] font-light leading-[1.05] tracking-[1.5px]">Xhoja Music Agency</h1>
           </div>
           <a
@@ -291,5 +291,6 @@ export default function Home() {
     </div>
   );
 }
+
 
 
