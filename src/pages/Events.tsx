@@ -1,0 +1,308 @@
+import { useState } from 'react';
+import { ChevronRight } from 'lucide-react';
+
+export default function Events() {
+  const [currentStep, setCurrentStep] = useState(1);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    eventDate: '',
+    eventType: '',
+    guestCount: '',
+    genre: '',
+    instruments: [],
+  });
+
+  const steps = ['Your Information', 'Event Details', 'Music Genre', 'Music Combo', 'Instruments'];
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleNext = () => {
+    if (currentStep < steps.length) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
+  const handlePrevious = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert('Thank you for your booking inquiry! We will contact you soon.');
+    setCurrentStep(1);
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      eventDate: '',
+      eventType: '',
+      guestCount: '',
+      genre: '',
+      instruments: [],
+    });
+  };
+
+  return (
+    <div>
+      {/* Hero Section */}
+      <section className="bg-cream py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-gold uppercase tracking-widest text-sm font-medium mb-2">LIVE MUSIC FOR EVERY OCCASION</p>
+          <h1 className="font-serif text-5xl md:text-6xl font-bold mb-4">Event Bookings</h1>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            Hire talented musicians for weddings, parties, corporate events, and special occasions. Let's make your event unforgettable.
+          </p>
+        </div>
+      </section>
+
+      {/* Video Section */}
+      <section className="bg-white py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-gold uppercase tracking-widest text-sm font-medium mb-2">SEE US IN ACTION</p>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6">A Taste of What We Bring to Your Event</h2>
+          </div>
+          <div className="bg-gray-900 rounded-lg overflow-hidden shadow-lg h-96 flex items-center justify-center">
+            <div className="text-white text-center">
+              <p className="text-2xl mb-4">📹</p>
+              <p className="text-gray-400">Performance Video Preview</p>
+              <p className="text-sm text-gray-500 mt-2">Mia McIntosh & Alexander Xhoja performing...</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Booking Form Section */}
+      <section className="bg-cream py-16 md:py-24">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-serif text-4xl font-bold text-center mb-12">Book Your Event</h2>
+
+          {/* Step Indicators */}
+          <div className="flex items-center justify-between mb-12">
+            {steps.map((_step, index) => (
+              <div key={index} className="flex items-center flex-1">
+                <div
+                  className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${
+                    index + 1 <= currentStep
+                      ? 'bg-gold text-white'
+                      : 'bg-gray-300 text-gray-700'
+                  }`}
+                >
+                  {index + 1}
+                </div>
+                {index < steps.length - 1 && (
+                  <div
+                    className={`flex-1 h-1 mx-2 ${
+                      index + 1 < currentStep ? 'bg-gold' : 'bg-gray-300'
+                    }`}
+                  ></div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mb-8">
+            <h3 className="font-serif text-2xl font-bold">{steps[currentStep - 1]}</h3>
+          </div>
+
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="bg-white rounded-lg p-8 shadow-md">
+            {/* Step 1: Your Information */}
+            {currentStep === 1 && (
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                    <input
+                      type="text"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                    <input
+                      type="text"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                      required
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone *</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                    required
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* Step 2: Event Details */}
+            {currentStep === 2 && (
+              <div className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Event Date *</label>
+                  <input
+                    type="date"
+                    name="eventDate"
+                    value={formData.eventDate}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Event Type *</label>
+                  <select
+                    name="eventType"
+                    value={formData.eventType}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                    required
+                  >
+                    <option value="">Select an event type</option>
+                    <option value="wedding">Wedding</option>
+                    <option value="corporate">Corporate Event</option>
+                    <option value="birthday">Birthday Party</option>
+                    <option value="anniversary">Anniversary</option>
+                    <option value="graduation">Graduation</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Guest Count *</label>
+                  <input
+                    type="number"
+                    name="guestCount"
+                    value={formData.guestCount}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                    required
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* Step 3: Music Genre */}
+            {currentStep === 3 && (
+              <div className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Genre *</label>
+                  <select
+                    name="genre"
+                    value={formData.genre}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                    required
+                  >
+                    <option value="">Select a genre</option>
+                    <option value="classical">Classical</option>
+                    <option value="jazz">Jazz</option>
+                    <option value="blues">Blues</option>
+                    <option value="pop">Pop</option>
+                    <option value="rock">Rock</option>
+                    <option value="latin">Latin</option>
+                    <option value="world">World Music</option>
+                    <option value="dj">DJ/Electronic</option>
+                  </select>
+                </div>
+              </div>
+            )}
+
+            {/* Step 4: Music Combo */}
+            {currentStep === 4 && (
+              <div className="space-y-6">
+                <p className="text-gray-600">Tell us about your preferred ensemble size</p>
+                <div className="space-y-3">
+                  {['Solo Musician', 'Duo', 'Trio', 'Small Ensemble (4-5)', 'Large Ensemble (6+)'].map((option) => (
+                    <label key={option} className="flex items-center">
+                      <input type="radio" name="combo" value={option} className="mr-3" />
+                      <span>{option}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Step 5: Instruments */}
+            {currentStep === 5 && (
+              <div className="space-y-6">
+                <p className="text-gray-600">Which instruments interest you?</p>
+                <div className="space-y-3">
+                  {['Piano', 'Guitar', 'Violin', 'Cello', 'Drums', 'Bass', 'Trumpet', 'Saxophone', 'Vocals', 'Accordion'].map((instrument) => (
+                    <label key={instrument} className="flex items-center">
+                      <input type="checkbox" className="mr-3" />
+                      <span>{instrument}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Navigation Buttons */}
+            <div className="flex gap-4 mt-8">
+              <button
+                type="button"
+                onClick={handlePrevious}
+                disabled={currentStep === 1}
+                className="flex-1 px-6 py-3 border-2 border-dark text-dark font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-dark hover:text-white transition-colors"
+              >
+                Previous
+              </button>
+              {currentStep === steps.length ? (
+                <button
+                  type="submit"
+                  className="flex-1 px-6 py-3 bg-gold text-dark font-medium hover:bg-gold/90 transition-colors"
+                >
+                  Submit Booking
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  className="flex-1 px-6 py-3 bg-gold text-dark font-medium hover:bg-gold/90 transition-colors flex items-center justify-center gap-2"
+                >
+                  Continue <ChevronRight size={20} />
+                </button>
+              )}
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  );
+}
