@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-dark text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="flex flex-col md:flex-row md:justify-evenly gap-8 mb-8">
           {/* Left Column */}
           <div>
             <div className="flex items-center space-x-3 mb-4">
@@ -20,7 +20,7 @@ export default function Footer() {
           </div>
 
           {/* Middle Column */}
-          <div className="md:text-center">
+          <div>
             <h4 className="font-serif text-lg font-medium mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm text-gray-300">
               <li><Link to="/events" className="hover:text-gold transition-colors">Event Bookings</Link></li>
@@ -31,7 +31,7 @@ export default function Footer() {
           </div>
 
           {/* Right Column */}
-          <div className="md:text-right">
+          <div>
             <h4 className="font-serif text-lg font-medium mb-4">Contact Info</h4>
             <div className="space-y-2 text-sm text-gray-300">
               <p><strong>Phone:</strong> (857) 498-8487</p>
