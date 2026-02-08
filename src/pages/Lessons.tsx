@@ -326,7 +326,7 @@ export default function Lessons() {
       {/* CTA Section */}
       <section className="bg-dark text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-4">Not Sure Where to Start?</h2>
+          <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-4">Not Sure Where To Start?</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact us for a free consultation. We'll help you find the right instructor and lesson plan for your musical journey.
           </p>
@@ -474,3 +474,4 @@ export default function Lessons() {
     </div>
   );
 }
+
