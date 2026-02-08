@@ -136,7 +136,7 @@ export default function Events() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">SEE US IN ACTION</p>
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-6">A Taste of What We Bring to Your Event</h2>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-6">A Taste Of What We Bring To Your Event</h2>
           </div>
           <div className="relative w-full max-w-3xl mx-auto aspect-video rounded-lg overflow-hidden shadow-lg bg-dark" style={{ backgroundImage: 'url(https://i.ytimg.com/vi/X3erxpEimGI/hqdefault.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <iframe
@@ -417,7 +417,7 @@ export default function Events() {
 
           {submitStatus === 'error' && (
             <div className="mt-6 p-6 bg-red-50 border border-red-200 rounded-lg text-center">
-              <h4 className="font-serif text-xl font-medium text-red-800 mb-2">Something went wrong</h4>
+              <h4 className="font-serif text-xl font-medium text-red-800 mb-2">Something Went Wrong</h4>
               <p className="text-red-700 text-sm">We couldn't process your request. Please try again or contact us directly at xhojamusicagency@gmail.com or (857) 498-8487.</p>
             </div>
           )}
@@ -426,3 +426,4 @@ export default function Events() {
     </div>
   );
 }
+
