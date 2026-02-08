@@ -22,6 +22,19 @@ export default function Events() {
 
   const steps = ['Your Information', 'Event Details', 'Music Genre', 'Music Combo', 'Instruments'];
 
+  const getMaxInstruments = () => {
+    switch (formData.combo) {
+      case 'Solo Musician': return 1;
+      case 'Duo': return 2;
+      case 'Trio': return 3;
+      case 'Small Ensemble (4-5)': return 5;
+      case 'Large Ensemble (6+)': return 10;
+      default: return 10;
+    }
+  };
+
+  const maxInstruments = getMaxInstruments();
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -42,8 +55,7 @@ export default function Events() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
@@ -160,7 +172,7 @@ export default function Events() {
           </div>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="bg-white rounded-lg p-8 shadow-md">
+          <form onSubmit={(e) => e.preventDefault()} className="bg-white rounded-lg p-8 shadow-md">
             {/* Step 1: Your Information */}
             {currentStep === 1 && (
               <div className="space-y-6">
@@ -301,7 +313,7 @@ export default function Events() {
                         name="combo"
                         value={option}
                         checked={formData.combo === option}
-                        onChange={(e) => setFormData(prev => ({ ...prev, combo: e.target.value }))}
+                        onChange={(e) => setFormData(prev => ({ ...prev, combo: e.target.value, instruments: [] }))}
                         className="mr-3 accent-gold"
                       />
                       <span>{option}</span>
@@ -314,26 +326,36 @@ export default function Events() {
             {/* Step 5: Instruments */}
             {currentStep === 5 && (
               <div className="space-y-6">
-                <p className="text-gray-600">Which instruments interest you?</p>
+                <p className="text-gray-600">
+                  Select up to {maxInstruments} instrument{maxInstruments > 1 ? 's' : ''} for your {formData.combo || 'ensemble'}.
+                </p>
+                <p className="text-sm text-gold font-medium">
+                  {formData.instruments.length} / {maxInstruments} selected
+                </p>
                 <div className="space-y-3">
-                  {['Piano', 'Guitar', 'Violin', 'Cello', 'Drums', 'Bass', 'Trumpet', 'Saxophone', 'Vocals', 'Accordion'].map((instrument) => (
-                    <label key={instrument} className="flex items-center cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={formData.instruments.includes(instrument)}
-                        onChange={(e) => {
-                          setFormData(prev => ({
-                            ...prev,
-                            instruments: e.target.checked
-                              ? [...prev.instruments, instrument]
-                              : prev.instruments.filter(i => i !== instrument)
-                          }));
-                        }}
-                        className="mr-3 accent-gold"
-                      />
-                      <span>{instrument}</span>
-                    </label>
-                  ))}
+                  {['Piano', 'Guitar', 'Violin', 'Cello', 'Drums', 'Bass', 'Trumpet', 'Saxophone', 'Vocals', 'Accordion'].map((instrument) => {
+                    const isChecked = formData.instruments.includes(instrument);
+                    const isAtMax = formData.instruments.length >= maxInstruments && !isChecked;
+                    return (
+                      <label key={instrument} className={`flex items-center ${isAtMax ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer'}`}>
+                        <input
+                          type="checkbox"
+                          checked={isChecked}
+                          disabled={isAtMax}
+                          onChange={(e) => {
+                            setFormData(prev => ({
+                              ...prev,
+                              instruments: e.target.checked
+                                ? [...prev.instruments, instrument]
+                                : prev.instruments.filter(i => i !== instrument)
+                            }));
+                          }}
+                          className="mr-3 accent-gold"
+                        />
+                        <span>{instrument}</span>
+                      </label>
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -350,7 +372,8 @@ export default function Events() {
               </button>
               {currentStep === steps.length ? (
                 <button
-                  type="submit"
+                  type="button"
+                  onClick={handleSubmit}
                   disabled={isSubmitting}
                   className="flex-1 px-6 py-3 bg-gold text-dark font-medium hover:bg-gold/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
