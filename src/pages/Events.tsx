@@ -111,7 +111,8 @@ export default function Events() {
         combo: '',
         instruments: [] as string[],
       });
-    } catch {
+    } catch (error) {
+      console.error('EmailJS Error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -426,6 +427,7 @@ export default function Events() {
     </div>
   );
 }
+
 
 
 
