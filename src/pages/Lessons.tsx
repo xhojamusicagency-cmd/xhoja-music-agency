@@ -208,7 +208,17 @@ export default function Lessons() {
         throw new Error(data.error || 'Failed to create checkout session');
       }
 
-      window.location.href = data.checkoutUrl;
+      // Save purchase details for payment notification email
+        localStorage.setItem('pendingPurchase', JSON.stringify({
+          packageName: selectedPackage!.name,
+          price: selectedPackage!.price,
+          instrument,
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
+          email: email.trim(),
+          phone: phone.trim() || '',
+        }));
+        window.location.href = data.checkoutUrl;
     } catch (err: any) {
       setError(err.message || 'Something went wrong. Please try again.');
       setLoading(false);
