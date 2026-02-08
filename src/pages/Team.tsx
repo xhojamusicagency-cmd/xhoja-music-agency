@@ -49,28 +49,28 @@ export default function Team() {
       name: 'Ellis Cordaro',
       role: 'Drum Instructor',
       bio: 'Ellis Cordaro is a versatile drummer and performing artist with a deep passion for jazz and global music traditions. Specializing in jazz, pop, R&B, rock, and Latin music, he brings a dynamic and culturally informed approach to every performance. He began his formal jazz training at the New England Conservatory Preparatory School before continuing his studies at the University of Massachusetts Amherst.',
-      image: 'https://id-preview--d56639a5-8bff-40ca-8743-29c8a0fd4270.lovable.app/assets/ellis-cordaro-DatsQH2W.jpg'
+      image: '/ellis-cordaro.jpg'
     },
     {
       id: 8,
       name: 'Calele (Carolina Perez)',
       role: 'Vocals & Trumpet Instructor',
       bio: "Calele (Carolina Perez) is a Panamanian-Chilean Jazz and Latin vocalist and trumpeter currently studying Performance and Contemporary Writing and Production at Berklee College of Music. She has experience teaching children\u2019s music classes and summer workshops (ages 6\u201315) at Fundaci\u00f3n Danilo P\u00e9rez, as well as working as a freelance private instructor (in person and online).",
-      image: 'https://id-preview--d56639a5-8bff-40ca-8743-29c8a0fd4270.lovable.app/assets/calele-perez-C-wBlKEL.jpg'
+      image: '/calele-perez.jpg'
     },
     {
       id: 9,
       name: 'Gabriel Lopez',
       role: 'Bass & Guitar Instructor',
       bio: 'Gabriel Lopez is a Puerto Rican electric bassist based in Boston. Deeply rooted in Latin music and jazz, his playing is driven by strong groove, time, and musical sensitivity. While bass is his primary instrument, Gabriel also brings a solid background in congas, which strongly informs his rhythmic approach and feel.',
-      image: 'https://id-preview--d56639a5-8bff-40ca-8743-29c8a0fd4270.lovable.app/assets/gabriel-lopez-BrA0_Y2R.jpg'
+      image: '/gabriel-lopez.jpg'
     },
     {
       id: 10,
       name: 'Meshach',
       role: 'DJ',
       bio: "Meshach is a Boston-based DJ known for his polished style, sharp musical instincts, and ability to read any room. With experience performing at private events, weddings, and corporate functions, he brings professionalism and energy to every set \u2014 curating seamless mixes that keep the dance floor alive from start to finish.",
-      image: 'https://id-preview--d56639a5-8bff-40ca-8743-29c8a0fd4270.lovable.app/assets/meshach-dj-ChqnUhGp.jpg'
+      image: '/meshach-dj.jpg'
     }
   ];
 

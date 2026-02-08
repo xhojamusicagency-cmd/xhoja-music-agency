@@ -48,7 +48,7 @@ export default function Lessons() {
       role: 'Drum Instructor',
       instruments: 'Drums',
       experience: '8+ years',
-      image: 'https://id-preview--d56639a5-8bff-40ca-8743-29c8a0fd4270.lovable.app/assets/ellis-cordaro-DatsQH2W.jpg'
+      image: '/ellis-cordaro.jpg'
     },
     {
       id: 7,
@@ -56,7 +56,7 @@ export default function Lessons() {
       role: 'Vocals & Trumpet Instructor',
       instruments: 'Vocals & Trumpet',
       experience: '5+ years',
-      image: 'https://id-preview--d56639a5-8bff-40ca-8743-29c8a0fd4270.lovable.app/assets/calele-perez-C-wBlKEL.jpg'
+      image: '/calele-perez.jpg'
     },
     {
       id: 8,
@@ -64,7 +64,7 @@ export default function Lessons() {
       role: 'Bass & Guitar Instructor',
       instruments: 'Electric Bass, Guitar & Congas',
       experience: '6+ years',
-      image: 'https://id-preview--d56639a5-8bff-40ca-8743-29c8a0fd4270.lovable.app/assets/gabriel-lopez-BrA0_Y2R.jpg'
+      image: '/gabriel-lopez.jpg'
     }
   ];
 
