@@ -25,8 +25,7 @@ export default function Home() {
               className="w-72 h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] object-contain"
             />
           </div>
-          <p className="text-gray-500 uppercase tracking-widest text-sm font-medium mb-2">WHERE MUSIC COMES TO LIFE</p>
-          <p className="text-gray-400 uppercase tracking-widest text-xs mb-8">LESSONS & LIVE EVENTS</p>
+          <div className="mb-8"></div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/events"
