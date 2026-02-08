@@ -20,7 +20,7 @@ export default function Footer() {
           </div>
 
           {/* Middle Column */}
-          <div>
+          <div className="md:text-center">
             <h4 className="font-serif text-lg font-medium mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm text-gray-300">
               <li><Link to="/events" className="hover:text-gold transition-colors">Event Bookings</Link></li>
@@ -31,7 +31,7 @@ export default function Footer() {
           </div>
 
           {/* Right Column */}
-          <div>
+          <div className="md:text-right">
             <h4 className="font-serif text-lg font-medium mb-4">Contact Info</h4>
             <div className="space-y-2 text-sm text-gray-300">
               <p><strong>Phone:</strong> (857) 498-8487</p>
