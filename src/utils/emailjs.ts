@@ -7,12 +7,8 @@
 // 5. Replace the placeholder values below
 
 export const EMAILJS_CONFIG = {
-  PUBLIC_KEY: 'YOUR_PUBLIC_KEY',        // Replace with your EmailJS public key
-  SERVICE_ID: 'YOUR_SERVICE_ID',        // Replace with your EmailJS service ID
-
-  // Template for Event Booking submissions (sent to you + auto-reply to client)
-  EVENT_BOOKING_TEMPLATE: 'YOUR_EVENT_BOOKING_TEMPLATE_ID',
-
-  // Template for Contact form submissions (sent to you + auto-reply to client)
-  CONTACT_TEMPLATE: 'YOUR_CONTACT_TEMPLATE_ID',
+  PUBLIC_KEY: 'Km515m5ryUF5Dnnv5',
+  SERVICE_ID: 'service_dpbjgtc',
+  EVENT_BOOKING_TEMPLATE: 'template_s6um5py',
+  CONTACT_TEMPLATE: 'template_l8y1xv7',
 };
