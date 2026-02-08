@@ -44,13 +44,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Get to Know Us Section */}
-      <section className="py-16 md:py-24">
+      {/* Get To Know Us Section */}
+      <section className="py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">OUR MUSIC JOURNEY BEGINS</p>
-              <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px] mb-4">Get to Know Us</h2>
+              <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px] mb-4">Get To Know Us</h2>
               <div className="w-16 h-1 bg-gold mb-6"></div>
               <p className="text-gray-500 mb-4 leading-relaxed">
                 Founded by Alexander Xhoja, a Berklee College of Music full-scholarship pianist and accomplished performer, Xhoja Music Agency is dedicated to nurturing musical talent and delivering exceptional live experiences.
