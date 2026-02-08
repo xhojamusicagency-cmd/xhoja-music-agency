@@ -15,7 +15,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-cream shadow-sm border-b border-gray-200">
+    <header className="sticky top-0 z-50 bg-cream shadow-sm border-b border-border">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-3">
           <img src="/xhoja-logo.png" alt="Xhoja Music Agency" className="h-12 w-12 object-contain" />
@@ -31,7 +31,7 @@ export default function Header() {
               className={`text-sm font-medium uppercase tracking-[2.1px] transition-colors ${
                 location.pathname === link.href
                   ? 'text-gold'
-                  : 'text-dark hover:text-gold'
+                  : 'text-dark/80 hover:text-gold'
               }`}
             >
               {link.label}
@@ -59,7 +59,7 @@ export default function Header() {
                 className={`block py-2 text-sm font-medium uppercase tracking-[2.1px] transition-colors ${
                   location.pathname === link.href
                     ? 'text-gold'
-                    : 'text-dark hover:text-gold'
+                    : 'text-dark/80 hover:text-gold'
                 }`}
                 onClick={() => setIsOpen(false)}
               >

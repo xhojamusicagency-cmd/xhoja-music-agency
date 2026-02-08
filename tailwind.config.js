@@ -8,8 +8,10 @@ export default {
     extend: {
       colors: {
         cream: '#F4F1EC',
-        gold: '#C8973E',
+        'cream-light': '#F9F8F5',
+        gold: '#CC9433',
         dark: '#141414',
+        border: '#E5E2DC',
       },
       fontFamily: {
         serif: ['Cormorant Garamond', 'serif'],

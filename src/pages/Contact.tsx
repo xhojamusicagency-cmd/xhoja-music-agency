@@ -56,9 +56,9 @@ export default function Contact() {
       {/* Hero Section */}
       <section className="bg-cream py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gold uppercase tracking-widest text-sm font-medium mb-2">GET IN TOUCH</p>
-          <h1 className="font-serif text-5xl md:text-6xl font-bold mb-4">Contact Us</h1>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">GET IN TOUCH</p>
+          <h1 className="font-serif text-6xl font-light leading-[60px] tracking-[1.5px] mb-4">Contact Us</h1>
+          <p className="text-gray-500 text-base max-w-2xl mx-auto">
             Have questions about lessons, event bookings, or anything else? We'd love to hear from you. Reach out and let's create something beautiful together.
           </p>
         </div>
@@ -70,11 +70,11 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Info */}
             <div className="space-y-8">
-              <h3 className="font-serif text-2xl font-bold">Contact Information</h3>
+              <h3 className="font-serif text-2xl font-medium">Contact Information</h3>
               <div className="flex gap-4">
                 <Mail size={32} className="text-gold flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-serif text-xl font-bold mb-2">Email</h3>
+                  <h4 className="font-serif text-lg font-medium mb-2">Email</h4>
                   <a href="mailto:xhojamusicagency@gmail.com" className="text-gold hover:text-gold/80 transition-colors">
                     xhojamusicagency@gmail.com
                   </a>
@@ -84,7 +84,7 @@ export default function Contact() {
               <div className="flex gap-4">
                 <Phone size={32} className="text-gold flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-serif text-xl font-bold mb-2">Phone</h3>
+                  <h4 className="font-serif text-lg font-medium mb-2">Phone</h4>
                   <a href="tel:+18574988487" className="text-gold hover:text-gold/80 transition-colors">
                     (857) 498-8487
                   </a>
@@ -94,8 +94,8 @@ export default function Contact() {
               <div className="flex gap-4">
                 <MapPin size={32} className="text-gold flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-serif text-xl font-bold mb-2">Location</h3>
-                  <p className="text-gray-700">Boston, Massachusetts</p>
+                  <h4 className="font-serif text-lg font-medium mb-2">Location</h4>
+                  <p className="text-gray-500">Boston, Massachusetts</p>
                   <p className="text-gold text-sm font-medium mt-1">Serving the Greater Boston Area</p>
                 </div>
               </div>
@@ -103,8 +103,8 @@ export default function Contact() {
               <div className="flex gap-4">
                 <Clock size={32} className="text-gold flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-serif text-xl font-bold mb-2">Office Hours</h3>
-                  <p className="text-gray-700 text-sm">
+                  <h4 className="font-serif text-lg font-medium mb-2">Office Hours</h4>
+                  <p className="text-gray-500 text-sm">
                     Monday - Friday: 9:00 AM - 6:00 PM<br />
                     Saturday: 10:00 AM - 4:00 PM<br />
                     Sunday: Closed
@@ -115,31 +115,31 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="bg-cream rounded-lg p-8 border border-gray-200">
-                <h3 className="font-serif text-2xl font-bold mb-6">Send Us a Message</h3>
+              <div className="bg-cream p-8 border border-border">
+                <h3 className="font-serif text-2xl font-medium mb-6">Send Us a Message</h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-gray-700 mb-2">Full Name *</label>
+                      <label className="block text-xs font-medium uppercase tracking-[2.4px] text-gray-500 mb-2">Full Name *</label>
                       <input
                         type="text"
                         name="fullName"
                         value={formData.fullName}
                         onChange={handleChange}
                         placeholder="Your name"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                        className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
                         required
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-gray-700 mb-2">Email *</label>
+                      <label className="block text-xs font-medium uppercase tracking-[2.4px] text-gray-500 mb-2">Email *</label>
                       <input
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="your@email.com"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                        className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
                         required
                       />
                     </div>
@@ -147,23 +147,23 @@ export default function Contact() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-gray-700 mb-2">Phone</label>
+                      <label className="block text-xs font-medium uppercase tracking-[2.4px] text-gray-500 mb-2">Phone</label>
                       <input
                         type="tel"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="(555) 123-4567"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                        className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-gray-700 mb-2">Subject *</label>
+                      <label className="block text-xs font-medium uppercase tracking-[2.4px] text-gray-500 mb-2">Subject *</label>
                       <select
                         name="subject"
                         value={formData.subject}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                        className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
                         required
                       >
                         <option value="" disabled>Select a subject</option>
@@ -177,14 +177,14 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-gray-700 mb-2">Message *</label>
+                    <label className="block text-xs font-medium uppercase tracking-[2.4px] text-gray-500 mb-2">Message *</label>
                     <textarea
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       rows={5}
                       placeholder="Tell us how we can help you..."
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                      className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
                       required
                     ></textarea>
                   </div>
@@ -197,14 +197,14 @@ export default function Contact() {
                       className="mt-1"
                       required
                     />
-                    <label className="text-sm text-gray-600">
+                    <label className="text-sm text-gray-500">
                       By submitting this form, I acknowledge that I have read and agreed to Xhoja Music Agency's terms of service and privacy policy. *
                     </label>
                   </div>
 
                   <button
                     type="submit"
-                    className="px-8 py-3 bg-gold text-dark font-medium hover:bg-gold/90 transition-colors flex items-center gap-2"
+                    className="px-8 py-3 bg-gold text-white font-normal hover:bg-gold/90 transition-colors flex items-center gap-2"
                   >
                     <Send size={18} />
                     SEND MESSAGE
@@ -220,17 +220,17 @@ export default function Contact() {
       <section className="bg-cream py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-gold uppercase tracking-widest text-sm font-medium mb-2">COMMON QUESTIONS</p>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold">Frequently Asked</h2>
+            <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">COMMON QUESTIONS</p>
+            <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px]">Frequently Asked</h2>
           </div>
 
           <div className="space-y-6">
             {faqs.map((faq, index) => (
-              <details key={index} className="bg-white rounded-lg border border-gray-200 p-6">
-                <summary className="font-serif text-xl font-bold cursor-pointer hover:text-gold transition-colors">
+              <details key={index} className="bg-white border border-border p-6">
+                <summary className="font-serif text-xl font-medium cursor-pointer hover:text-gold transition-colors">
                   {faq.question}
                 </summary>
-                <p className="text-gray-700 mt-4 leading-relaxed">{faq.answer}</p>
+                <p className="text-gray-500 mt-4 leading-relaxed">{faq.answer}</p>
               </details>
             ))}
           </div>

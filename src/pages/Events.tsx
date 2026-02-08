@@ -59,9 +59,9 @@ export default function Events() {
       {/* Hero Section */}
       <section className="bg-cream py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gold uppercase tracking-widest text-sm font-medium mb-2">LIVE MUSIC FOR EVERY OCCASION</p>
-          <h1 className="font-serif text-5xl md:text-6xl font-bold mb-4">Event Bookings</h1>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">LIVE MUSIC FOR EVERY OCCASION</p>
+          <h1 className="font-serif text-6xl font-light leading-[60px] tracking-[1.5px] mb-4">Event Bookings</h1>
+          <p className="text-gray-500 text-base max-w-2xl mx-auto">
             Hire talented musicians for your wedding, corporate event, private party, or any special occasion. Complete the form below and we'll provide you with a personalized quote.
           </p>
         </div>
@@ -71,8 +71,8 @@ export default function Events() {
       <section className="bg-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-gold uppercase tracking-widest text-sm font-medium mb-2">SEE US IN ACTION</p>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6">A Taste of What We Bring to Your Event</h2>
+            <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">SEE US IN ACTION</p>
+            <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px] mb-6">A Taste of What We Bring to Your Event</h2>
           </div>
           <div className="bg-gray-900 rounded-lg overflow-hidden shadow-lg h-96 flex items-center justify-center">
             <div className="text-white text-center">
@@ -87,7 +87,7 @@ export default function Events() {
       {/* Booking Form Section */}
       <section className="bg-cream py-16 md:py-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-serif text-4xl font-bold text-center mb-12">Book Your Event</h2>
+          <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px] text-center mb-12">Book Your Event</h2>
 
           {/* Step Indicators */}
           <div className="flex items-center justify-between mb-12">
@@ -117,7 +117,7 @@ export default function Events() {
           </div>
 
           <div className="text-center mb-8">
-            <h3 className="font-serif text-2xl font-bold">{steps[currentStep - 1]}</h3>
+            <h3 className="font-serif text-2xl font-medium">{steps[currentStep - 1]}</h3>
           </div>
 
           {/* Form */}
@@ -126,7 +126,7 @@ export default function Events() {
             {currentStep === 1 && (
               <div className="space-y-6">
                 <div className="text-center mb-2">
-                  <h4 className="font-serif text-xl font-bold mb-1">Tell Us About Yourself</h4>
+                  <h4 className="font-serif text-xl font-medium mb-1">Tell Us About Yourself</h4>
                   <p className="text-gray-600 text-sm">We'll use this information to reach out with your personalized quote.</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -137,7 +137,7 @@ export default function Events() {
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                      className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
                       required
                     />
                   </div>
@@ -148,7 +148,7 @@ export default function Events() {
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                      className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
                       required
                     />
                   </div>
@@ -160,7 +160,7 @@ export default function Events() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                    className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
                     required
                   />
                 </div>
@@ -171,7 +171,7 @@ export default function Events() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                    className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
                     required
                   />
                 </div>
@@ -188,7 +188,7 @@ export default function Events() {
                     name="eventDate"
                     value={formData.eventDate}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                    className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
                     required
                   />
                 </div>
@@ -198,7 +198,7 @@ export default function Events() {
                     name="eventType"
                     value={formData.eventType}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                    className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
                     required
                   >
                     <option value="">Select an event type</option>
@@ -217,7 +217,7 @@ export default function Events() {
                     name="guestCount"
                     value={formData.guestCount}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                    className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
                     required
                   />
                 </div>
@@ -233,7 +233,7 @@ export default function Events() {
                     name="genre"
                     value={formData.genre}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                    className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
                     required
                   >
                     <option value="">Select a genre</option>

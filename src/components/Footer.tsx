@@ -10,9 +10,9 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <img src="/xhoja-logo.png" alt="Xhoja Music Agency" className="h-12 w-12 object-contain" />
-              <span className="font-serif text-xl font-bold">Xhoja Music Agency</span>
+              <span className="font-serif text-xl font-medium">Xhoja Music Agency</span>
             </div>
-            <h3 className="font-serif text-lg font-bold mb-2">Xhoja Music Agency</h3>
+            <h3 className="font-serif text-lg font-medium mb-2">Xhoja Music Agency</h3>
             <p className="text-gray-300 text-sm mb-4">Nurturing musical talent and delivering exceptional live experiences since day one.</p>
             <a href="https://instagram.com/xhojamusicagency" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gold hover:text-white transition-colors">
               <Instagram size={20} />
@@ -22,7 +22,7 @@ export default function Footer() {
 
           {/* Middle Column */}
           <div>
-            <h4 className="font-serif text-lg font-bold mb-4">Quick Links</h4>
+            <h4 className="font-serif text-lg font-medium mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm text-gray-300">
               <li><Link to="/events" className="hover:text-gold transition-colors">Event Bookings</Link></li>
               <li><Link to="/lessons" className="hover:text-gold transition-colors">Music Lessons</Link></li>
@@ -33,7 +33,7 @@ export default function Footer() {
 
           {/* Right Column */}
           <div>
-            <h4 className="font-serif text-lg font-bold mb-4">Contact Info</h4>
+            <h4 className="font-serif text-lg font-medium mb-4">Contact Info</h4>
             <div className="space-y-2 text-sm text-gray-300">
               <p><strong>Phone:</strong> (857) 498-8487</p>
               <p><strong>Email:</strong> xhojamusicagency@gmail.com</p>
