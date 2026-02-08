@@ -15,7 +15,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-cream shadow-sm border-b border-border">
+    <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-border">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-3">
           <img src="/xhoja-logo.png" alt="Xhoja Music Agency" className="h-12 w-12 object-contain" />
@@ -50,7 +50,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-cream border-t border-gray-200">
+        <div className="md:hidden bg-white border-t border-border">
           <div className="px-4 py-2 space-y-2">
             {links.map((link) => (
               <Link
