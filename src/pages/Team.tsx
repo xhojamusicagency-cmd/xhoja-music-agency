@@ -94,15 +94,15 @@ export default function Team() {
             {teamMembers.map((member) => (
               <div key={member.id} className="border border-border p-4 sm:p-5 text-center group hover:shadow-lg transition-shadow">
                 <div className="mb-3 sm:mb-4 flex justify-center">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    loading="eager"
-                    className="w-28 h-28 sm:w-48 sm:h-48 rounded-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = 'https://via.placeholder.com/192?text=' + member.name.replace(' ', '+');
-                    }}
-                  />
+                  <div className="w-32 h-32 sm:w-48 sm:h-48 rounded-full overflow-hidden flex-shrink-0">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  loading="eager"
+                  className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                  onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/192?text=' + member.name.replace(' ', '+'); }}
+                />
+              </div>
                 </div>
                 <h3 className="font-serif text-lg sm:text-2xl font-medium mb-1">{member.name}</h3>
                 <p className="text-gold text-[10px] sm:text-xs font-medium uppercase tracking-[1.5px] sm:tracking-[2.4px] mb-2 sm:mb-3">{member.role}</p>
