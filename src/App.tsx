@@ -6,6 +6,8 @@ import Events from './pages/Events';
 import Lessons from './pages/Lessons';
 import Team from './pages/Team';
 import Contact from './pages/Contact';
+import PaymentSuccess from './pages/PaymentSuccess';
+import PaymentFailed from './pages/PaymentFailed';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -26,6 +28,8 @@ function App() {
           <Route path="/lessons" element={<Lessons />} />
           <Route path="/team" element={<Team />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/payment-success" element={<PaymentSuccess />} />
+          <Route path="/payment-failed" element={<PaymentFailed />} />
         </Routes>
       </Layout>
     </Router>

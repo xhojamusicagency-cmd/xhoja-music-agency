@@ -1,6 +1,40 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+const INSTRUMENTS = [
+  'Piano',
+  'Guitar',
+  'Bass',
+  'Drums',
+  'Clarinet',
+  'Accordion',
+  'Vocals',
+  'Trumpet',
+  'Congas',
+];
+
+interface PackageData {
+  id: string;
+  name: string;
+  duration: string;
+  lessons: number;
+  price: number;
+  pricePerLesson: number;
+  description: string;
+  features: string[];
+  highlighted: boolean;
+}
+
 export default function Lessons() {
+  const [selectedPackage, setSelectedPackage] = useState<PackageData | null>(null);
+  const [instrument, setInstrument] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
   const instructors = [
     {
       id: 1,
@@ -68,8 +102,9 @@ export default function Lessons() {
     }
   ];
 
-  const packages = [
+  const packages: PackageData[] = [
     {
+      id: 'trial',
       name: 'Trial Lesson',
       duration: '30 minutes',
       lessons: 1,
@@ -85,6 +120,7 @@ export default function Lessons() {
       highlighted: false
     },
     {
+      id: 'half-hour',
       name: 'Half-Hour Package',
       duration: '30 minutes',
       lessons: 4,
@@ -100,6 +136,7 @@ export default function Lessons() {
       highlighted: true
     },
     {
+      id: 'full-hour',
       name: 'Full-Hour Package',
       duration: '60 minutes',
       lessons: 4,
@@ -116,6 +153,67 @@ export default function Lessons() {
       highlighted: false
     }
   ];
+
+  const openModal = (pkg: PackageData) => {
+    setSelectedPackage(pkg);
+    setInstrument('');
+    setFirstName('');
+    setLastName('');
+    setEmail('');
+    setPhone('');
+    setError('');
+    setLoading(false);
+  };
+
+  const closeModal = () => {
+    setSelectedPackage(null);
+    setError('');
+    setLoading(false);
+  };
+
+  const handlePurchase = async () => {
+    if (!instrument) {
+      setError('Please select an instrument.');
+      return;
+    }
+    if (!firstName.trim() || !lastName.trim()) {
+      setError('Please enter your full name.');
+      return;
+    }
+    if (!email.trim() || !email.includes('@')) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+
+    setLoading(true);
+    setError('');
+
+    try {
+      const res = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          packageId: selectedPackage!.id,
+          instrument,
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
+          email: email.trim(),
+          phone: phone.trim() || undefined,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to create checkout session');
+      }
+
+      window.location.href = data.checkoutUrl;
+    } catch (err: any) {
+      setError(err.message || 'Something went wrong. Please try again.');
+      setLoading(false);
+    }
+  };
 
   return (
     <div>
@@ -178,9 +276,9 @@ export default function Lessons() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {packages.map((pkg, index) => (
+            {packages.map((pkg) => (
               <div
-                key={index}
+                key={pkg.id}
                 className={`p-8 ${
                   pkg.highlighted
                     ? 'bg-white border-2 border-gold shadow-lg relative'
@@ -202,12 +300,13 @@ export default function Lessons() {
                 <ul className="space-y-3 mb-8">
                   {pkg.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-2 text-gray-500 text-sm">
-                      <span className="text-gold font-medium mt-1">✓</span>
+                      <span className="text-gold font-medium mt-1">&#10003;</span>
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
                 <button
+                  onClick={() => openModal(pkg)}
                   className={`w-full py-3 font-normal transition-colors ${
                     pkg.highlighted
                       ? 'bg-gold text-white hover:bg-gold/90'
@@ -237,6 +336,139 @@ export default function Lessons() {
           </Link>
         </div>
       </section>
+
+      {/* Purchase Modal */}
+      {selectedPackage && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={closeModal}
+          />
+          <div className="relative bg-white w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div className="bg-dark px-8 py-6 text-center">
+              <h2 className="font-serif text-2xl text-white tracking-wide">{selectedPackage.name}</h2>
+              <p className="text-gold text-sm mt-1">
+                {selectedPackage.lessons} {selectedPackage.lessons === 1 ? 'lesson' : 'lessons'} &middot; {selectedPackage.duration}
+              </p>
+            </div>
+            <div className="h-[3px] bg-gold" />
+            <div className="px-8 py-8">
+              <div className="text-center mb-8">
+                <span className="font-serif text-5xl font-medium text-gold">${selectedPackage.price}</span>
+                <p className="text-gray-400 text-sm mt-1">${selectedPackage.pricePerLesson} per lesson</p>
+              </div>
+
+              <div className="mb-6">
+                <label className="block text-dark font-medium text-sm mb-2 uppercase tracking-wider">
+                  What would you like to study? <span className="text-gold">*</span>
+                </label>
+                <select
+                  value={instrument}
+                  onChange={(e) => setInstrument(e.target.value)}
+                  className="w-full px-4 py-3 border border-border bg-white text-dark font-serif focus:outline-none focus:border-gold transition-colors appearance-none"
+                  style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23CC9433' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 16px center' }}
+                >
+                  <option value="">Select an instrument...</option>
+                  {INSTRUMENTS.map((inst) => (
+                    <option key={inst} value={inst}>{inst}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                  <label className="block text-dark font-medium text-sm mb-2 uppercase tracking-wider">
+                    First Name <span className="text-gold">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    placeholder="First name"
+                    className="w-full px-4 py-3 border border-border bg-white text-dark font-serif focus:outline-none focus:border-gold transition-colors"
+                  />
+                </div>
+                <div>
+                  <label className="block text-dark font-medium text-sm mb-2 uppercase tracking-wider">
+                    Last Name <span className="text-gold">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    placeholder="Last name"
+                    className="w-full px-4 py-3 border border-border bg-white text-dark font-serif focus:outline-none focus:border-gold transition-colors"
+                  />
+                </div>
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-dark font-medium text-sm mb-2 uppercase tracking-wider">
+                  Email <span className="text-gold">*</span>
+                </label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="your@email.com"
+                  className="w-full px-4 py-3 border border-border bg-white text-dark font-serif focus:outline-none focus:border-gold transition-colors"
+                />
+              </div>
+
+              <div className="mb-8">
+                <label className="block text-dark font-medium text-sm mb-2 uppercase tracking-wider">
+                  Phone <span className="text-gray-400 text-xs normal-case tracking-normal">(optional)</span>
+                </label>
+                <input
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="(555) 123-4567"
+                  className="w-full px-4 py-3 border border-border bg-white text-dark font-serif focus:outline-none focus:border-gold transition-colors"
+                />
+              </div>
+
+              {error && (
+                <div className="mb-4 px-4 py-3 bg-red-50 border border-red-200 text-red-700 text-sm">
+                  {error}
+                </div>
+              )}
+
+              <button
+                onClick={handlePurchase}
+                disabled={loading}
+                className="w-full py-4 bg-gold text-white font-medium tracking-wider hover:bg-gold/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {loading ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    PREPARING CHECKOUT...
+                  </span>
+                ) : (
+                  `PROCEED TO PAYMENT — $${selectedPackage.price}`
+                )}
+              </button>
+
+              <p className="text-center text-gray-400 text-xs mt-4">
+                Secure payment powered by Clover
+              </p>
+            </div>
+
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors"
+              aria-label="Close"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
