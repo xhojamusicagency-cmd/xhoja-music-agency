@@ -23,6 +23,17 @@ export default function Contact() {
     }));
   };
 
+  const formatPhone = (phone: string) => {
+    const digits = phone.replace(/\D/g, '');
+    if (digits.length === 10) {
+      return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+    }
+    if (digits.length === 11 && digits[0] === '1') {
+      return `+1 (${digits.slice(1, 4)}) ${digits.slice(4, 7)}-${digits.slice(7)}`;
+    }
+    return phone;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -31,7 +42,7 @@ export default function Contact() {
     const templateParams = {
       from_name: formData.fullName,
       from_email: formData.email,
-      phone: formData.phone || 'Not provided',
+      phone: formData.phone ? formatPhone(formData.phone) : 'Not provided',
       subject: formData.subject,
       message: formData.message,
       to_email: formData.email,

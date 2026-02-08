@@ -55,6 +55,24 @@ export default function Events() {
     }
   };
 
+  const formatPhone = (phone: string) => {
+    const digits = phone.replace(/\D/g, '');
+    if (digits.length === 10) {
+      return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+    }
+    if (digits.length === 11 && digits[0] === '1') {
+      return `+1 (${digits.slice(1, 4)}) ${digits.slice(4, 7)}-${digits.slice(7)}`;
+    }
+    return phone;
+  };
+
+  const formatDate = (dateStr: string) => {
+    if (!dateStr) return '';
+    const [year, month, day] = dateStr.split('-');
+    const date = new Date(Number(year), Number(month) - 1, Number(day));
+    return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  };
+
   const handleSubmit = async () => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
@@ -62,8 +80,8 @@ export default function Events() {
     const templateParams = {
       from_name: `${formData.firstName} ${formData.lastName}`,
       from_email: formData.email,
-      phone: formData.phone,
-      event_date: formData.eventDate,
+      phone: formatPhone(formData.phone),
+      event_date: formatDate(formData.eventDate),
       event_type: formData.eventType,
       guest_count: formData.guestCount,
       genre: formData.genre,
