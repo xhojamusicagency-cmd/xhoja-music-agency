@@ -57,7 +57,7 @@ export default function Events() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-cream py-10 md:py-16">
+      <section className="bg-cream py-6 md:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">LIVE MUSIC FOR EVERY OCCASION</p>
           <h1 className="font-serif text-6xl font-light leading-[60px] tracking-[1.5px] mb-4">Event Bookings</h1>
@@ -68,7 +68,7 @@ export default function Events() {
       </section>
 
       {/* Video Section */}
-      <section className="bg-white py-10 md:py-16">
+      <section className="bg-white py-8 md:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">SEE US IN ACTION</p>
