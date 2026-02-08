@@ -221,7 +221,7 @@ export default function Lessons() {
       <section className="bg-cream py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">PERSONALIZED INSTRUCTION</p>
-          <h1 className="font-serif text-6xl font-light leading-[60px] tracking-[1.5px] mb-4">Music Lessons</h1>
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-light leading-[1.1] tracking-[1.5px] mb-4">Music Lessons</h1>
           <p className="text-gray-500 text-base max-w-2xl mx-auto">
             Learn from world-class musicians with personalized lessons tailored to your goals, skill level, and musical interests.
           </p>
@@ -233,13 +233,13 @@ export default function Lessons() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">OUR EDUCATORS</p>
-            <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px]">Meet Your Instructors</h2>
+            <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px]">Meet Your Instructors</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8">
             {instructors.map((instructor) => (
-              <div key={instructor.id} className="bg-white border border-border p-8 text-center group">
-                <div className="mb-4 flex justify-center">
-                  <div className="w-44 h-44 rounded-full border-2 border-gold/20 p-1">
+              <div key={instructor.id} className="bg-white border border-border p-4 sm:p-8 text-center group">
+                <div className="mb-3 sm:mb-4 flex justify-center">
+                  <div className="w-28 h-28 sm:w-44 sm:h-44 rounded-full border-2 border-gold/20 p-1">
                     <img
                       src={instructor.image}
                       alt={instructor.name}
@@ -251,11 +251,11 @@ export default function Lessons() {
                     />
                   </div>
                 </div>
-                <h3 className="font-serif text-2xl font-medium mb-1">{instructor.name}</h3>
-                <p className="text-gold text-xs font-medium uppercase tracking-[2.4px] mb-2">{instructor.role}</p>
-                <p className="text-gray-500 text-sm mb-1">{instructor.instruments}</p>
-                <p className="text-gray-500 text-sm mb-4">{instructor.experience} experience</p>
-                <button className="text-gold hover:text-gold/80 font-normal text-sm transition-colors">
+                <h3 className="font-serif text-lg sm:text-2xl font-medium mb-1">{instructor.name}</h3>
+                <p className="text-gold text-[10px] sm:text-xs font-medium uppercase tracking-[1.5px] sm:tracking-[2.4px] mb-2">{instructor.role}</p>
+                <p className="text-gray-500 text-xs sm:text-sm mb-1 hidden sm:block">{instructor.instruments}</p>
+                <p className="text-gray-500 text-xs sm:text-sm mb-3 sm:mb-4">{instructor.experience} experience</p>
+                <button className="text-gold hover:text-gold/80 font-normal text-xs sm:text-sm transition-colors">
                   VIEW FULL BIO
                 </button>
               </div>
@@ -268,7 +268,7 @@ export default function Lessons() {
       <section className="bg-cream py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px] mb-4">Lesson Packages</h2>
+            <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-4">Lesson Packages</h2>
             <p className="text-gray-500 text-base mb-4">Choose a package that fits your schedule and goals.</p>
             <p className="text-gray-400 text-sm italic">
               Please note: Lesson scheduling is coordinated after purchase. You'll receive an email within 24 hours to arrange your lesson times.
@@ -324,7 +324,7 @@ export default function Lessons() {
       {/* CTA Section */}
       <section className="bg-dark text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px] mb-4">Not Sure Where to Start?</h2>
+          <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-4">Not Sure Where to Start?</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact us for a free consultation. We'll help you find the right instructor and lesson plan for your musical journey.
           </p>
@@ -345,16 +345,16 @@ export default function Lessons() {
             onClick={closeModal}
           />
           <div className="relative bg-white w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl">
-            <div className="bg-dark px-8 py-6 text-center">
-              <h2 className="font-serif text-2xl text-white tracking-wide">{selectedPackage.name}</h2>
+            <div className="bg-dark px-5 sm:px-8 py-5 sm:py-6 text-center">
+              <h2 className="font-serif text-xl sm:text-2xl text-white tracking-wide">{selectedPackage.name}</h2>
               <p className="text-gold text-sm mt-1">
                 {selectedPackage.lessons} {selectedPackage.lessons === 1 ? 'lesson' : 'lessons'} &middot; {selectedPackage.duration}
               </p>
             </div>
             <div className="h-[3px] bg-gold" />
-            <div className="px-8 py-8">
-              <div className="text-center mb-8">
-                <span className="font-serif text-5xl font-medium text-gold">${selectedPackage.price}</span>
+            <div className="px-5 py-6 sm:px-8 sm:py-8">
+              <div className="text-center mb-6 sm:mb-8">
+                <span className="font-serif text-4xl sm:text-5xl font-medium text-gold">${selectedPackage.price}</span>
                 <p className="text-gray-400 text-sm mt-1">${selectedPackage.pricePerLesson} per lesson</p>
               </div>
 
@@ -375,7 +375,7 @@ export default function Lessons() {
                 </select>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <div>
                   <label className="block text-dark font-medium text-sm mb-2 uppercase tracking-wider">
                     First Name <span className="text-gold">*</span>

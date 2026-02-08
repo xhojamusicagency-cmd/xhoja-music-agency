@@ -80,7 +80,7 @@ export default function Team() {
       <section className="bg-cream py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">THE FACES BEHIND THE MUSIC</p>
-          <h1 className="font-serif text-6xl font-light leading-[60px] tracking-[1.5px] mb-4">Meet The Team</h1>
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-light leading-[1.1] tracking-[1.5px] mb-4">Meet The Team</h1>
           <p className="text-gray-500 text-base max-w-2xl mx-auto">
             Our talented musicians and dedicated staff are committed to delivering exceptional experiences, whether you're learning an instrument or booking live entertainment.
           </p>
@@ -90,24 +90,24 @@ export default function Team() {
       {/* Team Members Grid */}
       <section className="bg-white py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
             {teamMembers.map((member) => (
-              <div key={member.id} className="border border-border p-5 text-center group hover:shadow-lg transition-shadow">
-                <div className="mb-4 flex justify-center">
+              <div key={member.id} className="border border-border p-4 sm:p-5 text-center group hover:shadow-lg transition-shadow">
+                <div className="mb-3 sm:mb-4 flex justify-center">
                   <img
                     src={member.image}
                     alt={member.name}
                     loading="eager"
-                    className="w-48 h-48 rounded-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                    className="w-28 h-28 sm:w-48 sm:h-48 rounded-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = 'https://via.placeholder.com/192?text=' + member.name.replace(' ', '+');
                     }}
                   />
                 </div>
-                <h3 className="font-serif text-2xl font-medium mb-1">{member.name}</h3>
-                <p className="text-gold text-xs font-medium uppercase tracking-[2.4px] mb-3">{member.role}</p>
-                <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-3">{member.bio}</p>
-                <button className="text-gold hover:text-gold/80 font-normal text-sm transition-colors">
+                <h3 className="font-serif text-lg sm:text-2xl font-medium mb-1">{member.name}</h3>
+                <p className="text-gold text-[10px] sm:text-xs font-medium uppercase tracking-[1.5px] sm:tracking-[2.4px] mb-2 sm:mb-3">{member.role}</p>
+                <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3 hidden sm:block">{member.bio}</p>
+                <button className="text-gold hover:text-gold/80 font-normal text-xs sm:text-sm transition-colors">
                   Read Full Bio
                 </button>
               </div>
@@ -119,7 +119,7 @@ export default function Team() {
       {/* Join Our Team Section */}
       <section className="bg-dark text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px] mb-4">Join Our Team</h2>
+          <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-4">Join Our Team</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Are you a talented musician looking for performance opportunities or teaching positions? We're always looking for exceptional artists to join the Xhoja Music Agency family.
           </p>

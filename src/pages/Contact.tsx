@@ -97,7 +97,7 @@ export default function Contact() {
       <section className="bg-cream py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">GET IN TOUCH</p>
-          <h1 className="font-serif text-6xl font-light leading-[60px] tracking-[1.5px] mb-4">Contact Us</h1>
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-light leading-[1.1] tracking-[1.5px] mb-4">Contact Us</h1>
           <p className="text-gray-500 text-base max-w-2xl mx-auto">
             Have questions about lessons, event bookings, or anything else? We'd love to hear from you. Reach out and let's create something beautiful together.
           </p>
@@ -155,7 +155,7 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="bg-cream p-8 border border-border">
+              <div className="bg-cream p-5 sm:p-8 border border-border">
                 <h3 className="font-serif text-2xl font-medium mb-6">Send Us a Message</h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -276,13 +276,13 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">COMMON QUESTIONS</p>
-            <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px]">Frequently Asked</h2>
+            <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px]">Frequently Asked</h2>
           </div>
 
           <div className="space-y-6">
             {faqs.map((faq, index) => (
-              <details key={index} className="bg-white border border-border p-6">
-                <summary className="font-serif text-xl font-medium cursor-pointer hover:text-gold transition-colors">
+              <details key={index} className="bg-white border border-border p-4 sm:p-6">
+                <summary className="font-serif text-lg sm:text-xl font-medium cursor-pointer hover:text-gold transition-colors">
                   {faq.question}
                 </summary>
                 <p className="text-gray-500 mt-4 leading-relaxed">{faq.answer}</p>

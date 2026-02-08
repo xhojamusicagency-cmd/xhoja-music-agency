@@ -124,7 +124,7 @@ export default function Events() {
       <section className="bg-cream py-6 md:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">LIVE MUSIC FOR EVERY OCCASION</p>
-          <h1 className="font-serif text-6xl font-light leading-[60px] tracking-[1.5px] mb-4">Event Bookings</h1>
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-light leading-[1.1] tracking-[1.5px] mb-4">Event Bookings</h1>
           <p className="text-gray-500 text-base max-w-2xl mx-auto">
             Hire talented musicians for your wedding, corporate event, private party, or any special occasion. Complete the form below and we'll provide you with a personalized quote.
           </p>
@@ -136,7 +136,7 @@ export default function Events() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">SEE US IN ACTION</p>
-            <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px] mb-6">A Taste of What We Bring to Your Event</h2>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-6">A Taste of What We Bring to Your Event</h2>
           </div>
           <div className="relative w-full max-w-3xl mx-auto aspect-video rounded-lg overflow-hidden shadow-lg bg-dark" style={{ backgroundImage: 'url(https://i.ytimg.com/vi/X3erxpEimGI/hqdefault.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <iframe
@@ -155,15 +155,15 @@ export default function Events() {
       {/* Booking Form Section */}
       <section className="bg-cream py-16 md:py-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px] text-center mb-12">Book Your Event</h2>
+          <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] text-center mb-8 sm:mb-12">Book Your Event</h2>
 
           {/* Step Indicators */}
-          <div className="flex items-center justify-between mb-12">
+          <div className="flex items-center justify-between mb-8 sm:mb-12">
             {steps.map((step, index) => (
               <div key={index} className="flex items-center flex-1">
                 <div className="flex flex-col items-center">
                   <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${
+                    className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm ${
                       index + 1 <= currentStep
                         ? 'bg-gold text-white'
                         : 'bg-gray-300 text-gray-700'
@@ -171,7 +171,7 @@ export default function Events() {
                   >
                     {index + 1}
                   </div>
-                  <span className="text-xs mt-1 text-gray-500 hidden md:block">{step}</span>
+                  <span className="text-[10px] sm:text-xs mt-1 text-gray-500 hidden sm:block">{step}</span>
                 </div>
                 {index < steps.length - 1 && (
                   <div
@@ -189,7 +189,7 @@ export default function Events() {
           </div>
 
           {/* Form */}
-          <form onSubmit={(e) => e.preventDefault()} className="bg-white rounded-lg p-8 shadow-md">
+          <form onSubmit={(e) => e.preventDefault()} className="bg-white rounded-lg p-5 sm:p-8 shadow-md">
             {/* Step 1: Your Information */}
             {currentStep === 1 && (
               <div className="space-y-6">

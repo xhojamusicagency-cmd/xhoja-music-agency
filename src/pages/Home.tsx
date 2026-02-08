@@ -7,9 +7,9 @@ export default function Home() {
       {/* Hero Section */}
       <section className="bg-cream py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-          <p className="font-serif italic text-xl text-dark/70 tracking-[1.6px]">Customized Music Lessons & Event Bookings</p>
+          <p className="font-serif italic text-lg sm:text-xl text-dark/70 tracking-[1.6px]">Customized Music Lessons & Event Bookings</p>
           <div className="mt-2 mb-4">
-            <h1 className="font-serif text-[60px] font-light leading-[60px] tracking-[1.5px]">Xhoja Music Agency</h1>
+            <h1 className="font-serif text-[38px] sm:text-[48px] md:text-[60px] font-light leading-[1.05] tracking-[1.5px]">Xhoja Music Agency</h1>
           </div>
           <a
             href="https://instagram.com/xhojamusicagency"
@@ -50,7 +50,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">OUR MUSIC JOURNEY BEGINS</p>
-              <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px] mb-4">Get To Know Us</h2>
+              <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-4">Get To Know Us</h2>
               <div className="w-16 h-1 bg-gold mb-6"></div>
               <p className="text-gray-500 mb-4 leading-relaxed">
                 Founded by Alexander Xhoja, a Berklee College of Music full-scholarship pianist and accomplished performer, Xhoja Music Agency is dedicated to nurturing musical talent and delivering exceptional live experiences.
@@ -92,7 +92,7 @@ export default function Home() {
             </div>
             <div>
               <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">LIVE ENTERTAINMENT</p>
-              <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px] mb-4 text-cream-light">From Jazz to DJ Sets</h2>
+              <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-4 text-cream-light">From Jazz to DJ Sets</h2>
               <div className="w-16 h-1 bg-gold mb-6"></div>
               <p className="text-gray-300 mb-6 leading-relaxed">
                 Whether you need an elegant jazz quartet for a corporate gala, a solo pianist for a wedding ceremony, or a DJ to keep the dance floor alive — Xhoja Music Agency delivers exceptional live entertainment tailored to your event.
@@ -117,7 +117,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">ELEGANT OCCASIONS</p>
-              <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px] mb-4">Setting the Stage</h2>
+              <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-4">Setting the Stage</h2>
               <div className="w-16 h-1 bg-gold mb-6"></div>
               <p className="text-gray-500 mb-6 leading-relaxed">
                 From intimate rehearsal dinners to grand ballroom receptions, we bring the music that sets the perfect tone for your special day. Our musicians arrive early, set up professionally, and create an atmosphere your guests will remember.
@@ -148,28 +148,28 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">WHAT WE OFFER</p>
-            <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px] mb-6">Our Services</h2>
+            <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-6">Our Services</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white p-8 text-center border border-border">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
+            <div className="bg-white p-5 sm:p-8 text-center border border-border">
               <Music size={40} className="mx-auto mb-4 text-gold" />
-              <h3 className="font-serif text-xl font-medium mb-3">Personalized Lessons</h3>
-              <p className="text-gray-500 text-sm">Tailored music instruction for all skill levels, from beginners to advanced musicians.</p>
+              <h3 className="font-serif text-base sm:text-xl font-medium mb-2 sm:mb-3">Personalized Lessons</h3>
+              <p className="text-gray-500 text-xs sm:text-sm">Tailored music instruction for all skill levels, from beginners to advanced musicians.</p>
             </div>
-            <div className="bg-white p-8 text-center border border-border">
-              <Calendar size={40} className="mx-auto mb-4 text-gold" />
-              <h3 className="font-serif text-xl font-medium mb-3">Event Bookings</h3>
-              <p className="text-gray-500 text-sm">Book talented musicians for weddings, parties, corporate events, and special occasions.</p>
+            <div className="bg-white p-5 sm:p-8 text-center border border-border">
+              <Calendar size={40} className="mx-auto mb-3 sm:mb-4 text-gold" />
+              <h3 className="font-serif text-base sm:text-xl font-medium mb-2 sm:mb-3">Event Bookings</h3>
+              <p className="text-gray-500 text-xs sm:text-sm">Book talented musicians for weddings, parties, corporate events, and special occasions.</p>
             </div>
-            <div className="bg-white p-8 text-center border border-border">
-              <Users size={40} className="mx-auto mb-4 text-gold" />
-              <h3 className="font-serif text-xl font-medium mb-3">Expert Musicians</h3>
-              <p className="text-gray-500 text-sm">Work with trained professionals from top music institutions including Berklee College of Music.</p>
+            <div className="bg-white p-5 sm:p-8 text-center border border-border">
+              <Users size={40} className="mx-auto mb-3 sm:mb-4 text-gold" />
+              <h3 className="font-serif text-base sm:text-xl font-medium mb-2 sm:mb-3">Expert Musicians</h3>
+              <p className="text-gray-500 text-xs sm:text-sm">Work with trained professionals from top music institutions including Berklee College of Music.</p>
             </div>
-            <div className="bg-white p-8 text-center border border-border">
-              <Star size={40} className="mx-auto mb-4 text-gold" />
-              <h3 className="font-serif text-xl font-medium mb-3">Exceptional Experiences</h3>
-              <p className="text-gray-500 text-sm">Creating unforgettable musical moments that truly matter to you and your guests.</p>
+            <div className="bg-white p-5 sm:p-8 text-center border border-border">
+              <Star size={40} className="mx-auto mb-3 sm:mb-4 text-gold" />
+              <h3 className="font-serif text-base sm:text-xl font-medium mb-2 sm:mb-3">Exceptional Experiences</h3>
+              <p className="text-gray-500 text-xs sm:text-sm">Creating unforgettable musical moments that truly matter to you and your guests.</p>
             </div>
           </div>
         </div>
@@ -180,7 +180,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">TESTIMONIALS</p>
-            <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px]">What People Say</h2>
+            <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px]">What People Say</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Testimonial 1 */}
@@ -238,7 +238,7 @@ export default function Home() {
       <section className="bg-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">GET IN TOUCH</p>
-          <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px] mb-12">Contact Us</h2>
+          <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-8 sm:mb-12">Contact Us</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white border border-border p-8 flex flex-col items-center">
               <div className="w-14 h-14 rounded-full border border-gold/30 flex items-center justify-center mb-4">
@@ -268,7 +268,7 @@ export default function Home() {
       {/* CTA Section */}
       <section className="bg-dark text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px] mb-4">Ready to Create Musical Magic?</h2>
+          <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-4">Ready to Create Musical Magic?</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Whether you're looking to learn an instrument, book musicians for your event, or collaborate with talented artists, we're here to make it happen.
           </p>
