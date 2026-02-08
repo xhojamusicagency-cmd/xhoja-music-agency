@@ -13,8 +13,8 @@ export default function PaymentSuccess() {
       localStorage.removeItem('pendingPurchase');
 
       emailjs.send(
-        EMAILJS_CONFIG.serviceId,
-        EMAILJS_CONFIG.templates.contact,
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.CONTACT_TEMPLATE,
         {
           from_name: `${purchase.firstName} ${purchase.lastName}`,
           reply_to: purchase.email,
@@ -31,7 +31,7 @@ export default function PaymentSuccess() {
             'Payment was completed via Clover checkout.',
           ].filter(Boolean).join('\n'),
         },
-        EMAILJS_CONFIG.publicKey
+        EMAILJS_CONFIG.PUBLIC_KEY
       );
     } catch (err) {
       console.error('Failed to send payment notification:', err);
