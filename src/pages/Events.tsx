@@ -136,7 +136,7 @@ export default function Events() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">SEE US IN ACTION</p>
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-6">A Taste Of What We Bring To Your Event</h2>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.1] tracking-normal text-center mb-6">A Taste Of What We Bring To Your Event</h2>
           </div>
           <div className="relative w-full max-w-3xl mx-auto aspect-video rounded-lg overflow-hidden shadow-lg bg-dark" style={{ backgroundImage: 'url(https://i.ytimg.com/vi/X3erxpEimGI/hqdefault.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <iframe
@@ -155,7 +155,7 @@ export default function Events() {
       {/* Booking Form Section */}
       <section className="bg-cream py-16 md:py-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] text-center mb-8 sm:mb-12">Book Your Event</h2>
+          <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-normal text-center mb-8 sm:mb-12">Book Your Event</h2>
 
           {/* Step Indicators */}
           <div className="flex items-center justify-between mb-8 sm:mb-12">
@@ -185,7 +185,7 @@ export default function Events() {
           </div>
 
           <div className="text-center mb-8">
-            <h3 className="font-serif text-3xl font-medium">{steps[currentStep - 1]}</h3>
+            <h3 className="font-serif text-3xl font-medium text-center">{steps[currentStep - 1]}</h3>
           </div>
 
           {/* Form */}
@@ -426,5 +426,6 @@ export default function Events() {
     </div>
   );
 }
+
 
 
