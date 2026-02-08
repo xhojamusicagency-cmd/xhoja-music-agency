@@ -38,8 +38,7 @@ export default function Footer() {
               <p><strong>Phone:</strong> (857) 498-8487</p>
               <p><strong>Email:</strong> xhojamusicagency@gmail.com</p>
               <p><strong>Location:</strong> Boston, Massachusetts</p>
-              <p className="mt-4"><strong>Hours:</strong></p>
-              <p>Mon-Fri: 9:00 AM - 6:00 PM</p>
+              <p className="mt-4"><strong>Hours:</strong> Mon-Fri: 9:00 AM - 6:00 PM</p>
               <p>Sat: 10:00 AM - 4:00 PM</p>
               <p>Sun: Closed</p>
             </div>
