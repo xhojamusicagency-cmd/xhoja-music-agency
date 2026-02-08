@@ -98,7 +98,7 @@ export default function Team() {
                     src={member.image}
                     alt={member.name}
                     loading="eager"
-                    className="w-48 h-48 rounded-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-48 h-48 rounded-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = 'https://via.placeholder.com/192?text=' + member.name.replace(' ', '+');
                     }}
