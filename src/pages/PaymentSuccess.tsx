@@ -1,6 +1,43 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../utils/emailjs';
 
 export default function PaymentSuccess() {
+  useEffect(() => {
+    const raw = localStorage.getItem('pendingPurchase');
+    if (!raw) return;
+
+    try {
+      const purchase = JSON.parse(raw);
+      localStorage.removeItem('pendingPurchase');
+
+      emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templates.contact,
+        {
+          from_name: `${purchase.firstName} ${purchase.lastName}`,
+          reply_to: purchase.email,
+          message: [
+            '--- NEW LESSON PURCHASE ---',
+            '',
+            `Package: ${purchase.packageName}`,
+            `Price: ${purchase.price}`,
+            `Instrument: ${purchase.instrument}`,
+            `Student: ${purchase.firstName} ${purchase.lastName}`,
+            `Email: ${purchase.email}`,
+            purchase.phone ? `Phone: ${purchase.phone}` : '',
+            '',
+            'Payment was completed via Clover checkout.',
+          ].filter(Boolean).join('\n'),
+        },
+        EMAILJS_CONFIG.publicKey
+      );
+    } catch (err) {
+      console.error('Failed to send payment notification:', err);
+    }
+  }, []);
+
   return (
     <div>
       {/* Hero header matching site style */}
@@ -22,13 +59,17 @@ export default function PaymentSuccess() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
+
             <h2 className="font-serif text-3xl font-light mb-4">Thank You!</h2>
+
             <p className="text-gray-500 text-lg mb-4">
               Your lesson package with Xhoja Music Agency LLC has been confirmed.
             </p>
+
             <p className="text-gray-400 text-base mb-10">
               You'll receive a confirmation email shortly. Our team will reach out within <strong className="text-dark">24 hours</strong> to schedule your lessons.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/"
