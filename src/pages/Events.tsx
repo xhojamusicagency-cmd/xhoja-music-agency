@@ -136,7 +136,7 @@ export default function Events() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">SEE US IN ACTION</p>
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.1] tracking-[-0.3px] text-center mb-6">A Taste Of What We Bring To Your Event</h2>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.1] tracking-[-0.5px] text-center mb-6" style={{ wordSpacing: '-2px' }}>A Taste Of What We Bring To Your Event</h2>
           </div>
           <div className="relative w-full max-w-3xl mx-auto aspect-video rounded-lg overflow-hidden shadow-lg bg-dark" style={{ backgroundImage: 'url(https://i.ytimg.com/vi/X3erxpEimGI/hqdefault.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <iframe
@@ -158,9 +158,9 @@ export default function Events() {
           <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-normal text-center mb-8 sm:mb-12">Book Your Event</h2>
 
           {/* Step Indicators */}
-          <div className="flex items-center justify-between mb-8 sm:mb-12">
+          <div className="flex items-start justify-between mb-8 sm:mb-12">
             {steps.map((step, index) => (
-              <div key={index} className="flex items-center flex-1">
+              <div key={index} className="flex items-start flex-1">
                 <div className="flex flex-col items-center w-16 sm:w-24 flex-shrink-0">
                   <div
                     className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm ${
@@ -175,7 +175,7 @@ export default function Events() {
                 </div>
                 {index < steps.length - 1 && (
                   <div
-                    className={`flex-1 h-1 mx-2 ${
+                    className={`flex-1 h-1 mx-2 mt-4 sm:mt-5 ${
                       index + 1 < currentStep ? 'bg-gold' : 'bg-gray-300'
                     }`}
                   ></div>
