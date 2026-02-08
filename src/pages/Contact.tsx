@@ -156,7 +156,7 @@ export default function Contact() {
             {/* Contact Form */}
             <div className="lg:col-span-2">
               <div className="bg-cream p-5 sm:p-8 border border-border">
-                <h3 className="font-serif text-2xl font-medium mb-6">Send Us a Message</h3>
+                <h3 className="font-serif text-2xl font-medium mb-6">Send Us A Message</h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
@@ -260,7 +260,7 @@ export default function Contact() {
 
                   {submitStatus === 'error' && (
                     <div className="p-6 bg-red-50 border border-red-200 text-center">
-                      <h4 className="font-serif text-xl font-medium text-red-800 mb-2">Something went wrong</h4>
+                      <h4 className="font-serif text-xl font-medium text-red-800 mb-2">Something Went Wrong</h4>
                       <p className="text-red-700 text-sm">We couldn't send your message. Please try again or contact us directly at xhojamusicagency@gmail.com or (857) 498-8487.</p>
                     </div>
                   )}
@@ -294,3 +294,4 @@ export default function Contact() {
     </div>
   );
 }
+
