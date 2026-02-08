@@ -74,12 +74,13 @@ export default function Events() {
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">SEE US IN ACTION</p>
             <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px] mb-6">A Taste of What We Bring to Your Event</h2>
           </div>
-          <div className="relative w-full max-w-3xl mx-auto aspect-video rounded-lg overflow-hidden shadow-lg">
+          <div className="relative w-full max-w-3xl mx-auto aspect-video rounded-lg overflow-hidden shadow-lg bg-dark" style={{ backgroundImage: 'url(https://i.ytimg.com/vi/X3erxpEimGI/hqdefault.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <iframe
               src="https://www.youtube.com/embed/X3erxpEimGI"
               title="Mia McIntosh & Alexander Xhoja performing Million Years Ago by Adele"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
+              loading="eager"
               className="absolute inset-0 w-full h-full"
             ></iframe>
           </div>
