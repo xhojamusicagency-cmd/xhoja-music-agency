@@ -145,6 +145,7 @@ export default function Lessons() {
                     <img
                       src={instructor.image}
                       alt={instructor.name}
+                      loading="eager"
                       className="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover:scale-110"
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = 'https://via.placeholder.com/172?text=' + instructor.name.replace(' ', '+');
