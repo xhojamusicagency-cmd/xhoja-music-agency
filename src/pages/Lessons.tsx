@@ -270,9 +270,14 @@ export default function Lessons() {
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-4">Lesson Packages</h2>
             <p className="text-gray-500 text-base mb-4">Choose a package that fits your schedule and goals.</p>
-            <p className="text-gray-400 text-sm italic">
-              Please note: Lesson scheduling is coordinated after purchase. You'll receive an email within 24 hours to arrange your lesson times.
-            </p>
+            <div className="inline-block bg-white border border-gold/30 rounded px-6 py-4 mt-2">
+              <p className="text-dark text-base font-medium mb-1">
+                Please Note
+              </p>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Lesson scheduling is coordinated after purchase. You'll receive a <span className="font-medium text-dark">personal email within 24 hours</span> to arrange your preferred lesson times with your instructor.
+              </p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

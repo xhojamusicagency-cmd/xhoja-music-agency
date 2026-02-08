@@ -7,9 +7,9 @@ export default function Home() {
       {/* Hero Section */}
       <section className="bg-cream py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-          <p className="font-serif italic text-lg sm:text-xl md:text-[22px] text-dark/70 tracking-[1.6px]">Customized Music Lessons & Event Bookings</p>
+          <p className="font-serif italic text-lg sm:text-xl md:text-2xl text-dark/70 tracking-[1.6px]">Customized Music Lessons & Event Bookings</p>
           <div className="mt-2 mb-4">
-            <h1 className="font-serif text-[38px] sm:text-[48px] md:text-[64px] font-light leading-[1.05] tracking-[1.5px]">Xhoja Music Agency</h1>
+            <h1 className="font-serif text-[38px] sm:text-[48px] md:text-[72px] font-light leading-[1.05] tracking-[1.5px]">Xhoja Music Agency</h1>
           </div>
           <a
             href="https://instagram.com/xhojamusicagency"
@@ -24,7 +24,7 @@ export default function Home() {
             <img
               src="/xhoja-logo.png"
               alt="Xhoja Music Agency"
-              className="w-72 h-72 md:w-[420px] md:h-[420px] object-contain"
+              className="w-72 h-72 md:w-[480px] md:h-[480px] object-contain"
             />
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
