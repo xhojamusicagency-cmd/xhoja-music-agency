@@ -82,7 +82,7 @@ export default function Team() {
           <p className="text-gold uppercase tracking-widest text-sm font-medium mb-2">THE FACES BEHIND THE MUSIC</p>
           <h1 className="font-serif text-5xl md:text-6xl font-bold mb-4">Meet The Team</h1>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Meet the talented musicians and educators who make Xhoja Music Agency special. Each team member brings unique expertise and passion to our mission.
+            Our talented musicians and dedicated staff are committed to delivering exceptional experiences, whether you're learning an instrument or booking live entertainment.
           </p>
         </div>
       </section>
@@ -120,7 +120,7 @@ export default function Team() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">Join Our Team</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Are you a talented musician interested in joining Xhoja Music Agency? We're always looking for passionate educators and performers to expand our team.
+            Are you a talented musician looking for performance opportunities or teaching positions? We're always looking for exceptional artists to join the Xhoja Music Agency family.
           </p>
           <Link
             to="/contact"

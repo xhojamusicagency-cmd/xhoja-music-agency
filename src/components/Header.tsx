@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const links = [
     { label: 'HOME', href: '/' },
@@ -14,11 +15,11 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-md">
+    <header className="sticky top-0 z-50 bg-cream shadow-sm border-b border-gray-200">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center space-x-2">
-          <div className="w-10 h-10 bg-gold rounded-full flex items-center justify-center text-white font-serif font-bold">X</div>
-          <span className="font-serif text-xl font-bold hidden sm:inline">XMA</span>
+        <Link to="/" className="flex items-center space-x-3">
+          <img src="/xhoja-logo.png" alt="Xhoja Music Agency" className="h-12 w-12 object-contain" />
+          <span className="font-serif text-xl font-bold hidden sm:inline">Xhoja Music Agency</span>
         </Link>
 
         {/* Desktop Menu */}
@@ -27,7 +28,11 @@ export default function Header() {
             <Link
               key={link.href}
               to={link.href}
-              className="nav-link text-sm font-medium hover:text-gold"
+              className={`text-sm font-medium uppercase tracking-[2.1px] transition-colors ${
+                location.pathname === link.href
+                  ? 'text-gold'
+                  : 'text-dark hover:text-gold'
+              }`}
             >
               {link.label}
             </Link>
@@ -45,13 +50,17 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
+        <div className="md:hidden bg-cream border-t border-gray-200">
           <div className="px-4 py-2 space-y-2">
             {links.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className="block py-2 text-sm font-medium hover:text-gold transition-colors"
+                className={`block py-2 text-sm font-medium uppercase tracking-[2.1px] transition-colors ${
+                  location.pathname === link.href
+                    ? 'text-gold'
+                    : 'text-dark hover:text-gold'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}

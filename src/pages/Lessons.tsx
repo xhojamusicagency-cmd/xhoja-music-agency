@@ -122,7 +122,7 @@ export default function Lessons() {
           <p className="text-gold uppercase tracking-widest text-sm font-medium mb-2">PERSONALIZED INSTRUCTION</p>
           <h1 className="font-serif text-5xl md:text-6xl font-bold mb-4">Music Lessons</h1>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Learn from world-class instructors at Xhoja Music Agency. Whether you're a beginner or advancing your skills, we have the perfect lesson package for you.
+            Learn from world-class musicians with personalized lessons tailored to your goals, skill level, and musical interests.
           </p>
         </div>
       </section>
@@ -167,7 +167,7 @@ export default function Lessons() {
             <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">Lesson Packages</h2>
             <p className="text-gray-600 text-lg mb-4">Choose a package that fits your schedule and goals.</p>
             <p className="text-gray-600 text-sm italic">
-              Please note: Lesson scheduling is coordinated after purchase to ensure the best fit for your availability and instructor schedule.
+              Please note: Lesson scheduling is coordinated after purchase. You'll receive an email within 24 hours to arrange your lesson times.
             </p>
           </div>
 
@@ -218,9 +218,9 @@ export default function Lessons() {
       {/* CTA Section */}
       <section className="bg-dark text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">Ready to Start Learning?</h2>
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">Not Sure Where to Start?</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Select a lesson package above or contact us to discuss your musical goals and find the perfect instructor for you.
+            Contact us for a free consultation. We'll help you find the right instructor and lesson plan for your musical journey.
           </p>
           <Link
             to="/contact"

@@ -9,8 +9,25 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold italic text-lg mb-4">Customized Music Lessons & Event Bookings</p>
           <h1 className="hero-title font-serif text-5xl md:text-7xl font-bold mb-6">Xhoja Music Agency</h1>
-          <p className="text-gray-600 uppercase tracking-widest text-sm mb-8">WHERE MUSIC COMES TO LIFE</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <a
+            href="https://instagram.com/xhojamusicagency"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center space-x-2 text-gold hover:text-gold/80 transition-colors border border-gold/30 rounded-full px-6 py-2 mb-8"
+          >
+            <Instagram size={20} />
+            <span>@xhojamusicagency</span>
+          </a>
+          <div className="flex justify-center mb-6">
+            <img
+              src="/xhoja-logo.png"
+              alt="Xhoja Music Agency"
+              className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain"
+            />
+          </div>
+          <p className="text-gray-600 uppercase tracking-widest text-sm font-bold mb-2">WHERE MUSIC COMES TO LIFE</p>
+          <p className="text-gray-500 uppercase tracking-widest text-xs mb-8">LESSONS & LIVE EVENTS</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/events"
               className="px-8 py-3 bg-dark text-white font-medium hover:bg-gray-800 transition-colors"
@@ -24,15 +41,6 @@ export default function Home() {
               START LESSONS
             </Link>
           </div>
-          <a
-            href="https://instagram.com/xhojamusicagency"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 text-gold hover:text-gold/80 transition-colors"
-          >
-            <Instagram size={20} />
-            <span>@xhojamusicagency</span>
-          </a>
         </div>
       </section>
 
@@ -62,9 +70,9 @@ export default function Home() {
             </div>
             <div>
               <img
-                src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=600"
-                alt="Pianist performing"
-                className=" shadow-lg w-full h-auto"
+                src="/alexander-xhoja.jpg"
+                alt="Alexander Xhoja"
+                className="shadow-lg w-full h-auto"
               />
             </div>
           </div>
@@ -77,9 +85,9 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <img
-                src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=600"
-                alt="DJ performing"
-                className=" shadow-lg w-full h-auto"
+                src="/dj-performance.jpg"
+                alt="Xhoja Music Agency DJ performing at a live event"
+                className="shadow-lg w-full h-auto"
               />
             </div>
             <div>
@@ -87,10 +95,10 @@ export default function Home() {
               <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">From Jazz to DJ Sets</h2>
               <div className="w-16 h-1 bg-gold mb-6"></div>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Whether you're looking for live jazz ensembles, classical piano performances, or high-energy DJ sets, our talented musicians can bring the perfect sound to your event. We specialize in creating the ideal atmosphere for every occasion, from intimate gatherings to large celebrations.
+                Whether you need an elegant jazz quartet for a corporate gala, a solo pianist for a wedding ceremony, or a DJ to keep the dance floor alive — Xhoja Music Agency delivers exceptional live entertainment tailored to your event.
               </p>
               <p className="text-gray-300 mb-8 leading-relaxed">
-                Our diverse roster of performers can adapt to any genre, style, or venue requirement. Every performance is tailored to match your vision and create an unforgettable musical experience for your guests.
+                Our roster includes classically trained musicians, seasoned jazz performers, and professional DJs — all vetted and managed to ensure a flawless experience every time.
               </p>
               <Link
                 to="/events"
@@ -112,13 +120,13 @@ export default function Home() {
               <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">Setting the Stage</h2>
               <div className="w-16 h-1 bg-gold mb-6"></div>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                From intimate weddings to grand galas, our musicians know how to set the perfect mood for your special event. We understand that every moment matters, and our goal is to provide the musical backdrop that transforms your vision into reality.
+                From intimate rehearsal dinners to grand ballroom receptions, we bring the music that sets the perfect tone for your special day. Our musicians arrive early, set up professionally, and create an atmosphere your guests will remember.
               </p>
               <p className="text-gray-700 mb-8 leading-relaxed">
-                With experience performing at luxury venues throughout Boston and New England, our team brings professionalism, artistry, and an unwavering commitment to excellence to every engagement.
+                Every detail matters — and we treat your event with the care and professionalism it deserves, ensuring a seamless musical experience from start to finish.
               </p>
               <Link
-                to="/events"
+                to="/contact"
                 className="inline-block px-8 py-3 border-2 border-dark text-dark font-medium hover:bg-dark hover:text-white transition-colors"
               >
                 PLAN YOUR EVENT
@@ -126,9 +134,9 @@ export default function Home() {
             </div>
             <div>
               <img
-                src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600"
-                alt="Wedding with piano"
-                className=" shadow-lg w-full h-auto"
+                src="/wedding-piano-setup.jpg"
+                alt="Piano setup at an elegant wedding venue"
+                className="shadow-lg w-full h-auto"
               />
             </div>
           </div>

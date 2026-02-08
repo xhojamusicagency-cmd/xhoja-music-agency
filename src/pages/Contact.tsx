@@ -6,9 +6,10 @@ export default function Contact() {
     fullName: '',
     email: '',
     phone: '',
-    subject: 'general',
+    subject: 'lessons',
     message: ''
   });
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -25,27 +26,28 @@ export default function Contact() {
       fullName: '',
       email: '',
       phone: '',
-      subject: 'general',
+      subject: 'lessons',
       message: ''
     });
+    setAgreedToTerms(false);
   };
 
   const faqs = [
     {
       question: 'How do I book musicians for my event?',
-      answer: 'Visit our Event Bookings page to start the booking process. Fill out our multi-step form with your event details, and our team will get back to you within 24 hours to finalize arrangements and discuss pricing.'
+      answer: 'Visit our Event Bookings page to select your preferred music genre, ensemble size, and provide event details. After submitting your request and signing the booking agreement, we\'ll contact you within 24 hours to confirm availability and discuss next steps.'
     },
     {
       question: 'What instruments do you offer lessons for?',
-      answer: 'We offer lessons for piano, voice, guitar, violin, drums, bass, trumpet, saxophone, accordion, cello, and more. Check our Meet Your Instructors page to see our full roster of instructors and their specialties.'
+      answer: 'We currently offer lessons in piano, voice, guitar, violin, and drums. Our instructors are highly trained professionals with extensive performance and teaching experience.'
     },
     {
       question: 'Do you travel for events outside Boston?',
-      answer: 'Yes! We travel throughout New England for events. Contact us to discuss your specific location and event requirements. We work with talented musicians who are willing to travel for the right engagement.'
+      answer: 'Yes! While we\'re based in Boston, we regularly travel throughout New England and beyond for weddings, corporate events, and special occasions. Additional travel fees may apply depending on the distance.'
     },
     {
       question: 'What is the cancellation policy?',
-      answer: 'For event bookings: cancellations made 30+ days before the event receive a full refund minus a small deposit. Cancellations within 30 days are non-refundable. For lessons, please refer to your instructor for specific cancellation details.'
+      answer: 'Cancellations made more than 30 days before the event will receive a full refund minus the deposit. Cancellations within 30 days are non-refundable. Please refer to our booking agreement for complete terms.'
     }
   ];
 
@@ -57,7 +59,7 @@ export default function Contact() {
           <p className="text-gold uppercase tracking-widest text-sm font-medium mb-2">GET IN TOUCH</p>
           <h1 className="font-serif text-5xl md:text-6xl font-bold mb-4">Contact Us</h1>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Have questions? Want to book musicians or schedule lessons? We'd love to hear from you. Reach out anytime!
+            Have questions about lessons, event bookings, or anything else? We'd love to hear from you. Reach out and let's create something beautiful together.
           </p>
         </div>
       </section>
@@ -159,10 +161,10 @@ export default function Contact() {
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
                       required
                     >
-                      <option value="general">General Inquiry</option>
-                      <option value="lessons">Music Lessons</option>
-                      <option value="events">Event Booking</option>
-                      <option value="collaboration">Collaboration</option>
+                      <option value="lessons">Music Lessons Inquiry</option>
+                      <option value="events">Event Booking Inquiry</option>
+                      <option value="collaboration">Collaboration / Join Team</option>
+                      <option value="general">General Question</option>
                       <option value="other">Other</option>
                     </select>
                   </div>
@@ -177,6 +179,19 @@ export default function Contact() {
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
                       required
                     ></textarea>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <input
+                      type="checkbox"
+                      checked={agreedToTerms}
+                      onChange={(e) => setAgreedToTerms(e.target.checked)}
+                      className="mt-1"
+                      required
+                    />
+                    <label className="text-sm text-gray-600">
+                      By submitting this form, I acknowledge that I have read and agreed to Xhoja Music Agency's terms of service and privacy policy. *
+                    </label>
                   </div>
 
                   <button

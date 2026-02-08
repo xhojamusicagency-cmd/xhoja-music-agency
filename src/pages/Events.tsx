@@ -62,7 +62,7 @@ export default function Events() {
           <p className="text-gold uppercase tracking-widest text-sm font-medium mb-2">LIVE MUSIC FOR EVERY OCCASION</p>
           <h1 className="font-serif text-5xl md:text-6xl font-bold mb-4">Event Bookings</h1>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Hire talented musicians for weddings, parties, corporate events, and special occasions. Let's make your event unforgettable.
+            Hire talented musicians for your wedding, corporate event, private party, or any special occasion. Complete the form below and we'll provide you with a personalized quote.
           </p>
         </div>
       </section>
