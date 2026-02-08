@@ -7,15 +7,15 @@ export default function Home() {
       {/* Hero Section */}
       <section className="bg-cream py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-          <p className="font-serif italic text-lg sm:text-xl md:text-2xl text-dark/70 tracking-[1.6px]">Customized Music Lessons & Event Bookings</p>
-          <div className="mt-2 mb-4">
+          <p className="font-serif italic text-lg sm:text-xl md:text-2xl text-dark/70 tracking-[1.6px]">Customized Music Lessons and Event Bookings</p>
+          <div className="mt-4 mb-4">
             <h1 className="font-serif text-[38px] sm:text-[48px] md:text-[72px] font-light leading-[1.05] tracking-[1.5px]">Xhoja Music Agency</h1>
           </div>
           <a
             href="https://instagram.com/xhojamusicagency"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 text-dark hover:text-dark/80 transition-colors bg-gold/5 border border-gold/30 rounded-full px-6 py-2.5"
+            className="flex items-center gap-2 text-dark/60 hover:text-dark transition-colors text-sm tracking-[1.2px]"
           >
             <Instagram size={20} />
             <span>@xhojamusicagency</span>
@@ -291,4 +291,5 @@ export default function Home() {
     </div>
   );
 }
+
 
