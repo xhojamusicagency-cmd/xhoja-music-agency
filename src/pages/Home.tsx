@@ -15,7 +15,7 @@ export default function Home() {
             href="https://instagram.com/xhojamusicagency"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 text-gold hover:text-gold/80 transition-colors border border-gold/30 rounded-full px-6 py-2.5"
+            className="flex items-center gap-3 text-dark hover:text-dark/80 transition-colors bg-gold/5 border border-gold/30 rounded-full px-6 py-2.5"
           >
             <Instagram size={20} />
             <span>@xhojamusicagency</span>
