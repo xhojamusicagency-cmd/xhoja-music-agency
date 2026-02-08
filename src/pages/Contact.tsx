@@ -70,6 +70,7 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Info */}
             <div className="space-y-8">
+              <h3 className="font-serif text-2xl font-bold">Contact Information</h3>
               <div className="flex gap-4">
                 <Mail size={32} className="text-gold flex-shrink-0 mt-1" />
                 <div>
@@ -95,6 +96,7 @@ export default function Contact() {
                 <div>
                   <h3 className="font-serif text-xl font-bold mb-2">Location</h3>
                   <p className="text-gray-700">Boston, Massachusetts</p>
+                  <p className="text-gold text-sm font-medium mt-1">Serving the Greater Boston Area</p>
                 </div>
               </div>
 

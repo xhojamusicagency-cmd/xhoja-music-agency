@@ -75,6 +75,7 @@ export default function Lessons() {
       lessons: 1,
       price: 50,
       pricePerLesson: 50,
+      description: 'A single introductory lesson — perfect for first-time students to experience our teaching style.',
       features: [
         'One 30-minute session',
         'Meet your instructor',
@@ -89,6 +90,7 @@ export default function Lessons() {
       lessons: 4,
       price: 200,
       pricePerLesson: 50,
+      description: 'Four half-hour sessions ideal for younger students or focused skill-building.',
       features: [
         'Four 30-minute sessions',
         'Progress tracking',
@@ -103,6 +105,7 @@ export default function Lessons() {
       lessons: 4,
       price: 360,
       pricePerLesson: 90,
+      description: 'Four full-length sessions for serious students seeking consistent progress.',
       features: [
         'Four 60-minute sessions',
         'Detailed progress reports',
@@ -187,7 +190,8 @@ export default function Lessons() {
                   </div>
                 )}
                 <h3 className="font-serif text-2xl font-bold mb-2">{pkg.name}</h3>
-                <p className="text-gray-600 mb-4">{pkg.lessons} lessons • {pkg.duration}</p>
+                <p className="text-gray-600 mb-2">{pkg.lessons} lessons &middot; {pkg.duration}</p>
+                <p className="text-gray-500 text-sm mb-4">{pkg.description}</p>
                 <div className="mb-6">
                   <span className="font-serif text-4xl font-bold text-gold">${pkg.price}</span>
                   <p className="text-gray-600 text-sm">${pkg.pricePerLesson} per lesson</p>

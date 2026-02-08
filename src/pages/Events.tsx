@@ -78,7 +78,7 @@ export default function Events() {
             <div className="text-white text-center">
               <p className="text-2xl mb-4">📹</p>
               <p className="text-gray-400">Performance Video Preview</p>
-              <p className="text-sm text-gray-500 mt-2">Mia McIntosh & Alexander Xhoja performing...</p>
+              <p className="text-sm text-gray-500 mt-2">Mia McIntosh & Alexander Xhoja performing &ldquo;Million Years Ago&rdquo; by Adele &mdash; a live piano & vocals duo at Berk Recital Hall.</p>
             </div>
           </div>
         </div>
@@ -91,16 +91,19 @@ export default function Events() {
 
           {/* Step Indicators */}
           <div className="flex items-center justify-between mb-12">
-            {steps.map((_step, index) => (
+            {steps.map((step, index) => (
               <div key={index} className="flex items-center flex-1">
-                <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${
-                    index + 1 <= currentStep
-                      ? 'bg-gold text-white'
-                      : 'bg-gray-300 text-gray-700'
-                  }`}
-                >
-                  {index + 1}
+                <div className="flex flex-col items-center">
+                  <div
+                    className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${
+                      index + 1 <= currentStep
+                        ? 'bg-gold text-white'
+                        : 'bg-gray-300 text-gray-700'
+                    }`}
+                  >
+                    {index + 1}
+                  </div>
+                  <span className="text-xs mt-1 text-gray-500 hidden md:block">{step}</span>
                 </div>
                 {index < steps.length - 1 && (
                   <div
@@ -122,6 +125,10 @@ export default function Events() {
             {/* Step 1: Your Information */}
             {currentStep === 1 && (
               <div className="space-y-6">
+                <div className="text-center mb-2">
+                  <h4 className="font-serif text-xl font-bold mb-1">Tell Us About Yourself</h4>
+                  <p className="text-gray-600 text-sm">We'll use this information to reach out with your personalized quote.</p>
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
@@ -147,7 +154,7 @@ export default function Events() {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
                   <input
                     type="email"
                     name="email"
@@ -158,7 +165,7 @@ export default function Events() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone *</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
                   <input
                     type="tel"
                     name="phone"
