@@ -6,36 +6,37 @@ export default function Home() {
     <div>
       {/* Hero Section */}
       <section className="bg-cream py-12 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="font-serif italic text-xl text-dark/70 tracking-wide mb-4">Customized Music Lessons & Event Bookings</p>
-          <h1 className="font-serif text-6xl font-light leading-[60px] tracking-[1.5px] mb-6">Xhoja Music Agency</h1>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+          <p className="font-serif italic text-xl text-dark/70 tracking-[1.6px]">Customized Music Lessons & Event Bookings</p>
+          <div className="mt-2 mb-4">
+            <h1 className="font-serif text-[60px] font-light leading-[60px] tracking-[1.5px]">Xhoja Music Agency</h1>
+          </div>
           <a
             href="https://instagram.com/xhojamusicagency"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 text-gold hover:text-gold/80 transition-colors border border-gold/30 rounded-full px-6 py-2 mb-8"
+            className="inline-flex items-center space-x-2 text-gold hover:text-gold/80 transition-colors border border-gold/30 rounded-full px-6 py-2.5"
           >
             <Instagram size={20} />
             <span>@xhojamusicagency</span>
           </a>
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center mt-5 mb-5">
             <img
               src="/xhoja-logo.png"
               alt="Xhoja Music Agency"
-              className="w-72 h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] object-contain"
+              className="w-72 h-72 md:w-96 md:h-96 object-contain"
             />
           </div>
-          <div className="mb-8"></div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/events"
-              className="px-8 py-3 bg-dark text-white font-normal hover:bg-gray-800 transition-colors"
+              className="px-8 py-3 bg-dark text-cream-light text-sm font-medium tracking-[0.7px] hover:bg-gray-800 transition-colors"
             >
               BOOK AN EVENT
             </Link>
             <Link
               to="/lessons"
-              className="px-8 py-3 border border-dark text-dark font-normal hover:bg-dark hover:text-white transition-colors"
+              className="px-8 py-3 border-2 border-dark text-dark text-sm font-medium tracking-[0.7px] hover:bg-dark hover:text-white transition-colors"
             >
               START LESSONS
             </Link>
