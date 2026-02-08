@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Music, Calendar, Users, Star, Instagram } from 'lucide-react';
+import { Music, Calendar, Users, Star, Instagram, Phone, Mail, MapPin } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -240,15 +240,24 @@ export default function Home() {
           <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">GET IN TOUCH</p>
           <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px] mb-12">Contact Us</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
+            <div className="bg-white border border-border p-8 flex flex-col items-center">
+              <div className="w-14 h-14 rounded-full border border-gold/30 flex items-center justify-center mb-4">
+                <Phone size={24} className="text-gold" />
+              </div>
               <h3 className="font-serif text-xl font-medium mb-2">Phone</h3>
-              <a href="tel:+18574988487" className="text-gold hover:text-gold/80 transition-colors">(857) 498-8487</a>
+              <a href="tel:+18574988487" className="text-gray-500 hover:text-gold transition-colors">(857) 498-8487</a>
             </div>
-            <div>
+            <div className="bg-white border border-border p-8 flex flex-col items-center">
+              <div className="w-14 h-14 rounded-full border border-gold/30 flex items-center justify-center mb-4">
+                <Mail size={24} className="text-gold" />
+              </div>
               <h3 className="font-serif text-xl font-medium mb-2">Email</h3>
-              <a href="mailto:xhojamusicagency@gmail.com" className="text-gold hover:text-gold/80 transition-colors">xhojamusicagency@gmail.com</a>
+              <a href="mailto:xhojamusicagency@gmail.com" className="text-gray-500 hover:text-gold transition-colors text-sm">xhojamusicagency@gmail.com</a>
             </div>
-            <div>
+            <div className="bg-white border border-border p-8 flex flex-col items-center">
+              <div className="w-14 h-14 rounded-full border border-gold/30 flex items-center justify-center mb-4">
+                <MapPin size={24} className="text-gold" />
+              </div>
               <h3 className="font-serif text-xl font-medium mb-2">Location</h3>
               <p className="text-gray-500">Boston, Massachusetts</p>
             </div>
