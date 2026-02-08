@@ -27,6 +27,7 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/lessons" element={<Lessons />} />
           <Route path="/team" element={<Team />} />
+            <Route path="/meet-the-team" element={<Navigate to="/team" replace />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/payment-success" element={<PaymentSuccess />} />
           <Route path="/payment-failed" element={<PaymentFailed />} />
@@ -37,3 +38,4 @@ function App() {
 }
 
 export default App;
+
