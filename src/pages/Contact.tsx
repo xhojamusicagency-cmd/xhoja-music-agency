@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../utils/emailjs';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,6 +12,8 @@ export default function Contact() {
     message: ''
   });
   const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -19,17 +23,42 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you for your message! We will get back to you soon.');
-    setFormData({
-      fullName: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
-    setAgreedToTerms(false);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    const templateParams = {
+      from_name: formData.fullName,
+      from_email: formData.email,
+      phone: formData.phone || 'Not provided',
+      subject: formData.subject,
+      message: formData.message,
+      to_email: formData.email,
+      client_first_name: formData.fullName.split(' ')[0],
+    };
+
+    try {
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.CONTACT_TEMPLATE,
+        templateParams,
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
+      setSubmitStatus('success');
+      setFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      });
+      setAgreedToTerms(false);
+    } catch {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const faqs = [
@@ -204,11 +233,26 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="px-8 py-3 bg-gold text-white font-normal hover:bg-gold/90 transition-colors flex items-center gap-2"
+                    disabled={isSubmitting}
+                    className="px-8 py-3 bg-gold text-white font-normal hover:bg-gold/90 transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Send size={18} />
-                    SEND MESSAGE
+                    {isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}
                   </button>
+
+                  {submitStatus === 'success' && (
+                    <div className="p-6 bg-green-50 border border-green-200 text-center">
+                      <h4 className="font-serif text-xl font-medium text-green-800 mb-2">Message Sent!</h4>
+                      <p className="text-green-700 text-sm">Thank you for reaching out. A confirmation has been sent to your email. We'll get back to you within 24 hours.</p>
+                    </div>
+                  )}
+
+                  {submitStatus === 'error' && (
+                    <div className="p-6 bg-red-50 border border-red-200 text-center">
+                      <h4 className="font-serif text-xl font-medium text-red-800 mb-2">Something went wrong</h4>
+                      <p className="text-red-700 text-sm">We couldn't send your message. Please try again or contact us directly at xhojamusicagency@gmail.com or (857) 498-8487.</p>
+                    </div>
+                  )}
                 </form>
               </div>
             </div>

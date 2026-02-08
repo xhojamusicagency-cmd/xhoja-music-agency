@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { ChevronRight } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../utils/emailjs';
 
 export default function Events() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -37,21 +41,49 @@ export default function Events() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you for your booking inquiry! We will contact you soon.');
-    setCurrentStep(1);
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      eventDate: '',
-      eventType: '',
-      guestCount: '',
-      genre: '',
-      instruments: [],
-    });
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    const templateParams = {
+      from_name: `${formData.firstName} ${formData.lastName}`,
+      from_email: formData.email,
+      phone: formData.phone,
+      event_date: formData.eventDate,
+      event_type: formData.eventType,
+      guest_count: formData.guestCount,
+      genre: formData.genre,
+      instruments: (formData.instruments as string[]).join(', ') || 'Not specified',
+      to_email: formData.email,
+      client_first_name: formData.firstName,
+    };
+
+    try {
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.EVENT_BOOKING_TEMPLATE,
+        templateParams,
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
+      setSubmitStatus('success');
+      setCurrentStep(1);
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        eventDate: '',
+        eventType: '',
+        guestCount: '',
+        genre: '',
+        instruments: [],
+      });
+    } catch {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -297,9 +329,10 @@ export default function Events() {
               {currentStep === steps.length ? (
                 <button
                   type="submit"
-                  className="flex-1 px-6 py-3 bg-gold text-dark font-medium hover:bg-gold/90 transition-colors"
+                  disabled={isSubmitting}
+                  className="flex-1 px-6 py-3 bg-gold text-dark font-medium hover:bg-gold/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Submit Booking
+                  {isSubmitting ? 'Sending...' : 'Submit Booking'}
                 </button>
               ) : (
                 <button
@@ -312,6 +345,20 @@ export default function Events() {
               )}
             </div>
           </form>
+
+          {submitStatus === 'success' && (
+            <div className="mt-6 p-6 bg-green-50 border border-green-200 rounded-lg text-center">
+              <h4 className="font-serif text-xl font-medium text-green-800 mb-2">Booking Request Received!</h4>
+              <p className="text-green-700 text-sm">Thank you for your inquiry. A confirmation email has been sent to your inbox. Our team will review your request and get back to you within 24-48 hours with a personalized quote.</p>
+            </div>
+          )}
+
+          {submitStatus === 'error' && (
+            <div className="mt-6 p-6 bg-red-50 border border-red-200 rounded-lg text-center">
+              <h4 className="font-serif text-xl font-medium text-red-800 mb-2">Something went wrong</h4>
+              <p className="text-red-700 text-sm">We couldn't process your request. Please try again or contact us directly at xhojamusicagency@gmail.com or (857) 498-8487.</p>
+            </div>
+          )}
         </div>
       </section>
     </div>
