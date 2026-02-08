@@ -120,7 +120,7 @@ export default function Lessons() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-cream py-16 md:py-24">
+      <section className="bg-cream py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">PERSONALIZED INSTRUCTION</p>
           <h1 className="font-serif text-6xl font-light leading-[60px] tracking-[1.5px] mb-4">Music Lessons</h1>
@@ -131,7 +131,7 @@ export default function Lessons() {
       </section>
 
       {/* Meet Your Instructors Section */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-white py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">OUR EDUCATORS</p>

@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-cream py-20 md:py-32">
+      <section className="bg-cream py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="font-serif italic text-xl text-dark/70 tracking-wide mb-4">Customized Music Lessons & Event Bookings</p>
           <h1 className="font-serif text-6xl font-light leading-[60px] tracking-[1.5px] mb-6">Xhoja Music Agency</h1>
@@ -22,7 +22,7 @@ export default function Home() {
             <img
               src="/xhoja-logo.png"
               alt="Xhoja Music Agency"
-              className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain"
+              className="w-72 h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] object-contain"
             />
           </div>
           <p className="text-gray-500 uppercase tracking-widest text-sm font-medium mb-2">WHERE MUSIC COMES TO LIFE</p>

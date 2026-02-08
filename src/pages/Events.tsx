@@ -57,7 +57,7 @@ export default function Events() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-cream py-16 md:py-24">
+      <section className="bg-cream py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">LIVE MUSIC FOR EVERY OCCASION</p>
           <h1 className="font-serif text-6xl font-light leading-[60px] tracking-[1.5px] mb-4">Event Bookings</h1>
@@ -68,19 +68,22 @@ export default function Events() {
       </section>
 
       {/* Video Section */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-white py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">SEE US IN ACTION</p>
             <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px] mb-6">A Taste of What We Bring to Your Event</h2>
           </div>
-          <div className="bg-gray-900 rounded-lg overflow-hidden shadow-lg h-96 flex items-center justify-center">
-            <div className="text-white text-center">
-              <p className="text-2xl mb-4">📹</p>
-              <p className="text-gray-400">Performance Video Preview</p>
-              <p className="text-sm text-gray-500 mt-2">Mia McIntosh & Alexander Xhoja performing &ldquo;Million Years Ago&rdquo; by Adele &mdash; a live piano & vocals duo at Berk Recital Hall.</p>
-            </div>
+          <div className="relative w-full max-w-3xl mx-auto aspect-video rounded-lg overflow-hidden shadow-lg">
+            <iframe
+              src="https://www.youtube.com/embed/X3erxpEimGI"
+              title="Mia McIntosh & Alexander Xhoja performing Million Years Ago by Adele"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+            ></iframe>
           </div>
+          <p className="text-sm text-gray-500 mt-4 text-center max-w-3xl mx-auto">Mia McIntosh & Alexander Xhoja performing &ldquo;Million Years Ago&rdquo; by Adele &mdash; a live piano & vocals duo at Berk Recital Hall.</p>
         </div>
       </section>
 
