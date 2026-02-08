@@ -176,7 +176,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 md:py-24">
+      <section className="bg-cream-mid py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">TESTIMONIALS</p>
@@ -184,45 +184,51 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Testimonial 1 */}
-            <div className="p-8">
+            <div className="bg-white border border-border p-8 flex flex-col">
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
                   <span key={i} className="text-gold">★</span>
                 ))}
               </div>
-              <p className="text-gray-500 mb-4 leading-relaxed">
+              <p className="text-gray-500 mb-6 leading-relaxed flex-1">
                 "Thanks for an amazing performance for our wedding. Casandra and I totally loved it for our Henna ceremony. He was phenomenal and we'd be working with him again soon. Catch him before he gets famous — totally a rockstar."
               </p>
-              <p className="font-medium text-dark">Adhunik Anubhav</p>
-              <p className="text-gold text-xs font-medium uppercase tracking-[2.4px]">WEDDING CEREMONY</p>
+              <div>
+                <p className="font-medium text-dark">Adhunik Anubhav</p>
+                <p className="text-gold text-xs font-medium uppercase tracking-[2.4px] mt-1">WEDDING CEREMONY</p>
+              </div>
             </div>
 
             {/* Testimonial 2 */}
-            <div className="p-8">
+            <div className="bg-white border border-border p-8 flex flex-col">
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
                   <span key={i} className="text-gold">★</span>
                 ))}
               </div>
-              <p className="text-gray-500 mb-4 leading-relaxed">
+              <p className="text-gray-500 mb-6 leading-relaxed flex-1">
                 "I recently booked a studio session with Xhoja Music Agency and had an amazing experience. In less than two weeks, the agency arranged everything — the studio, sound engineer and a talented string quartet. Everyone arrived on time and the studio was set up quickly and professionally. I highly recommend Xhoja Music Agency to any artist looking for a smooth and professional recording experience."
               </p>
-              <p className="font-medium text-dark">Petr Moguto</p>
-              <p className="text-gold text-xs font-medium uppercase tracking-[2.4px]">STUDIO SESSION</p>
+              <div>
+                <p className="font-medium text-dark">Petr Moguto</p>
+                <p className="text-gold text-xs font-medium uppercase tracking-[2.4px] mt-1">STUDIO SESSION</p>
+              </div>
             </div>
 
             {/* Testimonial 3 */}
-            <div className="p-8">
+            <div className="bg-white border border-border p-8 flex flex-col">
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
                   <span key={i} className="text-gold">★</span>
                 ))}
               </div>
-              <p className="text-gray-500 mb-4 leading-relaxed">
+              <p className="text-gray-500 mb-6 leading-relaxed flex-1">
                 "I hired Alex to play piano at our home for a family holiday. I cannot say enough about his exquisite music, enthusiasm, energy and kindness. Alex became part of our family for the evening. He also wrote an original song to honor my dad's memory because he sensed that we were all thinking of my dad on this special occasion. Alex has immense talent and can play any genre of music. You are a magnificent musician and a very special person."
               </p>
-              <p className="font-medium text-dark">Marjory Gundersheim</p>
-              <p className="text-gold text-xs font-medium uppercase tracking-[2.4px]">PRIVATE HOLIDAY EVENT</p>
+              <div>
+                <p className="font-medium text-dark">Marjory Gundersheim</p>
+                <p className="text-gold text-xs font-medium uppercase tracking-[2.4px] mt-1">PRIVATE HOLIDAY EVENT</p>
+              </div>
             </div>
           </div>
         </div>
