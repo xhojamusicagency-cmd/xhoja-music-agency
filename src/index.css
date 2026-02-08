@@ -48,7 +48,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero title with tighter line-height for elegant look */
 .hero-title {
-  line-height: 60px;
+  line-height: 60px !important;
 }
 
 /* Navigation links with subtle opacity */
