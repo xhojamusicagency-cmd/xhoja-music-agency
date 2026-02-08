@@ -235,7 +235,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="bg-cream-mid py-16 md:py-24">
+      <section className="bg-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">GET IN TOUCH</p>
           <h2 className="font-serif text-4xl font-medium leading-[40px] tracking-[0.9px] mb-12">Contact Us</h2>
