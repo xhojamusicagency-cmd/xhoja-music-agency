@@ -69,8 +69,7 @@ export default function Events() {
   const formatDate = (dateStr: string) => {
     if (!dateStr) return '';
     const [year, month, day] = dateStr.split('-');
-    const date = new Date(Number(year), Number(month) - 1, Number(day));
-    return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    return `${month}/${day}/${year.slice(2)}`;
   };
 
   const handleSubmit = async () => {
