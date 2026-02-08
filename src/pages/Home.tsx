@@ -64,7 +64,7 @@ export default function Home() {
               <img
                 src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=600"
                 alt="Pianist performing"
-                className="rounded-lg shadow-lg w-full h-auto"
+                className=" shadow-lg w-full h-auto"
               />
             </div>
           </div>
@@ -79,7 +79,7 @@ export default function Home() {
               <img
                 src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=600"
                 alt="DJ performing"
-                className="rounded-lg shadow-lg w-full h-auto"
+                className=" shadow-lg w-full h-auto"
               />
             </div>
             <div>
@@ -128,7 +128,7 @@ export default function Home() {
               <img
                 src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600"
                 alt="Wedding with piano"
-                className="rounded-lg shadow-lg w-full h-auto"
+                className=" shadow-lg w-full h-auto"
               />
             </div>
           </div>
@@ -136,29 +136,29 @@ export default function Home() {
       </section>
 
       {/* Our Services Section */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-cream py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold uppercase tracking-widest text-sm font-medium mb-2">WHAT WE OFFER</p>
             <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6">Our Services</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-cream rounded-lg p-8 text-center border border-gray-200">
+            <div className="bg-white p-8 text-center border border-gray-200">
               <Music size={40} className="mx-auto mb-4 text-gold" />
               <h3 className="font-serif text-xl font-bold mb-3">Personalized Lessons</h3>
               <p className="text-gray-700 text-sm">Tailored music instruction for all skill levels, from beginners to advanced musicians.</p>
             </div>
-            <div className="bg-cream rounded-lg p-8 text-center border border-gray-200">
+            <div className="bg-white p-8 text-center border border-gray-200">
               <Calendar size={40} className="mx-auto mb-4 text-gold" />
               <h3 className="font-serif text-xl font-bold mb-3">Event Bookings</h3>
               <p className="text-gray-700 text-sm">Book talented musicians for weddings, parties, corporate events, and special occasions.</p>
             </div>
-            <div className="bg-cream rounded-lg p-8 text-center border border-gray-200">
+            <div className="bg-white p-8 text-center border border-gray-200">
               <Users size={40} className="mx-auto mb-4 text-gold" />
               <h3 className="font-serif text-xl font-bold mb-3">Expert Musicians</h3>
               <p className="text-gray-700 text-sm">Work with trained professionals from top music institutions including Berklee College of Music.</p>
             </div>
-            <div className="bg-cream rounded-lg p-8 text-center border border-gray-200">
+            <div className="bg-white p-8 text-center border border-gray-200">
               <Star size={40} className="mx-auto mb-4 text-gold" />
               <h3 className="font-serif text-xl font-bold mb-3">Exceptional Experiences</h3>
               <p className="text-gray-700 text-sm">Creating unforgettable musical moments that truly matter to you and your guests.</p>
@@ -176,7 +176,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Testimonial 1 */}
-            <div className="bg-white rounded-lg p-8 border border-gray-200">
+            <div className="bg-cream p-8">
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
                   <span key={i} className="text-gold">★</span>
@@ -190,7 +190,7 @@ export default function Home() {
             </div>
 
             {/* Testimonial 2 */}
-            <div className="bg-white rounded-lg p-8 border border-gray-200">
+            <div className="bg-cream p-8">
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
                   <span key={i} className="text-gold">★</span>
@@ -204,7 +204,7 @@ export default function Home() {
             </div>
 
             {/* Testimonial 3 */}
-            <div className="bg-white rounded-lg p-8 border border-gray-200">
+            <div className="bg-cream p-8">
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
                   <span key={i} className="text-gold">★</span>
@@ -221,7 +221,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-cream py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold uppercase tracking-widest text-sm font-medium mb-2">GET IN TOUCH</p>
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-12">Contact Us</h2>
