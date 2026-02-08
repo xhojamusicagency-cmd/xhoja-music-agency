@@ -139,21 +139,21 @@ export default function Lessons() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {instructors.map((instructor) => (
-              <div key={instructor.id} className="text-center">
+              <div key={instructor.id} className="bg-white border border-gray-200 rounded-lg p-8 text-center">
                 <div className="mb-4 flex justify-center">
                   <img
                     src={instructor.image}
                     alt={instructor.name}
-                    className="w-40 h-40 rounded-full object-cover border-4 border-gold"
+                    className="w-40 h-40 rounded-full object-cover shadow-md"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = 'https://via.placeholder.com/160?text=' + instructor.name.replace(' ', '+');
                     }}
                   />
                 </div>
                 <h3 className="font-serif text-xl font-bold mb-1">{instructor.name}</h3>
-                <p className="text-gold text-sm font-medium uppercase mb-2">{instructor.role}</p>
-                <p className="text-gray-600 text-sm mb-1"><strong>Instruments:</strong> {instructor.instruments}</p>
-                <p className="text-gray-600 text-sm mb-4"><strong>Experience:</strong> {instructor.experience}</p>
+                <p className="text-gold text-xs font-semibold uppercase tracking-wider mb-2">{instructor.role}</p>
+                <p className="text-gray-600 text-sm mb-1">{instructor.instruments}</p>
+                <p className="text-gray-600 text-sm mb-4">{instructor.experience} experience</p>
                 <button className="text-gold hover:text-gold/80 font-medium text-sm transition-colors">
                   VIEW FULL BIO
                 </button>

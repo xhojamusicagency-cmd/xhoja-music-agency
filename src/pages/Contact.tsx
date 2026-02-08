@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     phone: '',
-    subject: 'lessons',
+    subject: '',
     message: ''
   });
   const [agreedToTerms, setAgreedToTerms] = useState(false);
@@ -26,7 +26,7 @@ export default function Contact() {
       fullName: '',
       email: '',
       phone: '',
-      subject: 'lessons',
+      subject: '',
       message: ''
     });
     setAgreedToTerms(false);
@@ -118,67 +118,73 @@ export default function Contact() {
               <div className="bg-cream rounded-lg p-8 border border-gray-200">
                 <h3 className="font-serif text-2xl font-bold mb-6">Send Us a Message</h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
-                    <input
-                      type="text"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
-                      required
-                    />
-                  </div>
-
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                      <label className="block text-xs font-semibold uppercase tracking-wider text-gray-700 mb-2">Full Name *</label>
+                      <input
+                        type="text"
+                        name="fullName"
+                        value={formData.fullName}
+                        onChange={handleChange}
+                        placeholder="Your name"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold uppercase tracking-wider text-gray-700 mb-2">Email *</label>
                       <input
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                        placeholder="your@email.com"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
                         required
                       />
                     </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                      <label className="block text-xs font-semibold uppercase tracking-wider text-gray-700 mb-2">Phone</label>
                       <input
                         type="tel"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                        placeholder="(555) 123-4567"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
                       />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold uppercase tracking-wider text-gray-700 mb-2">Subject *</label>
+                      <select
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                        required
+                      >
+                        <option value="" disabled>Select a subject</option>
+                        <option value="lessons">Music Lessons Inquiry</option>
+                        <option value="events">Event Booking Inquiry</option>
+                        <option value="collaboration">Collaboration / Join Team</option>
+                        <option value="general">General Question</option>
+                        <option value="other">Other</option>
+                      </select>
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Subject *</label>
-                    <select
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
-                      required
-                    >
-                      <option value="lessons">Music Lessons Inquiry</option>
-                      <option value="events">Event Booking Inquiry</option>
-                      <option value="collaboration">Collaboration / Join Team</option>
-                      <option value="general">General Question</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-gray-700 mb-2">Message *</label>
                     <textarea
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       rows={5}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                      placeholder="Tell us how we can help you..."
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
                       required
                     ></textarea>
                   </div>
@@ -198,9 +204,10 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="w-full px-6 py-3 bg-gold text-dark font-medium hover:bg-gold/90 transition-colors"
+                    className="px-8 py-3 bg-gold text-dark font-medium hover:bg-gold/90 transition-colors flex items-center gap-2"
                   >
-                    Send Message
+                    <Send size={18} />
+                    SEND MESSAGE
                   </button>
                 </form>
               </div>

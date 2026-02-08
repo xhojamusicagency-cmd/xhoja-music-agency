@@ -92,23 +92,23 @@ export default function Team() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member) => (
-              <div key={member.id} className="bg-cream rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-64 object-cover"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400?text=' + member.name.replace(' ', '+');
-                  }}
-                />
-                <div className="p-6">
-                  <h3 className="font-serif text-xl font-bold mb-1">{member.name}</h3>
-                  <p className="text-gold text-sm font-medium uppercase mb-3">{member.role}</p>
-                  <p className="text-gray-700 text-sm leading-relaxed mb-4">{member.bio}</p>
-                  <button className="text-gold hover:text-gold/80 font-medium text-sm transition-colors">
-                    Read Full Bio
-                  </button>
+              <div key={member.id} className="border border-gray-200 rounded-lg p-8 text-center hover:shadow-lg transition-shadow">
+                <div className="mb-4 flex justify-center">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-40 h-40 rounded-full object-cover shadow-md"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'https://via.placeholder.com/160?text=' + member.name.replace(' ', '+');
+                    }}
+                  />
                 </div>
+                <h3 className="font-serif text-xl font-bold mb-1">{member.name}</h3>
+                <p className="text-gold text-xs font-semibold uppercase tracking-wider mb-3">{member.role}</p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-4 line-clamp-3">{member.bio}</p>
+                <button className="text-gold hover:text-gold/80 font-medium text-sm transition-colors">
+                  Read Full Bio
+                </button>
               </div>
             ))}
           </div>
