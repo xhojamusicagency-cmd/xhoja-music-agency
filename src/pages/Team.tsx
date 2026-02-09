@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Team() {
@@ -77,6 +77,28 @@ export default function Team() {
     }
   ];
 
+  // Use hash-based navigation for maximum browser compatibility
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash;
+      const match = hash.match(/^#bio-(\d+)$/);
+      if (match) {
+        setSelectedMember(parseInt(match[1], 10));
+      } else {
+        setSelectedMember(null);
+      }
+    };
+
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
+
+  const closeBio = () => {
+    setSelectedMember(null);
+    history.pushState(null, '', window.location.pathname);
+  };
+
   const activeMember = teamMembers.find(m => m.id === selectedMember);
 
   return (
@@ -114,13 +136,12 @@ export default function Team() {
                 <h3 className="font-serif text-lg sm:text-2xl font-medium mb-1">{member.name}</h3>
                 <p className="text-gold text-[10px] sm:text-xs font-medium uppercase tracking-[1.5px] sm:tracking-[2.4px] mb-2 sm:mb-3">{member.role}</p>
                 <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3 hidden sm:block">{member.bio}</p>
-                <button
-                  type="button"
-                  onClick={() => setSelectedMember(member.id)}
-                  className="text-gold hover:text-gold/80 font-normal text-xs sm:text-sm transition-colors cursor-pointer"
+                <a
+                  href={`#bio-${member.id}`}
+                  className="text-gold hover:text-gold/80 font-normal text-xs sm:text-sm transition-colors cursor-pointer inline-block"
                 >
                   Read Full Bio
-                </button>
+                </a>
               </div>
             ))}
           </div>
@@ -131,7 +152,7 @@ export default function Team() {
       {activeMember && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          onClick={() => setSelectedMember(null)}
+          onClick={closeBio}
         >
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
           <div
@@ -139,8 +160,9 @@ export default function Team() {
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              onClick={() => setSelectedMember(null)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+              type="button"
+              onClick={closeBio}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
