@@ -34,8 +34,8 @@ export default function Footer() {
           <div>
             <h4 className="font-serif text-lg font-medium mb-6">Contact</h4>
             <ul className="space-y-4 text-sm text-gray-400">
-              <li>(857) 498-8487</li>
-              <li>xhojamusicagency@gmail.com</li>
+              <li><a href="tel:+18574988487" className="hover:text-gold transition-colors">(857) 498-8487</a></li>
+              <li><a href="mailto:xhojamusicagency@gmail.com" className="hover:text-gold transition-colors">xhojamusicagency@gmail.com</a></li>
               <li>Boston, Massachusetts</li>
               <li className="pt-2">
                 <p>Mon-Fri: 9:00 AM - 6:00 PM</p>
