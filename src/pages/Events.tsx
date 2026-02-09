@@ -133,7 +133,7 @@ export default function Events() {
       </section>
 
       {/* Video Section */}
-      <section className="bg-white py-8 md:py-12">
+      <section className="bg-white py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">SEE US IN ACTION</p>
