@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Team() {
+  const [selectedMember, setSelectedMember] = useState<number | null>(null);
+
   const teamMembers = [
     {
       id: 1,
@@ -41,7 +44,7 @@ export default function Team() {
       id: 6,
       name: 'Jakob Kobal',
       role: 'Accordion & Piano Instructor',
-      bio: "Jakob Kobal is a Slovenian accordionist and pianist based in Boston. Classically and jazz-trained, he moves fluidly between tango, Balkan folk, jazz, and contemporary music \u2014 bringing a refined yet creative approach to every performance.",
+      bio: "Jakob Kobal is a Slovenian accordionist and pianist based in Boston. Classically and jazz-trained, he moves fluidly between tango, Balkan folk, jazz, and contemporary music — bringing a refined yet creative approach to every performance.",
       image: 'https://static.wixstatic.com/media/686f3e_86febc3fa5274c9e9848ef7c775db0f1~mv2.png/v1/fill/w_456,h_456,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_8894.png'
     },
     {
@@ -55,7 +58,7 @@ export default function Team() {
       id: 8,
       name: 'Calele (Carolina Perez)',
       role: 'Vocals & Trumpet Instructor',
-      bio: "Calele (Carolina Perez) is a Panamanian-Chilean Jazz and Latin vocalist and trumpeter currently studying Performance and Contemporary Writing and Production at Berklee College of Music. She has experience teaching children\u2019s music classes and summer workshops (ages 6\u201315) at Fundaci\u00f3n Danilo P\u00e9rez, as well as working as a freelance private instructor (in person and online).",
+      bio: "Calele (Carolina Perez) is a Panamanian-Chilean Jazz and Latin vocalist and trumpeter currently studying Performance and Contemporary Writing and Production at Berklee College of Music. She has experience teaching children’s music classes and summer workshops (ages 6–15) at Fundación Danilo Pérez, as well as working as a freelance private instructor (in person and online).",
       image: '/calele-perez.jpg'
     },
     {
@@ -69,10 +72,12 @@ export default function Team() {
       id: 10,
       name: 'Meshach',
       role: 'DJ',
-      bio: "Meshach is a Boston-based DJ known for his polished style, sharp musical instincts, and ability to read any room. With experience performing at private events, weddings, and corporate functions, he brings professionalism and energy to every set \u2014 curating seamless mixes that keep the dance floor alive from start to finish.",
+      bio: "Meshach is a Boston-based DJ known for his polished style, sharp musical instincts, and ability to read any room. With experience performing at private events, weddings, and corporate functions, he brings professionalism and energy to every set — curating seamless mixes that keep the dance floor alive from start to finish.",
       image: '/meshach-dj.jpg'
     }
   ];
+
+  const activeMember = teamMembers.find(m => m.id === selectedMember);
 
   return (
     <div>
@@ -94,20 +99,25 @@ export default function Team() {
             {teamMembers.map((member) => (
               <div key={member.id} className="border border-border p-4 sm:p-5 text-center group hover:shadow-lg transition-shadow">
                 <div className="mb-3 sm:mb-4 flex justify-center">
-                  <div className="w-32 h-32 sm:w-48 sm:h-48 rounded-full overflow-hidden flex-shrink-0">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  loading="eager"
-                  className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
-                  onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/192?text=' + member.name.replace(' ', '+'); }}
-                />
-              </div>
+                  <div className="w-36 h-36 sm:w-52 sm:h-52 rounded-full flex items-center justify-center border border-gold/25">
+                    <div className="w-32 h-32 sm:w-48 sm:h-48 rounded-full overflow-hidden flex-shrink-0">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        loading="eager"
+                        className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                        onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/192?text=' + member.name.replace(' ', '+'); }}
+                      />
+                    </div>
+                  </div>
                 </div>
                 <h3 className="font-serif text-lg sm:text-2xl font-medium mb-1">{member.name}</h3>
                 <p className="text-gold text-[10px] sm:text-xs font-medium uppercase tracking-[1.5px] sm:tracking-[2.4px] mb-2 sm:mb-3">{member.role}</p>
                 <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3 hidden sm:block">{member.bio}</p>
-                <button className="text-gold hover:text-gold/80 font-normal text-xs sm:text-sm transition-colors">
+                <button
+                  onClick={() => setSelectedMember(member.id)}
+                  className="text-gold hover:text-gold/80 font-normal text-xs sm:text-sm transition-colors"
+                >
                   Read Full Bio
                 </button>
               </div>
@@ -115,6 +125,44 @@ export default function Team() {
           </div>
         </div>
       </section>
+
+      {/* Bio Modal */}
+      {activeMember && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedMember(null)}
+        >
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+          <div
+            className="relative bg-white max-w-lg w-full p-6 sm:p-8 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedMember(null)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </button>
+            <div className="flex flex-col items-center text-center">
+              <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full flex items-center justify-center border border-gold/25 mb-4">
+                <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden">
+                  <img
+                    src={activeMember.image}
+                    alt={activeMember.name}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+              </div>
+              <h3 className="font-serif text-2xl sm:text-3xl font-medium mb-1">{activeMember.name}</h3>
+              <p className="text-gold text-xs font-medium uppercase tracking-[2.4px] mb-4">{activeMember.role}</p>
+              <div className="w-12 h-px bg-gold/30 mb-4" />
+              <p className="text-gray-500 text-sm sm:text-base leading-relaxed">{activeMember.bio}</p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Join Our Team Section */}
       <section className="bg-dark text-white py-16 md:py-24">
