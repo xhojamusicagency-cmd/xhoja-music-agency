@@ -133,11 +133,11 @@ export default function Events() {
       </section>
 
       {/* Video Section */}
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-white pt-8 pb-16 md:pt-10 md:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">SEE US IN ACTION</p>
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.1] tracking-wide text-center mb-6">A Taste Of What We Bring To Your Event</h2>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.1] tracking-wider text-center mb-6">A Taste Of What We Bring To Your Event</h2>
           </div>
           <div className="relative w-full max-w-3xl mx-auto aspect-video rounded-lg overflow-hidden shadow-lg bg-dark" style={{ backgroundImage: 'url(https://i.ytimg.com/vi/X3erxpEimGI/hqdefault.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <iframe
