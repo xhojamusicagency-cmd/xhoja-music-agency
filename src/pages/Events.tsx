@@ -137,12 +137,7 @@ export default function Events() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">SEE US IN ACTION</p>
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.1] text-center mb-6">
-              <span style={{ wordSpacing: '0.2em', letterSpacing: '0.02em' }}>A Taste</span>
-              {' '}
-              <span style={{ letterSpacing: '0.02em', marginRight: '-0.2em', display: 'inline-block' }}>Of</span>
-              <span style={{ letterSpacing: '0.02em', wordSpacing: '0.2em' }}>{' '}What We Bring To Your Event</span>
-            </h2>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.1] tracking-wide text-center mb-6">A Taste <span style={{ marginRight: '-0.03em', display: 'inline-block' }}>Of</span> What We Bring To Your Event</h2>
           </div>
           <div className="relative w-full max-w-3xl mx-auto aspect-video rounded-lg overflow-hidden shadow-lg bg-dark" style={{ backgroundImage: 'url(https://i.ytimg.com/vi/X3erxpEimGI/hqdefault.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <iframe
