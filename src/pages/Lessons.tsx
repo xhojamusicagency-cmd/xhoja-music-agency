@@ -282,16 +282,18 @@ export default function Lessons() {
             {instructors.map((instructor) => (
               <div key={instructor.id} className="bg-white border border-border p-4 sm:p-8 text-center group">
                 <div className="mb-3 sm:mb-4 flex justify-center">
-                  <div className="w-28 h-28 sm:w-44 sm:h-44 rounded-full border-2 border-gold/20 p-1">
-                    <img
-                      src={instructor.image}
-                      alt={instructor.name}
-                      loading="eager"
-                      className="w-full h-full rounded-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = 'https://via.placeholder.com/172?text=' + instructor.name.replace(' ', '+');
-                      }}
-                    />
+                  <div className="w-32 h-32 sm:w-48 sm:h-48 rounded-full flex items-center justify-center border border-gold/25">
+                    <div className="w-28 h-28 sm:w-44 sm:h-44 rounded-full overflow-hidden flex-shrink-0">
+                      <img
+                        src={instructor.image}
+                        alt={instructor.name}
+                        loading="eager"
+                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = 'https://via.placeholder.com/172?text=' + instructor.name.replace(' ', '+');
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
                 <h3 className="font-serif text-lg sm:text-2xl font-medium mb-1">{instructor.name}</h3>
