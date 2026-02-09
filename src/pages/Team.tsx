@@ -115,8 +115,9 @@ export default function Team() {
                 <p className="text-gold text-[10px] sm:text-xs font-medium uppercase tracking-[1.5px] sm:tracking-[2.4px] mb-2 sm:mb-3">{member.role}</p>
                 <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3 hidden sm:block">{member.bio}</p>
                 <button
+                  type="button"
                   onClick={() => setSelectedMember(member.id)}
-                  className="text-gold hover:text-gold/80 font-normal text-xs sm:text-sm transition-colors"
+                  className="text-gold hover:text-gold/80 font-normal text-xs sm:text-sm transition-colors cursor-pointer"
                 >
                   Read Full Bio
                 </button>
