@@ -70,7 +70,7 @@ export default function Team() {
     },
     {
       id: 10,
-      name: 'Meshach',
+      name: 'Meshach Modebe',
       role: 'DJ',
       bio: "Meshach is a Boston-based DJ known for his polished style, sharp musical instincts, and ability to read any room. With experience performing at private events, weddings, and corporate functions, he brings professionalism and energy to every set — curating seamless mixes that keep the dance floor alive from start to finish.",
       image: '/meshach-dj.jpg'
