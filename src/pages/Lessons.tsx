@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const INSTRUMENTS = [
@@ -34,6 +34,7 @@ export default function Lessons() {
   const [phone, setPhone] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [selectedInstructor, setSelectedInstructor] = useState<number | null>(null);
 
   const instructors = [
     {
@@ -42,6 +43,7 @@ export default function Lessons() {
       role: 'Artistic Director & CEO',
       instruments: 'Piano',
       experience: '15+ years',
+      bio: 'Alexander Xhoja is a Boston-based, twenty-one-year-old pianist who is a recent recipient of a full-ride scholarship to the prestigious Berklee College of Music. With immense dedication and drive, he enriches the lives and hearts of his listeners by implementing emotional depth into his sound.',
       image: '/alexander-xhoja.jpg'
     },
     {
@@ -50,6 +52,7 @@ export default function Lessons() {
       role: 'Chairman of Education & Piano Instructor',
       instruments: 'Piano & Clarinet',
       experience: '10+ years',
+      bio: 'Elton Xhoja, a Berklee-trained educator and performer, leads educational direction at Xhoja Music Agency, crafting clear lesson objectives and inspiring students through creativity, improvisation, and a lifelong love of music.',
       image: 'https://static.wixstatic.com/media/686f3e_83402c5b6c484a70aba733d6deb1ca7a~mv2.jpg/v1/fill/w_456,h_456,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Elton%20C%20photo.jpg'
     },
     {
@@ -58,6 +61,7 @@ export default function Lessons() {
       role: 'Bass & Guitar Instructor',
       instruments: 'Bass & Guitar',
       experience: '6+ years',
+      bio: 'Jude Seiner is a scholarship recipient at Berklee College of Music, where he is currently studying performance and developing his voice as a modern jazz and contemporary musician. Recognized with a full scholarship for his artistic excellence and musical potential, Jude is an active performer known for his strong groove, musical sensitivity, and collaborative approach on stage.',
       image: 'https://static.wixstatic.com/media/686f3e_c700beeefe3c4f01a3b7f68ab4e6a7d1~mv2.jpg/v1/fill/w_456,h_456,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Jude%20Base%20photo.jpg'
     },
     {
@@ -66,6 +70,7 @@ export default function Lessons() {
       role: 'Drum Instructor',
       instruments: 'Drums',
       experience: '6+ years',
+      bio: 'Kai Kitch is a dynamic Boston-based drummer and versatile musician with a strong foundation in jazz and fluency across R&B, pop, and funk. His well-rounded and adaptable approach makes him an excellent fit for a wide range of performances and ensemble settings.',
       image: 'https://static.wixstatic.com/media/686f3e_d74c52f6b3f34f11880e48dc3b202deb~mv2.jpg/v1/fill/w_456,h_456,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Kai%20Drum%20Photo.jpg'
     },
     {
@@ -74,6 +79,7 @@ export default function Lessons() {
       role: 'Accordion & Piano Instructor',
       instruments: 'Accordion & Piano',
       experience: '10+ years',
+      bio: 'Jakob Kobal is a Slovenian accordionist and pianist based in Boston. Classically and jazz-trained, he moves fluidly between tango, Balkan folk, jazz, and contemporary music — bringing a refined yet creative approach to every performance.',
       image: 'https://static.wixstatic.com/media/686f3e_86febc3fa5274c9e9848ef7c775db0f1~mv2.png/v1/fill/w_456,h_456,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_8894.png'
     },
     {
@@ -82,6 +88,7 @@ export default function Lessons() {
       role: 'Drum Instructor',
       instruments: 'Drums',
       experience: '8+ years',
+      bio: 'Ellis Cordaro is a versatile drummer and performing artist with a deep passion for jazz and global music traditions. Specializing in jazz, pop, R&B, rock, and Latin music, he brings a dynamic and culturally informed approach to every performance. He began his formal jazz training at the New England Conservatory Preparatory School before continuing his studies at the University of Massachusetts Amherst.',
       image: '/ellis-cordaro.jpg'
     },
     {
@@ -90,6 +97,7 @@ export default function Lessons() {
       role: 'Vocals & Trumpet Instructor',
       instruments: 'Vocals & Trumpet',
       experience: '5+ years',
+      bio: "Calele (Carolina Perez) is a Panamanian-Chilean Jazz and Latin vocalist and trumpeter currently studying Performance and Contemporary Writing and Production at Berklee College of Music. She has experience teaching children’s music classes and summer workshops (ages 6–15) at Fundación Danilo Pérez, as well as working as a freelance private instructor (in person and online).",
       image: '/calele-perez.jpg'
     },
     {
@@ -98,9 +106,34 @@ export default function Lessons() {
       role: 'Bass & Guitar Instructor',
       instruments: 'Electric Bass, Guitar & Congas',
       experience: '6+ years',
+      bio: 'Gabriel Lopez is a Puerto Rican electric bassist based in Boston. Deeply rooted in Latin music and jazz, his playing is driven by strong groove, time, and musical sensitivity. While bass is his primary instrument, Gabriel also brings a solid background in congas, which strongly informs his rhythmic approach and feel.',
       image: '/gabriel-lopez.jpg'
     }
   ];
+
+  // Hash-based navigation for instructor bios
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash;
+      const match = hash.match(/^#instructor-(\d+)$/);
+      if (match) {
+        setSelectedInstructor(parseInt(match[1], 10));
+      } else {
+        setSelectedInstructor(null);
+      }
+    };
+
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
+
+  const closeInstructorBio = () => {
+    setSelectedInstructor(null);
+    history.pushState(null, '', window.location.pathname);
+  };
+
+  const activeInstructor = instructors.find(i => i.id === selectedInstructor);
 
   const packages: PackageData[] = [
     {
@@ -265,14 +298,46 @@ export default function Lessons() {
                 <p className="text-gold text-[10px] sm:text-xs font-medium uppercase tracking-[1.5px] sm:tracking-[2.4px] mb-2">{instructor.role}</p>
                 <p className="text-gray-500 text-xs sm:text-sm mb-1 hidden sm:block">{instructor.instruments}</p>
                 <p className="text-gray-500 text-xs sm:text-sm mb-3 sm:mb-4">{instructor.experience} experience</p>
-                <button className="text-gold hover:text-gold/80 font-normal text-xs sm:text-sm transition-colors">
+                <a
+                  href={`#instructor-${instructor.id}`}
+                  className="text-gold hover:text-gold/80 font-normal text-xs sm:text-sm transition-colors cursor-pointer inline-block"
+                >
                   VIEW FULL BIO
-                </button>
+                </a>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Instructor Bio Modal */}
+      {activeInstructor && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={closeInstructorBio}>
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+          <div className="relative bg-white max-w-lg w-full p-6 sm:p-8 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              onClick={closeInstructorBio}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </button>
+            <div className="flex flex-col items-center text-center">
+              <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full flex items-center justify-center border border-gold/25 mb-4">
+                <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden">
+                  <img src={activeInstructor.image} alt={activeInstructor.name} className="w-full h-full object-cover object-top" />
+                </div>
+              </div>
+              <h3 className="font-serif text-2xl sm:text-3xl font-medium mb-1">{activeInstructor.name}</h3>
+              <p className="text-gold text-xs font-medium uppercase tracking-[2.4px] mb-4">{activeInstructor.role}</p>
+              <div className="w-12 h-px bg-gold/30 mb-4" />
+              <p className="text-gray-500 text-sm sm:text-base leading-relaxed">{activeInstructor.bio}</p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Lesson Packages Section */}
       <section className="bg-cream py-16 md:py-24">
