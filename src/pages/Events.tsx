@@ -7,6 +7,7 @@ export default function Events() {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -139,15 +140,31 @@ export default function Events() {
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">SEE US IN ACTION</p>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.1] tracking-wide text-center mb-6">A Taste <span style={{ marginRight: '-0.01em', display: 'inline-block' }}>Of</span> What We Bring To Your Event</h2>
           </div>
-          <div className="relative w-full max-w-3xl mx-auto aspect-video rounded-lg overflow-hidden shadow-lg bg-dark" style={{ backgroundImage: 'url(https://i.ytimg.com/vi/X3erxpEimGI/hqdefault.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <iframe
-              src="https://www.youtube.com/embed/X3erxpEimGI"
-              title="Mia McIntosh & Alexander Xhoja performing Million Years Ago by Adele"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              loading="eager"
-              className="absolute inset-0 w-full h-full"
-            ></iframe>
+          <div className="relative w-full max-w-3xl mx-auto aspect-video rounded-lg overflow-hidden shadow-lg bg-dark cursor-pointer" onClick={() => !videoLoaded && setVideoLoaded(true)}>
+            {videoLoaded ? (
+              <iframe
+                src="https://www.youtube.com/embed/X3erxpEimGI?autoplay=1"
+                title="Mia McIntosh & Alexander Xhoja performing Million Years Ago by Adele"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              ></iframe>
+            ) : (
+              <>
+                <img
+                  src="https://i.ytimg.com/vi/X3erxpEimGI/hqdefault.jpg"
+                  alt="Video thumbnail"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-red-600 rounded-full flex items-center justify-center shadow-lg hover:bg-red-700 transition-colors">
+                    <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
           <p className="text-sm text-gray-500 mt-4 text-center max-w-3xl mx-auto">Mia McIntosh & Alexander Xhoja performing &ldquo;Million Years Ago&rdquo; by Adele &mdash; a live piano & vocals duo at Berk Recital Hall.</p>
         </div>
