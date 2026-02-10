@@ -79,7 +79,7 @@ export default function Team() {
       id: 11,
       name: 'Ella Xhoja',
       role: 'Saxophone Instructor & Performer',
-      bio: 'Ella Xhoja is a saxophonist and performer shaped by the jazz scene \u2014 from Jazz at Lincoln Center to the Mingus Festival. Featured on WICN\'s Jazz for New England with the JazzHers and a member of the Post Underground Jazz Collective, she brings real stage experience into every lesson, helping students build technique, confidence, and their own artistic voice.',
+      bio: 'Ella Xhoja is a saxophonist and performer shaped by the jazz scene, from Jazz at Lincoln Center to the Mingus Festival. Featured on WICN\'s Jazz for New England with the JazzHers and a member of the Post Underground Jazz Collective, she brings real stage experience into every lesson, helping students build technique, confidence, and their own artistic voice.',
       image: '/ella-xhoja.jpg'
     }
   ];
