@@ -74,6 +74,13 @@ export default function Team() {
       role: 'DJ',
       bio: "Meshach is a Boston-based DJ known for his polished style, sharp musical instincts, and ability to read any room. With experience performing at private events, weddings, and corporate functions, he brings professionalism and energy to every set — curating seamless mixes that keep the dance floor alive from start to finish.",
       image: '/meshach-dj.jpg'
+    },
+    {
+      id: 11,
+      name: 'Ella Xhoja',
+      role: 'Saxophone Instructor & Performer',
+      bio: 'Ella Xhoja is a saxophonist and performer shaped by the jazz scene \u2014 from Jazz at Lincoln Center to the Mingus Festival. Featured on WICN\'s Jazz for New England with the JazzHers and a member of the Post Underground Jazz Collective, she brings real stage experience into every lesson, helping students build technique, confidence, and their own artistic voice.',
+      image: '/ella-xhoja.jpg'
     }
   ];
 
