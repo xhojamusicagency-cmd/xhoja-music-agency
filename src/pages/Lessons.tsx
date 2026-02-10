@@ -11,6 +11,7 @@ const INSTRUMENTS = [
   'Vocals',
   'Trumpet',
   'Congas',
+  'Saxophone',
 ];
 
 interface PackageData {
@@ -108,6 +109,15 @@ export default function Lessons() {
       experience: '6+ years',
       bio: 'Gabriel Lopez is a Puerto Rican electric bassist based in Boston. Deeply rooted in Latin music and jazz, his playing is driven by strong groove, time, and musical sensitivity. While bass is his primary instrument, Gabriel also brings a solid background in congas, which strongly informs his rhythmic approach and feel.',
       image: '/gabriel-lopez.jpg'
+    },
+    {
+      id: 9,
+      name: 'Ella Xhoja',
+      role: 'Saxophone Instructor & Performer',
+      instruments: 'Saxophone',
+      experience: '5+ years',
+      bio: 'Ella Xhoja is a saxophonist and performer shaped by the jazz scene, from Jazz at Lincoln Center to the Mingus Festival. Featured on WICN\'s Jazz for New England with the JazzHers and a member of the Post Underground Jazz Collective, she brings real stage experience into every lesson, helping students build technique, confidence, and their own artistic voice.',
+      image: '/ella-xhoja.jpg'
     }
   ];
 
@@ -551,4 +561,3 @@ export default function Lessons() {
     </div>
   );
 }
-
