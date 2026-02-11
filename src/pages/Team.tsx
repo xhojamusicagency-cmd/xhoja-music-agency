@@ -87,7 +87,7 @@ export default function Team() {
       name: 'Jamiliee Haddad Zamorano',
       role: 'Vocal & Songwriting Instructor',
       bio: 'Jamiliee Haddad Zamorano is a trilingual songwriting and vocal coach of Mexican and Syrian descent, professionally shaped by her studies at Berklee College of Music. A classically trained bel canto vocalist, she bridges jazz and contemporary styles, guiding artists through a technique-driven yet emotionally grounded approach.',
-      image: '/jamiliee-haddad-zamorano.jpg'
+      image: 'https://images.zoogletools.com/s:bzglfiles/u/695317/04afb2b13e601a5c1e51438219372e9a766013fa/original/whatsapp-image-2024-10-31-at-00-19-48.jpeg/!!/b%3AW1sic2l6ZSIsInBob3RvIl1d/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.jpg'
     }
   ];
 
