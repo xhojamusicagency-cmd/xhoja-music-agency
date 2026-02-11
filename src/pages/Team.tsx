@@ -81,6 +81,13 @@ export default function Team() {
       role: 'Saxophone Instructor & Performer',
       bio: 'Ella Xhoja is a saxophonist and performer deeply rooted in the jazz scene, with experience from Jazz at Lincoln Center to the Mingus Festival. Featured on WICN\'s Jazz for New England with JazzHers and a member of the Post Underground Jazz Collective, she brings real stage experience into every lesson, helping students develop strong technique, confidence, and a personal artistic voice.',
       image: '/ella-xhoja.jpg'
+    },
+    {
+      id: 12,
+      name: 'Jamiliee Haddad Zamorano',
+      role: 'Vocal & Songwriting Instructor',
+      bio: 'Jamiliee Haddad Zamorano is a trilingual songwriting and vocal coach of Mexican and Syrian descent, professionally shaped by her studies at Berklee College of Music. A classically trained bel canto vocalist, she bridges jazz and contemporary styles, guiding artists through a technique-driven yet emotionally grounded approach.',
+      image: '/jamiliee-haddad-zamorano.jpg'
     }
   ];
 
