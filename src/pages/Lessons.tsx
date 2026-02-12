@@ -128,6 +128,15 @@ export default function Lessons() {
       experience: '5+ years',
       bio: 'Jamiliee Haddad Zamorano is a trilingual songwriting and vocal coach of Mexican and Syrian descent, professionally shaped by her studies at Berklee College of Music. A classically trained bel canto vocalist, she bridges jazz and contemporary styles, guiding artists through a technique-driven yet emotionally grounded approach.',
       image: 'https://images.zoogletools.com/s:bzglfiles/u/695317/04afb2b13e601a5c1e51438219372e9a766013fa/original/whatsapp-image-2024-10-31-at-00-19-48.jpeg/!!/b%3AW1sic2l6ZSIsInBob3RvIl1d/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.jpg'
+    },
+    {
+      id: 11,
+      name: 'Dani Calderon',
+      role: 'Vocal Instructor',
+      instruments: 'Vocals',
+      experience: '5+ years',
+      bio: 'Dani is a passionate, hardworking and knowledgeable teacher, manager and vocalist! She creates an exciting learning environment that helps young singers build healthy vocal technique, musical literacy, and personal style. She strives to make every student feel like singing can be expressive and freeing, not something to be ashamed about!',
+      image: '/dani-calderon.jpg'
     }
   ];
 
