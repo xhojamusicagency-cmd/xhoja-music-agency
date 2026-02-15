@@ -136,7 +136,8 @@ export default function Lessons() {
       instruments: 'Vocals',
       experience: '5+ years',
       bio: 'Dani is a passionate, hardworking and knowledgeable teacher, manager and vocalist! She creates an exciting learning environment that helps young singers build healthy vocal technique, musical literacy, and personal style. She strives to make every student feel like singing can be expressive and freeing, not something to be ashamed about!',
-      image: '/dani-calderon.jpg'
+      image: '/dani-calderon.jpg',
+      imagePosition: 'object-center'
     }
   ];
 
@@ -317,7 +318,7 @@ export default function Lessons() {
                         src={instructor.image}
                         alt={instructor.name}
                         loading="eager"
-                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                        className={`w-full h-full object-cover ${'imagePosition' in instructor ? instructor.imagePosition : 'object-top'} transition-transform duration-500 group-hover:scale-110`}
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = 'https://via.placeholder.com/172?text=' + instructor.name.replace(' ', '+');
                         }}
@@ -358,7 +359,7 @@ export default function Lessons() {
             <div className="flex flex-col items-center text-center">
               <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full flex items-center justify-center border border-gold/25 mb-4">
                 <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden">
-                  <img src={activeInstructor.image} alt={activeInstructor.name} className="w-full h-full object-cover object-top" />
+                  <img src={activeInstructor.image} alt={activeInstructor.name} className={`w-full h-full object-cover ${'imagePosition' in activeInstructor ? activeInstructor.imagePosition : 'object-top'}`} />
                 </div>
               </div>
               <h3 className="font-serif text-2xl sm:text-3xl font-medium mb-1">{activeInstructor.name}</h3>
