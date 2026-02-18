@@ -36,15 +36,59 @@ export default function Events() {
 
   const maxInstruments = getMaxInstruments();
 
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
+
+  const validateStep = (step: number): boolean => {
+    const errors: Record<string, string> = {};
+
+    switch (step) {
+      case 1:
+        if (!formData.firstName.trim()) errors.firstName = 'First name is required';
+        if (!formData.lastName.trim()) errors.lastName = 'Last name is required';
+        if (!formData.email.trim()) {
+          errors.email = 'Email address is required';
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+          errors.email = 'Please enter a valid email address';
+        }
+        if (!formData.phone.trim()) errors.phone = 'Phone number is required';
+        break;
+      case 2:
+        if (!formData.eventDate) errors.eventDate = 'Event date is required';
+        if (!formData.eventType) errors.eventType = 'Please select an event type';
+        if (!formData.guestCount) errors.guestCount = 'Guest count is required';
+        break;
+      case 3:
+        if (!formData.genre) errors.genre = 'Please select a music genre';
+        break;
+      case 4:
+        if (!formData.combo) errors.combo = 'Please select an ensemble size';
+        break;
+      case 5:
+        if (formData.instruments.length === 0) errors.instruments = 'Please select at least one instrument';
+        break;
+    }
+
+    setValidationErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
+    if (validationErrors[name]) {
+      setValidationErrors(prev => {
+        const next = { ...prev };
+        delete next[name];
+        return next;
+      });
+    }
   };
 
   const handleNext = () => {
+    if (!validateStep(currentStep)) return;
     if (currentStep < steps.length) {
       setCurrentStep(currentStep + 1);
     }
@@ -74,6 +118,7 @@ export default function Events() {
   };
 
   const handleSubmit = async () => {
+    if (!validateStep(currentStep)) return;
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
@@ -223,9 +268,10 @@ export default function Events() {
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
+                      className={`w-full px-4 py-3 border ${validationErrors.firstName ? 'border-red-400' : 'border-border'} bg-white focus:ring-2 focus:ring-gold focus:border-transparent`}
                       required
                     />
+                    {validationErrors.firstName && <p className="text-red-500 text-xs mt-1">{validationErrors.firstName}</p>}
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
@@ -234,9 +280,10 @@ export default function Events() {
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
+                      className={`w-full px-4 py-3 border ${validationErrors.lastName ? 'border-red-400' : 'border-border'} bg-white focus:ring-2 focus:ring-gold focus:border-transparent`}
                       required
                     />
+                    {validationErrors.lastName && <p className="text-red-500 text-xs mt-1">{validationErrors.lastName}</p>}
                   </div>
                 </div>
                 <div>
@@ -246,9 +293,10 @@ export default function Events() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
+                    className={`w-full px-4 py-3 border ${validationErrors.email ? 'border-red-400' : 'border-border'} bg-white focus:ring-2 focus:ring-gold focus:border-transparent`}
                     required
                   />
+                  {validationErrors.email && <p className="text-red-500 text-xs mt-1">{validationErrors.email}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
@@ -257,9 +305,10 @@ export default function Events() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
+                    className={`w-full px-4 py-3 border ${validationErrors.phone ? 'border-red-400' : 'border-border'} bg-white focus:ring-2 focus:ring-gold focus:border-transparent`}
                     required
                   />
+                  {validationErrors.phone && <p className="text-red-500 text-xs mt-1">{validationErrors.phone}</p>}
                 </div>
               </div>
             )}
@@ -274,9 +323,10 @@ export default function Events() {
                     name="eventDate"
                     value={formData.eventDate}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
+                    className={`w-full px-4 py-3 border ${validationErrors.eventDate ? 'border-red-400' : 'border-border'} bg-white focus:ring-2 focus:ring-gold focus:border-transparent`}
                     required
                   />
+                  {validationErrors.eventDate && <p className="text-red-500 text-xs mt-1">{validationErrors.eventDate}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Event Type *</label>
@@ -284,7 +334,7 @@ export default function Events() {
                     name="eventType"
                     value={formData.eventType}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
+                    className={`w-full px-4 py-3 border ${validationErrors.eventType ? 'border-red-400' : 'border-border'} bg-white focus:ring-2 focus:ring-gold focus:border-transparent`}
                     required
                   >
                     <option value="">Select an event type</option>
@@ -295,6 +345,7 @@ export default function Events() {
                     <option value="graduation">Graduation</option>
                     <option value="other">Other</option>
                   </select>
+                  {validationErrors.eventType && <p className="text-red-500 text-xs mt-1">{validationErrors.eventType}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Guest Count *</label>
@@ -303,9 +354,10 @@ export default function Events() {
                     name="guestCount"
                     value={formData.guestCount}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
+                    className={`w-full px-4 py-3 border ${validationErrors.guestCount ? 'border-red-400' : 'border-border'} bg-white focus:ring-2 focus:ring-gold focus:border-transparent`}
                     required
                   />
+                  {validationErrors.guestCount && <p className="text-red-500 text-xs mt-1">{validationErrors.guestCount}</p>}
                 </div>
               </div>
             )}
@@ -319,7 +371,7 @@ export default function Events() {
                     name="genre"
                     value={formData.genre}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent"
+                    className={`w-full px-4 py-3 border ${validationErrors.genre ? 'border-red-400' : 'border-border'} bg-white focus:ring-2 focus:ring-gold focus:border-transparent`}
                     required
                   >
                     <option value="">Select a genre</option>
@@ -332,6 +384,7 @@ export default function Events() {
                     <option value="world">World Music</option>
                     <option value="dj">DJ/Electronic</option>
                   </select>
+                  {validationErrors.genre && <p className="text-red-500 text-xs mt-1">{validationErrors.genre}</p>}
                 </div>
               </div>
             )}
@@ -348,13 +401,17 @@ export default function Events() {
                         name="combo"
                         value={option}
                         checked={formData.combo === option}
-                        onChange={(e) => setFormData(prev => ({ ...prev, combo: e.target.value, instruments: [] }))}
+                        onChange={(e) => {
+                          setFormData(prev => ({ ...prev, combo: e.target.value, instruments: [] }));
+                          setValidationErrors(prev => { const next = { ...prev }; delete next.combo; return next; });
+                        }}
                         className="mr-3 accent-gold"
                       />
                       <span>{option}</span>
                     </label>
                   ))}
                 </div>
+                {validationErrors.combo && <p className="text-red-500 text-xs mt-1">{validationErrors.combo}</p>}
               </div>
             )}
 
@@ -384,6 +441,7 @@ export default function Events() {
                                 ? [...prev.instruments, instrument]
                                 : prev.instruments.filter(i => i !== instrument)
                             }));
+                            setValidationErrors(prev => { const next = { ...prev }; delete next.instruments; return next; });
                           }}
                           className="mr-3 accent-gold"
                         />
@@ -392,6 +450,7 @@ export default function Events() {
                     );
                   })}
                 </div>
+                {validationErrors.instruments && <p className="text-red-500 text-xs mt-1">{validationErrors.instruments}</p>}
               </div>
             )}
 
