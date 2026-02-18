@@ -19,9 +19,13 @@ export default function Events() {
     genre: '',
     combo: '',
     instruments: [] as string[],
+    djVibe: '',
   });
 
-  const steps = ['Your Information', 'Event Details', 'Music Genre', 'Music Combo', 'Instruments'];
+  const isDJ = formData.genre === 'dj';
+  const steps = isDJ
+    ? ['Your Information', 'Event Details', 'Music Genre', 'DJ Vibe']
+    : ['Your Information', 'Event Details', 'Music Genre', 'Music Combo', 'Instruments'];
 
   const getMaxInstruments = () => {
     switch (formData.combo) {
@@ -61,10 +65,14 @@ export default function Events() {
         if (!formData.genre) errors.genre = 'Please select a music genre';
         break;
       case 4:
-        if (!formData.combo) errors.combo = 'Please select an ensemble size';
+        if (isDJ) {
+          if (!formData.djVibe) errors.djVibe = 'Please select a DJ vibe';
+        } else {
+          if (!formData.combo) errors.combo = 'Please select an ensemble size';
+        }
         break;
       case 5:
-        if (formData.instruments.length === 0) errors.instruments = 'Please select at least one instrument';
+        if (!isDJ && formData.instruments.length === 0) errors.instruments = 'Please select at least one instrument';
         break;
     }
 
@@ -74,10 +82,16 @@ export default function Events() {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData(prev => {
+      const updated = { ...prev, [name]: value };
+      // When genre changes, clear downstream fields so the new path starts fresh
+      if (name === 'genre') {
+        updated.combo = '';
+        updated.instruments = [];
+        updated.djVibe = '';
+      }
+      return updated;
+    });
     if (validationErrors[name]) {
       setValidationErrors(prev => {
         const next = { ...prev };
@@ -129,9 +143,10 @@ export default function Events() {
       event_date: formatDate(formData.eventDate),
       event_type: formData.eventType,
       guest_count: formData.guestCount,
-      genre: formData.genre,
-      combo: formData.combo || 'Not specified',
-      instruments: formData.instruments.join(', ') || 'Not specified',
+      genre: isDJ ? 'DJ/Electronic' : formData.genre,
+      combo: isDJ ? 'DJ' : (formData.combo || 'Not specified'),
+      instruments: isDJ ? 'N/A' : (formData.instruments.join(', ') || 'Not specified'),
+      dj_vibe: isDJ ? formData.djVibe : 'N/A',
       to_email: formData.email,
       client_first_name: formData.firstName,
     };
@@ -156,6 +171,7 @@ export default function Events() {
         genre: '',
         combo: '',
         instruments: [] as string[],
+        djVibe: '',
       });
     } catch (error) {
       console.error('EmailJS Error:', error);
@@ -389,8 +405,32 @@ export default function Events() {
               </div>
             )}
 
-            {/* Step 4: Music Combo */}
-            {currentStep === 4 && (
+            {/* Step 4: DJ Vibe (if DJ) or Music Combo (if live music) */}
+            {currentStep === 4 && isDJ && (
+              <div className="space-y-6">
+                <p className="text-gray-600">What vibe are you looking for?</p>
+                <div className="space-y-3">
+                  {['Top 40 / Pop Hits', 'House / EDM', 'Latin / Reggaeton', 'Old School / Throwbacks', 'R&B / Hip-Hop', 'Mix of Everything'].map((option) => (
+                    <label key={option} className="flex items-center cursor-pointer">
+                      <input
+                        type="radio"
+                        name="djVibe"
+                        value={option}
+                        checked={formData.djVibe === option}
+                        onChange={(e) => {
+                          setFormData(prev => ({ ...prev, djVibe: e.target.value }));
+                          setValidationErrors(prev => { const next = { ...prev }; delete next.djVibe; return next; });
+                        }}
+                        className="mr-3 accent-gold"
+                      />
+                      <span>{option}</span>
+                    </label>
+                  ))}
+                </div>
+                {validationErrors.djVibe && <p className="text-red-500 text-xs mt-1">{validationErrors.djVibe}</p>}
+              </div>
+            )}
+            {currentStep === 4 && !isDJ && (
               <div className="space-y-6">
                 <p className="text-gray-600">Tell us about your preferred ensemble size</p>
                 <div className="space-y-3">
