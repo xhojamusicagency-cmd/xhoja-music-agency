@@ -19,35 +19,35 @@ export default function Team() {
       name: 'Caelan Quadra',
       role: 'Executive Director',
       bio: "Caelan Quadra manages the Xhoja Music Agency's website, communication, and artist relations, ensuring seamless operations and a professional online presence that connects audiences with the agency's creative vision.",
-      image: 'https://static.wixstatic.com/media/686f3e_67ab00f9588c45b2aa7769c497b4f72b~mv2.jpeg/v1/fill/w_456,h_456,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_5053.jpeg'
+      image: '/jamiliee-team.jpg'
     },
     {
       id: 3,
       name: 'Elton Xhoja',
       role: 'Chairman of Education & Piano Instructor',
       bio: 'Elton Xhoja, a Berklee-trained educator and performer, leads educational direction at Xhoja Music Agency, crafting clear lesson objectives and inspiring students through creativity, improvisation, and a lifelong love of music.',
-      image: 'https://static.wixstatic.com/media/686f3e_83402c5b6c484a70aba733d6deb1ca7a~mv2.jpg/v1/fill/w_456,h_456,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Elton%20C%20photo.jpg'
+      image: '/elton-c.jpg'
     },
     {
       id: 4,
       name: 'Jude Seiner',
       role: 'Bass & Guitar Instructor',
       bio: 'Jude Seiner is a scholarship recipient at Berklee College of Music, where he is currently studying performance and developing his voice as a modern jazz and contemporary musician. Recognized with a full scholarship for his artistic excellence and musical potential, Jude is an active performer known for his strong groove, musical sensitivity, and collaborative approach on stage.',
-      image: 'https://static.wixstatic.com/media/686f3e_c700beeefe3c4f01a3b7f68ab4e6a7d1~mv2.jpg/v1/fill/w_456,h_456,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Jude%20Base%20photo.jpg'
+      image: '/jude-base.jpg'
     },
     {
       id: 5,
       name: 'Kai Kitch',
       role: 'Drum Instructor',
       bio: 'Kai Kitch is a dynamic Boston-based drummer and versatile musician with a strong foundation in jazz and fluency across R&B, pop, and funk. His well-rounded and adaptable approach makes him an excellent fit for a wide range of performances and ensemble settings.',
-      image: 'https://static.wixstatic.com/media/686f3e_d74c52f6b3f34f11880e48dc3b202deb~mv2.jpg/v1/fill/w_456,h_456,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Kai%20Drum%20Photo.jpg'
+      image: '/kai-drum.jpg'
     },
     {
       id: 6,
       name: 'Jakob Kobal',
       role: 'Accordion & Piano Instructor',
       bio: "Jakob Kobal is a Slovenian accordionist and pianist based in Boston. Classically and jazz-trained, he moves fluidly between tango, Balkan folk, jazz, and contemporary music — bringing a refined yet creative approach to every performance.",
-      image: 'https://static.wixstatic.com/media/686f3e_86febc3fa5274c9e9848ef7c775db0f1~mv2.png/v1/fill/w_456,h_456,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_8894.png'
+      image: '/jakob-jamiliee.png'
     },
     {
       id: 7,
@@ -89,7 +89,7 @@ export default function Team() {
       name: 'Jamiliee Haddad Zamorano',
       role: 'Vocal & Songwriting Instructor',
       bio: 'Jamiliee Haddad Zamorano is a trilingual songwriting and vocal coach of Mexican and Syrian descent, professionally shaped by her studies at Berklee College of Music. A classically trained bel canto vocalist, she bridges jazz and contemporary styles, guiding artists through a technique-driven yet emotionally grounded approach.',
-      image: 'https://images.zoogletools.com/s:bzglfiles/u/695317/04afb2b13e601a5c1e51438219372e9a766013fa/original/whatsapp-image-2024-10-31-at-00-19-48.jpeg/!!/b%3AW1sic2l6ZSIsInBob3RvIl1d/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.jpg'
+      image: '/jamiliee-haddad.jpg'
     },
     {
       id: 13,
