@@ -9,6 +9,12 @@ import Contact from './pages/Contact';
 import PaymentSuccess from './pages/PaymentSuccess';
 import PaymentFailed from './pages/PaymentFailed';
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
@@ -22,6 +28,10 @@ function ScrollToTop() {
       }, 100);
     } else {
       window.scrollTo(0, 0);
+    }
+    // Track page view in Google Analytics on every route change
+    if (window.gtag) {
+      window.gtag('config', 'G-QHEDYQZCQD', { page_path: pathname });
     }
   }, [pathname, hash]);
   return null;
