@@ -41,15 +41,19 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/payment-success" element={<PaymentSuccess />} />
           <Route path="/payment-failed" element={<PaymentFailed />} />
+          {/* Old Wix URL redirects — these are the URLs Google sitelinks still point to */}
+          <Route path="/copy-of-instructors" element={<Navigate to="/lessons" replace />} />
+          <Route path="/biography/*" element={<Navigate to="/team" replace />} />
+          <Route path="/instructors" element={<Navigate to="/lessons" replace />} />
           {/* SEO-friendly redirects for Google sitelinks */}
-          <Route path="/trumpet-lessons" element={<Navigate to="/lessons#instructors" replace />} />
-          <Route path="/piano-lessons" element={<Navigate to="/lessons#instructors" replace />} />
-          <Route path="/guitar-lessons" element={<Navigate to="/lessons#instructors" replace />} />
-          <Route path="/drum-lessons" element={<Navigate to="/lessons#instructors" replace />} />
-          <Route path="/vocal-lessons" element={<Navigate to="/lessons#instructors" replace />} />
+          <Route path="/trumpet-lessons" element={<Navigate to="/lessons" replace />} />
+          <Route path="/piano-lessons" element={<Navigate to="/lessons" replace />} />
+          <Route path="/guitar-lessons" element={<Navigate to="/lessons" replace />} />
+          <Route path="/drum-lessons" element={<Navigate to="/lessons" replace />} />
+          <Route path="/vocal-lessons" element={<Navigate to="/lessons" replace />} />
           <Route path="/music-lessons" element={<Navigate to="/lessons" replace />} />
-          <Route path="/alexanders-bio" element={<Navigate to="/team#bio-1" replace />} />
-          <Route path="/alexander-xhoja" element={<Navigate to="/team#bio-1" replace />} />
+          <Route path="/alexanders-bio" element={<Navigate to="/team" replace />} />
+          <Route path="/alexander-xhoja" element={<Navigate to="/team" replace />} />
           <Route path="/bio" element={<Navigate to="/team" replace />} />
           <Route path="/event-bookings" element={<Navigate to="/events" replace />} />
           <Route path="/book-event" element={<Navigate to="/events" replace />} />
