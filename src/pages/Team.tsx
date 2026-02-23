@@ -125,7 +125,7 @@ export default function Team() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-cream py-10 md:py-16">
+      <section id="meet-the-team" className="bg-cream py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">THE FACES BEHIND THE MUSIC</p>
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-light leading-[1.1] tracking-[1.5px] mb-4">Meet The Team</h1>
@@ -136,11 +136,11 @@ export default function Team() {
       </section>
 
       {/* Team Members Grid */}
-      <section className="bg-white py-10 md:py-16">
+      <section id="team-members" className="bg-white py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
             {teamMembers.map((member) => (
-              <div key={member.id} className="border border-border p-4 sm:p-5 text-center group hover:shadow-lg transition-shadow">
+              <div key={member.id} id={`member-${member.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} className="border border-border p-4 sm:p-5 text-center group hover:shadow-lg transition-shadow">
                 <div className="mb-3 sm:mb-4 flex justify-center">
                   <div className="w-36 h-36 sm:w-52 sm:h-52 rounded-full flex items-center justify-center border border-gold/25">
                     <div className="w-32 h-32 sm:w-48 sm:h-48 rounded-full overflow-hidden flex-shrink-0">
@@ -161,7 +161,7 @@ export default function Team() {
                   href={`#bio-${member.id}`}
                   className="text-gold hover:text-gold/80 font-normal text-xs sm:text-sm transition-colors cursor-pointer inline-block"
                 >
-                  Read Full Bio
+                  {member.id === 1 ? "Alexander's Bio" : 'Read Full Bio'}
                 </a>
               </div>
             ))}

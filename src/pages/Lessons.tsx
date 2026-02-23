@@ -291,7 +291,7 @@ export default function Lessons() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-cream py-10 md:py-16">
+      <section id="music-lessons" className="bg-cream py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">PERSONALIZED INSTRUCTION</p>
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-light leading-[1.1] tracking-[1.5px] mb-4">Music Lessons</h1>
@@ -302,7 +302,7 @@ export default function Lessons() {
       </section>
 
       {/* Meet Your Instructors Section */}
-      <section className="bg-white py-10 md:py-16">
+      <section id="instructors" className="bg-white py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">OUR EDUCATORS</p>
@@ -372,7 +372,7 @@ export default function Lessons() {
       )}
 
       {/* Lesson Packages Section */}
-      <section className="bg-cream py-16 md:py-24">
+      <section id="lesson-packages" className="bg-cream py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-4">Lesson Packages</h2>

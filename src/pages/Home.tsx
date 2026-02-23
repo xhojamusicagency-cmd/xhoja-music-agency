@@ -44,13 +44,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Get To Know Us Section */}
-      <section className="bg-white py-10 md:py-16">
+      {/* Get To Know Us Section - Alexander's Bio */}
+      <section id="alexanders-bio" className="bg-white py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">OUR MUSIC JOURNEY BEGINS</p>
               <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-4">Get To Know Us</h2>
+              <h3 className="sr-only">Alexander's Bio</h3>
               <div className="w-16 h-1 bg-gold mb-6"></div>
               <p className="text-gray-500 mb-4 leading-relaxed">
                 Founded by Alexander Xhoja, a Berklee College of Music full-scholarship pianist and accomplished performer, Xhoja Music Agency is dedicated to nurturing musical talent and delivering exceptional live experiences.
@@ -80,7 +81,7 @@ export default function Home() {
       </section>
 
       {/* From Jazz to DJ Sets Section */}
-      <section className="bg-dark text-white py-16 md:py-24">
+      <section id="live-entertainment" className="bg-dark text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -144,7 +145,7 @@ export default function Home() {
       </section>
 
       {/* Our Services Section */}
-      <section className="bg-cream py-16 md:py-24">
+      <section id="services" className="bg-cream py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">WHAT WE OFFER</p>
@@ -176,7 +177,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-cream-mid py-16 md:py-24">
+      <section id="testimonials" className="bg-cream-mid py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">TESTIMONIALS</p>
