@@ -2,8 +2,10 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../utils/emailjs';
+import usePageTitle from '../hooks/usePageTitle';
 
 export default function PaymentSuccess() {
+  usePageTitle('Payment Successful');
   useEffect(() => {
     const raw = localStorage.getItem('pendingPurchase');
     if (!raw) return;

@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { ChevronRight } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../utils/emailjs';
+import usePageTitle from '../hooks/usePageTitle';
 
 export default function Events() {
+  usePageTitle('Event Bookings — Live Musicians for Hire in Boston');
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');

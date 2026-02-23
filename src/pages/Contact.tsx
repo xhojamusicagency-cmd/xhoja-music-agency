@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../utils/emailjs';
+import usePageTitle from '../hooks/usePageTitle';
 
 export default function Contact() {
+  usePageTitle('Contact Us — Get in Touch');
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -79,7 +81,7 @@ export default function Contact() {
     },
     {
       question: 'What instruments do you offer lessons for?',
-      answer: 'We currently offer lessons in piano, voice, guitar, violin, and drums. Our instructors are highly trained professionals with extensive performance and teaching experience.'
+      answer: 'We offer lessons in piano, guitar, bass, drums, vocals, trumpet, saxophone, clarinet, accordion, congas, and songwriting. Our instructors are highly trained professionals from institutions like Berklee College of Music.'
     },
     {
       question: 'Do you travel for events outside Boston?',
@@ -238,7 +240,7 @@ export default function Contact() {
                       required
                     />
                     <label className="text-sm text-gray-500">
-                      By submitting this form, I acknowledge that I have read and agreed to Xhoja Music Agency's terms of service and privacy policy. *
+                      By submitting this form, I consent to Xhoja Music Agency contacting me regarding my inquiry. Your information will only be used to respond to your message and will not be shared with third parties. *
                     </label>
                   </div>
 

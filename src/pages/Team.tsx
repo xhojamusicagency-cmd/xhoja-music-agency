@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import usePageTitle from '../hooks/usePageTitle';
 
 export default function Team() {
+  usePageTitle('Meet The Team — Musicians & Instructors');
   const [selectedMember, setSelectedMember] = useState<number | null>(null);
 
   const teamMembers = [

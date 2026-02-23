@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import usePageTitle from '../hooks/usePageTitle';
 
 export default function PaymentFailed() {
+  usePageTitle('Payment Failed');
   return (
     <div>
       {/* Hero header matching site style */}

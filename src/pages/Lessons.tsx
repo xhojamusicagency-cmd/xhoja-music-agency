@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import usePageTitle from '../hooks/usePageTitle';
 
 const INSTRUMENTS = [
   'Piano',
@@ -28,6 +29,7 @@ interface PackageData {
 }
 
 export default function Lessons() {
+  usePageTitle('Music Lessons in Boston — Piano, Guitar, Drums & More');
   const [selectedPackage, setSelectedPackage] = useState<PackageData | null>(null);
   const [instrument, setInstrument] = useState('');
   const [firstName, setFirstName] = useState('');

@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Music, Calendar, Users, Star, Instagram, Phone, Mail, MapPin } from 'lucide-react';
+import usePageTitle from '../hooks/usePageTitle';
 
 export default function Home() {
+  usePageTitle();
   return (
     <div>
       {/* Hero Section */}
