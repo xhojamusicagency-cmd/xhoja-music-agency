@@ -82,36 +82,45 @@ export default function Home() {
         </div>
       </section>
 
-      {/* From Jazz to DJ Sets Section */}
-      <section id="live-entertainment" className="bg-dark text-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <img
-                src="/dj-performance.jpg"
-                alt="Xhoja Music Agency DJ performing at a live event"
-                className="shadow-lg w-full h-auto"
-              />
-            </div>
-            <div>
-              <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">LIVE ENTERTAINMENT</p>
-              <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-4 text-cream-light">From Jazz To DJ Sets</h2>
-              <div className="w-16 h-1 bg-gold mb-6"></div>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                Whether you need an elegant jazz quartet for a corporate gala, a solo pianist for a wedding ceremony, or a DJ to keep the dance floor alive — Xhoja Music Agency delivers exceptional live entertainment tailored to your event.
-              </p>
-              <p className="text-gray-300 mb-8 leading-relaxed">
-                Our roster includes classically trained musicians, seasoned jazz performers, and professional DJs — all vetted and managed to ensure a flawless experience every time.
-              </p>
-              <Link
-                to="/events"
-                className="inline-block px-8 py-3 bg-gold text-white font-normal hover:bg-gold/90 transition-colors"
-              >
-                REQUEST A QUOTE
-              </Link>
-            </div>
+      {/* From Jazz to DJ Sets Section - Video Background */}
+      <section id="live-entertainment" className="relative overflow-hidden" style={{ minHeight: '85vh' }}>
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover scale-105"
+        >
+          <source src="/dj-video.mp4" type="video/mp4" />
+        </video>
+        {/* Luxury Gradient Overlay */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.8) 100%)' }}></div>
+        {/* Top Gold Accent Line */}
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+        {/* Content */}
+        <div className="relative z-10 flex items-center justify-center" style={{ minHeight: '85vh' }}>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p className="text-gold uppercase tracking-[4px] text-xs sm:text-sm mb-4 font-light">LIVE ENTERTAINMENT</p>
+            <div className="w-12 h-[1px] bg-gold/60 mx-auto mb-6"></div>
+            <h2 className="font-serif text-4xl sm:text-5xl md:text-7xl font-light leading-[1.05] tracking-[2px] mb-6 text-white">From Jazz To DJ Sets</h2>
+            <div className="w-20 h-[1px] bg-gold mx-auto mb-8"></div>
+            <p className="text-white/80 mb-4 leading-relaxed max-w-2xl mx-auto text-sm sm:text-base font-light tracking-wide">
+              Whether you need an elegant jazz quartet for a corporate gala, a solo pianist for a wedding ceremony, or a DJ to keep the dance floor alive — Xhoja Music Agency delivers exceptional live entertainment tailored to your event.
+            </p>
+            <p className="text-white/70 mb-10 leading-relaxed max-w-2xl mx-auto text-sm sm:text-base font-light tracking-wide">
+              Our roster includes classically trained musicians, seasoned jazz performers, and professional DJs — all vetted and managed to ensure a flawless experience every time.
+            </p>
+            <Link
+              to="/events"
+              className="inline-block px-12 py-4 border border-gold text-gold text-xs sm:text-sm font-light tracking-[3px] uppercase hover:bg-gold hover:text-white transition-all duration-500"
+            >
+              REQUEST A QUOTE
+            </Link>
           </div>
         </div>
+        {/* Bottom Gold Accent Line */}
+        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent"></div>
       </section>
 
       {/* Setting the Stage Section */}
@@ -126,7 +135,7 @@ export default function Home() {
                 From intimate rehearsal dinners to grand ballroom receptions, we bring the music that sets the perfect tone for your special day. Our musicians arrive early, set up professionally, and create an atmosphere your guests will remember.
               </p>
               <p className="text-gray-500 mb-8 leading-relaxed">
-                Every detail matters — and we treat your event with the care and professionalism it deserves, ensuring a seamless musical experience from start to finish.
+                Every detail matters â and we treat your event with the care and professionalism it deserves, ensuring a seamless musical experience from start to finish.
               </p>
               <Link
                 to="/contact"
@@ -190,11 +199,11 @@ export default function Home() {
             <div className="bg-white border border-border p-8 flex flex-col">
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-gold">★</span>
+                  <span key={i} className="text-gold">â</span>
                 ))}
               </div>
               <p className="text-gray-500 mb-6 leading-relaxed flex-1">
-                "Thanks for an amazing performance for our wedding. Casandra and I totally loved it for our Henna ceremony. He was phenomenal and we'd be working with him again soon. Catch him before he gets famous — totally a rockstar."
+                "Thanks for an amazing performance for our wedding. Casandra and I totally loved it for our Henna ceremony. He was phenomenal and we'd be working with him again soon. Catch him before he gets famous â totally a rockstar."
               </p>
               <div>
                 <p className="font-medium text-dark">Adhunik Anubhav</p>
@@ -206,11 +215,11 @@ export default function Home() {
             <div className="bg-white border border-border p-8 flex flex-col">
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-gold">★</span>
+                  <span key={i} className="text-gold">â</span>
                 ))}
               </div>
               <p className="text-gray-500 mb-6 leading-relaxed flex-1">
-                "I recently booked a studio session with Xhoja Music Agency and had an amazing experience. In less than two weeks, the agency arranged everything — the studio, sound engineer and a talented string quartet. Everyone arrived on time and the studio was set up quickly and professionally. I highly recommend Xhoja Music Agency to any artist looking for a smooth and professional recording experience."
+                "I recently booked a studio session with Xhoja Music Agency and had an amazing experience. In less than two weeks, the agency arranged everything â the studio, sound engineer and a talented string quartet. Everyone arrived on time and the studio was set up quickly and professionally. I highly recommend Xhoja Music Agency to any artist looking for a smooth and professional recording experience."
               </p>
               <div>
                 <p className="font-medium text-dark">Petr Moguto</p>
@@ -222,7 +231,7 @@ export default function Home() {
             <div className="bg-white border border-border p-8 flex flex-col">
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-gold">★</span>
+                  <span key={i} className="text-gold">â</span>
                 ))}
               </div>
               <p className="text-gray-500 mb-6 leading-relaxed flex-1">
