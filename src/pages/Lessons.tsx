@@ -331,7 +331,6 @@ export default function Lessons() {
                 <h3 className="font-serif text-lg sm:text-2xl font-medium mb-1">{instructor.name}</h3>
                 <p className="text-gold text-[10px] sm:text-xs font-medium uppercase tracking-[1.5px] sm:tracking-[2.4px] mb-2">{instructor.role}</p>
                 <p className="text-gray-500 text-xs sm:text-sm mb-1 hidden sm:block">{instructor.instruments}</p>
-                <p className="text-gray-500 text-xs sm:text-sm mb-3 sm:mb-4">{instructor.experience} experience</p>
                 <a
                   href={`#instructor-${instructor.id}`}
                   className="text-gold hover:text-gold/80 font-normal text-xs sm:text-sm transition-colors cursor-pointer inline-block"
