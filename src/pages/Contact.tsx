@@ -114,7 +114,7 @@ export default function Contact() {
             <div className="space-y-8">
               <h3 className="font-serif text-2xl font-medium">Contact Information</h3>
               <div className="flex gap-4">
-                <Mail size={32} className="text-gold flex-shrink-0 mt-1" />
+                <Mail size={20} className="text-gold flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-serif text-lg font-medium mb-2">Email</h4>
                   <a href="mailto:xhojamusicagency@gmail.com" className="text-gold hover:text-gold/80 transition-colors">
@@ -124,7 +124,7 @@ export default function Contact() {
               </div>
 
               <div className="flex gap-4">
-                <Phone size={32} className="text-gold flex-shrink-0 mt-1" />
+                <Phone size={20} className="text-gold flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-serif text-lg font-medium mb-2">Phone</h4>
                   <a href="tel:+18574988487" className="text-gold hover:text-gold/80 transition-colors">
@@ -134,7 +134,7 @@ export default function Contact() {
               </div>
 
               <div className="flex gap-4">
-                <MapPin size={32} className="text-gold flex-shrink-0 mt-1" />
+                <MapPin size={20} className="text-gold flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-serif text-lg font-medium mb-2">Location</h4>
                   <p className="text-gray-500">Boston, Massachusetts</p>
@@ -143,7 +143,7 @@ export default function Contact() {
               </div>
 
               <div className="flex gap-4">
-                <Clock size={32} className="text-gold flex-shrink-0 mt-1" />
+                <Clock size={20} className="text-gold flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-serif text-lg font-medium mb-2">Office Hours</h4>
                   <p className="text-gray-500 text-sm">
