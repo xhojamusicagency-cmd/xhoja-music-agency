@@ -310,32 +310,30 @@ export default function Lessons() {
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">OUR EDUCATORS</p>
             <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px]">Meet Your Instructors</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12">
             {instructors.map((instructor) => (
-              <div key={instructor.id} className="bg-white border border-border p-4 sm:p-8 text-center group">
-                <div className="mb-3 sm:mb-4 flex justify-center">
-                  <div className="w-32 h-32 sm:w-48 sm:h-48 rounded-full flex items-center justify-center border border-gold/25">
-                    <div className="w-28 h-28 sm:w-44 sm:h-44 rounded-full overflow-hidden flex-shrink-0">
-                      <img
-                        src={instructor.image}
-                        alt={instructor.name}
-                        loading="eager"
-                        className={`w-full h-full object-cover ${'imagePosition' in instructor ? instructor.imagePosition : 'object-top'} transition-transform duration-500 group-hover:scale-110`}
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = 'https://via.placeholder.com/172?text=' + instructor.name.replace(' ', '+');
-                        }}
-                      />
-                    </div>
-                  </div>
+              <div key={instructor.id} className="flex flex-col items-center text-center group">
+                <div className="relative w-full aspect-square mb-5 overflow-hidden">
+                  <img
+                    src={instructor.image}
+                    alt={instructor.name}
+                    loading="eager"
+                    className={`w-full h-full object-cover ${'imagePosition' in instructor ? instructor.imagePosition : 'object-top'} transition-transform duration-700 group-hover:scale-105`}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'https://via.placeholder.com/300?text=' + instructor.name.replace(' ', '+');
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/10 transition-colors duration-500" />
                 </div>
-                <h3 className="font-serif text-lg sm:text-2xl font-medium mb-1">{instructor.name}</h3>
-                <p className="text-gold text-[10px] sm:text-xs font-medium uppercase tracking-[1.5px] sm:tracking-[2.4px] mb-2">{instructor.role}</p>
-                <p className="text-gray-500 text-xs sm:text-sm mb-1 hidden sm:block">{instructor.instruments}</p>
+                <div className="w-8 h-px bg-gold mb-3" />
+                <h3 className="font-serif text-base sm:text-xl font-medium mb-1 leading-snug">{instructor.name}</h3>
+                <p className="text-gold text-[9px] sm:text-[10px] font-medium uppercase tracking-[2px] mb-3">{instructor.role}</p>
+                <p className="text-gray-400 text-xs mb-3 hidden sm:block">{instructor.instruments}</p>
                 <a
                   href={`#instructor-${instructor.id}`}
-                  className="text-gold hover:text-gold/80 font-normal text-xs sm:text-sm transition-colors cursor-pointer inline-block"
+                  className="text-[10px] uppercase tracking-[2px] text-gray-400 hover:text-gold transition-colors duration-300 cursor-pointer"
                 >
-                  VIEW FULL BIO
+                  View Bio →
                 </a>
               </div>
             ))}
