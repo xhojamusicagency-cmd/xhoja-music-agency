@@ -140,30 +140,27 @@ export default function Team() {
       {/* Team Members Grid */}
       <section id="team-members" className="bg-white py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12">
             {teamMembers.map((member) => (
-              <div key={member.id} id={`member-${member.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} className="border border-border p-4 sm:p-5 text-center group hover:shadow-lg transition-shadow">
-                <div className="mb-3 sm:mb-4 flex justify-center">
-                  <div className="w-36 h-36 sm:w-52 sm:h-52 rounded-full flex items-center justify-center border border-gold/25">
-                    <div className="w-32 h-32 sm:w-48 sm:h-48 rounded-full overflow-hidden flex-shrink-0">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        loading="eager"
-                        className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
-                        onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/192?text=' + member.name.replace(' ', '+'); }}
-                      />
-                    </div>
-                  </div>
+              <div key={member.id} id={`member-${member.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} className="flex flex-col items-center text-center group">
+                <div className="relative w-full aspect-square mb-5 overflow-hidden">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    loading="eager"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/300?text=' + member.name.replace(' ', '+'); }}
+                  />
+                  <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/10 transition-colors duration-500" />
                 </div>
-                <h3 className="font-serif text-lg sm:text-2xl font-medium mb-1">{member.name}</h3>
-                <p className="text-gold text-[10px] sm:text-xs font-medium uppercase tracking-[1.5px] sm:tracking-[2.4px] mb-2 sm:mb-3">{member.role}</p>
-                <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3 hidden sm:block">{member.bio}</p>
+                <div className="w-8 h-px bg-gold mb-3" />
+                <h3 className="font-serif text-base sm:text-xl font-medium mb-1 leading-snug">{member.name}</h3>
+                <p className="text-gold text-[9px] sm:text-[10px] font-medium uppercase tracking-[2px] mb-3">{member.role}</p>
                 <a
                   href={`#bio-${member.id}`}
-                  className="text-gold hover:text-gold/80 font-normal text-xs sm:text-sm transition-colors cursor-pointer inline-block"
+                  className="text-[10px] uppercase tracking-[2px] text-gray-400 hover:text-gold transition-colors duration-300 cursor-pointer"
                 >
-                  {member.id === 1 ? "Alexander's Bio" : 'Read Full Bio'}
+                  {member.id === 1 ? "Alexander's Bio →" : 'Read Bio →'}
                 </a>
               </div>
             ))}
