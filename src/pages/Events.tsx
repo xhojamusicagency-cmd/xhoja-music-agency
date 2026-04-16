@@ -203,7 +203,7 @@ export default function Events() {
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">SEE US IN ACTION</p>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.1] tracking-wide text-center mb-6">A Taste <span style={{ marginRight: '-0.01em', display: 'inline-block' }}>Of</span> What We Bring To Your Event</h2>
           </div>
-          <div className="relative w-full max-w-3xl mx-auto aspect-video rounded-lg overflow-hidden shadow-lg bg-dark cursor-pointer" onClick={() => !videoLoaded && setVideoLoaded(true)}>
+          <div className="relative w-full max-w-3xl mx-auto aspect-video overflow-hidden shadow-lg bg-dark cursor-pointer" onClick={() => !videoLoaded && setVideoLoaded(true)}>
             {videoLoaded ? (
               <iframe
                 src="https://www.youtube.com/embed/X3erxpEimGI?autoplay=1"
@@ -270,7 +270,7 @@ export default function Events() {
           </div>
 
           {/* Form */}
-          <form onSubmit={(e) => e.preventDefault()} className="bg-white rounded-lg p-5 sm:p-8 shadow-md">
+          <form onSubmit={(e) => e.preventDefault()} className="bg-white border border-border p-5 sm:p-8">
             {/* Step 1: Your Information */}
             {currentStep === 1 && (
               <div className="space-y-6">
@@ -528,14 +528,14 @@ export default function Events() {
           </form>
 
           {submitStatus === 'success' && (
-            <div className="mt-6 p-6 bg-green-50 border border-green-200 rounded-lg text-center">
+            <div className="mt-6 p-6 bg-green-50 border border-green-200 text-center">
               <h4 className="font-serif text-xl font-medium text-green-800 mb-2">Booking Request Received!</h4>
               <p className="text-green-700 text-sm">Thank you for your inquiry. A confirmation email has been sent to your inbox. Our team will review your request and get back to you within 24-48 hours with a personalized quote.</p>
             </div>
           )}
 
           {submitStatus === 'error' && (
-            <div className="mt-6 p-6 bg-red-50 border border-red-200 rounded-lg text-center">
+            <div className="mt-6 p-6 bg-red-50 border border-red-200 text-center">
               <h4 className="font-serif text-xl font-medium text-red-800 mb-2">Something Went Wrong</h4>
               <p className="text-red-700 text-sm">We couldn't process your request. Please try again or contact us directly at xhojamusicagency@gmail.com or (857) 498-8487.</p>
             </div>
