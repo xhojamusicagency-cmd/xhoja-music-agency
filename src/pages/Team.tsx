@@ -127,7 +127,7 @@ export default function Team() {
   return (
     <div>
       {/* Hero Section */}
-      <section id="meet-the-team" className="bg-cream py-10 md:py-16">
+      <section id="meet-the-team" className="bg-cream py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">THE FACES BEHIND THE MUSIC</p>
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-light leading-[1.1] tracking-[1.5px] mb-4">Meet The Team</h1>
@@ -138,7 +138,7 @@ export default function Team() {
       </section>
 
       {/* Team Members Grid */}
-      <section id="team-members" className="bg-white py-10 md:py-16">
+      <section id="team-members" className="bg-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12">
             {teamMembers.map((member) => (
