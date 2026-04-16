@@ -6,48 +6,60 @@ export default function Home() {
   usePageTitle();
   return (
     <div>
-      {/* Hero Section */}
-      <section className="bg-cream py-12 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-          <p className="font-serif italic text-lg sm:text-xl md:text-2xl text-dark/70 tracking-[1.6px]">Customized Music Lessons and Event Bookings</p>
-          <div className="mt-1 mb-4">
-            <h1 className="font-serif text-[38px] sm:text-[48px] md:text-[72px] font-light leading-[1.05] tracking-[1.5px]">Xhoja Music Agency</h1>
-          </div>
-          <a
-            href="https://instagram.com/xhojamusicagency"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-dark/60 hover:text-dark transition-colors text-sm tracking-[1.2px]"
-          >
-            <Instagram size={20} />
-            <span>@xhojamusicagency</span>
-          </a>
-          <div className="flex justify-center mt-5 mb-5">
-            <img
-              src="/xhoja-logo.png"
-              alt="Xhoja Music Agency"
-              className="w-72 h-72 md:w-[480px] md:h-[480px] object-contain"
-            />
-          </div>
+      {/* Hero Section — Cinematic Video */}
+      <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/hero-piano.mp4" type="video/mp4" />
+        </video>
+
+        {/* Layered overlay: dark gradient for depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-dark/70 via-dark/50 to-dark/80" />
+
+        {/* Content */}
+        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+          <p className="text-gold uppercase tracking-[4px] text-xs mb-6 opacity-90">
+            Boston's Premier Music Agency
+          </p>
+          <h1 className="font-serif text-5xl sm:text-7xl md:text-[90px] font-light leading-[1.0] tracking-[1px] mb-6">
+            Xhoja Music<br />Agency
+          </h1>
+          <div className="w-16 h-px bg-gold mx-auto mb-6" />
+          <p className="text-white/75 text-base sm:text-lg max-w-xl mx-auto mb-10 leading-relaxed font-light">
+            World-class musicians for your most unforgettable moments.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/events"
-              className="px-8 py-3 bg-dark text-cream-light text-sm font-medium tracking-[0.7px] hover:bg-gray-800 transition-colors"
+              className="px-10 py-4 bg-gold text-white font-normal tracking-[2px] uppercase text-sm hover:bg-gold/90 transition-colors duration-300"
             >
-              BOOK AN EVENT
+              Book an Event
             </Link>
             <Link
               to="/lessons"
-              className="px-8 py-3 border-2 border-dark text-dark text-sm font-medium tracking-[0.7px] hover:bg-dark hover:text-white transition-colors"
+              className="px-10 py-4 border border-white/50 text-white font-normal tracking-[2px] uppercase text-sm hover:bg-white/10 hover:border-white transition-colors duration-300"
             >
-              START LESSONS
+              Music Lessons
             </Link>
           </div>
         </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40">
+          <span className="text-[10px] uppercase tracking-[3px]">Scroll</span>
+          <div className="w-px h-8 bg-white/30" />
+        </div>
       </section>
 
+
       {/* Get To Know Us Section - Alexander's Bio */}
-      <section id="alexanders-bio" className="bg-white py-16 md:py-24">
+      <section id="alexanders-bio" className="bg-white py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
