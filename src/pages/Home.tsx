@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
-import { Music, Calendar, Users, Star, Instagram, Phone, Mail, MapPin } from 'lucide-react';
+import { Music, Calendar, Users, Star, Phone, Mail, MapPin } from 'lucide-react';
 import usePageTitle from '../hooks/usePageTitle';
 
 export default function Home() {
   usePageTitle();
   return (
     <div>
-      {/* Hero Section — Cinematic Video */}
+      {/* Hero Section â Cinematic Video */}
       <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
         {/* Video Background */}
         <video
@@ -118,10 +118,10 @@ export default function Home() {
             <h2 className="font-serif text-4xl sm:text-5xl md:text-7xl font-light leading-[1.05] tracking-[2px] mb-6 text-white">From Jazz To DJ Sets</h2>
             <div className="w-20 h-[1px] bg-gold mx-auto mb-8"></div>
             <p className="text-white/80 mb-4 leading-relaxed max-w-2xl mx-auto text-sm sm:text-base font-light tracking-wide">
-              Whether you need an elegant jazz quartet for a corporate gala, a solo pianist for a wedding ceremony, or a DJ to keep the dance floor alive — Xhoja Music Agency delivers exceptional live entertainment tailored to your event.
+              Whether you need an elegant jazz quartet for a corporate gala, a solo pianist for a wedding ceremony, or a DJ to keep the dance floor alive â Xhoja Music Agency delivers exceptional live entertainment tailored to your event.
             </p>
             <p className="text-white/70 mb-10 leading-relaxed max-w-2xl mx-auto text-sm sm:text-base font-light tracking-wide">
-              Our roster includes classically trained musicians, seasoned jazz performers, and professional DJs — all vetted and managed to ensure a flawless experience every time.
+              Our roster includes classically trained musicians, seasoned jazz performers, and professional DJs â all vetted and managed to ensure a flawless experience every time.
             </p>
             <Link
               to="/events"
@@ -147,7 +147,7 @@ export default function Home() {
                 From intimate rehearsal dinners to grand ballroom receptions, we bring the music that sets the perfect tone for your special day. Our musicians arrive early, set up professionally, and create an atmosphere your guests will remember.
               </p>
               <p className="text-gray-500 mb-8 leading-relaxed">
-                Every detail matters — and we treat your event with the care and professionalism it deserves, ensuring a seamless musical experience from start to finish.
+                Every detail matters â and we treat your event with the care and professionalism it deserves, ensuring a seamless musical experience from start to finish.
               </p>
               <Link
                 to="/contact"
@@ -211,11 +211,11 @@ export default function Home() {
             <div className="bg-white border border-border p-8 flex flex-col">
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-gold">★</span>
+                  <span key={i} className="text-gold">â</span>
                 ))}
               </div>
               <p className="text-gray-500 mb-6 leading-relaxed flex-1">
-                "Thanks for an amazing performance for our wedding. Casandra and I totally loved it for our Henna ceremony. He was phenomenal and we'd be working with him again soon. Catch him before he gets famous — totally a rockstar."
+                "Thanks for an amazing performance for our wedding. Casandra and I totally loved it for our Henna ceremony. He was phenomenal and we'd be working with him again soon. Catch him before he gets famous â totally a rockstar."
               </p>
               <div>
                 <p className="font-medium text-dark">Adhunik Anubhav</p>
@@ -227,11 +227,11 @@ export default function Home() {
             <div className="bg-white border border-border p-8 flex flex-col">
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-gold">★</span>
+                  <span key={i} className="text-gold">â</span>
                 ))}
               </div>
               <p className="text-gray-500 mb-6 leading-relaxed flex-1">
-                "I recently booked a studio session with Xhoja Music Agency and had an amazing experience. In less than two weeks, the agency arranged everything — the studio, sound engineer and a talented string quartet. Everyone arrived on time and the studio was set up quickly and professionally. I highly recommend Xhoja Music Agency to any artist looking for a smooth and professional recording experience."
+                "I recently booked a studio session with Xhoja Music Agency and had an amazing experience. In less than two weeks, the agency arranged everything â the studio, sound engineer and a talented string quartet. Everyone arrived on time and the studio was set up quickly and professionally. I highly recommend Xhoja Music Agency to any artist looking for a smooth and professional recording experience."
               </p>
               <div>
                 <p className="font-medium text-dark">Petr Moguto</p>
@@ -243,7 +243,7 @@ export default function Home() {
             <div className="bg-white border border-border p-8 flex flex-col">
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-gold">★</span>
+                  <span key={i} className="text-gold">â</span>
                 ))}
               </div>
               <p className="text-gray-500 mb-6 leading-relaxed flex-1">
