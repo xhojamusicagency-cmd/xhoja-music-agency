@@ -326,12 +326,12 @@ export default function Lessons() {
                   <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/10 transition-colors duration-500" />
                 </div>
                 <div className="w-8 h-px bg-gold mb-3" />
-                <h3 className="font-serif text-sm sm:text-lg font-medium mb-1 leading-snug">{instructor.name}</h3>
-                <p className="text-gold text-[11px] sm:text-xs font-medium uppercase tracking-[1.8px] mb-2">{instructor.role}</p>
-                <p className="text-gray-400 text-xs mb-3">{instructor.instruments}</p>
+                <h3 className="font-serif text-base sm:text-xl font-medium mb-1 leading-snug">{instructor.name}</h3>
+                <p className="text-gold text-xs sm:text-sm font-medium uppercase tracking-[1.8px] mb-2">{instructor.role}</p>
+                <p className="text-gray-400 text-xs sm:text-sm mb-3">{instructor.instruments}</p>
                 <a
                   href={`#instructor-${instructor.id}`}
-                  className="text-xs uppercase tracking-[1.8px] text-gray-400 hover:text-gold transition-colors duration-300 cursor-pointer"
+                  className="text-xs sm:text-sm uppercase tracking-[1.8px] text-gray-400 hover:text-gold transition-colors duration-300 cursor-pointer"
                 >
                   View Bio →
                 </a>
