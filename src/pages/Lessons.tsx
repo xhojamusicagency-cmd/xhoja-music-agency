@@ -399,7 +399,7 @@ export default function Lessons() {
                   </div>
                 )}
                 <h3 className="font-serif text-2xl font-medium mb-2">{pkg.name}</h3>
-                <p className="text-gray-500 mb-2">{pkg.lessons} lessons &middot; {pkg.duration}</p>
+                <p className="text-gray-500 mb-2">{pkg.lessons} {pkg.lessons === 1 ? 'lesson' : 'lessons'} &middot; {pkg.duration}</p>
                 <p className="text-gray-400 text-sm mb-4">{pkg.description}</p>
                 <div className="mb-6">
                   <span className="font-serif text-4xl font-medium text-gold">${pkg.price}</span>
@@ -474,7 +474,7 @@ export default function Lessons() {
                   value={instrument}
                   onChange={(e) => setInstrument(e.target.value)}
                   className="w-full px-4 py-3 border border-border bg-white text-dark font-serif focus:outline-none focus:border-gold transition-colors appearance-none"
-                  style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23CC9433' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 16px center' }}
+                  style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23CC9433' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`, backgroundRepeat: 'bo-repeat', backgroundPosition: 'right 16px center' }}
                 >
                   <option value="">Select an instrument...</option>
                   {INSTRUMENTS.map((inst) => (
