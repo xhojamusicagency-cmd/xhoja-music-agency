@@ -59,8 +59,6 @@ function App() {
           <Route path="/copy-of-drum-lessons" element={<Navigate to="/lessons" replace />} />
           <Route path="/contact-8" element={<Navigate to="/contact" replace />} />
           <Route path="/instructors" element={<Navigate to="/lessons" replace />} />
-          {/* Catch-all for any other old Wix "copy-of-*" lesson pages */}
-          <Route path="/copy-of-*" element={<Navigate to="/lessons" replace />} />
           {/* SEO-friendly redirects */}
           <Route path="/trumpet-lessons" element={<Navigate to="/lessons" replace />} />
           <Route path="/piano-lessons" element={<Navigate to="/lessons" replace />} />
