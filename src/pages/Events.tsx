@@ -1,11 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../utils/emailjs';
 import usePageTitle from '../hooks/usePageTitle';
 
+// Map ensemble names from /ensembles page to combo + genre defaults
+const ENSEMBLE_MAP: Record<string, { combo: string; genre?: string }> = {
+  'Solo Piano or Guitar': { combo: 'Solo Musician' },
+  'Cocktail Duo': { combo: 'Duo', genre: 'Jazz' },
+  'Ceremony String Trio': { combo: 'Trio', genre: 'Classical' },
+  'Dinner Jazz Trio': { combo: 'Trio', genre: 'Jazz' },
+  'DJ Set': { combo: '', genre: 'dj' },
+  'Jewish Ensemble': { combo: 'Small Ensemble (4-5)' },
+  'Latin Jazz': { combo: 'Small Ensemble (4-5)', genre: 'Latin' },
+  'Custom Ensemble': { combo: '' },
+};
+
 export default function Events() {
   usePageTitle('Event Bookings — Live Musicians for Hire in Boston');
+  const [searchParams] = useSearchParams();
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -28,6 +42,19 @@ export default function Events() {
   const steps = isDJ
     ? ['Your Information', 'Event Details', 'Music Genre', 'DJ Vibe']
     : ['Your Information', 'Event Details', 'Music Genre', 'Music Combo', 'Instruments'];
+
+  // Pre-fill from ?ensemble=X (when arriving from /ensembles page)
+  useEffect(() => {
+    const ensembleParam = searchParams.get('ensemble');
+    if (ensembleParam && ENSEMBLE_MAP[ensembleParam]) {
+      const defaults = ENSEMBLE_MAP[ensembleParam];
+      setFormData((prev) => ({
+        ...prev,
+        combo: defaults.combo || prev.combo,
+        genre: defaults.genre || prev.genre,
+      }));
+    }
+  }, [searchParams]);
 
   const getMaxInstruments = () => {
     switch (formData.combo) {

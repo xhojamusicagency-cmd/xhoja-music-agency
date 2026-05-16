@@ -37,7 +37,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              to="/events"
+              to="/ensembles"
               className="px-10 py-4 bg-gold text-white font-normal tracking-[2px] uppercase text-sm hover:bg-gold/90 transition-colors duration-300"
             >
               Book an Event
