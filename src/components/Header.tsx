@@ -8,7 +8,7 @@ export default function Header() {
 
   const links = [
     { label: 'HOME', href: '/' },
-    { label: 'EVENT BOOKINGS', href: '/events' },
+    { label: 'EVENT BOOKINGS', href: '/ensembles' },
     { label: 'LESSONS', href: '/lessons' },
     { label: 'MEET THE TEAM', href: '/team' },
     { label: 'CONTACT', href: '/contact' },
@@ -29,7 +29,8 @@ export default function Header() {
               key={link.href}
               to={link.href}
               className={`text-sm font-medium uppercase tracking-[2.1px] transition-colors ${
-                location.pathname === link.href
+                location.pathname === link.href ||
+                (link.href === '/ensembles' && location.pathname === '/events')
                   ? 'text-gold'
                   : 'text-dark/80 hover:text-gold'
               }`}
@@ -59,7 +60,8 @@ export default function Header() {
                 className={`block py-3.5 text-sm font-medium uppercase tracking-[2.1px] transition-colors ${
                   index < links.length - 1 ? 'border-b border-border/60' : ''
                 } ${
-                  location.pathname === link.href
+                  location.pathname === link.href ||
+                  (link.href === '/ensembles' && location.pathname === '/events')
                     ? 'text-gold'
                     : 'text-dark/80 hover:text-gold'
                 }`}
