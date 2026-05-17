@@ -209,7 +209,7 @@ export default function Ensembles() {
                 )}
 
                 <div
-                  className={`aspect-[4/3] relative overflow-hidden ${
+                  className={`aspect-[4/5] relative overflow-hidden ${
                     e.custom
                       ? 'bg-white border border-dashed border-gold flex items-center justify-center'
                       : 'bg-dark'
@@ -240,7 +240,7 @@ export default function Ensembles() {
                       className="absolute inset-0"
                       style={{
                         background:
-                          'linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.85) 100%)',
+                          'linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.0) 70%, rgba(0,0,0,0.25) 100%)',
                       }}
                     ></div>
                   )}
@@ -260,24 +260,13 @@ export default function Ensembles() {
                       ✶
                     </span>
                   )}
-
-                  {/* Title overlaid on bottom of image */}
-                  {!e.custom && (
-                    <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 text-center z-10">
-                      <h3 className="font-serif text-white text-[20px] sm:text-[22px] leading-[1.2] tracking-[0.3px] drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
-                        {e.name}
-                      </h3>
-                    </div>
-                  )}
                 </div>
 
-                <div className="px-7 pt-6 pb-8 text-center flex flex-col flex-1">
-                  {e.custom && (
-                    <h3 className="font-serif text-[22px] leading-[1.25] mb-4 tracking-[0.3px]">
-                      {e.name}
-                    </h3>
-                  )}
-                  <p className="font-serif italic text-[14px] text-gray-500 leading-[1.7] mb-6 flex-1">
+                <div className="px-7 pt-7 pb-9 text-center flex flex-col flex-1">
+                  <h3 className="font-serif text-[22px] leading-[1.25] mb-4 tracking-[0.3px]">
+                    {e.name}
+                  </h3>
+                  <p className="font-serif italic text-[14px] text-gray-500 leading-[1.7] mb-7 flex-1">
                     {e.description}
                   </p>
                   <span className="text-[10px] tracking-[3.5px] uppercase text-dark border-b border-gold pb-1.5 self-center font-medium transition-all duration-300 group-hover:text-gold inline-flex items-center gap-2">
