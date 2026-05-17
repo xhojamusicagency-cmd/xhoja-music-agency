@@ -20,7 +20,7 @@ const ENSEMBLES: Ensemble[] = [
       'One curated team for your entire day — string ensemble for the ceremony, jazz trio for cocktail hour, and a DJ to carry the reception into the night. Designed, rehearsed, and produced as a single seamless experience.',
     flagship: true,
     includes: ['Ceremony', 'Cocktail Hour', 'Reception'],
-    image: '/wedding-reception.jpg?v=4',
+    image: '/wedding-reception.jpg?v=5',
   },
   {
     tag: 'Solo',
@@ -111,8 +111,8 @@ export default function Ensembles() {
                 className="group relative block overflow-hidden bg-dark shadow-[0_20px_50px_-20px_rgba(20,20,20,0.35)] transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_28px_70px_-22px_rgba(20,20,20,0.5)]"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
-                  {/* Image side — landscape aspect keeps card height compact */}
-                  <div className="relative aspect-[4/3] lg:aspect-[3/2] overflow-hidden">
+                  {/* Image side — 4/3 matches the source crop exactly so nothing gets cut */}
+                  <div className="relative aspect-[4/3] lg:aspect-[4/3] overflow-hidden">
                     {flagship.image && (
                       <img
                         src={flagship.image}
@@ -181,14 +181,11 @@ export default function Ensembles() {
         );
       })()}
 
-      {/* Section divider for the rest of the ensembles — explicit reassurance that we book every kind of event */}
-      <section className="bg-cream-light pt-4 pb-10 md:pb-12">
+      {/* Section divider — prominent gold reassurance that we book every kind of event */}
+      <section className="bg-cream-light pt-6 pb-10 md:pt-8 md:pb-12">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gold uppercase tracking-[4px] text-[11px] mb-3 font-medium">
-            Every Kind Of Event
-          </p>
-          <p className="font-serif italic text-gray-500 text-[15px] mb-5">
-            Music for every kind of event.
+          <p className="text-gold uppercase tracking-[4px] text-[15px] sm:text-[17px] md:text-[19px] mb-6 font-medium leading-[1.2]">
+            Music For Every Kind Of Event
           </p>
           <div className="w-12 h-px bg-gold mx-auto mb-6"></div>
           <h2 className="font-serif text-[28px] sm:text-[34px] md:text-[40px] font-light tracking-[0.3px] text-dark mb-5 leading-[1.15]">
