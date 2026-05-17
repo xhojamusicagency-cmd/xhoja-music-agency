@@ -112,12 +112,19 @@ export default function Events() {
   const isDJ = formData.genre === 'dj';
   const selectedEnsemble = searchParams.get('ensemble') || '';
   const hasPreFilledCombo = !!ENSEMBLE_MAP[selectedEnsemble]?.combo;
+  // When the visitor arrived via the DJ Set card, genre is already 'dj' — skip Music Genre step
+  const skipGenreStep = isDJ && selectedEnsemble === 'DJ Set';
 
   const steps = isDJ
-    ? ['Your Information', 'Event Details', 'Music Genre', 'DJ Vibe']
+    ? skipGenreStep
+      ? ['Your Information', 'Event Details', 'DJ Vibe']
+      : ['Your Information', 'Event Details', 'Music Genre', 'DJ Vibe']
     : hasPreFilledCombo
       ? ['Your Information', 'Event Details', 'Music Genre', 'Instruments']
       : ['Your Information', 'Event Details', 'Music Genre', 'Music Combo', 'Instruments'];
+
+  // Min date for the event date picker = today
+  const todayISO = new Date().toISOString().split('T')[0];
 
   const availableInstruments =
     ENSEMBLE_MAP[selectedEnsemble]?.instrumentOptions || ALL_INSTRUMENTS;
@@ -191,12 +198,21 @@ export default function Events() {
         }
         break;
       case 2:
-        if (!formData.eventDate) errors.eventDate = 'Event date is required';
+        if (!formData.eventDate) {
+          errors.eventDate = 'Event date is required';
+        } else if (formData.eventDate < todayISO) {
+          errors.eventDate = 'Event date must be in the future';
+        }
         if (!formData.eventType) errors.eventType = 'Please select an event type';
         if (!formData.guestCount) errors.guestCount = 'Guest count is required';
         break;
       case 3:
-        if (!formData.genre) errors.genre = 'Please select a music genre';
+        if (skipGenreStep) {
+          // DJ Set arrival — step 3 is DJ Vibe
+          if (!formData.djVibe) errors.djVibe = 'Please select a DJ vibe';
+        } else {
+          if (!formData.genre) errors.genre = 'Please select a music genre';
+        }
         break;
       case 4:
         if (isDJ) {
@@ -479,6 +495,7 @@ export default function Events() {
                     name="eventDate"
                     value={formData.eventDate}
                     onChange={handleInputChange}
+                    min={todayISO}
                     className={`w-full px-4 py-3 border ${validationErrors.eventDate ? 'border-red-400' : 'border-border'} bg-white focus:ring-2 focus:ring-gold focus:border-transparent`}
                     required
                   />
@@ -518,8 +535,8 @@ export default function Events() {
               </div>
             )}
 
-            {/* Step 3: Music Genre */}
-            {currentStep === 3 && (
+            {/* Step 3: Music Genre — hidden when DJ Set arrival (genre already 'dj') */}
+            {currentStep === 3 && !skipGenreStep && (
               <div className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Genre *</label>
@@ -540,8 +557,8 @@ export default function Events() {
               </div>
             )}
 
-            {/* Step 4: DJ Vibe (if DJ) or Music Combo (if live music) */}
-            {currentStep === 4 && isDJ && (
+            {/* DJ Vibe — shown on step 3 when Music Genre was skipped (DJ Set arrival), otherwise on step 4 */}
+            {((currentStep === 3 && skipGenreStep) || (currentStep === 4 && isDJ && !skipGenreStep)) && (
               <div className="space-y-6">
                 <p className="text-gray-600">What vibe are you looking for?</p>
                 <div className="space-y-3">
@@ -614,12 +631,17 @@ export default function Events() {
                           checked={isChecked}
                           disabled={isAtMax}
                           onChange={(e) => {
-                            setFormData(prev => ({
-                              ...prev,
-                              instruments: e.target.checked
-                                ? [...prev.instruments, instrument]
-                                : prev.instruments.filter(i => i !== instrument)
-                            }));
+                            setFormData(prev => {
+                              if (e.target.checked && prev.instruments.length >= maxInstruments) {
+                                return prev;
+                              }
+                              return {
+                                ...prev,
+                                instruments: e.target.checked
+                                  ? [...prev.instruments, instrument]
+                                  : prev.instruments.filter(i => i !== instrument)
+                              };
+                            });
                             setValidationErrors(prev => { const next = { ...prev }; delete next.instruments; return next; });
                           }}
                           className="mr-3 accent-gold"

@@ -63,7 +63,7 @@ export default function Home() {
       {/* Get To Know Us Section - Alexander's Bio */}
       <section id="alexanders-bio" className="bg-white py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-12 lg:gap-16 items-center">
             <div>
               <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">OUR MUSIC JOURNEY BEGINS</p>
               <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-4">Get To Know Us</h2>
@@ -89,7 +89,7 @@ export default function Home() {
               <img
                 src="/alexander-xhoja-recital.jpg"
                 alt="Alexander Xhoja"
-                className="shadow-lg w-full h-auto"
+                className="shadow-xl w-full h-auto aspect-[4/3] object-cover"
               />
             </div>
           </div>
