@@ -33,14 +33,14 @@ const ENSEMBLES: Ensemble[] = [
     name: 'Cocktail Duo',
     description:
       'Choose your pairing — piano and vocals, piano and saxophone, guitar and vocals, or another combination tailored to your event.',
-    image: '/mia-alex-million-years.jpg',
+    image: '/duo-performance.jpg',
   },
   {
     tag: 'Trio',
     name: 'Dinner Jazz/Classical Trio',
     description: 'Piano, bass, and drums — or strings — the warm backbone of any gala or fine-dining moment.',
     featured: true,
-    image: '/jazz-trio-placeholder.jpg',
+    image: '/trio-performance.jpg',
   },
   {
     tag: 'Quartet',
@@ -209,7 +209,7 @@ export default function Ensembles() {
                 )}
 
                 <div
-                  className={`aspect-[4/5] relative overflow-hidden ${
+                  className={`aspect-[4/3] relative overflow-hidden ${
                     e.custom
                       ? 'bg-white border border-dashed border-gold flex items-center justify-center'
                       : 'bg-dark'
