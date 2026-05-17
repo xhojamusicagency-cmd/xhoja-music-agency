@@ -312,7 +312,12 @@ export default function Lessons() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12">
             {instructors.map((instructor) => (
-              <div key={instructor.id} className="flex flex-col items-center text-center group">
+              <a
+                key={instructor.id}
+                href={`#instructor-${instructor.id}`}
+                aria-label={`Read bio for ${instructor.name}`}
+                className="flex flex-col items-center text-center group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4 focus-visible:ring-offset-white transition-transform duration-500 hover:-translate-y-1"
+              >
                 <div className="relative w-full aspect-square mb-5 overflow-hidden">
                   <img
                     src={instructor.image}
@@ -323,19 +328,16 @@ export default function Lessons() {
                       (e.target as HTMLImageElement).src = 'https://via.placeholder.com/300?text=' + instructor.name.replace(' ', '+');
                     }}
                   />
-                  <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/10 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/15 transition-colors duration-500" />
                 </div>
-                <div className="w-8 h-px bg-gold mb-3" />
-                <h3 className="font-serif text-base sm:text-xl font-medium mb-1 leading-snug">{instructor.name}</h3>
+                <div className="w-8 h-px bg-gold mb-3 transition-all duration-500 group-hover:w-16" />
+                <h3 className="font-serif text-base sm:text-xl font-medium mb-1 leading-snug text-dark transition-colors duration-300 group-hover:text-gold">{instructor.name}</h3>
                 <p className="text-gold text-xs sm:text-sm font-medium uppercase tracking-[1.8px] mb-2">{instructor.role}</p>
                 <p className="text-gray-400 text-xs sm:text-sm mb-3">{instructor.instruments}</p>
-                <a
-                  href={`#instructor-${instructor.id}`}
-                  className="text-xs sm:text-sm uppercase tracking-[1.8px] text-gray-400 hover:text-gold transition-colors duration-300 cursor-pointer"
-                >
+                <span className="text-xs sm:text-sm uppercase tracking-[1.8px] text-gray-400 group-hover:text-gold transition-colors duration-300">
                   View Bio →
-                </a>
-              </div>
+                </span>
+              </a>
             ))}
           </div>
         </div>
