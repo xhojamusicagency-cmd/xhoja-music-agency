@@ -30,6 +30,27 @@ const REVIEWS: Review[] = [
     role: 'First Baptist Church',
     event: 'Wollaston, MA',
   },
+  {
+    quote:
+      "Thanks for an amazing performance for our wedding. Casandra and I totally loved it for our Henna ceremony. He was phenomenal and we'd be working with him again soon. Catch him before he gets famous — totally a rockstar.",
+    name: 'Adhunik Anubhav',
+    role: 'Wedding Client',
+    event: 'Wedding Ceremony',
+  },
+  {
+    quote:
+      "I recently booked a studio session with Xhoja Music Agency and had an amazing experience. In less than two weeks, the agency arranged everything — the studio, sound engineer and a talented string quartet. Everyone arrived on time and was set up quickly and professionally. I highly recommend Xhoja Music Agency to any artist looking for a smooth and professional recording experience.",
+    name: 'Petr Moguto',
+    role: 'Recording Artist',
+    event: 'Studio Session',
+  },
+  {
+    quote:
+      "I hired Alex to play piano at our home for a family holiday. I cannot say enough about his exquisite music, enthusiasm, energy and kindness. He also wrote an original song to honor my dad's memory because he sensed we were all thinking of him that evening. Alex has immense talent and is a very special person.",
+    name: 'Marjory Gundersheim',
+    role: 'Private Client',
+    event: 'Private Holiday Event',
+  },
 ];
 
 function ReviewCard({ review }: { review: Review }) {
@@ -79,7 +100,7 @@ export default function ReviewsCarousel() {
           </p>
           <div className="w-12 h-px bg-gold mx-auto mb-5"></div>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light tracking-[0.5px] text-dark">
-            Trusted by clients across Boston.
+            Trusted by clients across Boston &amp; beyond.
           </h2>
         </div>
       </div>
