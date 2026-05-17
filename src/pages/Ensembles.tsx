@@ -175,16 +175,16 @@ export default function Ensembles() {
       })()}
 
       {/* Section divider — prominent gold reassurance that we book every kind of event */}
-      <section className="bg-cream-light pt-6 pb-10 md:pt-8 md:pb-12">
+      <section className="bg-cream-light pt-10 pb-14 md:pt-14 md:pb-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gold uppercase tracking-[4px] text-[15px] sm:text-[17px] md:text-[19px] mb-6 font-medium leading-[1.2]">
+          <p className="text-gold uppercase tracking-[4px] text-[15px] sm:text-[17px] md:text-[19px] mb-7 font-medium leading-[1.2]">
             Music For Every Kind Of Event
           </p>
-          <div className="w-12 h-px bg-gold mx-auto mb-6"></div>
-          <h2 className="font-serif text-[28px] sm:text-[34px] md:text-[40px] font-light tracking-[0.3px] text-dark mb-5 leading-[1.15]">
+          <div className="w-12 h-px bg-gold mx-auto mb-7"></div>
+          <h2 className="font-serif text-[28px] sm:text-[34px] md:text-[40px] font-light tracking-[0.3px] text-dark mb-7 leading-[1.15]">
             Not every event needs vows.
           </h2>
-          <p className="font-serif italic text-gold text-[15px] sm:text-[16px] max-w-2xl mx-auto leading-[1.8]">
+          <p className="font-serif italic text-gold text-[17px] sm:text-[18px] md:text-[19px] max-w-2xl mx-auto leading-[1.75]">
             From corporate galas and donor dinners to private parties, brunches,
             milestone celebrations, b&rsquo;nai mitzvah, holiday gatherings, and
             ceremonies of every kind &mdash; choose the ensemble that fits the room.
