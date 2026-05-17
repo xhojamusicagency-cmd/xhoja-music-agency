@@ -20,7 +20,7 @@ const ENSEMBLES: Ensemble[] = [
       'One curated team for your entire day — string ensemble for the ceremony, jazz trio for cocktail hour, and a DJ to carry the reception into the night. Designed, rehearsed, and produced as a single seamless experience.',
     flagship: true,
     includes: ['Ceremony', 'Cocktail Hour', 'Reception'],
-    image: '/wedding-reception.jpg?v=5',
+    image: '/wedding-reception.jpg?v=6',
   },
   {
     tag: 'Solo',
@@ -93,7 +93,7 @@ export default function Ensembles() {
           <h1 className="font-serif text-[28px] sm:text-[36px] md:text-[42px] font-light leading-[1.08] tracking-[0.5px] mb-2 text-dark">
             A musician for every moment.
           </h1>
-          <p className="font-serif italic text-xs md:text-sm text-gray-500 max-w-xl mx-auto leading-[1.5]">
+          <p className="font-serif italic text-base md:text-lg text-gray-500 max-w-2xl mx-auto leading-[1.6]">
             Select the ensemble that fits your event &mdash; every group is tailored to the room, the program, and your guests.
           </p>
         </div>
