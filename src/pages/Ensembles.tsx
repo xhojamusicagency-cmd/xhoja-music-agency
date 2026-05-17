@@ -84,17 +84,17 @@ export default function Ensembles() {
   return (
     <div className="bg-cream-light">
       {/* Page header */}
-      <section className="bg-cream-light pt-14 pb-8 md:pt-20 md:pb-10">
+      <section className="bg-cream-light pt-10 pb-5 md:pt-14 md:pb-6">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gold uppercase tracking-[4px] text-[11px] mb-4 font-medium">
+          <p className="text-gold uppercase tracking-[4px] text-[11px] mb-3 font-medium">
             Book Musicians For Your Event
           </p>
-          <div className="w-12 h-px bg-gold mx-auto mb-5"></div>
-          <h1 className="font-serif text-[40px] sm:text-[52px] md:text-[60px] font-light leading-[1.08] tracking-[0.5px] mb-5 text-dark">
+          <div className="w-12 h-px bg-gold mx-auto mb-4"></div>
+          <h1 className="font-serif text-[34px] sm:text-[44px] md:text-[52px] font-light leading-[1.08] tracking-[0.5px] mb-3 text-dark">
             A musician for every moment.
           </h1>
-          <p className="font-serif italic text-base md:text-lg text-gray-500 max-w-2xl mx-auto leading-[1.7]">
-            Select the ensemble that fits your event. Every group is tailored to the room, the program, and your guests — and every event is quoted personally.
+          <p className="font-serif italic text-sm md:text-base text-gray-500 max-w-xl mx-auto leading-[1.6]">
+            Select the ensemble that fits your event &mdash; every group is tailored to the room, the program, and your guests.
           </p>
         </div>
       </section>
@@ -111,8 +111,8 @@ export default function Ensembles() {
                 className="group relative block overflow-hidden bg-dark shadow-[0_20px_50px_-20px_rgba(20,20,20,0.35)] transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_28px_70px_-22px_rgba(20,20,20,0.5)]"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
-                  {/* Image side — fixed aspect so the couple's heads stay framed predictably */}
-                  <div className="relative aspect-[4/3] lg:aspect-square overflow-hidden">
+                  {/* Image side — landscape aspect keeps card height compact */}
+                  <div className="relative aspect-[4/3] lg:aspect-[5/4] overflow-hidden">
                     {flagship.image && (
                       <img
                         src={flagship.image}
@@ -131,7 +131,7 @@ export default function Ensembles() {
                   </div>
 
                   {/* Content side */}
-                  <div className="relative flex flex-col justify-center px-7 sm:px-12 lg:px-14 py-12 lg:py-16">
+                  <div className="relative flex flex-col justify-center px-7 sm:px-10 lg:px-12 py-10 lg:py-10">
                     {/* Subtle gold glow */}
                     <div
                       className="absolute inset-0 opacity-30 pointer-events-none"
