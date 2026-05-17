@@ -71,6 +71,7 @@ const ENSEMBLE_MAP: Record<string, {
     ],
   },
   'Custom Ensemble': { combo: '' },
+  'The Complete Wedding': { combo: 'Full Wedding Package', genre: 'mixed' },
 };
 
 const ALL_INSTRUMENTS = ['Piano', 'Guitar', 'Violin', 'Viola', 'Cello', 'Double Bass', 'Drums', 'Percussion', 'Bass', 'Trumpet', 'Saxophone', 'Clarinet', 'Flute', 'Harp', 'Vocals', 'Accordion'];
@@ -107,21 +108,26 @@ export default function Events() {
     combo: '',
     instruments: [] as string[],
     djVibe: '',
+    weddingVenue: '',
+    weddingVision: '',
   });
 
   const isDJ = formData.genre === 'dj';
   const selectedEnsemble = searchParams.get('ensemble') || '';
-  const hasPreFilledCombo = !!ENSEMBLE_MAP[selectedEnsemble]?.combo;
+  const isWeddingPackage = selectedEnsemble === 'The Complete Wedding';
+  const hasPreFilledCombo = !!ENSEMBLE_MAP[selectedEnsemble]?.combo && !isWeddingPackage;
   // When the visitor arrived via the DJ Set card, genre is already 'dj' — skip Music Genre step
   const skipGenreStep = isDJ && selectedEnsemble === 'DJ Set';
 
-  const steps = isDJ
-    ? skipGenreStep
-      ? ['Your Information', 'Event Details', 'DJ Vibe']
-      : ['Your Information', 'Event Details', 'Music Genre', 'DJ Vibe']
-    : hasPreFilledCombo
-      ? ['Your Information', 'Event Details', 'Music Genre', 'Instruments']
-      : ['Your Information', 'Event Details', 'Music Genre', 'Music Combo', 'Instruments'];
+  const steps = isWeddingPackage
+    ? ['Your Information', 'Wedding Details', 'Your Vision']
+    : isDJ
+      ? skipGenreStep
+        ? ['Your Information', 'Event Details', 'DJ Vibe']
+        : ['Your Information', 'Event Details', 'Music Genre', 'DJ Vibe']
+      : hasPreFilledCombo
+        ? ['Your Information', 'Event Details', 'Music Genre', 'Instruments']
+        : ['Your Information', 'Event Details', 'Music Genre', 'Music Combo', 'Instruments'];
 
   // Min date for the event date picker = today
   const todayISO = new Date().toISOString().split('T')[0];
@@ -141,6 +147,8 @@ export default function Events() {
         ...prev,
         combo: defaults.combo || prev.combo,
         genre: defaults.genre || prev.genre,
+        // The Complete Wedding implies eventType = wedding
+        eventType: ensembleParam === 'The Complete Wedding' ? 'wedding' : prev.eventType,
       }));
     }
   }, [searchParams]);
@@ -199,15 +207,20 @@ export default function Events() {
         break;
       case 2:
         if (!formData.eventDate) {
-          errors.eventDate = 'Event date is required';
+          errors.eventDate = isWeddingPackage ? 'Wedding date is required' : 'Event date is required';
         } else if (formData.eventDate < todayISO) {
-          errors.eventDate = 'Event date must be in the future';
+          errors.eventDate = isWeddingPackage ? 'Wedding date must be in the future' : 'Event date must be in the future';
         }
-        if (!formData.eventType) errors.eventType = 'Please select an event type';
+        if (!isWeddingPackage && !formData.eventType) errors.eventType = 'Please select an event type';
         if (!formData.guestCount) errors.guestCount = 'Guest count is required';
+        if (isWeddingPackage && !formData.weddingVenue.trim()) {
+          errors.weddingVenue = 'Please share your venue or location';
+        }
         break;
       case 3:
-        if (skipGenreStep) {
+        if (isWeddingPackage) {
+          // Wedding vision is optional — no validation needed
+        } else if (skipGenreStep) {
           // DJ Set arrival — step 3 is DJ Vibe
           if (!formData.djVibe) errors.djVibe = 'Please select a DJ vibe';
         } else {
@@ -297,12 +310,26 @@ export default function Events() {
       from_email: formData.email,
       phone: formatPhone(formData.phone),
       event_date: formatDate(formData.eventDate),
-      event_type: formData.eventType,
+      event_type: isWeddingPackage ? 'Wedding — Complete Package' : formData.eventType,
       guest_count: formData.guestCount,
-      genre: isDJ ? 'DJ/Electronic' : formData.genre,
-      combo: isDJ ? 'DJ' : (formData.combo || 'Not specified'),
-      instruments: isDJ ? 'N/A' : (formData.instruments.join(', ') || 'Not specified'),
-      dj_vibe: isDJ ? formData.djVibe : 'N/A',
+      genre: isWeddingPackage
+        ? 'Ceremony + Cocktail + Reception'
+        : isDJ
+          ? 'DJ/Electronic'
+          : formData.genre,
+      combo: isWeddingPackage
+        ? 'The Complete Wedding (Strings + Jazz Trio + DJ)'
+        : isDJ
+          ? 'DJ'
+          : (formData.combo || 'Not specified'),
+      instruments: isWeddingPackage
+        ? 'String ensemble (ceremony) · Jazz trio (cocktail hour) · DJ (reception)'
+        : isDJ
+          ? 'N/A'
+          : (formData.instruments.join(', ') || 'Not specified'),
+      dj_vibe: isDJ && !isWeddingPackage ? formData.djVibe : 'N/A',
+      wedding_venue: isWeddingPackage ? (formData.weddingVenue || 'Not specified') : 'N/A',
+      wedding_vision: isWeddingPackage ? (formData.weddingVision || 'No additional notes') : 'N/A',
       to_email: formData.email,
       client_first_name: formData.firstName,
     };
@@ -328,6 +355,8 @@ export default function Events() {
         combo: '',
         instruments: [] as string[],
         djVibe: '',
+        weddingVenue: '',
+        weddingVision: '',
       });
     } catch (error) {
       console.error('EmailJS Error:', error);
@@ -485,11 +514,24 @@ export default function Events() {
               </div>
             )}
 
-            {/* Step 2: Event Details */}
+            {/* Step 2: Event Details — wedding mode shows venue field instead of event type */}
             {currentStep === 2 && (
               <div className="space-y-6">
+                {isWeddingPackage && (
+                  <div className="text-center mb-4 -mt-1">
+                    <p className="text-gold uppercase tracking-[3px] text-[10px] mb-2 font-medium">
+                      The Complete Wedding
+                    </p>
+                    <h4 className="font-serif text-2xl font-medium mb-1">Your Wedding Day</h4>
+                    <p className="text-gray-600 text-sm">
+                      Tell us where and when. We will design the music around the rest.
+                    </p>
+                  </div>
+                )}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Event Date *</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {isWeddingPackage ? 'Wedding Date *' : 'Event Date *'}
+                  </label>
                   <input
                     type="date"
                     name="eventDate"
@@ -501,25 +543,42 @@ export default function Events() {
                   />
                   {validationErrors.eventDate && <p className="text-red-500 text-xs mt-1">{validationErrors.eventDate}</p>}
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Event Type *</label>
-                  <select
-                    name="eventType"
-                    value={formData.eventType}
-                    onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border ${validationErrors.eventType ? 'border-red-400' : 'border-border'} bg-white focus:ring-2 focus:ring-gold focus:border-transparent`}
-                    required
-                  >
-                    <option value="">Select an event type</option>
-                    <option value="wedding">Wedding</option>
-                    <option value="corporate">Corporate Event</option>
-                    <option value="birthday">Birthday Party</option>
-                    <option value="anniversary">Anniversary</option>
-                    <option value="graduation">Graduation</option>
-                    <option value="other">Other</option>
-                  </select>
-                  {validationErrors.eventType && <p className="text-red-500 text-xs mt-1">{validationErrors.eventType}</p>}
-                </div>
+
+                {isWeddingPackage ? (
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Venue or Location *</label>
+                    <input
+                      type="text"
+                      name="weddingVenue"
+                      value={formData.weddingVenue}
+                      onChange={handleInputChange}
+                      placeholder="e.g. The State Room, Boston · or a private estate"
+                      className={`w-full px-4 py-3 border ${validationErrors.weddingVenue ? 'border-red-400' : 'border-border'} bg-white focus:ring-2 focus:ring-gold focus:border-transparent`}
+                    />
+                    {validationErrors.weddingVenue && <p className="text-red-500 text-xs mt-1">{validationErrors.weddingVenue}</p>}
+                  </div>
+                ) : (
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Event Type *</label>
+                    <select
+                      name="eventType"
+                      value={formData.eventType}
+                      onChange={handleInputChange}
+                      className={`w-full px-4 py-3 border ${validationErrors.eventType ? 'border-red-400' : 'border-border'} bg-white focus:ring-2 focus:ring-gold focus:border-transparent`}
+                      required
+                    >
+                      <option value="">Select an event type</option>
+                      <option value="wedding">Wedding</option>
+                      <option value="corporate">Corporate Event</option>
+                      <option value="birthday">Birthday Party</option>
+                      <option value="anniversary">Anniversary</option>
+                      <option value="graduation">Graduation</option>
+                      <option value="other">Other</option>
+                    </select>
+                    {validationErrors.eventType && <p className="text-red-500 text-xs mt-1">{validationErrors.eventType}</p>}
+                  </div>
+                )}
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Guest Count *</label>
                   <input
@@ -535,8 +594,43 @@ export default function Events() {
               </div>
             )}
 
-            {/* Step 3: Music Genre — hidden when DJ Set arrival (genre already 'dj') */}
-            {currentStep === 3 && !skipGenreStep && (
+            {/* Step 3 (Wedding mode): Your Vision — optional notes textarea */}
+            {currentStep === 3 && isWeddingPackage && (
+              <div className="space-y-6">
+                <div className="text-center mb-2 -mt-1">
+                  <p className="text-gold uppercase tracking-[3px] text-[10px] mb-2 font-medium">
+                    Optional
+                  </p>
+                  <h4 className="font-serif text-2xl font-medium mb-1">Tell Us Your Vision</h4>
+                  <p className="text-gray-600 text-sm max-w-md mx-auto">
+                    Share anything that matters — first dance song, processional ideas, the cultural moments you want honored, the energy you want for the reception.
+                  </p>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Your Wedding Vision <span className="text-gray-400 font-normal">(optional)</span>
+                  </label>
+                  <textarea
+                    name="weddingVision"
+                    value={formData.weddingVision}
+                    onChange={(e) => {
+                      setFormData((prev) => ({ ...prev, weddingVision: e.target.value }));
+                    }}
+                    rows={7}
+                    placeholder="e.g. We want a string quartet for the ceremony with Pachelbel's Canon as the processional. Jazz trio during cocktails on the terrace. DJ for the reception — heavy on Latin, classic Motown, and 2010s pop hits..."
+                    className="w-full px-4 py-3 border border-border bg-white focus:ring-2 focus:ring-gold focus:border-transparent font-serif text-[15px] leading-[1.7]"
+                  />
+                </div>
+                <div className="bg-cream-light border-l-2 border-gold px-5 py-4">
+                  <p className="font-serif italic text-sm text-gray-600 leading-[1.7]">
+                    Your consultation is complimentary. After you submit, Alexander will reach out within 24–48 hours to schedule a personal call and walk through every detail of your day.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Step 3: Music Genre — hidden when DJ Set arrival or in wedding mode */}
+            {currentStep === 3 && !skipGenreStep && !isWeddingPackage && (
               <div className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Genre *</label>
@@ -672,7 +766,11 @@ export default function Events() {
                   disabled={isSubmitting}
                   className="flex-1 px-6 py-3 bg-gold text-dark font-medium hover:bg-gold/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? 'Sending...' : 'Submit Booking'}
+                  {isSubmitting
+                    ? 'Sending...'
+                    : isWeddingPackage
+                      ? 'Request My Wedding Consultation'
+                      : 'Submit Booking'}
                 </button>
               ) : (
                 <button

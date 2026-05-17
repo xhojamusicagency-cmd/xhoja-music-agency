@@ -5,12 +5,23 @@ interface Ensemble {
   name: string;
   description: string;
   featured?: boolean;
+  flagship?: boolean;
+  includes?: string[];
   custom?: boolean;
   image?: string;
   video?: string;
 }
 
 const ENSEMBLES: Ensemble[] = [
+  {
+    tag: 'Signature Package',
+    name: 'The Complete Wedding',
+    description:
+      'One curated team for your entire day — string ensemble for the ceremony, jazz trio for cocktail hour, and a DJ to carry the reception into the night. Designed, rehearsed, and produced as a single seamless experience.',
+    flagship: true,
+    includes: ['Ceremony', 'Cocktail Hour', 'Reception'],
+    image: '/mia-alex-million-years.jpg',
+  },
   {
     tag: 'Solo',
     name: 'Solo Piano or Guitar',
@@ -88,11 +99,109 @@ export default function Ensembles() {
         </div>
       </section>
 
+      {/* Flagship: The Complete Wedding */}
+      {(() => {
+        const flagship = ENSEMBLES.find((e) => e.flagship);
+        if (!flagship) return null;
+        return (
+          <section className="bg-cream-light pb-16 md:pb-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <Link
+                to={consultUrl(flagship.name)}
+                className="group relative block overflow-hidden bg-dark shadow-[0_20px_50px_-20px_rgba(20,20,20,0.35)] transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_28px_70px_-22px_rgba(20,20,20,0.5)]"
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-2">
+                  {/* Image side */}
+                  <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[520px] overflow-hidden">
+                    {flagship.image && (
+                      <img
+                        src={flagship.image}
+                        alt={flagship.name}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-[1.04]"
+                      />
+                    )}
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background:
+                          'linear-gradient(to right, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.0) 60%, rgba(20,20,20,0.65) 100%)',
+                      }}
+                    ></div>
+                    {/* Signature badge */}
+                    <span className="absolute top-5 left-5 z-20 bg-gold text-dark text-[10px] tracking-[3px] px-3 py-2 font-medium uppercase">
+                      Signature Package
+                    </span>
+                  </div>
+
+                  {/* Content side */}
+                  <div className="relative flex flex-col justify-center px-7 sm:px-12 lg:px-14 py-12 lg:py-16">
+                    {/* Subtle gold glow */}
+                    <div
+                      className="absolute inset-0 opacity-30 pointer-events-none"
+                      style={{
+                        background:
+                          'radial-gradient(ellipse at top right, rgba(204, 148, 51, 0.18) 0%, transparent 65%)',
+                      }}
+                    ></div>
+
+                    <div className="relative">
+                      <p className="text-gold text-[10px] tracking-[3.5px] uppercase mb-4 font-medium">
+                        The Flagship Experience
+                      </p>
+                      <div className="w-10 h-px bg-gold mb-6"></div>
+                      <h2 className="font-serif text-white text-[34px] sm:text-[40px] lg:text-[44px] leading-[1.1] tracking-[0.3px] font-light mb-6">
+                        {flagship.name}
+                      </h2>
+                      <p className="font-serif italic text-cream/80 text-[15px] sm:text-[16px] leading-[1.8] mb-8 max-w-lg">
+                        {flagship.description}
+                      </p>
+
+                      {/* Three-phase breakdown */}
+                      {flagship.includes && (
+                        <div className="grid grid-cols-3 gap-4 mb-10 max-w-md">
+                          {flagship.includes.map((phase, i) => (
+                            <div key={phase} className="text-center">
+                              <div className="text-gold font-serif italic text-2xl mb-2">0{i + 1}</div>
+                              <div className="w-6 h-px bg-gold/60 mx-auto mb-2"></div>
+                              <p className="text-cream/90 text-[10px] tracking-[2px] uppercase font-medium">
+                                {phase}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      <span className="inline-flex items-center gap-3 px-9 py-4 bg-gold text-dark text-[10px] font-medium tracking-[3.5px] uppercase group-hover:bg-cream-light transition-all duration-300">
+                        Schedule a Wedding Consultation
+                        <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </section>
+        );
+      })()}
+
+      {/* Section divider for the rest of the ensembles */}
+      <section className="bg-cream-light pb-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-gold uppercase tracking-[4px] text-[11px] mb-4 font-medium">
+            Or Build Your Own Event
+          </p>
+          <div className="w-12 h-px bg-gold mx-auto mb-3"></div>
+          <p className="font-serif italic text-gray-500 text-[15px] max-w-lg mx-auto leading-[1.7]">
+            Single moments, single ensembles — choose the group that fits the room.
+          </p>
+        </div>
+      </section>
+
       {/* Ensembles grid */}
       <section className="bg-cream-light pb-20 md:pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-12">
-            {ENSEMBLES.map((e) => (
+            {ENSEMBLES.filter((e) => !e.flagship).map((e) => (
               <Link
                 key={e.name}
                 to={consultUrl(e.name)}
