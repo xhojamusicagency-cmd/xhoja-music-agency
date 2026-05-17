@@ -87,7 +87,7 @@ export default function Ensembles() {
       <section className="bg-cream-light pt-24 pb-20 md:pt-32 md:pb-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold uppercase tracking-[4px] text-[11px] mb-5 font-medium">
-            Book a Live Event
+            Book Musicians For Your Event
           </p>
           <div className="w-12 h-px bg-gold mx-auto mb-7"></div>
           <h1 className="font-serif text-[44px] sm:text-[56px] md:text-[68px] font-light leading-[1.08] tracking-[0.5px] mb-7 text-dark">
@@ -118,6 +118,7 @@ export default function Ensembles() {
                         src={flagship.image}
                         alt={flagship.name}
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-[1.04]"
+                        style={{ objectPosition: 'center 20%' }}
                       />
                     )}
                     <div
@@ -183,8 +184,11 @@ export default function Ensembles() {
       {/* Section divider for the rest of the ensembles — explicit reassurance that we book every kind of event */}
       <section className="bg-cream-light pt-4 pb-10 md:pb-12">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gold uppercase tracking-[4px] text-[11px] mb-4 font-medium">
+          <p className="text-gold uppercase tracking-[4px] text-[11px] mb-3 font-medium">
             Every Kind Of Event
+          </p>
+          <p className="font-serif italic text-gray-500 text-[15px] mb-5">
+            Music for every kind of event.
           </p>
           <div className="w-12 h-px bg-gold mx-auto mb-6"></div>
           <h2 className="font-serif text-[28px] sm:text-[34px] md:text-[40px] font-light tracking-[0.3px] text-dark mb-5 leading-[1.15]">
