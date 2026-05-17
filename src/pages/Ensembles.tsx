@@ -110,15 +110,15 @@ export default function Ensembles() {
                 to={consultUrl(flagship.name)}
                 className="group relative block overflow-hidden bg-dark shadow-[0_20px_50px_-20px_rgba(20,20,20,0.35)] transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_28px_70px_-22px_rgba(20,20,20,0.5)]"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-2">
-                  {/* Image side */}
-                  <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[520px] overflow-hidden">
+                <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
+                  {/* Image side — fixed aspect so the couple's heads stay framed predictably */}
+                  <div className="relative aspect-[4/3] lg:aspect-square overflow-hidden">
                     {flagship.image && (
                       <img
                         src={flagship.image}
                         alt={flagship.name}
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-[1.04]"
-                        style={{ objectPosition: 'center 35%' }}
+                        style={{ objectPosition: 'center center' }}
                       />
                     )}
                     <div
