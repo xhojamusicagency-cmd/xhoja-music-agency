@@ -6,8 +6,8 @@ interface Ensemble {
   description: string;
   featured?: boolean;
   custom?: boolean;
-  asset?: string;
-  gradient?: string;
+  image?: string;
+  video?: string;
 }
 
 const ENSEMBLES: Ensemble[] = [
@@ -15,49 +15,44 @@ const ENSEMBLES: Ensemble[] = [
     tag: 'Solo',
     name: 'Solo Piano or Guitar',
     description: 'For dinners, hotel lobbies, and intimate ceremonies — refined and unobtrusive.',
-    gradient: 'linear-gradient(160deg, #2a2520 0%, #0d0d0d 70%, #1a1612 100%)',
+    video: '/hero-piano.mp4',
   },
   {
     tag: 'Duo',
     name: 'Cocktail Duo',
     description:
       'Choose your pairing — piano and vocals, piano and saxophone, guitar and vocals, or another combination tailored to your event.',
-    asset: 'Mia & Alex — Million Years Ago',
-    gradient: 'linear-gradient(155deg, #1d1a17 0%, #0d0d0d 65%, #2a2520 100%)',
+    image: '/wedding-piano-setup.jpg',
   },
   {
     tag: 'Trio',
     name: 'Ceremony String Trio',
     description: 'Violin, viola, and cello — timeless music for weddings and ceremonies.',
     featured: true,
-    gradient: 'linear-gradient(150deg, #221d18 0%, #0d0d0d 60%, #1a1612 100%)',
   },
   {
     tag: 'Trio',
     name: 'Dinner Jazz Trio',
     description: 'Piano, bass, and drums — the warm backbone of any gala or fine-dining moment.',
-    gradient: 'linear-gradient(170deg, #1a1612 0%, #0d0d0d 70%, #2a2520 100%)',
   },
   {
     tag: 'DJ',
     name: 'DJ Set',
     description:
       'Curated sets for weddings, receptions, parties, and late-night programs — open or vinyl format.',
-    gradient: 'linear-gradient(165deg, #221d18 0%, #0a0a08 60%, #1a1612 100%)',
+    image: '/dj-performance.jpg',
   },
   {
     tag: 'Ensemble',
     name: 'Jewish Ensemble',
     description:
       "Musicians for b'nai mitzvah, weddings, donor dinners, and cultural events — traditional and contemporary repertoire.",
-    gradient: 'linear-gradient(150deg, #1f1a16 0%, #0a0a08 70%, #1a1612 100%)',
   },
   {
     tag: 'Ensemble',
     name: 'Latin Jazz',
     description:
       'Piano, bass, drums, percussion, and vocals — for evenings that want warmth, rhythm, and energy.',
-    gradient: 'linear-gradient(165deg, #261d15 0%, #0d0a08 70%, #2a1f15 100%)',
   },
   {
     tag: 'Custom',
@@ -97,17 +92,7 @@ export default function Ensembles() {
               <Link
                 key={e.name}
                 to={consultUrl(e.name)}
-                className="group relative flex flex-col bg-white transition-all duration-500 ease-out hover:-translate-y-1.5"
-                style={{
-                  boxShadow: '0 1px 0 rgba(204, 148, 51, 0)',
-                  transition: 'transform 0.5s ease-out, box-shadow 0.5s ease-out',
-                }}
-                onMouseEnter={(ev) =>
-                  (ev.currentTarget.style.boxShadow = '0 18px 40px -16px rgba(20, 20, 20, 0.18)')
-                }
-                onMouseLeave={(ev) =>
-                  (ev.currentTarget.style.boxShadow = '0 1px 0 rgba(204, 148, 51, 0)')
-                }
+                className="group relative flex flex-col bg-white transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_18px_40px_-16px_rgba(20,20,20,0.18)]"
               >
                 {e.featured && (
                   <span className="absolute top-4 right-4 z-20 bg-dark text-white text-[9px] tracking-[2.5px] px-2.5 py-1.5 font-medium">
@@ -115,45 +100,71 @@ export default function Ensembles() {
                   </span>
                 )}
 
-                {/* Image area */}
+                {/* Image / Video / Placeholder */}
                 <div
                   className={`aspect-[4/5] relative overflow-hidden ${
                     e.custom
                       ? 'bg-white border border-dashed border-gold flex items-center justify-center'
-                      : ''
+                      : 'bg-dark'
                   }`}
-                  style={e.custom ? undefined : { background: e.gradient }}
                 >
-                  {/* Subtle radial glow */}
-                  {!e.custom && (
+                  {/* Video background (autoplay muted loop) */}
+                  {e.video && (
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover"
+                    >
+                      <source src={e.video} type="video/mp4" />
+                    </video>
+                  )}
+
+                  {/* Image background */}
+                  {e.image && (
+                    <img
+                      src={e.image}
+                      alt={e.name}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  )}
+
+                  {/* Subtle dark + gold gradient overlay on image/video for readability */}
+                  {(e.image || e.video) && (
                     <div
-                      className="absolute inset-0 transition-opacity duration-700 group-hover:opacity-100 opacity-70"
+                      className="absolute inset-0"
                       style={{
                         background:
-                          'radial-gradient(circle at 40% 50%, rgba(204, 148, 51, 0.22) 0%, transparent 60%)',
+                          'linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.55) 100%)',
                       }}
                     ></div>
                   )}
 
-                  {/* Asset indicator (video placeholder) */}
-                  {e.asset && (
+                  {/* Placeholder for ensembles without visual yet */}
+                  {!e.image && !e.video && !e.custom && (
                     <>
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 border border-gold/70 rounded-full z-10 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:border-gold">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="#CC9433" className="ml-0.5">
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background:
+                            'linear-gradient(160deg, #2a2520 0%, #0d0d0d 70%, #1a1612 100%)',
+                        }}
+                      ></div>
+                      <div
+                        className="absolute inset-0 transition-opacity duration-700 group-hover:opacity-100 opacity-60"
+                        style={{
+                          background:
+                            'radial-gradient(circle at 40% 50%, rgba(204, 148, 51, 0.25) 0%, transparent 60%)',
+                        }}
+                      ></div>
+                      {/* Decorative serif initials watermark */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="font-serif italic text-gold/30 text-7xl tracking-wide select-none">
+                          {e.name.split(' ').map((w) => w[0]).join('').slice(0, 3)}
+                        </span>
                       </div>
-                      <p className="absolute bottom-5 left-5 right-5 font-serif italic text-[12px] text-gold/85 z-10 tracking-[0.3px]">
-                        {e.asset}
-                      </p>
                     </>
-                  )}
-
-                  {/* Empty placeholder label */}
-                  {!e.asset && !e.custom && (
-                    <p className="absolute bottom-5 left-5 text-[9px] tracking-[3px] uppercase text-cream/40 font-medium">
-                      Image
-                    </p>
                   )}
 
                   {/* Custom card star */}
@@ -166,7 +177,6 @@ export default function Ensembles() {
 
                 {/* Body */}
                 <div className="px-7 pt-7 pb-9 text-center flex flex-col flex-1">
-                  {/* Tiny gold accent above tag */}
                   <div className="w-6 h-px bg-gold mx-auto mb-4 transition-all duration-500 group-hover:w-12"></div>
                   <p className="text-gold text-[10px] tracking-[3.5px] uppercase mb-3 font-medium">
                     {e.tag}
@@ -177,7 +187,7 @@ export default function Ensembles() {
                   <p className="font-serif italic text-[14px] text-gray-500 leading-[1.7] mb-7 flex-1">
                     {e.description}
                   </p>
-                  <span className="text-[10px] tracking-[3.5px] uppercase text-dark border-b border-gold pb-1.5 self-center font-medium transition-all duration-300 group-hover:text-gold group-hover:tracking-[4px] inline-flex items-center gap-2">
+                  <span className="text-[10px] tracking-[3.5px] uppercase text-dark border-b border-gold pb-1.5 self-center font-medium transition-all duration-300 group-hover:text-gold inline-flex items-center gap-2">
                     Schedule a Consultation
                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </span>
@@ -190,7 +200,6 @@ export default function Ensembles() {
 
       {/* Cinematic closing CTA */}
       <section className="bg-dark py-24 md:py-32 relative overflow-hidden">
-        {/* Subtle radial glow background */}
         <div
           className="absolute inset-0 opacity-40"
           style={{

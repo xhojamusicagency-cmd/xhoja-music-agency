@@ -5,17 +5,41 @@ import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../utils/emailjs';
 import usePageTitle from '../hooks/usePageTitle';
 
-// Map ensemble names from /ensembles page to combo + genre defaults
-const ENSEMBLE_MAP: Record<string, { combo: string; genre?: string }> = {
-  'Solo Piano or Guitar': { combo: 'Solo Musician' },
-  'Cocktail Duo': { combo: 'Duo', genre: 'Jazz' },
-  'Ceremony String Trio': { combo: 'Trio', genre: 'Classical' },
-  'Dinner Jazz Trio': { combo: 'Trio', genre: 'Jazz' },
+// Map ensemble names from /ensembles page to combo + genre defaults + curated instrument options
+const ENSEMBLE_MAP: Record<string, { combo: string; genre?: string; instrumentOptions?: string[] }> = {
+  'Solo Piano or Guitar': {
+    combo: 'Solo Musician',
+    instrumentOptions: ['Piano', 'Guitar', 'Vocals'],
+  },
+  'Cocktail Duo': {
+    combo: 'Duo',
+    genre: 'Jazz',
+    instrumentOptions: ['Piano', 'Guitar', 'Vocals', 'Saxophone', 'Bass', 'Violin', 'Cello'],
+  },
+  'Ceremony String Trio': {
+    combo: 'Trio',
+    genre: 'Classical',
+    instrumentOptions: ['Violin', 'Viola', 'Cello', 'Harp', 'Flute'],
+  },
+  'Dinner Jazz Trio': {
+    combo: 'Trio',
+    genre: 'Jazz',
+    instrumentOptions: ['Piano', 'Bass', 'Drums', 'Saxophone', 'Guitar', 'Vocals'],
+  },
   'DJ Set': { combo: '', genre: 'dj' },
-  'Jewish Ensemble': { combo: 'Small Ensemble (4-5)' },
-  'Latin Jazz': { combo: 'Small Ensemble (4-5)', genre: 'Latin' },
+  'Jewish Ensemble': {
+    combo: 'Small Ensemble (4-5)',
+    instrumentOptions: ['Piano', 'Violin', 'Clarinet', 'Vocals', 'Drums', 'Bass', 'Guitar', 'Accordion'],
+  },
+  'Latin Jazz': {
+    combo: 'Small Ensemble (4-5)',
+    genre: 'Latin',
+    instrumentOptions: ['Piano', 'Bass', 'Drums', 'Percussion', 'Vocals', 'Saxophone', 'Trumpet', 'Guitar'],
+  },
   'Custom Ensemble': { combo: '' },
 };
+
+const ALL_INSTRUMENTS = ['Piano', 'Guitar', 'Violin', 'Viola', 'Cello', 'Drums', 'Percussion', 'Bass', 'Trumpet', 'Saxophone', 'Clarinet', 'Flute', 'Harp', 'Vocals', 'Accordion'];
 
 export default function Events() {
   usePageTitle('Event Bookings — Live Musicians for Hire in Boston');
@@ -39,9 +63,17 @@ export default function Events() {
   });
 
   const isDJ = formData.genre === 'dj';
+  const selectedEnsemble = searchParams.get('ensemble') || '';
+  const hasPreFilledCombo = !!ENSEMBLE_MAP[selectedEnsemble]?.combo;
+
   const steps = isDJ
     ? ['Your Information', 'Event Details', 'Music Genre', 'DJ Vibe']
-    : ['Your Information', 'Event Details', 'Music Genre', 'Music Combo', 'Instruments'];
+    : hasPreFilledCombo
+      ? ['Your Information', 'Event Details', 'Music Genre', 'Instruments']
+      : ['Your Information', 'Event Details', 'Music Genre', 'Music Combo', 'Instruments'];
+
+  const availableInstruments =
+    ENSEMBLE_MAP[selectedEnsemble]?.instrumentOptions || ALL_INSTRUMENTS;
 
   // Pre-fill from ?ensemble=X (when arriving from /ensembles page)
   useEffect(() => {
@@ -96,6 +128,9 @@ export default function Events() {
       case 4:
         if (isDJ) {
           if (!formData.djVibe) errors.djVibe = 'Please select a DJ vibe';
+        } else if (hasPreFilledCombo) {
+          // When combo is pre-filled, step 4 is Instruments
+          if (formData.instruments.length === 0) errors.instruments = 'Please select at least one instrument';
         } else {
           if (!formData.combo) errors.combo = 'Please select an ensemble size';
         }
@@ -459,7 +494,8 @@ export default function Events() {
                 {validationErrors.djVibe && <p className="text-red-500 text-xs mt-1">{validationErrors.djVibe}</p>}
               </div>
             )}
-            {currentStep === 4 && !isDJ && (
+            {/* Step 4: Music Combo — only shown when not pre-filled from /ensembles */}
+            {currentStep === 4 && !isDJ && !hasPreFilledCombo && (
               <div className="space-y-6">
                 <p className="text-gray-600">Tell us about your preferred ensemble size</p>
                 <div className="space-y-3">
@@ -484,17 +520,20 @@ export default function Events() {
               </div>
             )}
 
-            {/* Step 5: Instruments */}
-            {currentStep === 5 && (
+            {/* Step 5 (or Step 4 when pre-filled): Instruments — curated by ensemble */}
+            {((currentStep === 5 && !hasPreFilledCombo) || (currentStep === 4 && hasPreFilledCombo && !isDJ)) && (
               <div className="space-y-6">
+                {selectedEnsemble && (
+                  <p className="text-gold text-xs tracking-[3px] uppercase mb-2">{selectedEnsemble}</p>
+                )}
                 <p className="text-gray-600">
-                  Select up to {maxInstruments} instrument{maxInstruments > 1 ? 's' : ''} for your {formData.combo || 'ensemble'}.
+                  Choose the instruments you'd like in your {formData.combo?.toLowerCase() || 'ensemble'} — up to {maxInstruments}.
                 </p>
                 <p className="text-sm text-gold font-medium">
                   {formData.instruments.length} / {maxInstruments} selected
                 </p>
-                <div className="space-y-3">
-                  {['Piano', 'Guitar', 'Violin', 'Cello', 'Drums', 'Bass', 'Trumpet', 'Saxophone', 'Vocals', 'Accordion'].map((instrument) => {
+                <div className="grid grid-cols-2 gap-3">
+                  {availableInstruments.map((instrument) => {
                     const isChecked = formData.instruments.includes(instrument);
                     const isAtMax = formData.instruments.length >= maxInstruments && !isChecked;
                     return (
