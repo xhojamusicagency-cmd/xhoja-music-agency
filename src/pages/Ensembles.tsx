@@ -20,7 +20,7 @@ const ENSEMBLES: Ensemble[] = [
       'One curated team for your entire day — string ensemble for the ceremony, jazz trio for cocktail hour, and a DJ to carry the reception into the night. Designed, rehearsed, and produced as a single seamless experience.',
     flagship: true,
     includes: ['Ceremony', 'Cocktail Hour', 'Reception'],
-    image: '/wedding-reception.jpg?v=3',
+    image: '/wedding-reception.jpg?v=4',
   },
   {
     tag: 'Solo',
@@ -112,7 +112,7 @@ export default function Ensembles() {
               >
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
                   {/* Image side — landscape aspect keeps card height compact */}
-                  <div className="relative aspect-[4/3] lg:aspect-[5/4] overflow-hidden">
+                  <div className="relative aspect-[4/3] lg:aspect-[3/2] overflow-hidden">
                     {flagship.image && (
                       <img
                         src={flagship.image}
@@ -131,7 +131,7 @@ export default function Ensembles() {
                   </div>
 
                   {/* Content side */}
-                  <div className="relative flex flex-col justify-center px-7 sm:px-10 lg:px-12 py-10 lg:py-10">
+                  <div className="relative flex flex-col justify-center px-7 sm:px-10 lg:px-12 py-8 lg:py-8">
                     {/* Subtle gold glow */}
                     <div
                       className="absolute inset-0 opacity-30 pointer-events-none"
