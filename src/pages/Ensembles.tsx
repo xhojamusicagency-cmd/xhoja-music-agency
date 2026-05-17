@@ -184,7 +184,7 @@ export default function Ensembles() {
           <h2 className="font-serif text-[28px] sm:text-[34px] md:text-[40px] font-light tracking-[0.3px] text-dark mb-5 leading-[1.15]">
             Not every event needs vows.
           </h2>
-          <p className="font-serif italic text-gray-500 text-[15px] sm:text-[16px] max-w-2xl mx-auto leading-[1.8]">
+          <p className="font-serif italic text-gold text-[15px] sm:text-[16px] max-w-2xl mx-auto leading-[1.8]">
             From corporate galas and donor dinners to private parties, brunches,
             milestone celebrations, b&rsquo;nai mitzvah, holiday gatherings, and
             ceremonies of every kind &mdash; choose the ensemble that fits the room.
