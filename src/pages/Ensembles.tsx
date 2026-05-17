@@ -118,7 +118,7 @@ export default function Ensembles() {
                         src={flagship.image}
                         alt={flagship.name}
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-[1.04]"
-                        style={{ objectPosition: 'center 20%' }}
+                        style={{ objectPosition: 'center 35%' }}
                       />
                     )}
                     <div
