@@ -7,42 +7,42 @@ interface Review {
   event?: string;
 }
 
-// Real client testimonials. Add more here as they come in.
+// Real 5-star Google Reviews. Add new ones here as they come in.
 const REVIEWS: Review[] = [
   {
     quote:
-      "Thank you so much for helping me secure an accompanist for the Spring Cabaret at Thayer Middle School. Everything was beautifully handled, and the music brought the entire production to life.",
-    name: 'Nicolette Putka',
-    role: 'Director of Theater',
-    event: 'Thayer Academy — Spring Cabaret 2026',
+      "I recently hired Xhoja Music Agency for a private event, and they were absolutely incredible. They provided a beautiful jazz trio that completely elevated the atmosphere of the evening. The musicians were not only extremely talented, but also professional, punctual, and easy to work with throughout the entire process.",
+    name: 'Sofia',
+    role: 'Private Event Host',
+    event: 'Jazz Trio · Private Event',
   },
   {
     quote:
-      "Alexander and his trio brought such elegance to our donor dinner. Half our guests asked who we'd hired before the night was over.",
-    name: 'Events Director',
-    role: 'Boston Nonprofit',
-    event: 'Annual Donor Dinner',
+      "We are incredibly grateful to Alexander Xhoja and his team of pianists for their amazing musical contributions towards our worship services. They were especially helpful during a time when we were between music directors, stepping in seamlessly. The music greatly enriched our services, and we would highly recommend Alexander to anyone seeking exceptional musicians.",
+    name: 'Federated Church of Norfolk',
+    role: 'Worship Services',
+    event: 'Norfolk, MA',
   },
   {
     quote:
-      "Professional, refined, and on time — exactly what we needed for the service. The pianist set the perfect tone for the entire ceremony.",
-    name: 'Lewann Mina',
-    role: 'First Baptist Church',
-    event: 'Wollaston, MA',
+      "I can't say enough great things about Alex. As a piano teacher, he is incredibly talented, patient, and truly passionate. Beyond teaching, Alex is also an exceptional event planner — organized, creative, detail-oriented, and calm under pressure. His musical expertise adds an extra level of professionalism and elegance to any event.",
+    name: 'FayFay33',
+    role: 'Piano Student · Local Guide',
+    event: 'Lessons & Event Planning',
   },
   {
     quote:
-      "Thanks for an amazing performance for our wedding. Casandra and I totally loved it for our Henna ceremony. He was phenomenal and we'd be working with him again soon. Catch him before he gets famous — totally a rockstar.",
-    name: 'Adhunik Anubhav',
-    role: 'Wedding Client',
-    event: 'Wedding Ceremony',
+      "My daughter suddenly became interested in learning guitar. Alex and Xhoja Music Agency were recommended and we decided to give it a try. Alex had a great conversation with me about what we were looking for and matched us up with Jude. My daughter has now been learning with Jude for 3 months and continues to look forward to her weekly lessons. Definitely recommend.",
+    name: 'Lana Rifkin',
+    role: 'Parent · Local Guide',
+    event: 'Guitar Lessons',
   },
   {
     quote:
-      "I recently booked a studio session with Xhoja Music Agency and had an amazing experience. In less than two weeks, the agency arranged everything — the studio, sound engineer and a talented string quartet. Everyone arrived on time and was set up quickly and professionally. I highly recommend Xhoja Music Agency to any artist looking for a smooth and professional recording experience.",
-    name: 'Petr Moguto',
-    role: 'Recording Artist',
-    event: 'Studio Session',
+      "Alex performed at our daughter's wedding cocktail hour. He was totally flexible in playing from a playlist I provided along with a lovely array of music that he included. We were so pleased and our guests truly enjoyed his playing. I would definitely recommend him to family, friends, and venues looking for a gifted and experienced performer.",
+    name: 'Susan Gorny',
+    role: 'Mother of the Bride',
+    event: 'Wedding Cocktail Hour',
   },
   {
     quote:
@@ -50,6 +50,27 @@ const REVIEWS: Review[] = [
     name: 'Marjory Gundersheim',
     role: 'Private Client',
     event: 'Private Holiday Event',
+  },
+  {
+    quote:
+      "I recently booked a studio session with Xhoja Music Agency and had an amazing experience. In less than two weeks, the agency arranged everything — the studio, sound engineer and a talented string quartet. Everyone arrived on time and was set up quickly and professionally. I highly recommend Xhoja Music Agency to any artist looking for a smooth and professional recording experience.",
+    name: 'Petr',
+    role: 'Recording Artist',
+    event: 'Studio Session · String Quartet',
+  },
+  {
+    quote:
+      "Thanks for an amazing performance for our wedding. Casandra and I totally loved it for our Henna ceremony. He was phenomenal and we'd be working with him again soon. Catch him before he gets famous — totally a rockstar.",
+    name: 'Adhunik Anubhav',
+    role: 'Wedding Client · Local Guide',
+    event: 'Henna Ceremony',
+  },
+  {
+    quote:
+      "Great company! Will hire them anytime. Second time I'm using their pianist — very professional, shows up on time, and delivers.",
+    name: 'Ketty Magnus',
+    role: 'Repeat Client',
+    event: 'Returning Customer',
   },
 ];
 
@@ -102,6 +123,17 @@ export default function ReviewsCarousel() {
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light tracking-[0.5px] text-dark">
             Trusted by clients across Boston &amp; beyond.
           </h2>
+          {/* Google verification badge */}
+          <div className="flex items-center justify-center gap-2 mt-6">
+            <div className="flex gap-0.5">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} size={13} fill="#CC9433" stroke="#CC9433" />
+              ))}
+            </div>
+            <span className="text-gray-500 text-xs tracking-wide">
+              5.0 · Verified Google reviews
+            </span>
+          </div>
         </div>
       </div>
 
