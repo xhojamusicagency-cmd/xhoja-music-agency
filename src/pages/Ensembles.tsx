@@ -240,26 +240,19 @@ export default function Ensembles() {
                       className="absolute inset-0"
                       style={{
                         background:
-                          'linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.55) 100%)',
+                          'linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.85) 100%)',
                       }}
                     ></div>
                   )}
 
                   {!e.image && !e.video && !e.custom && (
-                    <>
-                      <div
-                        className="absolute inset-0"
-                        style={{
-                          background:
-                            'linear-gradient(160deg, #2a2520 0%, #0d0d0d 70%, #1a1612 100%)',
-                        }}
-                      ></div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="font-serif italic text-gold/30 text-7xl tracking-wide select-none">
-                          {e.name.split(' ').map((w) => w[0]).join('').slice(0, 3)}
-                        </span>
-                      </div>
-                    </>
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background:
+                          'linear-gradient(160deg, #2a2520 0%, #0d0d0d 70%, #1a1612 100%)',
+                      }}
+                    ></div>
                   )}
 
                   {e.custom && (
@@ -267,13 +260,24 @@ export default function Ensembles() {
                       ✶
                     </span>
                   )}
+
+                  {/* Title overlaid on bottom of image */}
+                  {!e.custom && (
+                    <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 text-center z-10">
+                      <h3 className="font-serif text-white text-[20px] sm:text-[22px] leading-[1.2] tracking-[0.3px] drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+                        {e.name}
+                      </h3>
+                    </div>
+                  )}
                 </div>
 
-                <div className="px-7 pt-7 pb-9 text-center flex flex-col flex-1">
-                  <h3 className="font-serif text-[22px] leading-[1.25] mb-4 tracking-[0.3px] mt-1">
-                    {e.name}
-                  </h3>
-                  <p className="font-serif italic text-[14px] text-gray-500 leading-[1.7] mb-7 flex-1">
+                <div className="px-7 pt-6 pb-8 text-center flex flex-col flex-1">
+                  {e.custom && (
+                    <h3 className="font-serif text-[22px] leading-[1.25] mb-4 tracking-[0.3px]">
+                      {e.name}
+                    </h3>
+                  )}
+                  <p className="font-serif italic text-[14px] text-gray-500 leading-[1.7] mb-6 flex-1">
                     {e.description}
                   </p>
                   <span className="text-[10px] tracking-[3.5px] uppercase text-dark border-b border-gold pb-1.5 self-center font-medium transition-all duration-300 group-hover:text-gold inline-flex items-center gap-2">
