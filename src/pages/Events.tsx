@@ -449,11 +449,11 @@ export default function Events() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-normal text-center mb-8 sm:mb-12">Book Your Event</h2>
 
-          {/* Step Indicators */}
-          <div className="flex items-start justify-between mb-8 sm:mb-12">
+          {/* Step Indicators — centered horizontally */}
+          <div className="flex items-start justify-center mb-8 sm:mb-12">
             {steps.map((step, index) => (
-              <div key={index} className="flex items-start flex-1">
-                <div className="flex flex-col items-center w-16 sm:w-24 flex-shrink-0">
+              <div key={index} className="flex items-start">
+                <div className="flex flex-col items-center w-20 sm:w-28 flex-shrink-0">
                   <div
                     className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm ${
                       index + 1 <= currentStep
@@ -463,11 +463,11 @@ export default function Events() {
                   >
                     {index + 1}
                   </div>
-                  <span className="text-[10px] sm:text-xs mt-1 text-gray-500 hidden sm:block">{step}</span>
+                  <span className="text-[10px] sm:text-xs mt-2 text-gray-500 text-center leading-tight hidden sm:block">{step}</span>
                 </div>
                 {index < steps.length - 1 && (
                   <div
-                    className={`flex-1 h-1 mx-2 mt-4 sm:mt-5 ${
+                    className={`w-12 sm:w-20 h-px mt-4 sm:mt-5 ${
                       index + 1 < currentStep ? 'bg-gold' : 'bg-gray-300'
                     }`}
                   ></div>
