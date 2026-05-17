@@ -29,11 +29,13 @@ const ENSEMBLES: Ensemble[] = [
     name: 'Ceremony String Trio',
     description: 'Violin, viola, and cello — timeless music for weddings and ceremonies.',
     featured: true,
+    image: '/string-trio-placeholder.jpg',
   },
   {
     tag: 'Trio',
     name: 'Dinner Jazz Trio',
     description: 'Piano, bass, and drums — the warm backbone of any gala or fine-dining moment.',
+    image: '/jazz-trio-placeholder.jpg',
   },
   {
     tag: 'DJ',
@@ -47,12 +49,14 @@ const ENSEMBLES: Ensemble[] = [
     name: 'Jewish Ensemble',
     description:
       "Musicians for b'nai mitzvah, weddings, donor dinners, and cultural events — traditional and contemporary repertoire.",
+    image: '/jewish-ensemble-placeholder.jpg',
   },
   {
     tag: 'Ensemble',
     name: 'Latin Jazz',
     description:
       'Piano, bass, drums, percussion, and vocals — for evenings that want warmth, rhythm, and energy.',
+    image: '/latin-jazz-placeholder.jpg',
   },
   {
     tag: 'Custom',

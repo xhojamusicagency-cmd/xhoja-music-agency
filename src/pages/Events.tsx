@@ -99,7 +99,23 @@ export default function Events() {
     }
   };
 
+  const getMinInstruments = () => {
+    switch (formData.combo) {
+      case 'Solo Musician': return 1;
+      case 'Duo': return 2;
+      case 'Trio': return 3;
+      case 'Small Ensemble (4-5)': return 4;
+      case 'Large Ensemble (6+)': return 6;
+      default: return 1;
+    }
+  };
+
   const maxInstruments = getMaxInstruments();
+  const minInstruments = getMinInstruments();
+  const instrumentCountLabel =
+    minInstruments === maxInstruments
+      ? `exactly ${maxInstruments}`
+      : `between ${minInstruments} and ${maxInstruments}`;
 
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
 
@@ -129,14 +145,17 @@ export default function Events() {
         if (isDJ) {
           if (!formData.djVibe) errors.djVibe = 'Please select a DJ vibe';
         } else if (hasPreFilledCombo) {
-          // When combo is pre-filled, step 4 is Instruments
-          if (formData.instruments.length === 0) errors.instruments = 'Please select at least one instrument';
+          if (formData.instruments.length < minInstruments) {
+            errors.instruments = `Please select ${instrumentCountLabel} instrument${maxInstruments > 1 ? 's' : ''} for your ${formData.combo?.toLowerCase() || 'ensemble'}.`;
+          }
         } else {
           if (!formData.combo) errors.combo = 'Please select an ensemble size';
         }
         break;
       case 5:
-        if (!isDJ && formData.instruments.length === 0) errors.instruments = 'Please select at least one instrument';
+        if (!isDJ && formData.instruments.length < minInstruments) {
+          errors.instruments = `Please select ${instrumentCountLabel} instrument${maxInstruments > 1 ? 's' : ''} for your ${formData.combo?.toLowerCase() || 'ensemble'}.`;
+        }
         break;
     }
 
@@ -527,7 +546,7 @@ export default function Events() {
                   <p className="text-gold text-xs tracking-[3px] uppercase mb-2">{selectedEnsemble}</p>
                 )}
                 <p className="text-gray-600">
-                  Choose the instruments you'd like in your {formData.combo?.toLowerCase() || 'ensemble'} — up to {maxInstruments}.
+                  Choose {instrumentCountLabel} instrument{maxInstruments > 1 ? 's' : ''} for your {formData.combo?.toLowerCase() || 'ensemble'}.
                 </p>
                 <p className="text-sm text-gold font-medium">
                   {formData.instruments.length} / {maxInstruments} selected
