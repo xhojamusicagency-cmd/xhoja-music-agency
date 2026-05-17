@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 interface Review {
   quote: string;
@@ -33,130 +32,108 @@ const REVIEWS: Review[] = [
   },
 ];
 
+function ReviewCard({ review }: { review: Review }) {
+  return (
+    <article
+      className="flex-shrink-0 w-[320px] sm:w-[400px] md:w-[440px] bg-white p-8 sm:p-10 flex flex-col shadow-[0_10px_30px_-15px_rgba(20,20,20,0.08)] transition-all duration-500 hover:shadow-[0_18px_40px_-18px_rgba(20,20,20,0.18)] hover:-translate-y-1"
+      style={{ minHeight: '320px' }}
+    >
+      {/* Stars */}
+      <div className="flex gap-1.5 mb-6">
+        {[...Array(5)].map((_, i) => (
+          <Star key={i} size={14} fill="#CC9433" stroke="#CC9433" />
+        ))}
+      </div>
+
+      {/* Quote */}
+      <blockquote className="font-serif italic text-[16px] sm:text-[17px] md:text-[18px] text-dark leading-[1.7] mb-8 flex-1">
+        &ldquo;{review.quote}&rdquo;
+      </blockquote>
+
+      {/* Attribution */}
+      <div className="border-t border-gold/20 pt-5">
+        <p className="font-serif text-base text-dark tracking-[0.3px]">{review.name}</p>
+        <p className="text-gray-500 text-xs tracking-wide mt-0.5">{review.role}</p>
+        {review.event && (
+          <p className="text-gold text-[10px] tracking-[2.5px] uppercase mt-2 font-medium">
+            {review.event}
+          </p>
+        )}
+      </div>
+    </article>
+  );
+}
+
 export default function ReviewsCarousel() {
-  const [index, setIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  // Auto-rotate every 7 seconds
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(() => {
-      setIndex((i) => (i + 1) % REVIEWS.length);
-    }, 7000);
-    return () => clearInterval(timer);
-  }, [isPaused]);
-
-  const goPrev = () => setIndex((i) => (i - 1 + REVIEWS.length) % REVIEWS.length);
-  const goNext = () => setIndex((i) => (i + 1) % REVIEWS.length);
-
-  const current = REVIEWS[index];
+  // Duplicate the reviews so the marquee loop is seamless
+  // (when translateX hits -50%, the second copy lines up exactly where the first was)
+  const loop = [...REVIEWS, ...REVIEWS];
 
   return (
-    <section
-      className="bg-cream-light py-20 md:py-28 relative overflow-hidden"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
+    <section className="bg-cream-light py-20 md:py-28 relative overflow-hidden">
+      {/* Header */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 md:mb-16">
+        <div className="text-center">
           <p className="text-gold uppercase tracking-[4px] text-[11px] mb-4 font-medium">
             What Our Clients Say
           </p>
           <div className="w-12 h-px bg-gold mx-auto mb-5"></div>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light tracking-[0.5px] text-dark">
-            Trusted by {REVIEWS.length}+ clients across Boston.
+            Trusted by clients across Boston.
           </h2>
         </div>
+      </div>
 
-        {/* Carousel */}
-        <div className="relative">
-          {/* Quote area */}
-          <div className="min-h-[280px] sm:min-h-[240px] flex flex-col items-center justify-center text-center px-6 sm:px-16">
-            {/* Stars */}
-            <div className="flex gap-1.5 mb-7">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} size={16} fill="#CC9433" stroke="#CC9433" />
-              ))}
-            </div>
+      {/* Marquee container — full bleed, fade overlays on each edge */}
+      <div className="relative">
+        {/* Left fade gradient — fades from cream-light to transparent */}
+        <div
+          className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 md:w-48 z-10 pointer-events-none"
+          style={{
+            background:
+              'linear-gradient(to right, rgba(249, 248, 245, 1) 0%, rgba(249, 248, 245, 0) 100%)',
+          }}
+        ></div>
+        {/* Right fade gradient */}
+        <div
+          className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 md:w-48 z-10 pointer-events-none"
+          style={{
+            background:
+              'linear-gradient(to left, rgba(249, 248, 245, 1) 0%, rgba(249, 248, 245, 0) 100%)',
+          }}
+        ></div>
 
-            {/* Quote */}
-            <blockquote
-              key={index}
-              className="font-serif italic text-xl sm:text-2xl md:text-[26px] text-dark leading-[1.55] mb-8 transition-opacity duration-500"
-              style={{ animation: 'fadeIn 0.6s ease-in-out' }}
-            >
-              "{current.quote}"
-            </blockquote>
-
-            {/* Attribution */}
-            <div className="space-y-1">
-              <p className="font-serif text-lg text-dark tracking-[0.3px]">{current.name}</p>
-              <p className="text-gray-500 text-sm tracking-wide">{current.role}</p>
-              {current.event && (
-                <p className="text-gold text-[10px] tracking-[3px] uppercase mt-2 font-medium">
-                  {current.event}
-                </p>
-              )}
-            </div>
-          </div>
-
-          {/* Side arrows — hidden on small mobile, visible from sm: */}
-          <button
-            onClick={goPrev}
-            aria-label="Previous review"
-            className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center text-dark/40 hover:text-gold transition-colors"
-          >
-            <ChevronLeft size={28} />
-          </button>
-          <button
-            onClick={goNext}
-            aria-label="Next review"
-            className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center text-dark/40 hover:text-gold transition-colors"
-          >
-            <ChevronRight size={28} />
-          </button>
-        </div>
-
-        {/* Dots + mobile arrows */}
-        <div className="flex items-center justify-center gap-6 mt-8">
-          {/* Mobile arrows */}
-          <button
-            onClick={goPrev}
-            aria-label="Previous review"
-            className="sm:hidden text-dark/40 hover:text-gold transition-colors"
-          >
-            <ChevronLeft size={22} />
-          </button>
-
-          {/* Dots */}
-          <div className="flex gap-2">
-            {REVIEWS.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setIndex(i)}
-                aria-label={`Go to review ${i + 1}`}
-                className={`h-1.5 transition-all duration-300 ${
-                  i === index ? 'w-8 bg-gold' : 'w-1.5 bg-dark/20 hover:bg-dark/40'
-                }`}
-              />
-            ))}
-          </div>
-
-          <button
-            onClick={goNext}
-            aria-label="Next review"
-            className="sm:hidden text-dark/40 hover:text-gold transition-colors"
-          >
-            <ChevronRight size={22} />
-          </button>
+        {/* The animated track */}
+        <div className="reviews-marquee flex gap-6 sm:gap-8 w-max py-4">
+          {loop.map((review, i) => (
+            <ReviewCard key={i} review={review} />
+          ))}
         </div>
       </div>
 
       <style>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(8px); }
-          to { opacity: 1; transform: translateY(0); }
+        @keyframes reviewsMarquee {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+        .reviews-marquee {
+          animation: reviewsMarquee 55s linear infinite;
+          will-change: transform;
+        }
+        .reviews-marquee:hover {
+          animation-play-state: paused;
+        }
+        /* Slow down a touch on smaller screens since fewer cards are visible at once */
+        @media (max-width: 640px) {
+          .reviews-marquee {
+            animation-duration: 42s;
+          }
+        }
+        /* Respect users who prefer reduced motion — stop the animation entirely */
+        @media (prefers-reduced-motion: reduce) {
+          .reviews-marquee {
+            animation: none;
+          }
         }
       `}</style>
     </section>
