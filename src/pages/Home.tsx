@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Music, Calendar, Users, Star, Phone, Mail, MapPin } from 'lucide-react';
 import usePageTitle from '../hooks/usePageTitle';
+import ReviewsCarousel from '../components/ReviewsCarousel';
 
 export default function Home() {
   usePageTitle();
@@ -86,7 +87,7 @@ export default function Home() {
             </div>
             <div>
               <img
-                src="/alexander-xhoja.jpg"
+                src="/alexander-xhoja-recital.jpg"
                 alt="Alexander Xhoja"
                 className="shadow-lg w-full h-auto"
               />
@@ -94,6 +95,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Reviews Carousel */}
+      <ReviewsCarousel />
 
       {/* From Jazz to DJ Sets Section - Video Background */}
       <section id="live-entertainment" className="relative overflow-hidden" style={{ minHeight: '85vh' }}>

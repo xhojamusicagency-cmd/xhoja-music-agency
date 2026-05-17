@@ -5,41 +5,88 @@ import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../utils/emailjs';
 import usePageTitle from '../hooks/usePageTitle';
 
-// Map ensemble names from /ensembles page to combo + genre defaults + curated instrument options
-const ENSEMBLE_MAP: Record<string, { combo: string; genre?: string; instrumentOptions?: string[] }> = {
+// Map ensemble names from /ensembles page to combo + genre defaults + curated instrument & genre options
+const ENSEMBLE_MAP: Record<string, {
+  combo: string;
+  genre?: string;
+  instrumentOptions?: string[];
+  genreOptions?: { value: string; label: string }[];
+}> = {
   'Solo Piano or Guitar': {
     combo: 'Solo Musician',
     instrumentOptions: ['Piano', 'Guitar', 'Vocals'],
+    genreOptions: [
+      { value: 'classical', label: 'Classical' },
+      { value: 'jazz', label: 'Jazz' },
+      { value: 'pop', label: 'Pop' },
+      { value: 'folk', label: 'Folk' },
+    ],
   },
   'Cocktail Duo': {
     combo: 'Duo',
-    genre: 'Jazz',
+    genre: 'jazz',
     instrumentOptions: ['Piano', 'Guitar', 'Vocals', 'Saxophone', 'Bass', 'Violin', 'Cello'],
+    genreOptions: [
+      { value: 'jazz', label: 'Jazz' },
+      { value: 'classical', label: 'Classical' },
+      { value: 'pop', label: 'Pop' },
+    ],
   },
-  'Ceremony String Trio': {
-    combo: 'Trio',
-    genre: 'Classical',
-    instrumentOptions: ['Violin', 'Viola', 'Cello', 'Harp', 'Flute'],
+  'String Quartet': {
+    combo: 'Small Ensemble (4-5)',
+    genre: 'classical',
+    instrumentOptions: ['Violin', 'Viola', 'Cello', 'Double Bass', 'Harp', 'Flute'],
+    genreOptions: [
+      { value: 'classical', label: 'Classical' },
+      { value: 'pop', label: 'Pop / Strings Covers' },
+    ],
   },
-  'Dinner Jazz Trio': {
+  'Dinner Jazz/Classical Trio': {
     combo: 'Trio',
-    genre: 'Jazz',
-    instrumentOptions: ['Piano', 'Bass', 'Drums', 'Saxophone', 'Guitar', 'Vocals'],
+    genre: 'jazz',
+    instrumentOptions: ['Piano', 'Bass', 'Drums', 'Saxophone', 'Guitar', 'Vocals', 'Violin', 'Cello'],
+    genreOptions: [
+      { value: 'jazz', label: 'Jazz' },
+      { value: 'classical', label: 'Classical' },
+    ],
   },
   'DJ Set': { combo: '', genre: 'dj' },
   'Jewish Ensemble': {
     combo: 'Small Ensemble (4-5)',
+    genre: 'jewish',
     instrumentOptions: ['Piano', 'Violin', 'Clarinet', 'Vocals', 'Drums', 'Bass', 'Guitar', 'Accordion'],
+    genreOptions: [
+      { value: 'jewish', label: 'Jewish / Klezmer' },
+      { value: 'classical', label: 'Classical' },
+      { value: 'jazz', label: 'Jazz' },
+    ],
   },
   'Latin Jazz': {
     combo: 'Small Ensemble (4-5)',
-    genre: 'Latin',
+    genre: 'latin',
     instrumentOptions: ['Piano', 'Bass', 'Drums', 'Percussion', 'Vocals', 'Saxophone', 'Trumpet', 'Guitar'],
+    genreOptions: [
+      { value: 'latin', label: 'Latin' },
+      { value: 'jazz', label: 'Jazz' },
+    ],
   },
   'Custom Ensemble': { combo: '' },
 };
 
-const ALL_INSTRUMENTS = ['Piano', 'Guitar', 'Violin', 'Viola', 'Cello', 'Drums', 'Percussion', 'Bass', 'Trumpet', 'Saxophone', 'Clarinet', 'Flute', 'Harp', 'Vocals', 'Accordion'];
+const ALL_INSTRUMENTS = ['Piano', 'Guitar', 'Violin', 'Viola', 'Cello', 'Double Bass', 'Drums', 'Percussion', 'Bass', 'Trumpet', 'Saxophone', 'Clarinet', 'Flute', 'Harp', 'Vocals', 'Accordion'];
+
+const ALL_GENRES = [
+  { value: 'classical', label: 'Classical' },
+  { value: 'jazz', label: 'Jazz' },
+  { value: 'blues', label: 'Blues' },
+  { value: 'pop', label: 'Pop' },
+  { value: 'rock', label: 'Rock' },
+  { value: 'folk', label: 'Folk' },
+  { value: 'latin', label: 'Latin' },
+  { value: 'jewish', label: 'Jewish / Klezmer' },
+  { value: 'world', label: 'World Music' },
+  { value: 'dj', label: 'DJ / Electronic' },
+];
 
 export default function Events() {
   usePageTitle('Event Bookings — Live Musicians for Hire in Boston');
@@ -74,6 +121,9 @@ export default function Events() {
 
   const availableInstruments =
     ENSEMBLE_MAP[selectedEnsemble]?.instrumentOptions || ALL_INSTRUMENTS;
+
+  const availableGenres =
+    ENSEMBLE_MAP[selectedEnsemble]?.genreOptions || ALL_GENRES;
 
   // Pre-fill from ?ensemble=X (when arriving from /ensembles page)
   useEffect(() => {
@@ -128,10 +178,17 @@ export default function Events() {
         if (!formData.lastName.trim()) errors.lastName = 'Last name is required';
         if (!formData.email.trim()) {
           errors.email = 'Email address is required';
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-          errors.email = 'Please enter a valid email address';
+        } else if (!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(formData.email.trim())) {
+          errors.email = 'Please enter a valid email address (e.g. name@domain.com)';
         }
-        if (!formData.phone.trim()) errors.phone = 'Phone number is required';
+        if (!formData.phone.trim()) {
+          errors.phone = 'Phone number is required';
+        } else {
+          const digits = formData.phone.replace(/\D/g, '');
+          if (digits.length < 10 || digits.length > 11) {
+            errors.phone = 'Please enter a valid 10-digit phone number';
+          }
+        }
         break;
       case 2:
         if (!formData.eventDate) errors.eventDate = 'Event date is required';
@@ -474,14 +531,9 @@ export default function Events() {
                     required
                   >
                     <option value="">Select a genre</option>
-                    <option value="classical">Classical</option>
-                    <option value="jazz">Jazz</option>
-                    <option value="blues">Blues</option>
-                    <option value="pop">Pop</option>
-                    <option value="rock">Rock</option>
-                    <option value="latin">Latin</option>
-                    <option value="world">World Music</option>
-                    <option value="dj">DJ/Electronic</option>
+                    {availableGenres.map((g) => (
+                      <option key={g.value} value={g.value}>{g.label}</option>
+                    ))}
                   </select>
                   {validationErrors.genre && <p className="text-red-500 text-xs mt-1">{validationErrors.genre}</p>}
                 </div>

@@ -22,20 +22,20 @@ const ENSEMBLES: Ensemble[] = [
     name: 'Cocktail Duo',
     description:
       'Choose your pairing — piano and vocals, piano and saxophone, guitar and vocals, or another combination tailored to your event.',
-    image: '/wedding-piano-setup.jpg',
+    image: '/mia-alex-million-years.jpg',
   },
   {
     tag: 'Trio',
-    name: 'Ceremony String Trio',
-    description: 'Violin, viola, and cello — timeless music for weddings and ceremonies.',
+    name: 'Dinner Jazz/Classical Trio',
+    description: 'Piano, bass, and drums — or strings — the warm backbone of any gala or fine-dining moment.',
     featured: true,
-    image: '/string-trio-placeholder.jpg',
+    image: '/jazz-trio-placeholder.jpg',
   },
   {
-    tag: 'Trio',
-    name: 'Dinner Jazz Trio',
-    description: 'Piano, bass, and drums — the warm backbone of any gala or fine-dining moment.',
-    image: '/jazz-trio-placeholder.jpg',
+    tag: 'Quartet',
+    name: 'String Quartet',
+    description: 'Two violins, viola, and cello — with optional double bass — for weddings, ceremonies, and refined receptions.',
+    image: '/string-trio-placeholder.jpg',
   },
   {
     tag: 'DJ',
@@ -104,7 +104,6 @@ export default function Ensembles() {
                   </span>
                 )}
 
-                {/* Image / Video / Placeholder */}
                 <div
                   className={`aspect-[4/5] relative overflow-hidden ${
                     e.custom
@@ -112,7 +111,6 @@ export default function Ensembles() {
                       : 'bg-dark'
                   }`}
                 >
-                  {/* Video background (autoplay muted loop) */}
                   {e.video && (
                     <video
                       autoPlay
@@ -125,7 +123,6 @@ export default function Ensembles() {
                     </video>
                   )}
 
-                  {/* Image background */}
                   {e.image && (
                     <img
                       src={e.image}
@@ -134,7 +131,6 @@ export default function Ensembles() {
                     />
                   )}
 
-                  {/* Subtle dark + gold gradient overlay on image/video for readability */}
                   {(e.image || e.video) && (
                     <div
                       className="absolute inset-0"
@@ -145,7 +141,6 @@ export default function Ensembles() {
                     ></div>
                   )}
 
-                  {/* Placeholder for ensembles without visual yet */}
                   {!e.image && !e.video && !e.custom && (
                     <>
                       <div
@@ -155,14 +150,6 @@ export default function Ensembles() {
                             'linear-gradient(160deg, #2a2520 0%, #0d0d0d 70%, #1a1612 100%)',
                         }}
                       ></div>
-                      <div
-                        className="absolute inset-0 transition-opacity duration-700 group-hover:opacity-100 opacity-60"
-                        style={{
-                          background:
-                            'radial-gradient(circle at 40% 50%, rgba(204, 148, 51, 0.25) 0%, transparent 60%)',
-                        }}
-                      ></div>
-                      {/* Decorative serif initials watermark */}
                       <div className="absolute inset-0 flex items-center justify-center">
                         <span className="font-serif italic text-gold/30 text-7xl tracking-wide select-none">
                           {e.name.split(' ').map((w) => w[0]).join('').slice(0, 3)}
@@ -171,7 +158,6 @@ export default function Ensembles() {
                     </>
                   )}
 
-                  {/* Custom card star */}
                   {e.custom && (
                     <span className="text-gold text-4xl font-serif transition-transform duration-500 group-hover:scale-110">
                       ✶
@@ -179,7 +165,6 @@ export default function Ensembles() {
                   )}
                 </div>
 
-                {/* Body */}
                 <div className="px-7 pt-7 pb-9 text-center flex flex-col flex-1">
                   <div className="w-6 h-px bg-gold mx-auto mb-4 transition-all duration-500 group-hover:w-12"></div>
                   <p className="text-gold text-[10px] tracking-[3.5px] uppercase mb-3 font-medium">
@@ -211,7 +196,6 @@ export default function Ensembles() {
               'radial-gradient(ellipse at center, rgba(204, 148, 51, 0.15) 0%, transparent 60%)',
           }}
         ></div>
-
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold uppercase tracking-[4px] text-[11px] mb-5 font-medium">
             Not Sure Yet?
