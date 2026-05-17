@@ -20,7 +20,7 @@ const ENSEMBLES: Ensemble[] = [
       'One curated team for your entire day — string ensemble for the ceremony, jazz trio for cocktail hour, and a DJ to carry the reception into the night. Designed, rehearsed, and produced as a single seamless experience.',
     flagship: true,
     includes: ['Ceremony', 'Cocktail Hour', 'Reception'],
-    image: '/wedding-reception.jpg',
+    image: '/wedding-reception.jpg?v=2',
   },
   {
     tag: 'Solo',
