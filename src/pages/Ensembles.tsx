@@ -110,9 +110,9 @@ export default function Ensembles() {
                 to={consultUrl(flagship.name)}
                 className="group relative block overflow-hidden bg-dark shadow-[0_20px_50px_-20px_rgba(20,20,20,0.35)] transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_28px_70px_-22px_rgba(20,20,20,0.5)]"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
-                  {/* Image side — 4/3 matches the source crop exactly so nothing gets cut */}
-                  <div className="relative aspect-[4/3] lg:aspect-[4/3] overflow-hidden">
+                <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] items-stretch">
+                  {/* Image side — fixed height on desktop guarantees no aspect-ratio fighting with content */}
+                  <div className="relative h-[280px] sm:h-[360px] lg:h-auto lg:min-h-[500px] overflow-hidden bg-dark">
                     {flagship.image && (
                       <img
                         src={flagship.image}
@@ -124,7 +124,7 @@ export default function Ensembles() {
                   </div>
 
                   {/* Content side */}
-                  <div className="relative flex flex-col justify-center px-7 sm:px-10 lg:px-12 py-8 lg:py-8">
+                  <div className="relative flex flex-col justify-center px-7 sm:px-10 lg:px-12 py-10 lg:py-12">
                     {/* Subtle gold glow */}
                     <div
                       className="absolute inset-0 opacity-30 pointer-events-none"
