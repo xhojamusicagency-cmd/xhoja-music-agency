@@ -20,7 +20,7 @@ const ENSEMBLES: Ensemble[] = [
       'One curated team for your entire day — string ensemble for the ceremony, jazz trio for cocktail hour, and a DJ to carry the reception into the night. Designed, rehearsed, and produced as a single seamless experience.',
     flagship: true,
     includes: ['Ceremony', 'Cocktail Hour', 'Reception'],
-    image: '/wedding-reception.jpg?v=2',
+    image: '/wedding-reception.jpg?v=3',
   },
   {
     tag: 'Solo',
@@ -118,7 +118,7 @@ export default function Ensembles() {
                         src={flagship.image}
                         alt={flagship.name}
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-[1.04]"
-                        style={{ objectPosition: 'center center' }}
+                        style={{ objectPosition: 'center top' }}
                       />
                     )}
                     <div
