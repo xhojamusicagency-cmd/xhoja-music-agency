@@ -121,13 +121,6 @@ export default function Ensembles() {
                         style={{ objectPosition: 'center top' }}
                       />
                     )}
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        background:
-                          'linear-gradient(to right, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.0) 60%, rgba(20,20,20,0.65) 100%)',
-                      }}
-                    ></div>
                   </div>
 
                   {/* Content side */}
