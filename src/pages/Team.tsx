@@ -142,7 +142,13 @@ export default function Team() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12">
             {teamMembers.map((member) => (
-              <div key={member.id} id={`member-${member.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} className="flex flex-col items-center text-center group">
+              <a
+                key={member.id}
+                href={`#bio-${member.id}`}
+                id={`member-${member.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+                aria-label={`Read bio for ${member.name}`}
+                className="flex flex-col items-center text-center group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4 focus-visible:ring-offset-white transition-transform duration-500 hover:-translate-y-1"
+              >
                 <div className="relative w-full aspect-square mb-5 overflow-hidden">
                   <img
                     src={member.image}
@@ -151,18 +157,17 @@ export default function Team() {
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/300?text=' + member.name.replace(' ', '+'); }}
                   />
-                  <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/10 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/15 transition-colors duration-500" />
                 </div>
-                <div className="w-8 h-px bg-gold mb-3" />
-                <h3 className="font-serif text-base sm:text-xl font-medium mb-1 leading-snug">{member.name}</h3>
+                <div className="w-8 h-px bg-gold mb-3 transition-all duration-500 group-hover:w-16" />
+                <h3 className="font-serif text-base sm:text-xl font-medium mb-1 leading-snug text-dark transition-colors duration-300 group-hover:text-gold">{member.name}</h3>
                 <p className="text-gold text-xs sm:text-sm font-medium uppercase tracking-[1.8px] mb-2">{member.role}</p>
-                <a
-                  href={`#bio-${member.id}`}
-                  className="text-xs sm:text-sm uppercase tracking-[1.8px] text-gray-400 hover:text-gold transition-colors duration-300 cursor-pointer"
+                <span
+                  className="text-xs sm:text-sm uppercase tracking-[1.8px] text-gray-400 group-hover:text-gold transition-colors duration-300"
                 >
                   {member.id === 1 ? "Alexander's Bio →" : 'Read Bio →'}
-                </a>
-              </div>
+                </span>
+              </a>
             ))}
           </div>
         </div>
