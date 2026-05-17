@@ -129,8 +129,13 @@ export default function Events() {
         ? ['Your Information', 'Event Details', 'Music Genre', 'Instruments']
         : ['Your Information', 'Event Details', 'Music Genre', 'Music Combo', 'Instruments'];
 
-  // Min date for the event date picker = today
+  // Min date for the event date picker = today; max = 5 years from today (sanity cap)
   const todayISO = new Date().toISOString().split('T')[0];
+  const maxDateISO = (() => {
+    const d = new Date();
+    d.setFullYear(d.getFullYear() + 5);
+    return d.toISOString().split('T')[0];
+  })();
 
   const availableInstruments =
     ENSEMBLE_MAP[selectedEnsemble]?.instrumentOptions || ALL_INSTRUMENTS;
@@ -209,7 +214,9 @@ export default function Events() {
         if (!formData.eventDate) {
           errors.eventDate = isWeddingPackage ? 'Wedding date is required' : 'Event date is required';
         } else if (formData.eventDate < todayISO) {
-          errors.eventDate = isWeddingPackage ? 'Wedding date must be in the future' : 'Event date must be in the future';
+          errors.eventDate = isWeddingPackage ? 'Wedding date must be today or later.' : 'Event date must be today or later.';
+        } else if (formData.eventDate > maxDateISO) {
+          errors.eventDate = 'Please choose a date within the next 5 years.';
         }
         if (!isWeddingPackage && !formData.eventType) errors.eventType = 'Please select an event type';
         if (!formData.guestCount) errors.guestCount = 'Guest count is required';
@@ -261,6 +268,27 @@ export default function Events() {
       }
       return updated;
     });
+
+    // Immediate validation for the event date — block past dates the moment they're typed
+    if (name === 'eventDate' && value) {
+      if (value < todayISO) {
+        setValidationErrors(prev => ({
+          ...prev,
+          eventDate: isWeddingPackage
+            ? 'Wedding date must be today or later.'
+            : 'Event date must be today or later.',
+        }));
+        return;
+      }
+      if (value > maxDateISO) {
+        setValidationErrors(prev => ({
+          ...prev,
+          eventDate: 'Please choose a date within the next 5 years.',
+        }));
+        return;
+      }
+    }
+
     if (validationErrors[name]) {
       setValidationErrors(prev => {
         const next = { ...prev };
@@ -538,6 +566,7 @@ export default function Events() {
                     value={formData.eventDate}
                     onChange={handleInputChange}
                     min={todayISO}
+                    max={maxDateISO}
                     className={`w-full px-4 py-3 border ${validationErrors.eventDate ? 'border-red-400' : 'border-border'} bg-white focus:ring-2 focus:ring-gold focus:border-transparent`}
                     required
                   />
