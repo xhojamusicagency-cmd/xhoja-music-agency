@@ -180,15 +180,20 @@ export default function Ensembles() {
         );
       })()}
 
-      {/* Section divider for the rest of the ensembles */}
-      <section className="bg-cream-light pb-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Section divider for the rest of the ensembles — explicit reassurance that we book every kind of event */}
+      <section className="bg-cream-light pt-4 pb-10 md:pb-12">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold uppercase tracking-[4px] text-[11px] mb-4 font-medium">
-            Or Build Your Own Event
+            Every Kind Of Event
           </p>
-          <div className="w-12 h-px bg-gold mx-auto mb-3"></div>
-          <p className="font-serif italic text-gray-500 text-[15px] max-w-lg mx-auto leading-[1.7]">
-            Single moments, single ensembles — choose the group that fits the room.
+          <div className="w-12 h-px bg-gold mx-auto mb-6"></div>
+          <h2 className="font-serif text-[28px] sm:text-[34px] md:text-[40px] font-light tracking-[0.3px] text-dark mb-5 leading-[1.15]">
+            Not every event needs vows.
+          </h2>
+          <p className="font-serif italic text-gray-500 text-[15px] sm:text-[16px] max-w-2xl mx-auto leading-[1.8]">
+            From corporate galas and donor dinners to private parties, brunches,
+            milestone celebrations, b&rsquo;nai mitzvah, holiday gatherings, and
+            ceremonies of every kind &mdash; choose the ensemble that fits the room.
           </p>
         </div>
       </section>
