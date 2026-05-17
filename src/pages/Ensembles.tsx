@@ -83,18 +83,18 @@ export default function Ensembles() {
 
   return (
     <div className="bg-cream-light">
-      {/* Page header — compact so the flagship card sits above the fold */}
-      <section className="bg-cream-light pt-6 pb-3 md:pt-8 md:pb-4">
+      {/* Page header — ultra compact so flagship sits high above the fold */}
+      <section className="bg-cream-light pt-4 pb-2 md:pt-5 md:pb-3">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gold uppercase tracking-[4px] text-[11px] mb-2 font-medium">
             Book Musicians For Your Event
           </p>
-          <div className="w-10 h-px bg-gold mx-auto mb-3"></div>
-          <h1 className="font-serif text-[28px] sm:text-[36px] md:text-[42px] font-light leading-[1.08] tracking-[0.5px] mb-2 text-dark">
+          <div className="w-10 h-px bg-gold mx-auto mb-2"></div>
+          <h1 className="font-serif text-[24px] sm:text-[32px] md:text-[36px] font-light leading-[1.05] tracking-[0.5px] mb-1 text-dark">
             A musician for every moment.
           </h1>
-          <p className="font-serif italic text-base md:text-lg text-gray-500 max-w-2xl mx-auto leading-[1.6]">
-            Select the ensemble that fits your event &mdash; every group is tailored to the room, the program, and your guests.
+          <p className="font-serif italic text-sm md:text-base text-gray-500 max-w-xl mx-auto leading-[1.5]">
+            Select the ensemble that fits your event &mdash; tailored to the room, the program, and your guests.
           </p>
         </div>
       </section>
