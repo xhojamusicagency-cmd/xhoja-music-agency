@@ -71,7 +71,7 @@ const ENSEMBLE_MAP: Record<string, {
     ],
   },
   'Custom Ensemble': { combo: '' },
-  'The Complete Wedding': { combo: 'Full Wedding Package', genre: 'mixed' },
+  'The Grand Wedding Experience': { combo: 'Full Wedding Package', genre: 'mixed' },
 };
 
 const ALL_INSTRUMENTS = ['Piano', 'Guitar', 'Violin', 'Viola', 'Cello', 'Double Bass', 'Drums', 'Percussion', 'Bass', 'Trumpet', 'Saxophone', 'Clarinet', 'Flute', 'Harp', 'Vocals', 'Accordion'];
@@ -114,7 +114,7 @@ export default function Events() {
 
   const isDJ = formData.genre === 'dj';
   const selectedEnsemble = searchParams.get('ensemble') || '';
-  const isWeddingPackage = selectedEnsemble === 'The Complete Wedding';
+  const isWeddingPackage = selectedEnsemble === 'The Grand Wedding Experience';
   const hasPreFilledCombo = !!ENSEMBLE_MAP[selectedEnsemble]?.combo && !isWeddingPackage;
   // When the visitor arrived via the DJ Set card, genre is already 'dj' — skip Music Genre step
   const skipGenreStep = isDJ && selectedEnsemble === 'DJ Set';
@@ -152,8 +152,8 @@ export default function Events() {
         ...prev,
         combo: defaults.combo || prev.combo,
         genre: defaults.genre || prev.genre,
-        // The Complete Wedding implies eventType = wedding
-        eventType: ensembleParam === 'The Complete Wedding' ? 'wedding' : prev.eventType,
+        // The Grand Wedding Experience implies eventType = wedding
+        eventType: ensembleParam === 'The Grand Wedding Experience' ? 'wedding' : prev.eventType,
       }));
     }
   }, [searchParams]);
@@ -346,7 +346,7 @@ export default function Events() {
           ? 'DJ/Electronic'
           : formData.genre,
       combo: isWeddingPackage
-        ? 'The Complete Wedding (Strings + Jazz Trio + DJ)'
+        ? 'The Grand Wedding Experience (Strings + Jazz Trio + DJ)'
         : isDJ
           ? 'DJ'
           : (formData.combo || 'Not specified'),
@@ -548,7 +548,7 @@ export default function Events() {
                 {isWeddingPackage && (
                   <div className="text-center mb-4 -mt-1">
                     <p className="text-gold uppercase tracking-[3px] text-[10px] mb-2 font-medium">
-                      The Complete Wedding
+                      The Grand Wedding Experience
                     </p>
                     <h4 className="font-serif text-2xl font-medium mb-1">Your Wedding Day</h4>
                     <p className="text-gray-600 text-sm">

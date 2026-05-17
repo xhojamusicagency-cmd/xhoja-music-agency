@@ -15,7 +15,7 @@ interface Ensemble {
 const ENSEMBLES: Ensemble[] = [
   {
     tag: 'Signature Package',
-    name: 'The Complete Wedding',
+    name: 'The Grand Wedding Experience',
     description:
       'One curated team for your entire day — string ensemble for the ceremony, jazz trio for cocktail hour, and a DJ to carry the reception into the night. Designed, rehearsed, and produced as a single seamless experience.',
     flagship: true,
@@ -99,7 +99,7 @@ export default function Ensembles() {
         </div>
       </section>
 
-      {/* Flagship: The Complete Wedding */}
+      {/* Flagship: The Grand Wedding Experience */}
       {(() => {
         const flagship = ENSEMBLES.find((e) => e.flagship);
         if (!flagship) return null;
@@ -124,13 +124,9 @@ export default function Ensembles() {
                       className="absolute inset-0"
                       style={{
                         background:
-                          'linear-gradient(to right, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.0) 60%, rgba(20,20,20,0.65) 100%)',
+                          'linear-gradient(to right, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.0) 60%, rgba(20,20,20,0.65) 100%)',
                       }}
                     ></div>
-                    {/* Signature badge */}
-                    <span className="absolute top-5 left-5 z-20 bg-gold text-dark text-[10px] tracking-[3px] px-3 py-2 font-medium uppercase">
-                      Signature Package
-                    </span>
                   </div>
 
                   {/* Content side */}
