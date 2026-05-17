@@ -270,11 +270,7 @@ export default function Ensembles() {
                 </div>
 
                 <div className="px-7 pt-7 pb-9 text-center flex flex-col flex-1">
-                  <div className="w-6 h-px bg-gold mx-auto mb-4 transition-all duration-500 group-hover:w-12"></div>
-                  <p className="text-gold text-[10px] tracking-[3.5px] uppercase mb-3 font-medium">
-                    {e.tag}
-                  </p>
-                  <h3 className="font-serif text-[22px] leading-[1.25] mb-4 tracking-[0.3px]">
+                  <h3 className="font-serif text-[22px] leading-[1.25] mb-4 tracking-[0.3px] mt-1">
                     {e.name}
                   </h3>
                   <p className="font-serif italic text-[14px] text-gray-500 leading-[1.7] mb-7 flex-1">
