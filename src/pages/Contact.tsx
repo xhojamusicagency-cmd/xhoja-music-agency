@@ -16,6 +16,9 @@ export default function Contact() {
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  // Spam protection
+  const [honeypot, setHoneypot] = useState('');
+  const [formMountedAt] = useState(() => Date.now());
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -38,6 +41,13 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Spam protection: silently drop if honeypot filled OR form submitted unrealistically fast.
+    if (honeypot.trim() !== '' || Date.now() - formMountedAt < 2000) {
+      setSubmitStatus('success');
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
@@ -160,6 +170,19 @@ export default function Contact() {
               <div className="bg-cream p-5 sm:p-8 border border-border">
                 <h3 className="font-serif text-2xl font-medium mb-6">Send Us A Message</h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Honeypot — invisible to humans, irresistible to bots. Don't touch. */}
+                  <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', top: 'auto', width: '1px', height: '1px', overflow: 'hidden' }}>
+                    <label htmlFor="contact-website-url">Your website (leave this blank)</label>
+                    <input
+                      type="text"
+                      id="contact-website-url"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={honeypot}
+                      onChange={(e) => setHoneypot(e.target.value)}
+                    />
+                  </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-xs font-medium uppercase tracking-[2.4px] text-gray-500 mb-2">Full Name *</label>

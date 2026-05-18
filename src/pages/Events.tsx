@@ -96,6 +96,10 @@ export default function Events() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [videoLoaded, setVideoLoaded] = useState(false);
+  // Honeypot: invisible to humans, irresistible to bots. If filled, we silently drop the submission.
+  const [honeypot, setHoneypot] = useState('');
+  // Render timestamp — if form is submitted in <2s, almost certainly a bot.
+  const [formMountedAt] = useState(() => Date.now());
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -349,6 +353,14 @@ export default function Events() {
 
   const handleSubmit = async () => {
     if (!validateStep(currentStep)) return;
+
+    // Spam protection: silently drop if honeypot filled OR form submitted unrealistically fast.
+    // Bots fill every text field; humans never see the honeypot. Fake "success" so they don't retry.
+    if (honeypot.trim() !== '' || Date.now() - formMountedAt < 2000) {
+      setSubmitStatus('success');
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
@@ -501,6 +513,19 @@ export default function Events() {
 
           {/* Form */}
           <form onSubmit={(e) => e.preventDefault()} className="bg-white border border-border p-5 sm:p-8">
+            {/* Honeypot — invisible to humans, irresistible to bots. Don't touch. */}
+            <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', top: 'auto', width: '1px', height: '1px', overflow: 'hidden' }}>
+              <label htmlFor="website-url">Your website (leave this blank)</label>
+              <input
+                type="text"
+                id="website-url"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+              />
+            </div>
             {/* Step 1: Your Information */}
             {currentStep === 1 && (
               <div className="space-y-6">
