@@ -83,17 +83,17 @@ export default function Ensembles() {
 
   return (
     <div className="bg-cream-light">
-      {/* Page header — balanced and elegant */}
-      <section className="bg-cream-light pt-16 pb-12 md:pt-20 md:pb-14">
+      {/* Page header — elegant but compact so flagship sits above the fold */}
+      <section className="bg-cream-light pt-8 pb-6 md:pt-10 md:pb-8">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gold uppercase tracking-[4px] text-[11px] mb-4 font-medium">
+          <p className="text-gold uppercase tracking-[4px] text-[11px] mb-3 font-medium">
             Book Musicians For Your Event
           </p>
-          <div className="w-12 h-px bg-gold mx-auto mb-6"></div>
-          <h1 className="font-serif text-[40px] sm:text-[52px] md:text-[60px] font-light leading-[1.08] tracking-[0.5px] mb-6 text-dark">
+          <div className="w-12 h-px bg-gold mx-auto mb-4"></div>
+          <h1 className="font-serif text-[32px] sm:text-[42px] md:text-[48px] font-light leading-[1.08] tracking-[0.5px] mb-3 text-dark">
             A musician for every moment.
           </h1>
-          <p className="font-serif italic text-base md:text-lg text-gray-500 max-w-2xl mx-auto leading-[1.7]">
+          <p className="font-serif italic text-sm md:text-base text-gray-500 max-w-2xl mx-auto leading-[1.6]">
             Select the ensemble that fits your event &mdash; every group is tailored to the room, the program, and your guests.
           </p>
         </div>
@@ -104,7 +104,7 @@ export default function Ensembles() {
         const flagship = ENSEMBLES.find((e) => e.flagship);
         if (!flagship) return null;
         return (
-          <section className="bg-cream-light pb-16 md:pb-20">
+          <section className="bg-cream-light pb-10 md:pb-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <Link
                 to={consultUrl(flagship.name)}
@@ -112,7 +112,7 @@ export default function Ensembles() {
               >
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
                   {/* Image side — balanced 50/50 split, fixed min-height for consistency */}
-                  <div className="relative h-[320px] lg:h-auto lg:min-h-[520px] overflow-hidden bg-dark">
+                  <div className="relative h-[320px] lg:h-auto lg:min-h-[460px] overflow-hidden bg-dark">
                     {flagship.image && (
                       <img
                         src={flagship.image}
@@ -209,7 +209,7 @@ export default function Ensembles() {
                 )}
 
                 <div
-                  className={`aspect-[4/5] relative overflow-hidden ${
+                  className={`aspect-[4/3] relative overflow-hidden ${
                     e.custom
                       ? 'bg-white border border-dashed border-gold flex items-center justify-center'
                       : 'bg-dark'
