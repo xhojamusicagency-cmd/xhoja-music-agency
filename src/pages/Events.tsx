@@ -14,7 +14,8 @@ const ENSEMBLE_MAP: Record<string, {
 }> = {
   'Solo Piano or Guitar': {
     combo: 'Solo Musician',
-    instrumentOptions: ['Piano', 'Guitar', 'Vocals'],
+    // Name says "Solo Piano or Guitar" — keep options consistent with the package name
+    instrumentOptions: ['Piano', 'Guitar'],
     genreOptions: [
       { value: 'classical', label: 'Classical' },
       { value: 'jazz', label: 'Jazz' },
@@ -35,7 +36,8 @@ const ENSEMBLE_MAP: Record<string, {
   'String Quartet': {
     combo: 'Small Ensemble (4-5)',
     genre: 'classical',
-    instrumentOptions: ['Violin', 'Viola', 'Cello', 'Double Bass', 'Harp', 'Flute'],
+    // Strings only — Flute removed (woodwind, not consistent with "String Quartet")
+    instrumentOptions: ['Violin', 'Viola', 'Cello', 'Double Bass', 'Harp'],
     genreOptions: [
       { value: 'classical', label: 'Classical' },
       { value: 'pop', label: 'Pop / Strings Covers' },
