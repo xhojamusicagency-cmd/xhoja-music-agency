@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import usePageTitle from '../hooks/usePageTitle';
 
@@ -38,134 +38,8 @@ export default function Lessons() {
   const [phone, setPhone] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [selectedInstructor, setSelectedInstructor] = useState<number | null>(null);
 
-  const instructors = [
-    {
-      id: 1,
-      name: 'Alexander Xhoja',
-      role: 'Artistic Director & CEO',
-      instruments: 'Piano',
-      experience: '15+ years',
-      bio: 'Alexander Xhoja is a Boston-based, twenty-one-year-old pianist who is a recent recipient of a full-ride scholarship to the prestigious Berklee College of Music. With immense dedication and drive, he enriches the lives and hearts of his listeners by implementing emotional depth into his sound.',
-      image: '/alexander-xhoja.jpg'
-    },
-    {
-      id: 2,
-      name: 'Elton Xhoja',
-      role: 'Chairman of Education & Piano Instructor',
-      instruments: 'Piano & Clarinet',
-      experience: '10+ years',
-      bio: 'Elton Xhoja, a Berklee-trained educator and performer, leads educational direction at Xhoja Music Agency, crafting clear lesson objectives and inspiring students through creativity, improvisation, and a lifelong love of music.',
-      image: '/elton-c.jpg'
-    },
-    {
-      id: 3,
-      name: 'Jude Seiner',
-      role: 'Bass & Guitar Instructor',
-      instruments: 'Bass & Guitar',
-      experience: '6+ years',
-      bio: 'Jude Seiner is a scholarship recipient at Berklee College of Music, where he is currently studying performance and developing his voice as a modern jazz and contemporary musician. Recognized with a full scholarship for his artistic excellence and musical potential, Jude is an active performer known for his strong groove, musical sensitivity, and collaborative approach on stage.',
-      image: '/jude-base.jpg'
-    },
-    {
-      id: 4,
-      name: 'Kai Kitch',
-      role: 'Drum Instructor',
-      instruments: 'Drums',
-      experience: '6+ years',
-      bio: 'Kai Kitch is a dynamic Boston-based drummer and versatile musician with a strong foundation in jazz and fluency across R&B, pop, and funk. His well-rounded and adaptable approach makes him an excellent fit for a wide range of performances and ensemble settings.',
-      image: '/kai-drum.jpg'
-    },
-    {
-      id: 5,
-      name: 'Jakob Kobal',
-      role: 'Accordion & Piano Instructor',
-      instruments: 'Accordion & Piano',
-      experience: '10+ years',
-      bio: 'Jakob Kobal is a Slovenian accordionist and pianist based in Boston. Classically and jazz-trained, he moves fluidly between tango, Balkan folk, jazz, and contemporary music — bringing a refined yet creative approach to every performance.',
-      image: '/jakob-jamiliee.png'
-    },
-    {
-      id: 6,
-      name: 'Ellis Cordaro',
-      role: 'Drum Instructor',
-      instruments: 'Drums',
-      experience: '8+ years',
-      bio: 'Ellis Cordaro is a versatile drummer and performing artist with a deep passion for jazz and global music traditions. Specializing in jazz, pop, R&B, rock, and Latin music, he brings a dynamic and culturally informed approach to every performance. He began his formal jazz training at the New England Conservatory Preparatory School before continuing his studies at the University of Massachusetts Amherst.',
-      image: '/ellis-cordaro.jpg'
-    },
-    {
-      id: 7,
-      name: 'Calele (Carolina Perez)',
-      role: 'Vocals & Trumpet Instructor',
-      instruments: 'Vocals & Trumpet',
-      experience: '5+ years',
-      bio: "Calele (Carolina Perez) is a Panamanian-Chilean Jazz and Latin vocalist and trumpeter currently studying Performance and Contemporary Writing and Production at Berklee College of Music. She has experience teaching children’s music classes and summer workshops (ages 6–15) at Fundación Danilo Pérez, as well as working as a freelance private instructor (in person and online).",
-      image: '/calele-perez.jpg'
-    },
-    {
-      id: 8,
-      name: 'Gabriel Lopez',
-      role: 'Bass & Guitar Instructor',
-      instruments: 'Electric Bass, Guitar & Congas',
-      experience: '6+ years',
-      bio: 'Gabriel Lopez is a Puerto Rican electric bassist based in Boston. Deeply rooted in Latin music and jazz, his playing is driven by strong groove, time, and musical sensitivity. While bass is his primary instrument, Gabriel also brings a solid background in congas, which strongly informs his rhythmic approach and feel.',
-      image: '/gabriel-lopez.jpg'
-    },
-    {
-      id: 9,
-      name: 'Ella Xhoja',
-      role: 'Saxophone Instructor & Performer',
-      instruments: 'Saxophone',
-      experience: '5+ years',
-      bio: 'Ella Xhoja is a saxophonist and performer deeply rooted in the jazz scene, with experience from Jazz at Lincoln Center to the Mingus Festival. Featured on WICN\'s Jazz for New England with JazzHers and a member of the Post Underground Jazz Collective, she brings real stage experience into every lesson, helping students develop strong technique, confidence, and a personal artistic voice.',
-      image: '/ella-xhoja.jpg'
-    },
-    {
-      id: 10,
-      name: 'Jamiliee Haddad Zamorano',
-      role: 'Vocal & Songwriting Instructor',
-      instruments: 'Vocals & Songwriting',
-      experience: '5+ years',
-      bio: 'Jamiliee Haddad Zamorano is a trilingual songwriting and vocal coach of Mexican and Syrian descent, professionally shaped by her studies at Berklee College of Music. A classically trained bel canto vocalist, she bridges jazz and contemporary styles, guiding artists through a technique-driven yet emotionally grounded approach.',
-      image: '/jamiliee-haddad.jpg'
-    },
-    {
-      id: 11,
-      name: 'Dani Calderon',
-      role: 'Vocal Instructor',
-      instruments: 'Vocals',
-      experience: '5+ years',
-      bio: 'Dani is a passionate, hardworking and knowledgeable teacher, manager and vocalist! She creates an exciting learning environment that helps young singers build healthy vocal technique, musical literacy, and personal style. She strives to make every student feel like singing can be expressive and freeing, not something to be ashamed about!',
-      image: '/dani-calderon.jpg',
-      imagePosition: 'object-center'
-    }
-  ];
-
-  // Hash-based navigation for instructor bios
-  useEffect(() => {
-    const handleHash = () => {
-      const hash = window.location.hash;
-      const match = hash.match(/^#instructor-(\d+)$/);
-      if (match) {
-        setSelectedInstructor(parseInt(match[1], 10));
-      } else {
-        setSelectedInstructor(null);
-      }
-    };
-
-    handleHash();
-    window.addEventListener('hashchange', handleHash);
-    return () => window.removeEventListener('hashchange', handleHash);
-  }, []);
-
-  const closeInstructorBio = () => {
-    setSelectedInstructor(null);
-    history.pushState(null, '', window.location.pathname);
-  };
-
-  const activeInstructor = instructors.find(i => i.id === selectedInstructor);
+  // Note: instructor profiles live on /team — the Meet The Team page.
 
   const packages: PackageData[] = [
     {
@@ -303,74 +177,26 @@ export default function Lessons() {
         </div>
       </section>
 
-      {/* Meet Your Instructors Section */}
-      <section id="instructors" className="bg-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">OUR EDUCATORS</p>
-            <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px]">Meet Your Instructors</h2>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12">
-            {instructors.map((instructor) => (
-              <a
-                key={instructor.id}
-                href={`#instructor-${instructor.id}`}
-                aria-label={`Read bio for ${instructor.name}`}
-                className="flex flex-col items-center text-center group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4 focus-visible:ring-offset-white transition-transform duration-500 hover:-translate-y-1"
-              >
-                <div className="relative w-full aspect-square mb-5 overflow-hidden">
-                  <img
-                    src={instructor.image}
-                    alt={instructor.name}
-                    loading="eager"
-                    className={`w-full h-full object-cover ${'imagePosition' in instructor ? instructor.imagePosition : 'object-top'} transition-transform duration-700 group-hover:scale-105`}
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = 'https://via.placeholder.com/300?text=' + instructor.name.replace(' ', '+');
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/15 transition-colors duration-500" />
-                </div>
-                <div className="w-8 h-px bg-gold mb-3 transition-all duration-500 group-hover:w-16" />
-                <h3 className="font-serif text-base sm:text-xl font-medium mb-1 leading-snug text-dark transition-colors duration-300 group-hover:text-gold">{instructor.name}</h3>
-                <p className="text-gold text-xs sm:text-sm font-medium uppercase tracking-[1.8px] mb-2">{instructor.role}</p>
-                <p className="text-gray-400 text-xs sm:text-sm mb-3">{instructor.instruments}</p>
-                <span className="text-xs sm:text-sm uppercase tracking-[1.8px] text-gray-400 group-hover:text-gold transition-colors duration-300">
-                  View Bio →
-                </span>
-              </a>
-            ))}
-          </div>
+      {/* Meet Your Instructors — compact teaser linking to the full team page */}
+      <section id="instructors" className="bg-white py-14 md:py-20">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-gold uppercase tracking-[2.4px] text-xs mb-3 font-medium">OUR EDUCATORS</p>
+          <div className="w-10 h-px bg-gold mx-auto mb-5"></div>
+          <h2 className="font-serif text-3xl sm:text-4xl font-light leading-[1.15] tracking-[0.5px] mb-5">
+            Learn from world-class musicians.
+          </h2>
+          <p className="font-serif italic text-gray-500 text-base md:text-lg leading-[1.7] mb-8">
+            Our roster of Berklee-trained instructors and performing artists teach across piano, guitar, bass, drums, vocals, saxophone, accordion, songwriting, and more.
+          </p>
+          <Link
+            to="/team"
+            className="inline-flex items-center gap-3 px-10 py-4 bg-gold text-dark text-[11px] font-medium tracking-[3.5px] uppercase hover:bg-dark hover:text-white transition-all duration-300"
+          >
+            Meet Our Full Roster
+            <span className="transition-transform duration-300 hover:translate-x-1">→</span>
+          </Link>
         </div>
       </section>
-
-      {/* Instructor Bio Modal */}
-      {activeInstructor && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={closeInstructorBio}>
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
-          <div className="relative bg-white max-w-lg w-full p-6 sm:p-8 shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            <button
-              type="button"
-              onClick={closeInstructorBio}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </button>
-            <div className="flex flex-col items-center text-center">
-              <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full flex items-center justify-center border border-gold/25 mb-4">
-                <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden">
-                  <img src={activeInstructor.image} alt={activeInstructor.name} className={`w-full h-full object-cover ${'imagePosition' in activeInstructor ? activeInstructor.imagePosition : 'object-top'}`} />
-                </div>
-              </div>
-              <h3 className="font-serif text-2xl sm:text-3xl font-medium mb-1">{activeInstructor.name}</h3>
-              <p className="text-gold text-xs font-medium uppercase tracking-[2.4px] mb-4">{activeInstructor.role}</p>
-              <div className="w-12 h-px bg-gold/30 mb-4" />
-              <p className="text-gray-500 text-sm sm:text-base leading-relaxed">{activeInstructor.bio}</p>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Lesson Packages Section */}
       <section id="lesson-packages" className="bg-cream py-16 md:py-24">
