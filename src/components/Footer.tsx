@@ -23,7 +23,7 @@ export default function Footer() {
           <div className="md:pl-12">
             <h4 className="font-serif text-lg font-medium mb-6">Quick Links</h4>
             <ul className="space-y-4 text-sm text-gray-400">
-              <li><Link to="/events" className="hover:text-gold transition-colors">Event Bookings</Link></li>
+              <li><Link to="/ensembles" className="hover:text-gold transition-colors">Event Bookings</Link></li>
               <li><Link to="/lessons" className="hover:text-gold transition-colors">Music Lessons</Link></li>
               <li><Link to="/team" className="hover:text-gold transition-colors">Meet The Team</Link></li>
               <li><Link to="/contact" className="hover:text-gold transition-colors">Contact Us</Link></li>
@@ -47,7 +47,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-700/50 pt-8 text-center text-sm text-gray-500">
-          <p>&copy; 2026 Xhoja Music Agency. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Xhoja Music Agency. All rights reserved.</p>
         </div>
       </div>
     </footer>

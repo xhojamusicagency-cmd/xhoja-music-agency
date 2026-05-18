@@ -155,7 +155,11 @@ export default function Team() {
                     alt={member.name}
                     loading="eager"
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/300?text=' + member.name.replace(' ', '+'); }}
+                    onError={(e) => {
+                      // Use an inline SVG fallback so we never depend on a 3rd-party placeholder service
+                      const initials = member.name.split(' ').map((w) => w[0]).join('').slice(0, 2);
+                      (e.target as HTMLImageElement).src = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23141414'/><text x='150' y='170' font-family='Georgia, serif' font-size='100' fill='%23CC9433' text-anchor='middle' font-style='italic'>${initials}</text></svg>`)}`;
+                    }}
                   />
                   <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/15 transition-colors duration-500" />
                 </div>
