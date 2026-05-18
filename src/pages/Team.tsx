@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 import usePageTitle from '../hooks/usePageTitle';
 
 export default function Team() {
-  usePageTitle('Meet The Team — Musicians & Instructors');
+  usePageTitle(
+    'Meet The Team — Musicians & Instructors',
+    'Meet the Xhoja Music Agency team: Berklee-trained pianists, guitarists, bassists, drummers, vocalists, and DJs serving Boston-area weddings, corporate events, and private lessons.'
+  );
   const [selectedMember, setSelectedMember] = useState<number | null>(null);
 
   const teamMembers = [

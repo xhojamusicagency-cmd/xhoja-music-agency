@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Ensembles from './pages/Ensembles';
@@ -79,6 +80,8 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Layout>
+      {/* Vercel Analytics — zero-config, no cookies, GDPR-safe page-view + speed metrics */}
+      <Analytics />
     </Router>
   );
 }

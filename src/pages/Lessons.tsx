@@ -29,7 +29,10 @@ interface PackageData {
 }
 
 export default function Lessons() {
-  usePageTitle('Music Lessons in Boston — Piano, Guitar, Drums & More');
+  usePageTitle(
+    'Music Lessons in Boston — Piano, Guitar, Drums & More',
+    'Private music lessons in Boston with Berklee-trained instructors. Piano, guitar, bass, drums, vocals, saxophone, and more — all skill levels. Book a trial lesson or full package online.'
+  );
   const [selectedPackage, setSelectedPackage] = useState<PackageData | null>(null);
   const [instrument, setInstrument] = useState('');
   const [firstName, setFirstName] = useState('');

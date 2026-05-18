@@ -5,7 +5,10 @@ import { EMAILJS_CONFIG } from '../utils/emailjs';
 import usePageTitle from '../hooks/usePageTitle';
 
 export default function Contact() {
-  usePageTitle('Contact Us — Get in Touch');
+  usePageTitle(
+    'Contact Us — Get in Touch',
+    'Get in touch with Xhoja Music Agency in Boston, MA. Email, phone, and a quick contact form for event bookings, music lesson inquiries, and partnership questions.'
+  );
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow internal/transactional pages from search indexing
+Disallow: /payment-success
+Disallow: /payment-failed
+
+Sitemap: https://www.xhojamusicagency.com/sitemap.xml

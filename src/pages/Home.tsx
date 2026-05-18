@@ -4,7 +4,10 @@ import usePageTitle from '../hooks/usePageTitle';
 import ReviewsCarousel from '../components/ReviewsCarousel';
 
 export default function Home() {
-  usePageTitle();
+  usePageTitle(
+    undefined,
+    'Boston\'s premier music agency. Hire live musicians for weddings, corporate events, and private parties — from jazz trios to string quartets to DJs. Founded by Berklee pianist Alexander Xhoja.'
+  );
   return (
     <div>
       {/* Hero Section — Cinematic Video. Capped on mobile so content stays within reach on short viewports. */}

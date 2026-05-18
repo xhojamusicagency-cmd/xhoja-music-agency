@@ -90,7 +90,10 @@ const ALL_GENRES = [
 ];
 
 export default function Events() {
-  usePageTitle('Event Bookings — Live Musicians for Hire in Boston');
+  usePageTitle(
+    'Event Bookings — Live Musicians for Hire in Boston',
+    'Book live musicians for your wedding, corporate event, donor dinner, or private party in Boston. Request a personalized quote from Xhoja Music Agency — every ensemble tailored to your room, program, and guests.'
+  );
   const [searchParams] = useSearchParams();
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);

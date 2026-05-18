@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import usePageTitle from '../hooks/usePageTitle';
 
 interface Ensemble {
   tag: string;
@@ -78,6 +79,10 @@ const ENSEMBLES: Ensemble[] = [
 ];
 
 export default function Ensembles() {
+  usePageTitle(
+    'Book Live Musicians in Boston — Weddings, Galas, Events',
+    'Boston live music for every event: wedding ceremonies, cocktail hours, corporate galas, donor dinners, b\'nai mitzvah, and more. Solo piano, jazz trio, string quartet, DJ — fully curated by Xhoja Music Agency.'
+  );
   const consultUrl = (ensembleName: string) =>
     `/events?ensemble=${encodeURIComponent(ensembleName)}`;
 
