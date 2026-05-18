@@ -7,8 +7,8 @@ export default function Home() {
   usePageTitle();
   return (
     <div>
-      {/* Hero Section — Cinematic Video */}
-      <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+      {/* Hero Section — Cinematic Video. Capped on mobile so content stays within reach on short viewports. */}
+      <section className="relative h-[88vh] min-h-[560px] max-h-[820px] sm:h-screen sm:max-h-none flex items-center justify-center overflow-hidden">
         {/* Video Background */}
         <video
           autoPlay
@@ -39,7 +39,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/ensembles"
-              className="px-10 py-4 bg-gold text-white font-normal tracking-[2px] uppercase text-sm hover:bg-gold/90 transition-colors duration-300"
+              className="px-10 py-4 bg-gold text-dark font-normal tracking-[2px] uppercase text-sm hover:bg-gold/90 transition-colors duration-300"
             >
               Book an Event
             </Link>
@@ -245,7 +245,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="px-8 py-3 bg-gold text-white font-normal hover:bg-gold/90 transition-colors"
+              className="px-8 py-3 bg-gold text-dark font-normal hover:bg-gold/90 transition-colors"
             >
               GET IN TOUCH
             </Link>

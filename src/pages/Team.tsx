@@ -225,7 +225,7 @@ export default function Team() {
           </p>
           <Link
             to="/contact"
-            className="inline-block px-8 py-3 bg-gold text-white font-normal hover:bg-gold/90 transition-colors"
+            className="inline-block px-8 py-3 bg-gold text-dark font-normal hover:bg-gold/90 transition-colors"
           >
             GET IN TOUCH
           </Link>

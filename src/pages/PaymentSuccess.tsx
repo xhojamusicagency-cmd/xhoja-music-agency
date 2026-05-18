@@ -75,7 +75,7 @@ export default function PaymentSuccess() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/"
-                className="inline-block px-8 py-3 bg-gold text-white font-normal tracking-[0.7px] text-sm hover:bg-gold/90 transition-colors"
+                className="inline-block px-8 py-3 bg-gold text-dark font-normal tracking-[0.7px] text-sm hover:bg-gold/90 transition-colors"
               >
                 BACK TO HOME
               </Link>

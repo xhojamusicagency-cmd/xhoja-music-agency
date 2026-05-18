@@ -147,17 +147,27 @@ export default function Events() {
   const availableGenres =
     ENSEMBLE_MAP[selectedEnsemble]?.genreOptions || ALL_GENRES;
 
-  // Pre-fill from ?ensemble=X (when arriving from /ensembles page)
+  // Pre-fill from ?ensemble=X (when arriving from /ensembles page).
+  // Smart-default the event type so users aren't staring at an empty required field.
   useEffect(() => {
     const ensembleParam = searchParams.get('ensemble');
     if (ensembleParam && ENSEMBLE_MAP[ensembleParam]) {
       const defaults = ENSEMBLE_MAP[ensembleParam];
+      const defaultEventType: Record<string, string> = {
+        'The Grand Wedding Experience': 'wedding',
+        'DJ Set': 'other',
+        'Jewish Ensemble': 'other',
+        'Latin Jazz': 'other',
+        'String Quartet': 'wedding',
+        'Cocktail Duo': 'corporate',
+        'Solo Piano or Guitar': 'corporate',
+        'Dinner Jazz/Classical Trio': 'corporate',
+      };
       setFormData((prev) => ({
         ...prev,
         combo: defaults.combo || prev.combo,
         genre: defaults.genre || prev.genre,
-        // The Grand Wedding Experience implies eventType = wedding
-        eventType: ensembleParam === 'The Grand Wedding Experience' ? 'wedding' : prev.eventType,
+        eventType: defaultEventType[ensembleParam] || prev.eventType,
       }));
     }
   }, [searchParams]);

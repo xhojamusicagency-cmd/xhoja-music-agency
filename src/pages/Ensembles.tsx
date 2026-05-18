@@ -139,21 +139,21 @@ export default function Ensembles() {
                         The Flagship Experience
                       </p>
                       <div className="w-10 h-px bg-gold mb-6"></div>
-                      <h2 className="font-serif text-white text-[34px] sm:text-[40px] lg:text-[44px] leading-[1.1] tracking-[0.3px] font-light mb-6">
+                      <h2 className="font-serif text-white text-[28px] sm:text-[36px] lg:text-[44px] leading-[1.1] tracking-[0.3px] font-light mb-5 sm:mb-6">
                         {flagship.name}
                       </h2>
-                      <p className="font-serif italic text-cream/80 text-[15px] sm:text-[16px] leading-[1.8] mb-8 max-w-lg">
+                      <p className="font-serif italic text-cream/80 text-[14px] sm:text-[16px] leading-[1.7] sm:leading-[1.8] mb-6 sm:mb-8 max-w-lg">
                         {flagship.description}
                       </p>
 
-                      {/* Three-phase breakdown */}
+                      {/* Three-phase breakdown — tighter labels on mobile */}
                       {flagship.includes && (
-                        <div className="grid grid-cols-3 gap-4 mb-10 max-w-md">
+                        <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-8 sm:mb-10 max-w-md">
                           {flagship.includes.map((phase, i) => (
                             <div key={phase} className="text-center">
-                              <div className="text-gold font-serif italic text-2xl mb-2">0{i + 1}</div>
-                              <div className="w-6 h-px bg-gold/60 mx-auto mb-2"></div>
-                              <p className="text-cream/90 text-[10px] tracking-[2px] uppercase font-medium">
+                              <div className="text-gold font-serif italic text-xl sm:text-2xl mb-1.5 sm:mb-2">0{i + 1}</div>
+                              <div className="w-6 h-px bg-gold/60 mx-auto mb-1.5 sm:mb-2"></div>
+                              <p className="text-cream/90 text-[9px] sm:text-[10px] tracking-[1.5px] sm:tracking-[2px] uppercase font-medium leading-tight">
                                 {phase}
                               </p>
                             </div>

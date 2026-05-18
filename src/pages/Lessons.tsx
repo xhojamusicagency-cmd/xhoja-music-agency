@@ -222,7 +222,7 @@ export default function Lessons() {
                 }`}
               >
                 {pkg.highlighted && (
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gold text-white px-4 py-2 font-normal text-sm">
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gold text-dark px-4 py-2 font-normal text-sm">
                     MOST POPULAR
                   </div>
                 )}
@@ -245,7 +245,7 @@ export default function Lessons() {
                   onClick={() => openModal(pkg)}
                   className={`w-full py-3 font-normal transition-colors ${
                     pkg.highlighted
-                      ? 'bg-gold text-white hover:bg-gold/90'
+                      ? 'bg-gold text-dark hover:bg-gold/90'
                       : 'border border-dark text-dark hover:bg-dark hover:text-white'
                   }`}
                 >
@@ -266,7 +266,7 @@ export default function Lessons() {
           </p>
           <Link
             to="/contact"
-            className="inline-block px-8 py-3 bg-gold text-white font-normal hover:bg-gold/90 transition-colors"
+            className="inline-block px-8 py-3 bg-gold text-dark font-normal hover:bg-gold/90 transition-colors"
           >
             GET IN TOUCH
           </Link>
@@ -373,7 +373,7 @@ export default function Lessons() {
               <button
                 onClick={handlePurchase}
                 disabled={loading}
-                className="w-full py-4 bg-gold text-white font-medium tracking-wider hover:bg-gold/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full py-4 bg-gold text-dark font-medium tracking-wider hover:bg-gold/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {loading ? (
                   <span className="flex items-center justify-center gap-2">
