@@ -57,8 +57,6 @@ const ENSEMBLE_MAP: Record<string, {
     instrumentOptions: ['Piano', 'Violin', 'Clarinet', 'Vocals', 'Drums', 'Bass', 'Guitar', 'Accordion'],
     genreOptions: [
       { value: 'jewish', label: 'Jewish / Klezmer' },
-      { value: 'classical', label: 'Classical' },
-      { value: 'jazz', label: 'Jazz' },
     ],
   },
   'Latin Jazz': {
@@ -116,8 +114,10 @@ export default function Events() {
   const selectedEnsemble = searchParams.get('ensemble') || '';
   const isWeddingPackage = selectedEnsemble === 'The Grand Wedding Experience';
   const hasPreFilledCombo = !!ENSEMBLE_MAP[selectedEnsemble]?.combo && !isWeddingPackage;
-  // When the visitor arrived via the DJ Set card, genre is already 'dj' — skip Music Genre step
-  const skipGenreStep = isDJ && selectedEnsemble === 'DJ Set';
+  // Skip the Music Genre step when there's only one genre option available
+  // (DJ Set, Jewish Ensemble, etc. — no point asking "pick one" of one)
+  const singleGenreEnsemble = (ENSEMBLE_MAP[selectedEnsemble]?.genreOptions?.length || 0) === 1;
+  const skipGenreStep = (isDJ && selectedEnsemble === 'DJ Set') || singleGenreEnsemble;
 
   const steps = isWeddingPackage
     ? ['Your Information', 'Wedding Details', 'Your Vision']
@@ -126,7 +126,9 @@ export default function Events() {
         ? ['Your Information', 'Event Details', 'DJ Vibe']
         : ['Your Information', 'Event Details', 'Music Genre', 'DJ Vibe']
       : hasPreFilledCombo
-        ? ['Your Information', 'Event Details', 'Music Genre', 'Instruments']
+        ? skipGenreStep
+          ? ['Your Information', 'Event Details', 'Instruments']
+          : ['Your Information', 'Event Details', 'Music Genre', 'Instruments']
         : ['Your Information', 'Event Details', 'Music Genre', 'Music Combo', 'Instruments'];
 
   // Min date for the event date picker = today; max = 5 years from today (sanity cap)
@@ -227,9 +229,14 @@ export default function Events() {
       case 3:
         if (isWeddingPackage) {
           // Wedding vision is optional — no validation needed
-        } else if (skipGenreStep) {
+        } else if (isDJ && skipGenreStep) {
           // DJ Set arrival — step 3 is DJ Vibe
           if (!formData.djVibe) errors.djVibe = 'Please select a DJ vibe';
+        } else if (skipGenreStep && hasPreFilledCombo) {
+          // Jewish Ensemble or other single-genre ensemble — step 3 is Instruments
+          if (formData.instruments.length < minInstruments) {
+            errors.instruments = `Please select ${instrumentCountLabel} instrument${maxInstruments > 1 ? 's' : ''} for your ${formData.combo?.toLowerCase() || 'ensemble'}.`;
+          }
         } else {
           if (!formData.genre) errors.genre = 'Please select a music genre';
         }
@@ -731,8 +738,11 @@ export default function Events() {
               </div>
             )}
 
-            {/* Step 5 (or Step 4 when pre-filled): Instruments — curated by ensemble */}
-            {((currentStep === 5 && !hasPreFilledCombo) || (currentStep === 4 && hasPreFilledCombo && !isDJ)) && (
+            {/* Instruments step — curated by ensemble. Shows on step 3 if genre is skipped + combo pre-filled,
+                step 4 if combo pre-filled + genre shown, or step 5 in the full flow */}
+            {((currentStep === 5 && !hasPreFilledCombo) ||
+              (currentStep === 4 && hasPreFilledCombo && !isDJ && !skipGenreStep) ||
+              (currentStep === 3 && hasPreFilledCombo && !isDJ && skipGenreStep)) && (
               <div className="space-y-6">
                 {selectedEnsemble && (
                   <p className="text-gold text-xs tracking-[3px] uppercase mb-2">{selectedEnsemble}</p>
