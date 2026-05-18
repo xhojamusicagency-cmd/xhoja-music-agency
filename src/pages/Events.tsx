@@ -652,7 +652,7 @@ export default function Events() {
                 </div>
                 <div className="bg-cream-light border-l-2 border-gold px-5 py-4">
                   <p className="font-serif italic text-sm text-gray-600 leading-[1.7]">
-                    Your consultation is complimentary. After you submit, Alexander will reach out within 24–48 hours to schedule a personal call and walk through every detail of your day.
+                    Your consultation is complimentary. After you submit, the Xhoja Music Agency team will reach out within 24–48 hours to schedule a personal call and walk through every detail of your day.
                   </p>
                 </div>
               </div>
