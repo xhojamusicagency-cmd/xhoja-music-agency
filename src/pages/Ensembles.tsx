@@ -11,6 +11,7 @@ interface Ensemble {
   custom?: boolean;
   image?: string;
   video?: string;
+  startingFrom?: number; // USD — undefined renders "Custom Quote"
 }
 
 const ENSEMBLES: Ensemble[] = [
@@ -22,12 +23,14 @@ const ENSEMBLES: Ensemble[] = [
     flagship: true,
     includes: ['Ceremony', 'Cocktail Hour', 'Reception'],
     image: '/wedding-reception.jpg?v=6',
+    startingFrom: 4500,
   },
   {
     tag: 'Solo',
     name: 'Solo Piano or Guitar',
     description: 'For dinners, hotel lobbies, and intimate ceremonies — refined and unobtrusive.',
     video: '/hero-piano.mp4',
+    startingFrom: 550,
   },
   {
     tag: 'Duo',
@@ -35,6 +38,7 @@ const ENSEMBLES: Ensemble[] = [
     description:
       'Choose your pairing — piano and vocals, piano and saxophone, guitar and vocals, or another combination tailored to your event.',
     image: '/duo-performance.jpg',
+    startingFrom: 950,
   },
   {
     tag: 'Trio',
@@ -42,12 +46,14 @@ const ENSEMBLES: Ensemble[] = [
     description: 'Piano, bass, and drums — or strings — the warm backbone of any gala or fine-dining moment.',
     featured: true,
     image: '/trio-performance.jpg',
+    startingFrom: 1400,
   },
   {
     tag: 'Quartet',
     name: 'String Quartet',
     description: 'Two violins, viola, and cello — with optional double bass — for weddings, ceremonies, and refined receptions.',
     image: '/string-trio-placeholder.jpg',
+    startingFrom: 2400,
   },
   {
     tag: 'DJ',
@@ -55,6 +61,7 @@ const ENSEMBLES: Ensemble[] = [
     description:
       'Curated sets for weddings, receptions, parties, and late-night programs — open or vinyl format.',
     image: '/dj-performance.jpg',
+    startingFrom: 1200,
   },
   {
     tag: 'Ensemble',
@@ -62,6 +69,7 @@ const ENSEMBLES: Ensemble[] = [
     description:
       "Musicians for b'nai mitzvah, weddings, donor dinners, and cultural events — traditional and contemporary repertoire.",
     image: '/jewish-ensemble-placeholder.jpg',
+    startingFrom: 2800,
   },
   {
     tag: 'Ensemble',
@@ -69,6 +77,7 @@ const ENSEMBLES: Ensemble[] = [
     description:
       'Piano, bass, drums, percussion, and vocals — for evenings that want warmth, rhythm, and energy.',
     image: '/latin-jazz-placeholder.jpg',
+    startingFrom: 2800,
   },
   {
     tag: 'Custom',
@@ -164,6 +173,13 @@ export default function Ensembles() {
                             </div>
                           ))}
                         </div>
+                      )}
+
+                      {/* Starting-from price — gold accent, mirrors the flagship eyebrow */}
+                      {flagship.startingFrom !== undefined && (
+                        <p className="text-gold text-[10px] tracking-[3.5px] uppercase font-medium mb-6">
+                          Starting at ${flagship.startingFrom.toLocaleString()}
+                        </p>
                       )}
 
                       <span className="inline-flex items-center gap-3 px-9 py-4 bg-gold text-dark text-[10px] font-medium tracking-[3.5px] uppercase group-hover:bg-cream-light transition-all duration-300">
@@ -271,8 +287,14 @@ export default function Ensembles() {
                   <h3 className="font-serif text-[22px] leading-[1.25] mb-4 tracking-[0.3px]">
                     {e.name}
                   </h3>
-                  <p className="font-serif italic text-[14px] text-gray-500 leading-[1.7] mb-7 flex-1">
+                  <p className="font-serif italic text-[14px] text-gray-500 leading-[1.7] mb-5 flex-1">
                     {e.description}
+                  </p>
+                  {/* Starting-from price — elegant gold accent, mirrors the card's design language */}
+                  <p className="text-gold text-[10px] tracking-[3.5px] uppercase font-medium mb-6">
+                    {e.startingFrom !== undefined
+                      ? `Starting at $${e.startingFrom.toLocaleString()}`
+                      : 'Custom Quote'}
                   </p>
                   <span className="text-[10px] tracking-[3.5px] uppercase text-dark border-b border-gold pb-1.5 self-center font-medium transition-all duration-300 group-hover:text-gold inline-flex items-center gap-2">
                     Schedule a Consultation

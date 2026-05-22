@@ -89,11 +89,59 @@ const ALL_GENRES = [
   { value: 'dj', label: 'DJ / Electronic' },
 ];
 
+// FAQ content lifted into a constant so the schema (consumed by Google) and the
+// rendered DOM stay perfectly in sync — change either and you update both.
+const FAQ_ITEMS = [
+  {
+    q: 'How far in advance should I book live music for my wedding?',
+    a: 'For weddings during peak season (May–October) we recommend booking 6–12 months ahead. For off-season events, 3–6 months. We can sometimes accommodate last-minute requests, but the best ensembles fill up quickly.',
+  },
+  {
+    q: 'Do you travel outside of Boston?',
+    a: 'We cover the Greater Boston metro and South Shore with no travel fees within 50 miles. We also book events on Cape Cod, Newport, and select destinations when travel is included in the quote.',
+  },
+  {
+    q: "What's included in your pricing?",
+    a: "Every quote includes the musicians' performance, equipment (instruments, light PA where needed), setup and breakdown, and one point of contact handling all scheduling and logistics. We carry $2M liability insurance.",
+  },
+  {
+    q: 'Can you handle both ceremony and reception?',
+    a: 'Yes — we regularly book continuous coverage: a string trio for the ceremony, a jazz duo during cocktail hour, and a DJ or party band for the reception. We coordinate transitions and sound between sets.',
+  },
+  {
+    q: 'What if a musician is unavailable on my date?',
+    a: "Our roster of ~200 musicians means we always have qualified alternates. If a specific performer can't cover your date, we'll arrange an equally talented sub from our roster — no scrambling, no drama.",
+  },
+];
+
 export default function Events() {
   usePageTitle(
     'Event Bookings — Live Musicians for Hire in Boston',
     'Book live musicians for your wedding, corporate event, donor dinner, or private party in Boston. Request a personalized quote from Xhoja Music Agency — every ensemble tailored to your room, program, and guests.'
   );
+
+  // Inject FAQPage JSON-LD schema on mount, remove on unmount. Mirrors the rendered FAQ
+  // so Google can show rich results / "People also ask" snippets.
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'faq-schema-events';
+    script.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: FAQ_ITEMS.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a },
+      })),
+    });
+    document.head.appendChild(script);
+    return () => {
+      const existing = document.getElementById('faq-schema-events');
+      if (existing) existing.remove();
+    };
+  }, []);
+
   const [searchParams] = useSearchParams();
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -475,6 +523,26 @@ export default function Events() {
             )}
           </div>
           <p className="text-sm text-gray-500 mt-4 text-center max-w-3xl mx-auto">Mia McIntosh & Alexander Xhoja performing &ldquo;Million Years Ago&rdquo; by Adele &mdash; a live piano & vocals duo at Berk Recital Hall.</p>
+        </div>
+      </section>
+
+      {/* FAQ Section — content mirrors FAQ_ITEMS so the JSON-LD schema stays in sync. */}
+      <section className="bg-white py-16 md:py-24" aria-labelledby="faq-heading">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">FREQUENTLY ASKED</p>
+            <h2 id="faq-heading" className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-normal mb-4">
+              Booking Questions
+            </h2>
+          </div>
+          <div className="space-y-6">
+            {FAQ_ITEMS.map((item, i) => (
+              <div key={i}>
+                <h3 className="font-serif text-lg text-dark mb-2">{item.q}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
