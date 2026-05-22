@@ -53,7 +53,7 @@ const ENSEMBLES: Ensemble[] = [
     name: 'String Quartet',
     description: 'Two violins, viola, and cello — with optional double bass — for weddings, ceremonies, and refined receptions.',
     image: '/string-trio-placeholder.jpg',
-    startingFrom: 1750,
+    startingFrom: 2400,
   },
   {
     tag: 'DJ',
@@ -69,7 +69,7 @@ const ENSEMBLES: Ensemble[] = [
     description:
       "Musicians for b'nai mitzvah, weddings, donor dinners, and cultural events — traditional and contemporary repertoire.",
     image: '/jewish-ensemble-placeholder.jpg',
-    startingFrom: 1800,
+    startingFrom: 2800,
   },
   {
     tag: 'Ensemble',
@@ -77,7 +77,7 @@ const ENSEMBLES: Ensemble[] = [
     description:
       'Piano, bass, drums, percussion, and vocals — for evenings that want warmth, rhythm, and energy.',
     image: '/latin-jazz-placeholder.jpg',
-    startingFrom: 1800,
+    startingFrom: 2800,
   },
   {
     tag: 'Custom',
