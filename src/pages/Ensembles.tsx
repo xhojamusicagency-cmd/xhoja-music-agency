@@ -283,15 +283,15 @@ export default function Ensembles() {
                   )}
                 </div>
 
-                <div className="px-7 pt-7 pb-9 text-center flex flex-col flex-1">
-                  <h3 className="font-serif text-[22px] leading-[1.25] mb-4 tracking-[0.3px]">
+                <div className="px-7 pt-6 pb-7 text-center flex flex-col flex-1">
+                  <h3 className="font-serif text-[22px] leading-[1.25] mb-3 tracking-[0.3px]">
                     {e.name}
                   </h3>
-                  <p className="font-serif italic text-[14px] text-gray-500 leading-[1.7] mb-5 flex-1">
+                  <p className="font-serif italic text-[14px] text-gray-500 leading-[1.6] mb-4 flex-1">
                     {e.description}
                   </p>
                   {/* Starting-from price — elegant gold accent, mirrors the card's design language */}
-                  <p className="text-gold text-[10px] tracking-[3.5px] uppercase font-medium mb-6">
+                  <p className="text-gold text-[10px] tracking-[3.5px] uppercase font-medium mb-4">
                     {e.startingFrom !== undefined
                       ? `Starting at $${e.startingFrom.toLocaleString()}`
                       : 'Custom Quote'}
