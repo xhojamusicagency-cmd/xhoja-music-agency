@@ -526,58 +526,6 @@ export default function Events() {
         </div>
       </section>
 
-      {/* Pricing Section — starting prices. ALEX: review numbers before final deploy. */}
-      <section className="bg-cream py-16 md:py-24" aria-labelledby="pricing-heading">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">TRANSPARENT PRICING</p>
-            <h2 id="pricing-heading" className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-normal mb-4">
-              Starting Prices
-            </h2>
-            <p className="text-gray-500 text-base max-w-2xl mx-auto">
-              Every event is unique. The figures below are our starting prices &mdash; we&rsquo;ll send a personalized quote based on your venue, time, and program. No travel fees within 50 miles of Boston.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-white p-8 shadow-[0_10px_30px_-15px_rgba(20,20,20,0.08)]">
-              <p className="text-gold uppercase tracking-[2px] text-[11px] mb-2">CEREMONY SOLOIST</p>
-              <p className="font-serif text-3xl font-light text-dark mb-3">From $550</p>
-              <p className="text-gray-500 text-sm leading-relaxed">Solo piano, guitar, violin, or harp for processional, ceremony, and recessional.</p>
-            </div>
-            <div className="bg-white p-8 shadow-[0_10px_30px_-15px_rgba(20,20,20,0.08)]">
-              <p className="text-gold uppercase tracking-[2px] text-[11px] mb-2">COCKTAIL HOUR DUO</p>
-              <p className="font-serif text-3xl font-light text-dark mb-3">From $950</p>
-              <p className="text-gray-500 text-sm leading-relaxed">Two-musician jazz, classical, or contemporary set for cocktail hour or dinner.</p>
-            </div>
-            <div className="bg-white p-8 shadow-[0_10px_30px_-15px_rgba(20,20,20,0.08)]">
-              <p className="text-gold uppercase tracking-[2px] text-[11px] mb-2">RECEPTION BAND</p>
-              <p className="font-serif text-3xl font-light text-dark mb-3">From $2,800</p>
-              <p className="text-gray-500 text-sm leading-relaxed">4- to 6-piece live band for wedding reception or corporate event &mdash; jazz, pop, R&amp;B, classic.</p>
-            </div>
-            <div className="bg-white p-8 shadow-[0_10px_30px_-15px_rgba(20,20,20,0.08)]">
-              <p className="text-gold uppercase tracking-[2px] text-[11px] mb-2">STRING QUARTET</p>
-              <p className="font-serif text-3xl font-light text-dark mb-3">From $1,750</p>
-              <p className="text-gray-500 text-sm leading-relaxed">Classical string quartet for ceremonies, galas, or upscale cocktail-hour atmosphere.</p>
-            </div>
-            <div className="bg-white p-8 shadow-[0_10px_30px_-15px_rgba(20,20,20,0.08)]">
-              <p className="text-gold uppercase tracking-[2px] text-[11px] mb-2">DJ SERVICES</p>
-              <p className="font-serif text-3xl font-light text-dark mb-3">From $1,200</p>
-              <p className="text-gray-500 text-sm leading-relaxed">Professional DJ with sound system &mdash; ceremony, cocktail, reception, or full event coverage.</p>
-            </div>
-            <div className="bg-white p-8 shadow-[0_10px_30px_-15px_rgba(20,20,20,0.08)]">
-              <p className="text-gold uppercase tracking-[2px] text-[11px] mb-2">CUSTOM ENSEMBLE</p>
-              <p className="font-serif text-3xl font-light text-dark mb-3">Quote</p>
-              <p className="text-gray-500 text-sm leading-relaxed">Mixed configurations, hotel/venue residencies, or unique program requests &mdash; we&rsquo;ll build it.</p>
-            </div>
-          </div>
-          <div className="mt-10 text-center">
-            <p className="text-sm text-gray-500">
-              <span className="text-dark font-medium">Included with every booking:</span> $2M liability insurance &middot; W-9&rsquo;d contractors &middot; Payments via Clover &middot; One dedicated point of contact.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section — content mirrors FAQ_ITEMS so the JSON-LD schema stays in sync. */}
       <section className="bg-white py-16 md:py-24" aria-labelledby="faq-heading">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
