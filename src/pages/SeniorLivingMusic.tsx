@@ -15,7 +15,7 @@ const FAQS: FAQ[] = [
   },
   {
     question: 'What does pricing look like for senior community programs?',
-    answer: 'Recurring programs are priced per visit with multi-month discounts. A monthly solo piano program typically runs $250-400 per visit. We quote pricing transparently up front and invoice per visit through Clover — no surprise charges, fully itemized.',
+    answer: 'Recurring programs are priced per visit with multi-month discounts based on ensemble size, program style, and visit frequency. We quote pricing transparently up front and invoice per visit through Clover — no surprise charges, fully itemized.',
   },
   {
     question: 'Do you handle holiday and special-occasion programming?',

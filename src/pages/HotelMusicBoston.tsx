@@ -14,16 +14,16 @@ const FAQS: FAQ[] = [
     answer: 'Yes — set lists are designed in consultation with your team. We have programmed for boutique hotels, fine-dining rooms, and corporate-style lobbies, and the musical direction adjusts to each. We will send a sample repertoire for your sign-off before the first performance.',
   },
   {
-    question: 'Are your musicians insured?',
-    answer: 'Yes. Every musician on the XMA roster is covered under our general liability policy. We can provide a Certificate of Insurance naming your property as additional insured upon request — usually within one business day.',
+    question: 'How do you handle venue insurance and COI requirements?',
+    answer: 'Insurance requirements vary by venue. Many hotel and fine-dining venues are covered under their own property-level event insurance, which extends to contracted performers. For venues requiring additional musician-level documentation, we coordinate case-by-case to meet your specific requirements before the booking is confirmed.',
   },
   {
     question: 'What is your cancellation and substitution policy?',
     answer: 'If a musician cannot perform, we replace them same-day from our vetted understudy bench. Your guests never notice. If your venue needs to cancel a performance, we ask for 48 hours notice when possible — cancellations within that window are billed at 50 percent.',
   },
   {
-    question: 'What does a residency cost?',
-    answer: 'Residencies are priced per-hour with multi-month discounts. A weekly solo piano residency typically runs $400-650 per session depending on the ensemble. We will quote your specific situation transparently — no surprise fees, no markup on travel within Greater Boston.',
+    question: 'How is pricing structured?',
+    answer: 'Residencies are priced per-hour with multi-event discounts based on the ensemble, frequency, and duration. We quote your specific situation transparently — no surprise fees, no markup on travel within Greater Boston.',
   },
 ];
 
@@ -43,7 +43,7 @@ const USE_CASES = [
 ];
 
 const REASONS = [
-  'All musicians fully insured. We carry our own liability coverage.',
+  'Vetted professional musicians with significant hotel, fine-dining, and corporate venue experience.',
   'Professionally dressed and briefed on your venue\'s atmosphere and dress code.',
   'Transparent per-event invoicing through Clover — deposit + balance. Multi-event residency packages available.',
   'Backup coverage included — if a musician cancels, we replace them same-day.',

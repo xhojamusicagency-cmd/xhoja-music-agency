@@ -11,7 +11,7 @@ const FAQS: FAQ[] = [
   },
   {
     question: 'How quickly can you confirm availability during planning season?',
-    answer: 'Same-day during business hours, almost always within 2 hours. We know your timelines are tight and your clients are waiting. If we cannot confirm an ensemble immediately, we will tell you the same day what is possible.',
+    answer: 'Within one business day. We know your timelines are tight and your clients are waiting. If we cannot confirm an ensemble immediately, we will tell you within 24 hours what is possible.',
   },
   {
     question: 'Can we request specific musicians from your roster?',
@@ -43,10 +43,10 @@ const BENEFITS = [
 ];
 
 const REASONS = [
-  'Same-day responses during business hours. We know your timelines are tight.',
+  'Responses within one business day. We know your timelines are tight and we prioritize planner inquiries.',
   'Standardized pricing structure — no surprise quotes mid-season.',
   'Backup musician coverage built into every booking, in case of last-minute cancellations.',
-  'Direct invoicing and payment terms designed for planner workflows.',
+  'Per-event invoicing through Clover, built for easy passthrough to your clients.',
 ];
 
 export default function ForWeddingPlanners() {
