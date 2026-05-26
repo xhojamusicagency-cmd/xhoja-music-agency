@@ -204,9 +204,25 @@ These came up during planning but are NOT in Phase 1:
 
 1. **Fix 307 → 301 redirect** for `xhojamusicagency.com` → `www.xhojamusicagency.com` (small SEO bug found 5/25)
 2. **Verify apex domain property** in Google Search Console (needs DNS TXT record in Vercel)
-3. **Google Business Profile setup** — separate workflow, but the single highest-leverage action for local SEO
+3. **Google Business Profile** — **already exists with 11 reviews**, owned by Cealan, ownership transfer to `xhojamusicagency@gmail.com` is in progress. Once transferred and verified, follow-up work includes: optimize photos, set service area to all of Greater Boston / New England, write a description that mentions "XMA" + audience keywords, set up posting cadence, configure auto-responses for review prompts. Single biggest lever for local "near me" searches.
 4. **Phase 2 audience pages** (Church, Private Events, B'nai Mitzvah, Funeral)
 5. **Home page updates** — eventually link to Phase 1 landing pages from Home hero or service section
+6. **Google Ads** — paid search campaigns for high-intent queries (wedding pianist boston, etc.) if budget allows. Estimated CPC range $2-15 in Greater Boston wedding market.
+
+## Lead-gen pillars at a glance (the full Google picture)
+
+For future planning context — XMA's complete Google lead-gen surface area:
+
+| Pillar | Status | Lever |
+|---|---|---|
+| Organic SEO | 🟡 In progress (Phase 1 landing pages) | Free, slow, compounds |
+| Google Business Profile | 🟡 Transferring ownership | Free, biggest local lever |
+| Google Reviews | 🟢 11 on GBP, 9 on site schema | Trust + ranking signal |
+| Schema markup | 🟢 Org + LocalBusiness + alternateName + FAQPage (Phase 1) | Rich-result snippets |
+| Google Analytics 4 | 🟢 Live (G-QHEDYQZCQD) | Measurement |
+| Google Search Console | 🟢 Verified for www, apex deferred | Indexing visibility |
+| Google Ads | 🔴 Not started | Paid traffic, fast results |
+| Google Tag Manager | 🔴 Not deployed | Advanced event tracking |
 
 ---
 
