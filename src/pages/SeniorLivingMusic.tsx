@@ -27,7 +27,7 @@ const REASONS = [
 
 export default function SeniorLivingMusic() {
   usePageTitle(
-    'Senior Living Music Programs Massachusetts | XMA — Xhoja Music Agency',
+    'Senior Living Music Programs MA | XMA',
     'Live music programming for senior communities across Greater Boston — regular concert series, holiday events, memory-care-friendly programs, intergenerational concerts.',
   );
 
@@ -37,6 +37,7 @@ export default function SeniorLivingMusic() {
         eyebrow="Senior Living Music"
         headline="Music programming, designed with care."
         subhead="Recurring concerts, holiday programming, and memory-care-friendly performances for senior communities across Greater Boston."
+        backgroundImage="/string-trio-placeholder.jpg"
       />
 
       {/* Three program types */}

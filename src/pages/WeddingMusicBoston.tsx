@@ -27,7 +27,7 @@ const REASONS = [
 
 export default function WeddingMusicBoston() {
   usePageTitle(
-    'Wedding Music Boston | XMA — Xhoja Music Agency',
+    'Wedding Music Boston | XMA',
     'Live music for Boston weddings — solo piano, string quartets, jazz trios, DJ. Curated ceremony, cocktail hour, and reception music tailored to your day.',
   );
 
@@ -37,6 +37,8 @@ export default function WeddingMusicBoston() {
         eyebrow="Wedding Music In Boston"
         headline="Live music for every moment of your day."
         subhead="From the first note of the processional to the last song of the night — one curated team, one seamless experience."
+        backgroundImage="/wedding-reception.jpg"
+        imagePosition="center top"
       />
 
       {/* Three phases */}

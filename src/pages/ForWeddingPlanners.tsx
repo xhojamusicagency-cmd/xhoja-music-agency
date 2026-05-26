@@ -27,7 +27,7 @@ const REASONS = [
 
 export default function ForWeddingPlanners() {
   usePageTitle(
-    'For Wedding Planners | XMA — Xhoja Music Agency',
+    'For Wedding Planners | XMA',
     'Trusted music partner for Greater Boston wedding planners. One vetted roster, one point of contact, dependable musicians for every booking.',
   );
 
@@ -37,6 +37,7 @@ export default function ForWeddingPlanners() {
         eyebrow="For Wedding Planners"
         headline="A music partner you can rely on."
         subhead="One vetted roster, one point of contact, and a planner-first workflow built around how you already work."
+        backgroundImage="/trio-performance.jpg"
       />
 
       {/* Three benefits */}

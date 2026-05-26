@@ -27,7 +27,7 @@ const REASONS = [
 
 export default function HotelMusicBoston() {
   usePageTitle(
-    'Hotel & Restaurant Live Music Boston | XMA — Xhoja Music Agency',
+    'Hotel & Restaurant Music Boston | XMA',
     'Refined live music for Boston hotel lobbies, fine dining rooms, and hospitality events. Recurring residencies or one-off bookings — vetted professional musicians.',
   );
 
@@ -37,6 +37,7 @@ export default function HotelMusicBoston() {
         eyebrow="Hotel & Hospitality Music"
         headline="Music for lobbies, dining rooms, and hospitality moments."
         subhead="Refined, unobtrusive live music designed to elevate the room — for one-night events or recurring residencies."
+        backgroundImage="/duo-performance.jpg"
       />
 
       {/* Three use cases */}
