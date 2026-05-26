@@ -19,7 +19,7 @@ const FAQS: FAQ[] = [
   },
   {
     question: 'How does invoicing work for repeat bookings?',
-    answer: 'We offer net-30 terms for established planner partners after the first booking. Invoices are itemized by event for easy passthrough to your clients. No surprise fees, no last-minute change orders.',
+    answer: 'We invoice per event through Clover: a deposit at booking to lock the date, balance due before the event. Invoices are itemized and built for easy passthrough to your clients. No surprise fees, no last-minute change orders.',
   },
   {
     question: 'What if a musician cancels right before an event?',

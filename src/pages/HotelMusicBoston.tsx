@@ -45,7 +45,7 @@ const USE_CASES = [
 const REASONS = [
   'All musicians fully insured. We carry our own liability coverage.',
   'Professionally dressed and briefed on your venue\'s atmosphere and dress code.',
-  'Recurring residencies billed monthly, no per-event paperwork.',
+  'Transparent per-event invoicing through Clover — deposit + balance. Multi-event residency packages available.',
   'Backup coverage included — if a musician cancels, we replace them same-day.',
 ];
 
