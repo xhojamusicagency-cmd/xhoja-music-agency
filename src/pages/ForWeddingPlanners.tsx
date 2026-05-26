@@ -2,6 +2,30 @@ import { Link } from 'react-router-dom';
 import usePageTitle from '../hooks/usePageTitle';
 import PageHero from '../components/PageHero';
 import InlineLeadForm from '../components/InlineLeadForm';
+import FAQSection, { type FAQ } from '../components/FAQSection';
+
+const FAQS: FAQ[] = [
+  {
+    question: 'What does a preferred-partner relationship include?',
+    answer: 'Preferred planners get priority date holds, a direct line to Alex for every inquiry, standardized pricing across the calendar year, and first access to new ensembles we add to the roster. No formal contract — the relationship is built on consistent good work for both sides.',
+  },
+  {
+    question: 'How quickly can you confirm availability during planning season?',
+    answer: 'Same-day during business hours, almost always within 2 hours. We know your timelines are tight and your clients are waiting. If we cannot confirm an ensemble immediately, we will tell you the same day what is possible.',
+  },
+  {
+    question: 'Can we request specific musicians from your roster?',
+    answer: 'Absolutely. Many of our planner partners have favorite musicians they book repeatedly. We honor those preferences whenever schedules align, and we will introduce you to new roster members as we add them.',
+  },
+  {
+    question: 'How does invoicing work for repeat bookings?',
+    answer: 'We offer net-30 terms for established planner partners after the first booking. Invoices are itemized by event for easy passthrough to your clients. No surprise fees, no last-minute change orders.',
+  },
+  {
+    question: 'What if a musician cancels right before an event?',
+    answer: 'Backup coverage is built into every booking. Every musician on our roster has a vetted understudy who can step in same-day. Your client never finds out there was an issue.',
+  },
+];
 
 const BENEFITS = [
   {
@@ -92,6 +116,12 @@ export default function ForWeddingPlanners() {
           </ul>
         </div>
       </section>
+
+      <FAQSection
+        eyebrow="Partner Questions"
+        headline="What planners ask us first."
+        faqs={FAQS}
+      />
 
       {/* Closing CTA */}
       <section className="bg-dark py-24 md:py-32 relative overflow-hidden">

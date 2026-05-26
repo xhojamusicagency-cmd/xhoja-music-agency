@@ -2,6 +2,30 @@ import { Link } from 'react-router-dom';
 import usePageTitle from '../hooks/usePageTitle';
 import PageHero from '../components/PageHero';
 import InlineLeadForm from '../components/InlineLeadForm';
+import FAQSection, { type FAQ } from '../components/FAQSection';
+
+const FAQS: FAQ[] = [
+  {
+    question: 'How do lobby residencies typically work?',
+    answer: 'Residencies are recurring weekly or monthly programs — same musician, same day, same time. Most of our hotel partners start with a six-week trial and convert to ongoing programs. We handle scheduling, substitutions, and seasonal repertoire updates without you having to manage anything.',
+  },
+  {
+    question: 'Can we customize the music to match our venue brand?',
+    answer: 'Yes — set lists are designed in consultation with your team. We have programmed for boutique hotels, fine-dining rooms, and corporate-style lobbies, and the musical direction adjusts to each. We will send a sample repertoire for your sign-off before the first performance.',
+  },
+  {
+    question: 'Are your musicians insured?',
+    answer: 'Yes. Every musician on the XMA roster is covered under our general liability policy. We can provide a Certificate of Insurance naming your property as additional insured upon request — usually within one business day.',
+  },
+  {
+    question: 'What is your cancellation and substitution policy?',
+    answer: 'If a musician cannot perform, we replace them same-day from our vetted understudy bench. Your guests never notice. If your venue needs to cancel a performance, we ask for 48 hours notice when possible — cancellations within that window are billed at 50 percent.',
+  },
+  {
+    question: 'What does a residency cost?',
+    answer: 'Residencies are priced per-hour with multi-month discounts. A weekly solo piano residency typically runs $400-650 per session depending on the ensemble. We will quote your specific situation transparently — no surprise fees, no markup on travel within Greater Boston.',
+  },
+];
 
 const USE_CASES = [
   {
@@ -92,6 +116,12 @@ export default function HotelMusicBoston() {
           </ul>
         </div>
       </section>
+
+      <FAQSection
+        eyebrow="Operator Questions"
+        headline="What hospitality teams ask us."
+        faqs={FAQS}
+      />
 
       {/* Closing CTA */}
       <section className="bg-dark py-24 md:py-32 relative overflow-hidden">

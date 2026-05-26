@@ -2,6 +2,30 @@ import { Link } from 'react-router-dom';
 import usePageTitle from '../hooks/usePageTitle';
 import PageHero from '../components/PageHero';
 import InlineLeadForm from '../components/InlineLeadForm';
+import FAQSection, { type FAQ } from '../components/FAQSection';
+
+const FAQS: FAQ[] = [
+  {
+    question: 'How far in advance should we book wedding music?',
+    answer: 'Most couples book us 6 to 12 months ahead, especially for weddings in May through October. We do accommodate shorter timelines when our roster has availability — reach out and we will tell you within one business day what is possible for your date.',
+  },
+  {
+    question: 'Can we choose specific songs and request custom arrangements?',
+    answer: 'Yes — we build a personalized music plan with every couple. That includes ceremony processional, recessional, first dance, parent dances, and any meaningful songs you want featured. Our musicians can also arrange custom versions of songs that are not in the standard repertoire.',
+  },
+  {
+    question: 'Do you handle the ceremony, cocktail hour, and reception with one booking?',
+    answer: 'Yes. The Grand Wedding Experience is designed exactly for that — one curated team across all three phases, with smooth transitions between ensembles. You get one contract, one point of contact, and a music plan that flows from processional to last dance.',
+  },
+  {
+    question: 'What happens if a musician cancels last minute?',
+    answer: 'Backup coverage is built into every booking. Every musician on the XMA roster has a vetted understudy who can step in same-day. You will never be left without music on your wedding day.',
+  },
+  {
+    question: 'Do you travel outside Boston?',
+    answer: 'Yes. We serve weddings across Greater Boston, the South Shore, Cape Cod, the North Shore, and much of New England. Travel fees apply for venues more than 45 minutes from Boston — we will quote them transparently up front.',
+  },
+];
 
 const PHASES = [
   {
@@ -93,6 +117,12 @@ export default function WeddingMusicBoston() {
           </ul>
         </div>
       </section>
+
+      <FAQSection
+        eyebrow="Common Questions"
+        headline="What couples ask us most."
+        faqs={FAQS}
+      />
 
       {/* Closing CTA */}
       <section className="bg-dark py-24 md:py-32 relative overflow-hidden">

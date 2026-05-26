@@ -2,6 +2,30 @@ import { Link } from 'react-router-dom';
 import usePageTitle from '../hooks/usePageTitle';
 import PageHero from '../components/PageHero';
 import InlineLeadForm from '../components/InlineLeadForm';
+import FAQSection, { type FAQ } from '../components/FAQSection';
+
+const FAQS: FAQ[] = [
+  {
+    question: 'How do you tailor programs for memory care residents?',
+    answer: 'Memory care programs draw from a repertoire that resonates across generations — standards from the 1940s through 1960s, well-known classical pieces, holiday favorites, and sing-along folk songs. Tempos are gentler, transitions are slower, and musicians are trained to engage warmly without overwhelming. We work with your activity director to refine the program over time.',
+  },
+  {
+    question: 'Can we set up a recurring monthly program?',
+    answer: 'Yes — recurring programs are the heart of what we do for senior communities. Most partners book weekly, biweekly, or monthly programs scheduled a year in advance. You get the same musician your residents come to recognize, with consistent programming that builds engagement over time.',
+  },
+  {
+    question: 'What does pricing look like for senior community programs?',
+    answer: 'Recurring programs are priced per visit with multi-month discounts. A monthly solo piano program typically runs $250-400 per visit. We quote transparently up front and bill monthly, never per-event, so your finance team is not processing constant invoices.',
+  },
+  {
+    question: 'Do you handle holiday and special-occasion programming?',
+    answer: 'Yes — Christmas and Hanukkah, Veterans Day, Mother and Father Day, Valentine sing-alongs, Independence Day. We help you plan an annual calendar so the right repertoire is ready for each occasion, including any traditions specific to your community.',
+  },
+  {
+    question: 'Can family members or staff request specific songs?',
+    answer: 'Always — and we encourage it. The most meaningful moments often come from a granddaughter requesting her grandmother\'s favorite song. Send requests ahead of time and our musicians will prepare them.',
+  },
+];
 
 const PROGRAM_TYPES = [
   {
@@ -92,6 +116,12 @@ export default function SeniorLivingMusic() {
           </ul>
         </div>
       </section>
+
+      <FAQSection
+        eyebrow="Director Questions"
+        headline="What activity directors ask us."
+        faqs={FAQS}
+      />
 
       {/* Closing CTA */}
       <section className="bg-dark py-24 md:py-32 relative overflow-hidden">
