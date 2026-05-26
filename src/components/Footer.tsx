@@ -12,7 +12,9 @@ export default function Footer() {
               <img src="/xhoja-logo.png" alt="Xhoja Music Agency" className="h-10 w-10 object-contain brightness-0 invert" />
               <span className="font-serif text-xl font-medium">Xhoja Music Agency</span>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">Nurturing musical talent and delivering exceptional live experiences since day one.</p>
+            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+              <span className="text-gold font-medium">XMA = Xhoja Music Agency.</span> Live music for events across Greater Boston — weddings, hotels, senior communities, and private gatherings.
+            </p>
             <a href="https://instagram.com/xhojamusicagency" target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 text-gray-400 hover:text-gold transition-colors text-sm">
               <Instagram size={18} />
               <span>@xhojamusicagency</span>
