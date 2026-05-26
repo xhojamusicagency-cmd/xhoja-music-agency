@@ -52,6 +52,36 @@ Tiered by current business priority and search-traffic potential:
 - School / educational programs
 - Dedicated DJ landing page
 
+### Tier 4 — Geographic expansion: all of New England
+
+**Eventual goal**: XMA should rank for every major New England wedding/event market, not just Greater Boston.
+
+**Strategy**: build *location × service* landing pages — one URL per (city/state, audience) combination that gets meaningful search volume. Google rewards location-specific content because most service-business searches include a location.
+
+**Proposed expansion order** (by population + wedding-market value):
+
+1. **Providence, RI** — `/wedding-music-providence`, `/hotel-music-providence`
+2. **Worcester, MA** — `/wedding-music-worcester`
+3. **New Hampshire (Portsmouth, Manchester, Nashua)** — `/wedding-music-new-hampshire`, `/wedding-music-portsmouth-nh`
+4. **Connecticut (Hartford, New Haven, Stamford)** — `/wedding-music-connecticut`, `/wedding-music-hartford`
+5. **Cape Cod / South Shore** — `/wedding-music-cape-cod`, `/wedding-music-south-shore`
+6. **Maine (Portland)** — `/wedding-music-portland-maine`, `/wedding-music-maine`
+7. **Vermont (Burlington)** — `/wedding-music-vermont`
+
+**Page structure**: each location page is a near-clone of the corresponding Boston page (same template, same components) with city-specific content swapped in:
+- Hero references the city/region by name
+- "Why XMA in [city]" section mentions travel commitments, local familiarity, venue partnerships
+- Footer + schema add geographic targeting (`LocalBusiness.areaServed`)
+
+**Schema markup**: each location page declares its `areaServed` and uses `LocalBusiness` with city-specific NAP data so Google understands the geographic targeting.
+
+**Critical caveat for execution**: do NOT spin up location pages until each one has *real, distinct content*. Thin "city pages" that just swap "Boston" for "Providence" get hit by Google's helpful-content updates. Each location page should have at least:
+- Genuine local context (venues we've played, regions we know)
+- Distinct testimonial or review specifically from that area (if available)
+- Different photography or hero imagery where possible
+
+**Sequencing**: ship Phase 1 (Boston audiences) → wait 30-60 days to see indexing + traffic data → use that data to decide which location to expand to first based on which audience proves most valuable.
+
 ---
 
 ## Architecture
