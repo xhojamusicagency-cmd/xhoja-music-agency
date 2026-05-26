@@ -10,6 +10,10 @@ import Team from './pages/Team';
 import Contact from './pages/Contact';
 import PaymentSuccess from './pages/PaymentSuccess';
 import PaymentFailed from './pages/PaymentFailed';
+import WeddingMusicBoston from './pages/WeddingMusicBoston';
+import ForWeddingPlanners from './pages/ForWeddingPlanners';
+import HotelMusicBoston from './pages/HotelMusicBoston';
+import SeniorLivingMusic from './pages/SeniorLivingMusic';
 
 declare global {
   interface Window {
@@ -55,6 +59,11 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/payment-success" element={<PaymentSuccess />} />
           <Route path="/payment-failed" element={<PaymentFailed />} />
+          {/* SEO landing pages — Phase 1 */}
+          <Route path="/wedding-music-boston" element={<WeddingMusicBoston />} />
+          <Route path="/for-wedding-planners" element={<ForWeddingPlanners />} />
+          <Route path="/hotel-music-boston" element={<HotelMusicBoston />} />
+          <Route path="/senior-living-music" element={<SeniorLivingMusic />} />
           {/* Old Wix URL redirects — every URL Google has indexed from the old site */}
           <Route path="/copy-of-instructors" element={<Navigate to="/lessons" replace />} />
           <Route path="/pricing-plans/*" element={<Navigate to="/lessons" replace />} />
