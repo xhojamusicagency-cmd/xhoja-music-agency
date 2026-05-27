@@ -38,7 +38,7 @@ const USE_CASES = [
   },
   {
     label: 'Weddings & Funerals',
-    text: 'Life-cycle services hosted at your church — coordinated directly with families and your team, with discretion and proper liturgical awareness.',
+    text: 'Life-cycle services hosted at your church — solo strings, harp, vocalists, or full ensembles based on the family\'s wishes, coordinated with your team.',
   },
 ];
 
@@ -60,7 +60,7 @@ export default function ChurchMusicBoston() {
       <PageHero
         eyebrow="Church & Worship Music"
         headline="A musician partnership for your ministry."
-        subhead="Sunday service accompaniment, special services, weddings, and funerals — supported by a trusted bench of pianists and organists."
+        subhead="Sunday service accompaniment, special services, weddings, and funerals — drawn from a full roster of pianists, organists, vocalists, strings, brass, and beyond."
       />
 
       {/* Three use cases */}
