@@ -14,6 +14,10 @@ import WeddingMusicBoston from './pages/WeddingMusicBoston';
 import ForWeddingPlanners from './pages/ForWeddingPlanners';
 import HotelMusicBoston from './pages/HotelMusicBoston';
 import SeniorLivingMusic from './pages/SeniorLivingMusic';
+import ChurchMusicBoston from './pages/ChurchMusicBoston';
+import PrivateEventMusicBoston from './pages/PrivateEventMusicBoston';
+import BnaiMitzvahMusicBoston from './pages/BnaiMitzvahMusicBoston';
+import FuneralMusicServices from './pages/FuneralMusicServices';
 
 declare global {
   interface Window {
@@ -64,6 +68,11 @@ function App() {
           <Route path="/for-wedding-planners" element={<ForWeddingPlanners />} />
           <Route path="/hotel-music-boston" element={<HotelMusicBoston />} />
           <Route path="/senior-living-music" element={<SeniorLivingMusic />} />
+          {/* SEO landing pages — Phase 2 */}
+          <Route path="/church-music-boston" element={<ChurchMusicBoston />} />
+          <Route path="/private-event-music-boston" element={<PrivateEventMusicBoston />} />
+          <Route path="/bnai-mitzvah-music-boston" element={<BnaiMitzvahMusicBoston />} />
+          <Route path="/funeral-music-services" element={<FuneralMusicServices />} />
           {/* Old Wix URL redirects — every URL Google has indexed from the old site */}
           <Route path="/copy-of-instructors" element={<Navigate to="/lessons" replace />} />
           <Route path="/pricing-plans/*" element={<Navigate to="/lessons" replace />} />
