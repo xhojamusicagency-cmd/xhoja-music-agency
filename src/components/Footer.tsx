@@ -55,9 +55,9 @@ export default function Footer() {
               <li><a href="mailto:xhojamusicagency@gmail.com" className="hover:text-gold transition-colors">xhojamusicagency@gmail.com</a></li>
               <li>Boston, Massachusetts</li>
               <li className="pt-2">
-                <p>Mon-Fri: 9:00 AM - 6:00 PM</p>
-                <p className="mt-1">Sat: 10:00 AM - 4:00 PM</p>
-                <p className="mt-1">Sun: Closed</p>
+                <p>Mon-Fri: 9:00 AM - 7:00 PM</p>
+                <p className="mt-1">Sat: 10:00 AM - 5:00 PM</p>
+                <p className="mt-1">Sun: 10:00 AM - 5:00 PM</p>
               </li>
             </ul>
           </div>
