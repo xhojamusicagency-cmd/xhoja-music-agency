@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-dark text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand Column */}
           <div>
             <div className="flex items-center space-x-3 mb-6">
@@ -21,8 +21,23 @@ export default function Footer() {
             </a>
           </div>
 
+          {/* Music By Event Column */}
+          <div>
+            <h4 className="font-serif text-lg font-medium mb-6">Music By Event</h4>
+            <ul className="space-y-3 text-sm text-gray-400">
+              <li><Link to="/wedding-music-boston" className="hover:text-gold transition-colors">Wedding Music</Link></li>
+              <li><Link to="/for-wedding-planners" className="hover:text-gold transition-colors">For Wedding Planners</Link></li>
+              <li><Link to="/private-event-music-boston" className="hover:text-gold transition-colors">Private Events</Link></li>
+              <li><Link to="/hotel-music-boston" className="hover:text-gold transition-colors">Hotel Music</Link></li>
+              <li><Link to="/church-music-boston" className="hover:text-gold transition-colors">Church Music</Link></li>
+              <li><Link to="/senior-living-music" className="hover:text-gold transition-colors">Senior Living</Link></li>
+              <li><Link to="/bnai-mitzvah-music-boston" className="hover:text-gold transition-colors">B'nai Mitzvah</Link></li>
+              <li><Link to="/funeral-music-services" className="hover:text-gold transition-colors">Funeral Services</Link></li>
+            </ul>
+          </div>
+
           {/* Quick Links Column */}
-          <div className="md:pl-12">
+          <div>
             <h4 className="font-serif text-lg font-medium mb-6">Quick Links</h4>
             <ul className="space-y-4 text-sm text-gray-400">
               <li><Link to="/ensembles" className="hover:text-gold transition-colors">Event Bookings</Link></li>
