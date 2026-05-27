@@ -2,6 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Internal-visitor opt-out: runs BEFORE GA loads so the disable flag is set in time.
+         Activate by visiting ?internal=true once; deactivate by visiting ?internal=false. -->
+    <script>
+      (function() {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var ip = params.get('internal');
+          if (ip === 'true') localStorage.setItem('xma_internal_visitor', 'true');
+          if (ip === 'false') localStorage.removeItem('xma_internal_visitor');
+          if (localStorage.getItem('xma_internal_visitor') === 'true') {
+            window['ga-disable-G-QHEDYQZCQD'] = true;
+            console.log('[XMA] Internal visitor mode — analytics disabled');
+          }
+        } catch (e) { /* localStorage blocked — ignore */ }
+      })();
+    </script>
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHEDYQZCQD"></script>
     <script>

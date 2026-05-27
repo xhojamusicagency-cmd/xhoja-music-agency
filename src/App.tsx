@@ -25,6 +25,18 @@ declare global {
   }
 }
 
+// Internal-visitor flag is set by the inline script in index.html; re-read it here
+// so the React side (Vercel Analytics + route-change gtag pings) also respects it.
+const IS_INTERNAL_VISITOR =
+  typeof window !== 'undefined' &&
+  (() => {
+    try {
+      return localStorage.getItem('xma_internal_visitor') === 'true';
+    } catch {
+      return false;
+    }
+  })();
+
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
@@ -39,8 +51,8 @@ function ScrollToTop() {
     } else {
       window.scrollTo(0, 0);
     }
-    // Track page view in Google Analytics on every route change
-    if (window.gtag) {
+    // Track page view in Google Analytics on every route change (skip if internal visitor)
+    if (window.gtag && !IS_INTERNAL_VISITOR) {
       window.gtag('config', 'G-QHEDYQZCQD', { page_path: pathname });
     }
   }, [pathname, hash]);
@@ -98,8 +110,9 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Layout>
-      {/* Vercel Analytics — zero-config, no cookies, GDPR-safe page-view + speed metrics */}
-      <Analytics />
+      {/* Vercel Analytics — zero-config, no cookies, GDPR-safe page-view + speed metrics.
+          Skipped for internal visitors (you/team) so your own visits don't pollute the data. */}
+      {!IS_INTERNAL_VISITOR && <Analytics />}
     </Router>
   );
 }
