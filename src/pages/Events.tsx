@@ -146,7 +146,7 @@ export default function Events() {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
   // Honeypot: invisible to humans, irresistible to bots. If filled, we silently drop the submission.
   const [honeypot, setHoneypot] = useState('');
   // Render timestamp — if form is submitted in <2s, almost certainly a bot.
@@ -496,33 +496,80 @@ export default function Events() {
             <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">SEE US IN ACTION</p>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.1] tracking-wide text-center mb-6">A Taste <span style={{ marginRight: '-0.01em', display: 'inline-block' }}>Of</span> What We Bring To Your Event</h2>
           </div>
-          <div className="relative w-full max-w-3xl mx-auto aspect-video overflow-hidden shadow-lg bg-dark cursor-pointer" onClick={() => !videoLoaded && setVideoLoaded(true)}>
-            {videoLoaded ? (
-              <iframe
-                src="https://www.youtube.com/embed/X3erxpEimGI?autoplay=1"
-                title="Mia McIntosh & Alexander Xhoja performing Million Years Ago by Adele"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-              ></iframe>
-            ) : (
+          {(() => {
+            const FEATURED_VIDEOS = [
+              { id: 'X3erxpEimGI', label: 'Mia McIntosh & Alexander Xhoja', sub: 'Mia McIntosh & Alexander Xhoja performing “Million Years Ago” by Adele — a live piano & vocals duo at Berk Recital Hall.' },
+              { id: 'cEgIoQhDtuU', label: 'Gregory Ayriyan', sub: 'Gregory Ayriyan performing Bach Sonata No. 1 in G minor, Adagio — unaccompanied solo violin.' },
+              { id: 'ZMFmJJb_6so', label: 'Gregory Ayriyan', sub: 'Gregory Ayriyan performing his arrangement of “I Will Carry You” by Ellie Holcomb — solo violin.' },
+            ];
+            const featured = FEATURED_VIDEOS.find(v => v.id === activeVideoId) || FEATURED_VIDEOS[0];
+            const isPlaying = activeVideoId === featured.id;
+            return (
               <>
-                <img
-                  src="https://i.ytimg.com/vi/X3erxpEimGI/hqdefault.jpg"
-                  alt="Video thumbnail"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 flex items-center justify-center hover:bg-black/10 transition-colors">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-red-600 rounded-full flex items-center justify-center shadow-lg hover:bg-red-700 transition-colors">
-                    <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
+                <div
+                  className={`relative w-full max-w-3xl mx-auto aspect-video overflow-hidden shadow-lg bg-dark ${isPlaying ? '' : 'cursor-pointer'}`}
+                  onClick={() => !isPlaying && setActiveVideoId(featured.id)}
+                >
+                  {isPlaying ? (
+                    <iframe
+                      key={featured.id}
+                      src={`https://www.youtube.com/embed/${featured.id}?autoplay=1`}
+                      title={featured.label}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="absolute inset-0 w-full h-full"
+                    ></iframe>
+                  ) : (
+                    <>
+                      <img
+                        src={`https://i.ytimg.com/vi/${featured.id}/hqdefault.jpg`}
+                        alt={featured.label}
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center hover:bg-black/10 transition-colors">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-red-600 rounded-full flex items-center justify-center shadow-lg hover:bg-red-700 transition-colors">
+                          <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+                <p className="text-sm text-gray-500 mt-4 text-center max-w-3xl mx-auto">{featured.sub}</p>
+
+                {/* Performance picker — click any to swap the featured player */}
+                <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto mt-8">
+                  {FEATURED_VIDEOS.map(v => {
+                    const isActive = v.id === featured.id;
+                    return (
+                      <button
+                        key={v.id}
+                        type="button"
+                        onClick={() => setActiveVideoId(v.id)}
+                        className={`group relative aspect-video overflow-hidden bg-dark transition-all duration-300 ${
+                          isActive
+                            ? 'ring-2 ring-gold ring-offset-2 ring-offset-white'
+                            : 'opacity-70 hover:opacity-100'
+                        }`}
+                        aria-label={`Watch ${v.label}`}
+                      >
+                        <img
+                          src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`}
+                          alt={v.label}
+                          className="absolute inset-0 w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent" />
+                        <div className="absolute inset-x-0 bottom-0 p-2 sm:p-3 text-left">
+                          <p className="text-white text-[10px] sm:text-xs font-serif italic leading-tight">{v.label}</p>
+                        </div>
+                      </button>
+                    );
+                  })}
                 </div>
               </>
-            )}
-          </div>
-          <p className="text-sm text-gray-500 mt-4 text-center max-w-3xl mx-auto">Mia McIntosh & Alexander Xhoja performing &ldquo;Million Years Ago&rdquo; by Adele &mdash; a live piano & vocals duo at Berk Recital Hall.</p>
+            );
+          })()}
         </div>
       </section>
 
