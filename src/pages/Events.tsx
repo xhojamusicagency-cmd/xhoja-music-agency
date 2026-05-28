@@ -498,76 +498,57 @@ export default function Events() {
           </div>
           {(() => {
             const FEATURED_VIDEOS = [
-              { id: 'X3erxpEimGI', label: 'Mia McIntosh & Alexander Xhoja', sub: 'Mia McIntosh & Alexander Xhoja performing “Million Years Ago” by Adele — a live piano & vocals duo at Berk Recital Hall.' },
-              { id: 'rW3igUSTYfU', label: 'Live private gig — Gregory Ayriyan', sub: 'Gregory Ayriyan performing live violin at an intimate private event — a glimpse of the atmosphere XMA brings to your gathering.' },
-              { id: 'P3rkiosJ9ac', label: 'Live wedding gig — Gregory Ayriyan', sub: 'Gregory Ayriyan performing live violin at an outdoor garden wedding — the kind of refined ceremony soundscape we create for our couples.' },
+              { id: 'X3erxpEimGI', label: 'Mia McIntosh & Alexander Xhoja' },
+              { id: 'rW3igUSTYfU', label: 'Live private gig — Gregory Ayriyan' },
+              { id: 'P3rkiosJ9ac', label: 'Live wedding gig — Gregory Ayriyan' },
             ];
-            const featured = FEATURED_VIDEOS.find(v => v.id === activeVideoId) || FEATURED_VIDEOS[0];
-            const isPlaying = activeVideoId === featured.id;
             return (
-              <>
-                <div
-                  className={`relative w-full max-w-3xl mx-auto aspect-video overflow-hidden shadow-lg bg-dark ${isPlaying ? '' : 'cursor-pointer'}`}
-                  onClick={() => !isPlaying && setActiveVideoId(featured.id)}
-                >
-                  {isPlaying ? (
-                    <iframe
-                      key={featured.id}
-                      src={`https://www.youtube.com/embed/${featured.id}?autoplay=1`}
-                      title={featured.label}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="absolute inset-0 w-full h-full"
-                    ></iframe>
-                  ) : (
-                    <>
-                      <img
-                        src={`https://i.ytimg.com/vi/${featured.id}/hqdefault.jpg`}
-                        alt={featured.label}
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center hover:bg-black/10 transition-colors">
-                        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-red-600 rounded-full flex items-center justify-center shadow-lg hover:bg-red-700 transition-colors">
-                          <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z" />
-                          </svg>
-                        </div>
-                      </div>
-                    </>
-                  )}
-                </div>
-                <p className="text-sm text-gray-500 mt-4 text-center max-w-3xl mx-auto">{featured.sub}</p>
-
-                {/* Performance picker — click any to swap the featured player */}
-                <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto mt-8">
-                  {FEATURED_VIDEOS.map(v => {
-                    const isActive = v.id === featured.id;
-                    return (
-                      <button
-                        key={v.id}
-                        type="button"
-                        onClick={() => setActiveVideoId(v.id)}
-                        className={`group relative aspect-video overflow-hidden bg-dark transition-all duration-300 ${
-                          isActive
-                            ? 'ring-2 ring-gold ring-offset-2 ring-offset-white'
-                            : 'opacity-70 hover:opacity-100'
-                        }`}
-                        aria-label={`Watch ${v.label}`}
-                      >
-                        <img
-                          src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`}
-                          alt={v.label}
-                          className="absolute inset-0 w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent" />
-                        <div className="absolute inset-x-0 bottom-0 p-2 sm:p-3 text-left">
-                          <p className="text-white text-[10px] sm:text-xs font-serif italic leading-tight">{v.label}</p>
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 max-w-5xl mx-auto">
+                {FEATURED_VIDEOS.map(v => {
+                  const isActive = v.id === activeVideoId;
+                  return (
+                    <div
+                      key={v.id}
+                      className="relative aspect-video overflow-hidden bg-dark shadow-md transition-all duration-500 hover:shadow-xl"
+                    >
+                      {isActive ? (
+                        <iframe
+                          key={v.id}
+                          src={`https://www.youtube.com/embed/${v.id}?autoplay=1`}
+                          title={v.label}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          className="absolute inset-0 w-full h-full"
+                        ></iframe>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => setActiveVideoId(v.id)}
+                          aria-label={`Watch ${v.label}`}
+                          className="group block absolute inset-0 w-full h-full cursor-pointer"
+                        >
+                          <img
+                            src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`}
+                            alt={v.label}
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-dark/85 via-dark/25 to-transparent" />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gold/95 group-hover:bg-gold rounded-full flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-105">
+                              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-dark ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </div>
+                          </div>
+                          <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 text-left">
+                            <p className="text-white text-xs sm:text-sm font-serif italic leading-tight">{v.label}</p>
+                          </div>
+                        </button>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
             );
           })()}
         </div>

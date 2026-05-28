@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import usePageTitle from '../hooks/usePageTitle';
 
@@ -94,6 +95,7 @@ export default function Ensembles() {
   );
   const consultUrl = (ensembleName: string) =>
     `/events?ensemble=${encodeURIComponent(ensembleName)}`;
+  const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
 
   return (
     <div className="bg-cream-light">
@@ -210,6 +212,71 @@ export default function Ensembles() {
             milestone celebrations, b&rsquo;nai mitzvah, holiday gatherings, and
             ceremonies of every kind &mdash; choose the ensemble that fits the room.
           </p>
+        </div>
+      </section>
+
+      {/* Performance gallery — proof before they pick a package */}
+      <section className="bg-cream-light pb-10 md:pb-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">SEE US IN ACTION</p>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium leading-[1.1] tracking-wide text-center mb-6">A Taste <span style={{ marginRight: '-0.01em', display: 'inline-block' }}>Of</span> What We Bring To Your Event</h2>
+          </div>
+          {(() => {
+            const FEATURED_VIDEOS = [
+              { id: 'X3erxpEimGI', label: 'Mia McIntosh & Alexander Xhoja' },
+              { id: 'rW3igUSTYfU', label: 'Live private gig — Gregory Ayriyan' },
+              { id: 'P3rkiosJ9ac', label: 'Live wedding gig — Gregory Ayriyan' },
+            ];
+            return (
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 max-w-5xl mx-auto">
+                {FEATURED_VIDEOS.map(v => {
+                  const isActive = v.id === activeVideoId;
+                  return (
+                    <div
+                      key={v.id}
+                      className="relative aspect-video overflow-hidden bg-dark shadow-md transition-all duration-500 hover:shadow-xl"
+                    >
+                      {isActive ? (
+                        <iframe
+                          key={v.id}
+                          src={`https://www.youtube.com/embed/${v.id}?autoplay=1`}
+                          title={v.label}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          className="absolute inset-0 w-full h-full"
+                        ></iframe>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => setActiveVideoId(v.id)}
+                          aria-label={`Watch ${v.label}`}
+                          className="group block absolute inset-0 w-full h-full cursor-pointer"
+                        >
+                          <img
+                            src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`}
+                            alt={v.label}
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-dark/85 via-dark/25 to-transparent" />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gold/95 group-hover:bg-gold rounded-full flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-105">
+                              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-dark ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </div>
+                          </div>
+                          <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 text-left">
+                            <p className="text-white text-xs sm:text-sm font-serif italic leading-tight">{v.label}</p>
+                          </div>
+                        </button>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })()}
         </div>
       </section>
 
