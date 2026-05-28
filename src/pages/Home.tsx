@@ -6,7 +6,7 @@ import ReviewsCarousel from '../components/ReviewsCarousel';
 export default function Home() {
   usePageTitle(
     undefined,
-    'Boston\'s premier music agency. Hire live musicians for weddings, corporate events, and private parties — from jazz trios to string quartets to DJs. Founded by Berklee pianist Alexander Xhoja.'
+    'XMA (Xhoja Music Agency) — Boston\'s premier music agency. Hire live musicians for weddings, corporate events, and private parties — from jazz trios to string quartets to DJs. Founded by Berklee pianist Alexander Xhoja.'
   );
   return (
     <div>
@@ -30,7 +30,7 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
           <p className="text-gold uppercase tracking-[4px] text-xs mb-6 opacity-90">
-            Boston's Premier Music Agency
+            XMA · Boston's Premier Music Agency
           </p>
           <h1 className="font-serif text-5xl sm:text-7xl md:text-[90px] font-light leading-[1.0] tracking-[1px] mb-6">
             Xhoja Music<br />Agency
