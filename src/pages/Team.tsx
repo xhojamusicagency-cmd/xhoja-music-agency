@@ -106,7 +106,9 @@ export default function Team() {
       name: 'Gregory Ayriyan',
       role: 'Violinist & Composer',
       bio: "Gregory Ayriyan is a violinist, soloist, and award-winning composer based in Rhode Island. A graduate of the Baku Conservatory and current concertmaster of the Worcester Symphony Orchestra, Gregory brings classical depth and international training to performances ranging from solo recitals to ensemble work. His repertoire spans Bach, Bartók, Stravinsky, and Ravel, alongside his own award-winning compositions. An Armenian-American whose journey took him from Baku to America as a refugee, he brings cultural depth and emotional resonance to every performance.",
-      image: '/gregory-ayriyan.jpg'
+      image: '/gregory-ayriyan.jpg',
+      videoUrl: 'https://youtu.be/ePMNFiY4Ehk',
+      website: 'https://gregoryayriyan.wordpress.com'
     }
   ];
 
@@ -221,6 +223,30 @@ export default function Team() {
               <p className="text-gold text-xs font-medium uppercase tracking-[2.4px] mb-4">{activeMember.role}</p>
               <div className="w-12 h-px bg-gold/30 mb-4" />
               <p className="text-gray-500 text-sm sm:text-base leading-relaxed">{activeMember.bio}</p>
+              {('videoUrl' in activeMember && activeMember.videoUrl) || ('website' in activeMember && activeMember.website) ? (
+                <div className="flex flex-col items-center gap-3 mt-6 pt-6 border-t border-gold/15 w-full">
+                  {'videoUrl' in activeMember && activeMember.videoUrl ? (
+                    <a
+                      href={activeMember.videoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gold hover:text-gold/70 text-xs uppercase tracking-[1.8px] font-medium transition-colors"
+                    >
+                      Watch Performance →
+                    </a>
+                  ) : null}
+                  {'website' in activeMember && activeMember.website ? (
+                    <a
+                      href={activeMember.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gold hover:text-gold/70 text-xs uppercase tracking-[1.8px] font-medium transition-colors"
+                    >
+                      Visit Artist Website →
+                    </a>
+                  ) : null}
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
