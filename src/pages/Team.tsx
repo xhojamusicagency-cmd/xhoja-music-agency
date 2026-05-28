@@ -107,7 +107,7 @@ export default function Team() {
       role: 'Violinist & Composer',
       bio: "Gregory Ayriyan is a violinist, soloist, and award-winning composer based in Rhode Island. A graduate of the Baku Conservatory and current concertmaster of the Worcester Symphony Orchestra, Gregory brings classical depth and international training to performances ranging from solo recitals to ensemble work. His repertoire spans Bach, Bartók, Stravinsky, and Ravel, alongside his own award-winning compositions. An Armenian-American whose journey took him from Baku to America as a refugee, he brings cultural depth and emotional resonance to every performance.",
       image: '/gregory-ayriyan.jpg',
-      videoUrl: 'https://youtu.be/ePMNFiY4Ehk',
+      videoUrl: 'https://youtu.be/cEgIoQhDtuU',
       website: 'https://gregoryayriyan.wordpress.com'
     }
   ];
