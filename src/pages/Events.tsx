@@ -499,8 +499,8 @@ export default function Events() {
           {(() => {
             const FEATURED_VIDEOS = [
               { id: 'X3erxpEimGI', label: 'Mia McIntosh & Alexander Xhoja', sub: 'Mia McIntosh & Alexander Xhoja performing “Million Years Ago” by Adele — a live piano & vocals duo at Berk Recital Hall.' },
-              { id: 'cEgIoQhDtuU', label: 'Gregory Ayriyan', sub: 'Gregory Ayriyan performing Bach Sonata No. 1 in G minor, Adagio — unaccompanied solo violin.' },
-              { id: 'ZMFmJJb_6so', label: 'Gregory Ayriyan', sub: 'Gregory Ayriyan performing his arrangement of “I Will Carry You” by Ellie Holcomb — solo violin.' },
+              { id: 'rW3igUSTYfU', label: 'Live private gig — Gregory Ayriyan', sub: 'Gregory Ayriyan performing live violin at an intimate private event — a glimpse of the atmosphere XMA brings to your gathering.' },
+              { id: 'P3rkiosJ9ac', label: 'Live wedding gig — Gregory Ayriyan', sub: 'Gregory Ayriyan performing live violin at an outdoor garden wedding — the kind of refined ceremony soundscape we create for our couples.' },
             ];
             const featured = FEATURED_VIDEOS.find(v => v.id === activeVideoId) || FEATURED_VIDEOS[0];
             const isPlaying = activeVideoId === featured.id;
