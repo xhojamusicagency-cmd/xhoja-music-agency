@@ -85,6 +85,7 @@ const ENSEMBLES: Ensemble[] = [
     name: 'Custom Ensemble',
     description: "Have a vision that isn't on this page? Tell us and we will design the right group around it.",
     custom: true,
+    image: '/wedding-piano-setup.jpg',
   },
 ];
 
@@ -299,10 +300,8 @@ export default function Ensembles() {
                 )}
 
                 <div
-                  className={`aspect-[4/3] relative overflow-hidden ${
-                    e.custom
-                      ? 'bg-white border border-dashed border-gold flex items-center justify-center'
-                      : 'bg-dark'
+                  className={`aspect-[4/3] relative overflow-hidden bg-dark ${
+                    e.custom ? 'flex items-center justify-center' : ''
                   }`}
                 >
                   {e.video && (
@@ -346,8 +345,11 @@ export default function Ensembles() {
                     ></div>
                   )}
 
+                  {/* Custom Ensemble keeps the gold ✶ as a subtle overlay so the card
+                      still reads as "build your own" while fitting the photo-grid aesthetic.
+                      Star sits above the image with a soft dark gradient backdrop. */}
                   {e.custom && (
-                    <span className="text-gold text-4xl font-serif transition-transform duration-500 group-hover:scale-110">
+                    <span className="absolute z-10 text-gold text-5xl font-serif drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] transition-transform duration-500 group-hover:scale-110">
                       ✶
                     </span>
                   )}
