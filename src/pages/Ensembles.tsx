@@ -299,11 +299,7 @@ export default function Ensembles() {
                   </span>
                 )}
 
-                <div
-                  className={`aspect-[4/3] relative overflow-hidden bg-dark ${
-                    e.custom ? 'flex items-center justify-center' : ''
-                  }`}
-                >
+                <div className="aspect-[4/3] relative overflow-hidden bg-dark">
                   {e.video && (
                     <video
                       autoPlay
@@ -345,14 +341,6 @@ export default function Ensembles() {
                     ></div>
                   )}
 
-                  {/* Custom Ensemble keeps the gold ✶ as a subtle overlay so the card
-                      still reads as "build your own" while fitting the photo-grid aesthetic.
-                      Star sits above the image with a soft dark gradient backdrop. */}
-                  {e.custom && (
-                    <span className="absolute z-10 text-gold text-5xl font-serif drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] transition-transform duration-500 group-hover:scale-110">
-                      ✶
-                    </span>
-                  )}
                 </div>
 
                 <div className="px-7 pt-7 pb-9 text-center flex flex-col flex-1">
