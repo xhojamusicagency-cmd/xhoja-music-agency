@@ -177,9 +177,11 @@ export default function Ensembles() {
                         </div>
                       )}
 
-                      {/* Starting-from price — gold accent, mirrors the flagship eyebrow */}
+                      {/* Starting-from price — gold accent, mirrors the flagship eyebrow.
+                          Mobile gets larger (13px) with tighter tracking for readability;
+                          sm+ reverts to the original 10px/3.5px luxury aesthetic. */}
                       {flagship.startingFrom !== undefined && (
-                        <p className="text-gold text-[10px] tracking-[3.5px] uppercase font-medium mb-6">
+                        <p className="text-gold text-[13px] tracking-[2px] sm:text-[10px] sm:tracking-[3.5px] uppercase font-medium mb-6">
                           Starting at ${flagship.startingFrom.toLocaleString()}
                         </p>
                       )}
@@ -358,8 +360,10 @@ export default function Ensembles() {
                   <p className="font-serif italic text-[14px] text-gray-500 leading-[1.7] mb-7 flex-1">
                     {e.description}
                   </p>
-                  {/* Starting-from price — elegant gold accent, mirrors the card's design language */}
-                  <p className="text-gold text-[10px] tracking-[3.5px] uppercase font-medium mb-7">
+                  {/* Starting-from price — elegant gold accent, mirrors the card's design language.
+                      Mobile gets larger (13px) with tighter tracking so prices are actually
+                      legible on phones; sm+ reverts to the 10px/3.5px luxury aesthetic. */}
+                  <p className="text-gold text-[13px] tracking-[2px] sm:text-[10px] sm:tracking-[3.5px] uppercase font-medium mb-7">
                     {e.startingFrom !== undefined
                       ? `Starting at $${e.startingFrom.toLocaleString()}`
                       : 'Custom Quote'}
