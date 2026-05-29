@@ -309,6 +309,7 @@ export default function Ensembles() {
                       muted
                       loop
                       playsInline
+                      poster="/hero-piano-poster.jpg"
                       className="absolute inset-0 w-full h-full object-cover"
                     >
                       <source src={e.video} type="video/mp4" />
