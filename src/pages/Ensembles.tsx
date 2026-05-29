@@ -85,7 +85,7 @@ const ENSEMBLES: Ensemble[] = [
     name: 'Custom Ensemble',
     description: "Have a vision that isn't on this page? Tell us and we will design the right group around it.",
     custom: true,
-    image: '/wedding-piano-setup.jpg',
+    image: '/gregory-ayriyan-evening.jpg',
   },
 ];
 
