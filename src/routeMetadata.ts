@@ -89,6 +89,11 @@ export const ROUTE_METADATA: Record<string, RouteMeta> = {
     description:
       'Live music for funeral and memorial services across Greater Boston — chapel, graveside, and celebrations of life. Musicians experienced in honoring meaningful moments.',
   },
+  '/faq': {
+    title: 'Frequently Asked Questions',
+    description:
+      'Common questions about hiring live musicians for weddings, corporate events, and private parties in Boston — pricing, lead times, ensemble options, custom configurations, and more.',
+  },
 };
 
 /** Resolve metadata for a URL, falling back to defaults. */

@@ -20,6 +20,7 @@ const PRERENDER_ROUTES = [
   '/private-event-music-boston',
   '/bnai-mitzvah-music-boston',
   '/funeral-music-services',
+  '/faq',
 ]
 
 export default defineConfig({

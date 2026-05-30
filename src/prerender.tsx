@@ -16,6 +16,7 @@ import { StaticRouter } from 'react-router-dom/server';
 import Layout from './components/Layout';
 import AppRoutes from './AppRoutes';
 import { getRouteMeta, PRERENDER_ROUTES } from './routeMetadata';
+import { FAQ_PAGE_SCHEMA_JSON } from './data/faqContent';
 
 interface PrerenderData {
   url: string;
@@ -54,6 +55,19 @@ export async function prerender(data: PrerenderData): Promise<PrerenderResult> {
     { type: 'meta', props: { name: 'twitter:description', content: description } },
     { type: 'link', props: { rel: 'canonical', href: canonical } },
   ]);
+
+  // FAQPage structured data is route-specific: only inject on /faq so Google
+  // associates the schema with the dedicated FAQ page. The plugin renders this
+  // as <script type="application/ld+json">...</script> in the prerendered <head>.
+  if (data.url === '/faq') {
+    headElements.add({
+      type: 'script',
+      props: {
+        type: 'application/ld+json',
+        children: FAQ_PAGE_SCHEMA_JSON,
+      },
+    });
+  }
 
   return {
     html,
