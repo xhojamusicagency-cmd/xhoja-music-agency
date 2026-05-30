@@ -28,16 +28,16 @@
     </script>
     <link rel="icon" type="image/png" href="/xhoja-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>XMA — Xhoja Music Agency | Live Music & Lessons in Boston</title>
-    <meta name="description" content="XMA (Xhoja Music Agency) — Boston's premier music agency for weddings, hotels, corporate events, and private gatherings. We also offer customized music lessons. Founded by Berklee pianist Alexander Xhoja, XMA dispatches world-class musicians across Greater Boston and New England." />
-    <meta property="og:title" content="XMA — Xhoja Music Agency | Live Music & Lessons in Boston" />
-    <meta property="og:description" content="XMA (Xhoja Music Agency) — Boston's premier source for live event musicians and customized music lessons. Founded by Berklee pianist Alexander Xhoja." />
+    <!-- Default title/description shown only on routes not in the prerender list
+         (e.g. /payment-success, /404). Every other route overrides these via
+         vite-prerender-plugin head injection (see src/prerender.tsx). -->
+    <title>Xhoja Music Agency | Live Music & Lessons in Boston</title>
+    <meta name="description" content="XMA (Xhoja Music Agency) — Boston's premier music agency for weddings, hotels, corporate events, and private gatherings. We also offer customized music lessons. Founded by Berklee pianist Alexander Xhoja." />
+    <!-- Globally-applied OG/Twitter tags (image + card type + site identity). Per-page
+         og:title, og:description, og:url are injected by the prerender script. -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.xhojamusicagency.com" />
     <meta property="og:image" content="https://www.xhojamusicagency.com/xhoja-logo.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="XMA — Xhoja Music Agency | Live Music & Lessons in Boston" />
-    <meta name="twitter:description" content="XMA (Xhoja Music Agency) — Boston's premier source for live event musicians and customized music lessons." />
     <link rel="preconnect" href="https://www.youtube.com" />
     <link rel="preconnect" href="https://www.google.com" />
     <link rel="preconnect" href="https://i.ytimg.com" />
@@ -178,5 +178,9 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <!-- vite-prerender-plugin discovers the prerender() export from this script
+         at build time only. The `prerender` attribute strips it from the final
+         client HTML so it never executes in browsers. -->
+    <script type="module" src="/src/prerender.tsx" prerender></script>
   </body>
 </html>
