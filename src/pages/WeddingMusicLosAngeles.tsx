@@ -51,7 +51,7 @@ const REASONS = [
   'Personal oversight from founder Alexander Xhoja on every Los Angeles wedding booking.',
   'A curated West Coast roster — vetted musicians, hand-selected for craft and professionalism.',
   'Tailored repertoire and custom arrangements built around your story — not a generic wedding playlist.',
-  'Boston-founded music agency with five years of refined event experience now serving Los Angeles couples.',
+  'Boston-founded music agency backed by a vetted 200-musician roster, now serving Los Angeles couples.',
 ];
 
 export default function WeddingMusicLosAngeles() {
