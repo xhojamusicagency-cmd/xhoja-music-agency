@@ -12,8 +12,9 @@ export default function Footer() {
               <img src="/xhoja-logo.png" alt="Xhoja Music Agency" className="h-10 w-10 object-contain brightness-0 invert" />
               <span className="font-serif text-xl font-medium">Xhoja Music Agency</span>
             </div>
+            <p className="text-[10px] tracking-[3px] uppercase text-gold/80 mb-3">Boston · Los Angeles</p>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              <span className="text-gold font-medium">XMA = Xhoja Music Agency.</span> Live music for events across Greater Boston — weddings, hotels, senior communities, and private gatherings.
+              <span className="text-gold font-medium">XMA = Xhoja Music Agency.</span> Live music for events in Greater Boston and Los Angeles — weddings, hotels, private celebrations, and select corporate events.
             </p>
             <a href="https://instagram.com/xhojamusicagency" target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 text-gray-400 hover:text-gold transition-colors text-sm">
               <Instagram size={18} />
@@ -41,6 +42,7 @@ export default function Footer() {
             <h4 className="font-serif text-lg font-medium mb-6">Quick Links</h4>
             <ul className="space-y-4 text-sm text-gray-400">
               <li><Link to="/ensembles" className="hover:text-gold transition-colors">Event Bookings</Link></li>
+              <li><Link to="/los-angeles" className="hover:text-gold transition-colors">Los Angeles</Link></li>
               <li><Link to="/lessons" className="hover:text-gold transition-colors">Music Lessons</Link></li>
               <li><Link to="/team" className="hover:text-gold transition-colors">Meet The Team</Link></li>
               <li><Link to="/faq" className="hover:text-gold transition-colors">FAQ</Link></li>
@@ -54,7 +56,11 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-gray-400">
               <li><a href="tel:+18574988487" className="hover:text-gold transition-colors">(857) 498-8487</a></li>
               <li><a href="mailto:xhojamusicagency@gmail.com" className="hover:text-gold transition-colors">xhojamusicagency@gmail.com</a></li>
-              <li>Boston, Massachusetts</li>
+              <li className="pt-1">
+                <p className="text-[10px] tracking-[2px] uppercase text-gold/80 mb-1.5">Locations</p>
+                <p>Boston, Massachusetts</p>
+                <p className="mt-0.5">Los Angeles, California</p>
+              </li>
               <li className="pt-2">
                 <p>Mon-Fri: 9:00 AM - 7:00 PM</p>
                 <p className="mt-1">Sat: 10:00 AM - 5:00 PM</p>

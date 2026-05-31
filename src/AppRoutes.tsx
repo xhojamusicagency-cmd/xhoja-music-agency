@@ -16,6 +16,8 @@ import PrivateEventMusicBoston from './pages/PrivateEventMusicBoston';
 import BnaiMitzvahMusicBoston from './pages/BnaiMitzvahMusicBoston';
 import FuneralMusicServices from './pages/FuneralMusicServices';
 import Faq from './pages/Faq';
+import LosAngeles from './pages/LosAngeles';
+import WeddingMusicLosAngeles from './pages/WeddingMusicLosAngeles';
 
 /**
  * Shared route definitions used by BOTH the client App and the prerender script.
@@ -46,6 +48,10 @@ export default function AppRoutes() {
       <Route path="/funeral-music-services" element={<FuneralMusicServices />} />
       {/* FAQ page — paired with FAQPage JSON-LD schema injected via prerender for rich results */}
       <Route path="/faq" element={<Faq />} />
+      {/* Los Angeles expansion — new West Coast presence, by appointment as roster grows */}
+      <Route path="/los-angeles" element={<LosAngeles />} />
+      <Route path="/wedding-music-los-angeles" element={<WeddingMusicLosAngeles />} />
+      <Route path="/la" element={<Navigate to="/los-angeles" replace />} />
       {/* Old Wix URL redirects — every URL Google has indexed from the old site */}
       <Route path="/copy-of-instructors" element={<Navigate to="/lessons" replace />} />
       <Route path="/pricing-plans/*" element={<Navigate to="/lessons" replace />} />

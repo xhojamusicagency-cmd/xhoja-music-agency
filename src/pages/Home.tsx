@@ -30,7 +30,7 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
           <p className="text-gold uppercase tracking-[4px] text-xs mb-6 opacity-90">
-            XMA · Boston's Premier Music Agency
+            Boston · Los Angeles
           </p>
           <h1 className="font-serif text-5xl sm:text-7xl md:text-[90px] font-light leading-[1.0] tracking-[1px] mb-6">
             Xhoja Music<br />Agency
@@ -62,6 +62,71 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Two Coasts Section — bi-coastal positioning.
+          Typography-driven (no imagery) by design: the LA presence is new and
+          "by appointment," so we lean on refined editorial layout rather than
+          forced photography. Equal-weight columns with a gold vertical divider
+          on desktop create a clean visual split. */}
+      <section className="bg-cream py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section header */}
+          <div className="text-center mb-14 md:mb-20">
+            <p className="text-gold uppercase tracking-[4px] text-[11px] mb-3 font-medium">
+              Two Coasts · One Standard
+            </p>
+            <div className="w-12 h-px bg-gold mx-auto mb-5"></div>
+            <h2 className="font-serif text-[32px] sm:text-[42px] md:text-[52px] font-light leading-[1.1] tracking-[0.5px] text-dark mb-5">
+              From Boston to Los Angeles.
+            </h2>
+            <p className="font-serif italic text-base md:text-lg text-gray-500 max-w-2xl mx-auto leading-[1.7]">
+              A vetted roster, curated taste, and a single point of contact — wherever your event takes us.
+            </p>
+          </div>
+
+          {/* Two columns: BOSTON | LOS ANGELES */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-0 max-w-5xl mx-auto">
+            {/* BOSTON */}
+            <div className="text-center md:text-left md:border-r md:border-gold/25 md:pr-12 lg:pr-16">
+              <div className="text-gold font-serif italic text-3xl mb-3">01</div>
+              <div className="w-10 h-px bg-gold mb-5 mx-auto md:mx-0"></div>
+              <p className="text-[11px] tracking-[4px] uppercase text-dark/60 mb-3 font-medium">Headquarters</p>
+              <h3 className="font-serif text-[28px] md:text-[36px] font-light leading-[1.05] tracking-[0.5px] text-dark mb-5">
+                Boston
+              </h3>
+              <p className="font-serif italic text-[15px] md:text-[16px] text-gray-600 leading-[1.75] mb-7 md:max-w-md">
+                New England's curated music agency. A vetted roster of 200+ contractors, trusted by the region's leading planners, hotels, and venues.
+              </p>
+              <Link
+                to="/ensembles"
+                className="inline-flex items-center gap-3 text-[10px] tracking-[3.5px] uppercase text-dark border-b border-gold pb-1.5 font-medium hover:text-gold transition-colors"
+              >
+                Explore Boston Bookings
+                <span>→</span>
+              </Link>
+            </div>
+
+            {/* LOS ANGELES */}
+            <div className="text-center md:text-left md:pl-12 lg:pl-16">
+              <div className="text-gold font-serif italic text-3xl mb-3">02</div>
+              <div className="w-10 h-px bg-gold mb-5 mx-auto md:mx-0"></div>
+              <p className="text-[11px] tracking-[4px] uppercase text-dark/60 mb-3 font-medium">Now Booking</p>
+              <h3 className="font-serif text-[28px] md:text-[36px] font-light leading-[1.05] tracking-[0.5px] text-dark mb-5">
+                Los Angeles
+              </h3>
+              <p className="font-serif italic text-[15px] md:text-[16px] text-gray-600 leading-[1.75] mb-7 md:max-w-md">
+                By appointment. A curated West Coast roster led by founder Alexander Xhoja, accepting select bookings as we grow our LA presence.
+              </p>
+              <Link
+                to="/los-angeles"
+                className="inline-flex items-center gap-3 text-[10px] tracking-[3.5px] uppercase text-dark border-b border-gold pb-1.5 font-medium hover:text-gold transition-colors"
+              >
+                Explore Los Angeles
+                <span>→</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Get To Know Us Section - Alexander's Bio */}
       <section id="alexanders-bio" className="bg-white py-20 md:py-28">

@@ -19,7 +19,10 @@ export default function Header() {
       <nav className="px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-3">
           <img src="/xhoja-logo.png" alt="Xhoja Music Agency" className="h-12 w-12 object-contain" />
-          <span className="font-serif text-xl font-medium hidden sm:inline">Xhoja Music Agency</span>
+          <div className="hidden sm:flex sm:flex-col sm:leading-tight">
+            <span className="font-serif text-xl font-medium">Xhoja Music Agency</span>
+            <span className="text-[9px] tracking-[3px] text-gold/80 mt-0.5 uppercase">Boston · Los Angeles</span>
+          </div>
         </Link>
 
         {/* Desktop Menu */}
