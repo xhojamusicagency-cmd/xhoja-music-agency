@@ -109,12 +109,12 @@ export default function Home() {
             <div className="text-center md:text-left md:pl-12 lg:pl-16">
               <div className="text-gold font-serif italic text-3xl mb-3">02</div>
               <div className="w-10 h-px bg-gold mb-5 mx-auto md:mx-0"></div>
-              <p className="text-[11px] tracking-[4px] uppercase text-dark/60 mb-3 font-medium">Now Booking</p>
+              <p className="text-[11px] tracking-[4px] uppercase text-dark/60 mb-3 font-medium">By Appointment</p>
               <h3 className="font-serif text-[28px] md:text-[36px] font-light leading-[1.05] tracking-[0.5px] text-dark mb-5">
                 Los Angeles
               </h3>
               <p className="font-serif italic text-[15px] md:text-[16px] text-gray-600 leading-[1.75] mb-7 md:max-w-md">
-                By appointment. A curated West Coast roster led by founder Alexander Xhoja, accepting select bookings as we grow our LA presence.
+                A curated West Coast roster led by founder Alexander Xhoja — refined live music for Los Angeles's most discerning events. Booked by appointment.
               </p>
               <Link
                 to="/los-angeles"

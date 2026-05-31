@@ -97,12 +97,12 @@ export const ROUTE_METADATA: Record<string, RouteMeta> = {
   '/los-angeles': {
     title: 'Live Music in Los Angeles — By Appointment',
     description:
-      'XMA is now booking select Los Angeles events. Boston-founded music agency led by Berklee pianist Alexander Xhoja — curated roster, personal oversight, the same standard our East Coast clients trust.',
+      'XMA — curated live music for Los Angeles events, by appointment. Founded and led by Berklee pianist Alexander Xhoja. A vetted West Coast roster, personal oversight on every booking, the same standard our East Coast clients trust.',
   },
   '/wedding-music-los-angeles': {
     title: 'Wedding Music Los Angeles | XMA',
     description:
-      'Curated live music for Los Angeles weddings — solo piano, string quartets, jazz ensembles. By appointment, with personal oversight from Berklee-trained founder Alexander Xhoja. Now booking select LA wedding dates.',
+      'Curated live music for Los Angeles weddings — solo piano, string quartets, jazz ensembles. By appointment with founder Alexander Xhoja, Berklee-trained pianist. Bookings accepted for select Los Angeles wedding dates.',
   },
 };
 

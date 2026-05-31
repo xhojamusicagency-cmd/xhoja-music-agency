@@ -18,7 +18,7 @@ const FAQS: FAQ[] = [
   {
     question: 'Do you have musicians based in Los Angeles?',
     answer:
-      'Yes — a curated West Coast roster, hand-selected by founder Alexander Xhoja. We grow the roster carefully and accept bookings on a by-appointment basis. For dates outside our LA roster\'s availability, we will tell you up front and refer you to a trusted alternative.',
+      'Yes — a curated West Coast roster, hand-selected by founder Alexander Xhoja. Bookings are accepted on a by-appointment basis to ensure the right musician for every event. For dates outside our LA roster\'s availability, we will tell you up front and refer you to a trusted alternative.',
   },
   {
     question: 'What musical styles do you cover?',
@@ -33,7 +33,7 @@ const FAQS: FAQ[] = [
   {
     question: 'How is XMA different from a local LA agency?',
     answer:
-      'Five years of refined event-music curation built in Boston — Berklee-trained leadership, a vetted East Coast roster, and a reputation among the region\'s leading planners. The same standard now applied to a curated Los Angeles roster, with founder Alexander Xhoja personally overseeing every LA booking as we grow.',
+      'Five years of refined event-music curation built in Boston — Berklee-trained leadership, a vetted East Coast roster, and a reputation among the region\'s leading planners. The same standard, the same Berklee-trained leadership, the same hands-on oversight — now defining our Los Angeles bookings.',
   },
 ];
 
@@ -55,7 +55,7 @@ const PRINCIPLES = [
 const REASONS = [
   'A curated West Coast roster, vetted by Berklee-trained founder Alexander Xhoja. No anonymous subcontracting.',
   'Personal contact with Alex from the first inquiry through the last note of your event. One point of contact, every time.',
-  'Five years of refined event-music experience built in Boston — now applied to a small, careful Los Angeles roster.',
+  'Five years of refined event-music experience — applied to a curated Los Angeles roster, by appointment only.',
   'Tailored repertoire — every song matched to your venue, program, and guests. We listen first, then we play.',
   'Discreet, professional, dressed for the room. The standard your venue and your guests expect.',
 ];

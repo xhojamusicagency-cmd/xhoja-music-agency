@@ -57,7 +57,7 @@ const REASONS = [
 export default function WeddingMusicLosAngeles() {
   usePageTitle(
     'Wedding Music Los Angeles | XMA',
-    'Curated live music for Los Angeles weddings — solo piano, string quartets, jazz ensembles. By appointment, with personal oversight from Berklee-trained founder Alexander Xhoja. Now booking select LA wedding dates.',
+    'Curated live music for Los Angeles weddings — solo piano, string quartets, jazz ensembles. By appointment with founder Alexander Xhoja, Berklee-trained pianist. Bookings accepted for select Los Angeles wedding dates.',
   );
 
   return (
@@ -131,7 +131,7 @@ export default function WeddingMusicLosAngeles() {
       <section className="bg-dark py-24 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 opacity-40" style={{ background: 'radial-gradient(ellipse at center, rgba(204, 148, 51, 0.15) 0%, transparent 60%)' }}></div>
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gold uppercase tracking-[4px] text-[11px] mb-5 font-medium">Now Booking · Los Angeles</p>
+          <p className="text-gold uppercase tracking-[4px] text-[11px] mb-5 font-medium">Los Angeles · By Appointment</p>
           <div className="w-12 h-px bg-gold mx-auto mb-7"></div>
           <h2 className="font-serif text-[36px] sm:text-[44px] md:text-[52px] text-white font-light leading-[1.15] tracking-[0.5px] mb-6">
             Schedule a wedding consultation.
