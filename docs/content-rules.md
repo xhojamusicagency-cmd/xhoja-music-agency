@@ -82,12 +82,51 @@ The embed mechanism is fine; the content choice is the call.
 
 ---
 
+## Rule 4 — No unverifiable timeline or credential claims
+
+### Why
+On 2026-05-30, during the LA roster outreach build, marketing copy drafts and a live page on the website were generated with the phrase **"five years of refined event experience"** and **"I started it in Boston five years ago"** — neither verified with Alex before shipping. The agency's actual founding date had never been recorded in any documentation; the "five years" number was fabricated to make the agency sound established.
+
+Caught and corrected before significant outreach went out — but several drafts and one live page (`/wedding-music-los-angeles`) had to be revised, and any sent outreach using that framing would have been a direct integrity problem if a prospect cross-checked Alex's LinkedIn founding date.
+
+### The rule
+**Never claim a founding year, age, "X years in business," "since YYYY," "founded in YYYY," or any time-based credibility marker unless it's verified true.** Default to time-agnostic phrasing that emphasizes verifiable credentials.
+
+### Where this rule applies
+- ❌ Website body copy ("five years of experience")
+- ❌ Outreach emails and DMs ("I've spent the past five years building...")
+- ❌ Cold-pitch elevator scripts ("I started it five years ago")
+- ❌ Press copy, partner one-pagers, marketing collateral
+- ❌ GBP descriptions
+- ❌ Instagram bio + post copy
+
+### Where this rule does NOT apply
+- ✅ Internal records, contractor invoices, accountant handoffs (factual operational data)
+- ✅ Verified factual statements ("Berklee full-scholarship pianist" — that's verifiable)
+- ✅ Verifiable roster size ("200-musician roster" — verifiable via Drive sheet)
+- ✅ Verifiable location ("Boston-based, expanding to Los Angeles" — verifiable)
+
+### Safe time-agnostic phrasings (reusable)
+- "Boston-based music agency with a 200-musician roster"
+- "Founded by Berklee-trained pianist Alexander Xhoja"
+- "Trusted by the region's leading planners, hotels, and private hosts"
+- "A curated roster of vetted professional musicians"
+- "Now expanding to Los Angeles" / "Now serving both Boston and Los Angeles"
+
+### The diagnostic test
+Before writing any sentence that includes a year, a duration ("X years"), or words like "established," "since," "for over," **stop and ask: is this number actually verified in a real record?** If no, kill it and use a credential-based phrasing instead.
+
+Never insert a "plausible-sounding" number to make the agency sound more established. It's the snowball lie that destroys trust when caught.
+
+---
+
 ## Quick checklist before publishing any external marketing copy/asset
 
 - [ ] Does the copy name a third-party orchestra, employer, brand, venue, or institution? → Remove or genericize.
 - [ ] Does the visual include identifiable third parties (musicians, clients, venue staff)? → Verify per-subject consent with the contractor.
 - [ ] Is the copy framing the contractor as XMA's hire (price, CTA, "book us") next to a third-party name? → Always re-check Rule 1.
 - [ ] If reusing yesterday's draft, scan for ANY mention of Worcester Symphony Orchestra or "concertmaster of…" — these phrases are banned in promotional context.
+- [ ] Does the copy include a founding year, "X years," "since YYYY," "established," or any timeline claim? → Verify it's actually true before publishing. If not verified, replace with time-agnostic credential phrasing (Rule 4).
 
 ---
 
@@ -98,4 +137,5 @@ The embed mechanism is fine; the content choice is the call.
 | 2026-05-27 | GBP post with Worcester Symphony mention removed by Google automated moderator | Posting feature disabled on the entire GBP profile for 7–30 days; lost weekly cadence opportunity |
 | 2026-05-27 | Orchestra concert photo uploaded to GBP gallery → caught + removed within 4 hours | No external damage; near-miss |
 | 2026-05-27 | John Williams (with Worcester Symphony) video linked in Greg's bio on `/team` → swapped to solo Bach Sonata | No external damage; preempted before any exposure |
+| 2026-05-30 | Fabricated "five years" claim on `/wedding-music-los-angeles` page + several draft outreach emails | Caught before significant outreach went out; one live page revised. Sent LinkedIn DMs were clean (no timeline claim). Rule 4 added. |
 
