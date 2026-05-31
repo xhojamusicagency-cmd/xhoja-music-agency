@@ -17,12 +17,13 @@ export interface RouteMeta {
 }
 
 const DEFAULT_DESCRIPTION =
-  "Customized music lessons and professional event bookings in Boston, MA. Founded by Alexander Xhoja, Berklee College of Music full-scholarship pianist.";
+  "Curated live music for events in Boston and Los Angeles. Founded by Alexander Xhoja, Berklee College of Music full-scholarship pianist.";
 
 export const ROUTE_METADATA: Record<string, RouteMeta> = {
   '/': {
+    title: 'Live Music for Events in Boston & Los Angeles',
     description:
-      "XMA (Xhoja Music Agency) — Boston's premier music agency. Hire live musicians for weddings, corporate events, and private parties — from jazz trios to string quartets to DJs. Founded by Berklee pianist Alexander Xhoja.",
+      "XMA (Xhoja Music Agency) — curated live music for events in Boston and Los Angeles. Solo piano, jazz trios, string quartets, DJs, and full bands for weddings, corporate events, and private celebrations. Founded by Berklee pianist Alexander Xhoja.",
   },
   '/ensembles': {
     title: 'Book Live Musicians in Boston — Weddings, Galas, Events',
@@ -111,7 +112,7 @@ export function getRouteMeta(url: string): { fullTitle: string; description: str
   const meta = ROUTE_METADATA[url];
   const fullTitle = meta?.title
     ? `${meta.title} | ${BASE_TITLE}`
-    : `${BASE_TITLE} | Music Lessons & Event Bookings in Boston`;
+    : `${BASE_TITLE} | Live Music for Events in Boston & Los Angeles`;
   return {
     fullTitle,
     description: meta?.description ?? DEFAULT_DESCRIPTION,
