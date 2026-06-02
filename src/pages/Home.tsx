@@ -6,7 +6,7 @@ import ReviewsCarousel from '../components/ReviewsCarousel';
 export default function Home() {
   usePageTitle(
     undefined,
-    'XMA (Xhoja Music Agency) — Boston\'s premier music agency. Hire live musicians for weddings, corporate events, and private parties — from jazz trios to string quartets to DJs. Founded by Berklee pianist Alexander Xhoja.'
+    'XMA (Xhoja Music Agency) — bicoastal live-music agency serving Boston and Los Angeles. Hire vetted musicians for weddings, hotel residencies, private events, and corporate galas — from jazz trios to string quartets to DJs. Founded by Berklee pianist Alexander Xhoja.'
   );
   return (
     <div>
@@ -96,13 +96,22 @@ export default function Home() {
               <p className="font-serif italic text-[15px] md:text-[16px] text-gray-600 leading-[1.75] mb-7 md:max-w-md">
                 New England's curated music agency. A vetted roster of 200+ contractors, trusted by the region's leading planners, hotels, and venues.
               </p>
-              <Link
-                to="/ensembles"
-                className="inline-flex items-center gap-3 text-[10px] tracking-[3.5px] uppercase text-dark border-b border-gold pb-1.5 font-medium hover:text-gold transition-colors"
-              >
-                Explore Boston Bookings
-                <span>→</span>
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-8 items-center md:items-start">
+                <Link
+                  to="/ensembles"
+                  className="inline-flex items-center gap-3 text-[10px] tracking-[3.5px] uppercase text-dark border-b border-gold pb-1.5 font-medium hover:text-gold transition-colors"
+                >
+                  Explore Boston Bookings
+                  <span>→</span>
+                </Link>
+                <Link
+                  to="/for-wedding-planners"
+                  className="inline-flex items-center gap-3 text-[10px] tracking-[3.5px] uppercase text-dark border-b border-gold pb-1.5 font-medium hover:text-gold transition-colors"
+                >
+                  For Wedding Planners
+                  <span>→</span>
+                </Link>
+              </div>
             </div>
 
             {/* LOS ANGELES */}
@@ -144,7 +153,7 @@ export default function Home() {
                 Alexander maintains an active online presence featuring professional recordings, live performance videos, an artist website, and engaging social media channels, showcasing his artistry and commitment to excellence.
               </p>
               <p className="text-gray-500 mb-6 leading-relaxed">
-                We provide personalized music instruction tailored to each student's goals and book talented musicians for weddings, parties, corporate events, and other special occasions. Xhoja Music Agency is committed to connecting artists with opportunities and creating unforgettable events that truly matter.
+                Xhoja Music Agency books vetted live musicians for weddings, hotel residencies, private events, corporate galas, and recurring programming for senior communities and houses of worship. Our model: a curated roster, careful matchmaking to your room and audience, and the reliability that comes from doing this every weekend.
               </p>
               <Link
                 to="/team"
@@ -297,7 +306,8 @@ export default function Home() {
                 <MapPin size={24} className="text-gold" />
               </div>
               <h3 className="font-serif text-xl font-medium mb-2">Location</h3>
-              <p className="text-gray-500">Boston, Massachusetts</p>
+              <p className="text-gray-500">Los Angeles</p>
+              <p className="text-gray-500">Boston</p>
             </div>
           </div>
         </div>
