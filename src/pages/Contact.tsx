@@ -150,8 +150,8 @@ export default function Contact() {
                 <MapPin size={20} className="text-gold flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-serif text-lg font-medium mb-2">Location</h4>
-                  <p className="text-gray-500">Boston, Massachusetts</p>
-                  <p className="text-gold text-sm font-medium mt-1">Serving the Greater Boston Area</p>
+                  <p className="text-gray-500">Los Angeles &middot; Boston</p>
+                  <p className="text-gold text-sm font-medium mt-1">Serving the Greater LA &amp; Boston Areas</p>
                 </div>
               </div>
 

@@ -25,20 +25,6 @@ const REVIEWS: Review[] = [
   },
   {
     quote:
-      "I can't say enough great things about Alex. As a piano teacher, he is incredibly talented, patient, and truly passionate. Beyond teaching, Alex is also an exceptional event planner — organized, creative, detail-oriented, and calm under pressure. His musical expertise adds an extra level of professionalism and elegance to any event.",
-    name: 'FayFay33',
-    role: 'Piano Student · Local Guide',
-    event: 'Lessons & Event Planning',
-  },
-  {
-    quote:
-      "My daughter suddenly became interested in learning guitar. Alex and Xhoja Music Agency were recommended and we decided to give it a try. Alex had a great conversation with me about what we were looking for and matched us up with Jude. My daughter has now been learning with Jude for 3 months and continues to look forward to her weekly lessons. Definitely recommend.",
-    name: 'Lana Rifkin',
-    role: 'Parent · Local Guide',
-    event: 'Guitar Lessons',
-  },
-  {
-    quote:
       "Alex performed at our daughter's wedding cocktail hour. He was totally flexible in playing from a playlist I provided along with a lovely array of music that he included. We were so pleased and our guests truly enjoyed his playing. I would definitely recommend him to family, friends, and venues looking for a gifted and experienced performer.",
     name: 'Susan Gorny',
     role: 'Mother of the Bride',
