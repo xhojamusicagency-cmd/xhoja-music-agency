@@ -8,7 +8,7 @@
 
 export const EMAILJS_CONFIG = {
   PUBLIC_KEY: 'Km515m5ryUF5Dnnv5',
-  SERVICE_ID: 'service_dpbjgtc',
+  SERVICE_ID: 'service_64qkrzi',
   EVENT_BOOKING_TEMPLATE: 'template_s6um5py',
   CONTACT_TEMPLATE: 'template_l8y1xv7',
 };
