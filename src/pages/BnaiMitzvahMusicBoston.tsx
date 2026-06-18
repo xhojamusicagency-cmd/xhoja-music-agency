@@ -51,7 +51,7 @@ const REASONS = [
 
 export default function BnaiMitzvahMusicBoston() {
   usePageTitle(
-    "B'nai Mitzvah Music Boston | XMA",
+    "B'nai Mitzvah Music Boston",
     "Live music for b'nai mitzvah celebrations in Greater Boston — ceremony, cocktail hour, and reception. Traditional klezmer, Israeli music, contemporary repertoire, and a dedicated Jewish Ensemble.",
   );
 

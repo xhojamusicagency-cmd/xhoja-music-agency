@@ -51,7 +51,7 @@ const REASONS = [
 
 export default function ForWeddingPlanners() {
   usePageTitle(
-    'For Wedding Planners | XMA',
+    'For Wedding Planners',
     'Trusted music partner for Greater Boston wedding planners. One vetted roster, one point of contact, dependable musicians for every booking.',
   );
 

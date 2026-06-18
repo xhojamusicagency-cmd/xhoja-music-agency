@@ -51,7 +51,7 @@ const REASONS = [
 
 export default function SeniorLivingMusic() {
   usePageTitle(
-    'Senior Living Music Programs MA | XMA',
+    'Senior Living Music Programs MA',
     'Live music programming for senior communities across Greater Boston — regular concert series, holiday events, memory-care-friendly programs, intergenerational concerts.',
   );
 

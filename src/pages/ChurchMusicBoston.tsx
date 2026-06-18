@@ -51,7 +51,7 @@ const REASONS = [
 
 export default function ChurchMusicBoston() {
   usePageTitle(
-    'Church Music Boston | XMA',
+    'Church Music Boston',
     'Live church music for Greater Boston congregations — Sunday service accompaniment, special services, weddings, and funerals. Substitute pianists and organists available on short notice.',
   );
 

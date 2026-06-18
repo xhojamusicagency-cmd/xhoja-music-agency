@@ -51,7 +51,7 @@ const REASONS = [
 
 export default function HotelMusicBoston() {
   usePageTitle(
-    'Hotel & Restaurant Music Boston | XMA',
+    'Hotel & Restaurant Music Boston',
     'Refined live music for Boston hotel lobbies, fine dining rooms, and hospitality events. Recurring residencies or one-off bookings — vetted professional musicians.',
   );
 

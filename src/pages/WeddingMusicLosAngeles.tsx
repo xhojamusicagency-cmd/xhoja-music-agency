@@ -56,7 +56,7 @@ const REASONS = [
 
 export default function WeddingMusicLosAngeles() {
   usePageTitle(
-    'Wedding Music Los Angeles | XMA',
+    'Wedding Music Los Angeles',
     'Curated live music for Los Angeles weddings — solo piano, string quartets, jazz ensembles. By appointment with founder Alexander Xhoja, Berklee-trained pianist. Bookings accepted for select Los Angeles wedding dates.',
   );
 

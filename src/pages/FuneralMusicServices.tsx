@@ -51,7 +51,7 @@ const REASONS = [
 
 export default function FuneralMusicServices() {
   usePageTitle(
-    'Funeral & Memorial Music Services | XMA',
+    'Funeral & Memorial Music Services',
     'Live music for funeral and memorial services across Greater Boston — chapel, graveside, and celebrations of life. Musicians experienced in honoring meaningful moments.',
   );
 

@@ -51,7 +51,7 @@ const REASONS = [
 
 export default function PrivateEventMusicBoston() {
   usePageTitle(
-    'Private Event Music Boston | XMA',
+    'Private Event Music Boston',
     'Live music for private celebrations across Greater Boston — anniversaries, milestone birthdays, dinner parties, holiday gatherings. Solo piano, jazz trios, and chamber ensembles.',
   );
 

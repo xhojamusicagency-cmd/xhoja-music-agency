@@ -51,7 +51,7 @@ const REASONS = [
 
 export default function WeddingMusicBoston() {
   usePageTitle(
-    'Wedding Music Boston | XMA',
+    'Wedding Music Boston',
     'Live music for Boston weddings — solo piano, string quartets, jazz trios, DJ. Curated ceremony, cocktail hour, and reception music tailored to your day.',
   );
 

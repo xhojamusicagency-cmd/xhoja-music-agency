@@ -51,42 +51,42 @@ export const ROUTE_METADATA: Record<string, RouteMeta> = {
       'Get in touch with Xhoja Music Agency. Email, phone, and a quick contact form for event bookings, partnerships, and general inquiries across Boston and Los Angeles.',
   },
   '/wedding-music-boston': {
-    title: 'Wedding Music Boston | XMA',
+    title: 'Wedding Music Boston',
     description:
       'Live music for Boston weddings — solo piano, string quartets, jazz trios, DJ. Curated ceremony, cocktail hour, and reception music tailored to your day.',
   },
   '/for-wedding-planners': {
-    title: 'For Wedding Planners | XMA',
+    title: 'For Wedding Planners',
     description:
       'Trusted music partner for Greater Boston wedding planners. One vetted roster, one point of contact, dependable musicians for every booking.',
   },
   '/hotel-music-boston': {
-    title: 'Hotel & Restaurant Music Boston | XMA',
+    title: 'Hotel & Restaurant Music Boston',
     description:
       'Refined live music for Boston hotel lobbies, fine dining rooms, and hospitality events. Recurring residencies or one-off bookings — vetted professional musicians.',
   },
   '/senior-living-music': {
-    title: 'Senior Living Music Programs MA | XMA',
+    title: 'Senior Living Music Programs MA',
     description:
       'Live music programming for senior communities across Greater Boston — regular concert series, holiday events, memory-care-friendly programs, intergenerational concerts.',
   },
   '/church-music-boston': {
-    title: 'Church Music Boston | XMA',
+    title: 'Church Music Boston',
     description:
       'Live church music for Greater Boston congregations — Sunday service accompaniment, special services, weddings, and funerals. Substitute pianists and organists available on short notice.',
   },
   '/private-event-music-boston': {
-    title: 'Private Event Music Boston | XMA',
+    title: 'Private Event Music Boston',
     description:
       'Live music for private celebrations across Greater Boston — anniversaries, milestone birthdays, dinner parties, holiday gatherings. Solo piano, jazz trios, and chamber ensembles.',
   },
   '/bnai-mitzvah-music-boston': {
-    title: "B'nai Mitzvah Music Boston | XMA",
+    title: "B'nai Mitzvah Music Boston",
     description:
       "Live music for b'nai mitzvah celebrations in Greater Boston — ceremony, cocktail hour, and reception. Traditional klezmer, Israeli music, contemporary repertoire, and a dedicated Jewish Ensemble.",
   },
   '/funeral-music-services': {
-    title: 'Funeral & Memorial Music Services | XMA',
+    title: 'Funeral & Memorial Music Services',
     description:
       'Live music for funeral and memorial services across Greater Boston — chapel, graveside, and celebrations of life. Musicians experienced in honoring meaningful moments.',
   },
@@ -101,7 +101,7 @@ export const ROUTE_METADATA: Record<string, RouteMeta> = {
       'XMA — curated live music for Los Angeles events, by appointment. Founded and led by Berklee pianist Alexander Xhoja. A vetted West Coast roster, personal oversight on every booking, the same standard our East Coast clients trust.',
   },
   '/wedding-music-los-angeles': {
-    title: 'Wedding Music Los Angeles | XMA',
+    title: 'Wedding Music Los Angeles',
     description:
       'Curated live music for Los Angeles weddings — solo piano, string quartets, jazz ensembles. By appointment with founder Alexander Xhoja, Berklee-trained pianist. Bookings accepted for select Los Angeles wedding dates.',
   },
