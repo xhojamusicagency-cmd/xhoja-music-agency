@@ -41,14 +41,14 @@ export const ROUTE_METADATA: Record<string, RouteMeta> = {
       'Private music lessons in Boston with Berklee-trained instructors. Piano, guitar, bass, drums, vocals, saxophone, and more — all skill levels. Book a trial lesson or full package online.',
   },
   '/team': {
-    title: 'Meet The Team — Musicians & Instructors',
+    title: 'Meet The Team — Our Musicians',
     description:
-      'Meet the Xhoja Music Agency team: Berklee-trained pianists, guitarists, bassists, drummers, vocalists, and DJs serving Boston-area weddings, corporate events, and private lessons.',
+      'Meet the Xhoja Music Agency roster — pianists, string players, jazz musicians, vocalists, and DJs performing at weddings, corporate events, and private celebrations across Boston and Los Angeles.',
   },
   '/contact': {
     title: 'Contact Us — Get in Touch',
     description:
-      'Get in touch with Xhoja Music Agency in Boston, MA. Email, phone, and a quick contact form for event bookings, music lesson inquiries, and partnership questions.',
+      'Get in touch with Xhoja Music Agency. Email, phone, and a quick contact form for event bookings, partnerships, and general inquiries across Boston and Los Angeles.',
   },
   '/wedding-music-boston': {
     title: 'Wedding Music Boston | XMA',

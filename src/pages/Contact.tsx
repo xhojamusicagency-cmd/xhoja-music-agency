@@ -7,7 +7,7 @@ import usePageTitle from '../hooks/usePageTitle';
 export default function Contact() {
   usePageTitle(
     'Contact Us — Get in Touch',
-    'Get in touch with Xhoja Music Agency in Boston, MA. Email, phone, and a quick contact form for event bookings, music lesson inquiries, and partnership questions.'
+    'Get in touch with Xhoja Music Agency. Email, phone, and a quick contact form for event bookings, partnerships, and general inquiries across Boston and Los Angeles.'
   );
   const [formData, setFormData] = useState({
     fullName: '',
@@ -93,8 +93,8 @@ export default function Contact() {
       answer: 'Visit our Event Bookings page to select your preferred music genre, ensemble size, and provide event details. After submitting your request and signing the booking agreement, we\'ll contact you within 24 hours to confirm availability and discuss next steps.'
     },
     {
-      question: 'What instruments do you offer lessons for?',
-      answer: 'We offer lessons in piano, guitar, bass, drums, vocals, trumpet, saxophone, clarinet, accordion, congas, and songwriting. Our instructors are highly trained professionals from institutions like Berklee College of Music.'
+      question: 'What ensembles can I book?',
+      answer: 'Solo pianists, jazz duos and trios, string quartets, full bands, and DJs — every ensemble curated to your venue, program, and guest count. Our musicians are vetted professionals, many trained at institutions like Berklee College of Music.'
     },
     {
       question: 'Do you travel for events outside Boston?',
@@ -114,7 +114,7 @@ export default function Contact() {
           <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">GET IN TOUCH</p>
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-light leading-[1.1] tracking-[1.5px] mb-4">Contact Us</h1>
           <p className="text-gray-500 text-base max-w-2xl mx-auto">
-            Have questions about lessons, event bookings, or anything else? We'd love to hear from you. Reach out and let's create something beautiful together.
+            Have questions about an event, a booking, or a partnership? We'd love to hear from you. Reach out and let's create something beautiful together.
           </p>
         </div>
       </section>
@@ -235,7 +235,7 @@ export default function Contact() {
                         required
                       >
                         <option value="" disabled>Select a subject</option>
-                        <option value="lessons">Music Lessons Inquiry</option>
+                        <option value="partnership">Wedding Planner / Partnership</option>
                         <option value="events">Event Booking Inquiry</option>
                         <option value="collaboration">Collaboration / Join Team</option>
                         <option value="general">General Question</option>

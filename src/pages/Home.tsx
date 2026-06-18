@@ -5,8 +5,8 @@ import ReviewsCarousel from '../components/ReviewsCarousel';
 
 export default function Home() {
   usePageTitle(
-    undefined,
-    'XMA (Xhoja Music Agency) — bicoastal live-music agency serving Boston and Los Angeles. Hire vetted musicians for weddings, hotel residencies, private events, and corporate galas — from jazz trios to string quartets to DJs. Founded by Berklee pianist Alexander Xhoja.'
+    'Live Music for Events in Boston & Los Angeles',
+    'XMA (Xhoja Music Agency) — curated live music for events in Boston and Los Angeles. Solo piano, jazz trios, string quartets, DJs, and full bands for weddings, corporate events, and private celebrations. Founded by Berklee pianist Alexander Xhoja.'
   );
   return (
     <div>
@@ -47,10 +47,10 @@ export default function Home() {
               Book an Event
             </Link>
             <Link
-              to="/lessons"
+              to="/team"
               className="px-10 py-4 border border-white/50 text-white font-normal tracking-[2px] uppercase text-sm hover:bg-white/10 hover:border-white transition-colors duration-300"
             >
-              Music Lessons
+              Meet the Team
             </Link>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function Home() {
                 Boston
               </h3>
               <p className="font-serif italic text-[15px] md:text-[16px] text-gray-600 leading-[1.75] mb-7 md:max-w-md">
-                New England's curated music agency. A vetted roster of 200+ contractors, trusted by the region's leading planners, hotels, and venues.
+                New England's curated music agency. A vetted roster of 200+ contractors, trusted by leading planners and private hosts across the region.
               </p>
               <div className="flex flex-col sm:flex-row gap-5 sm:gap-8 items-center md:items-start">
                 <Link
@@ -147,7 +147,7 @@ export default function Home() {
               <h3 className="sr-only">Alexander's Bio</h3>
               <div className="w-16 h-1 bg-gold mb-6"></div>
               <p className="text-gray-500 mb-4 leading-relaxed">
-                Founded by Alexander Xhoja, a Berklee College of Music full-scholarship pianist and accomplished performer, Xhoja Music Agency is dedicated to nurturing musical talent and delivering exceptional live experiences.
+                Founded by Alexander Xhoja, a Berklee College of Music full-scholarship pianist and accomplished performer, Xhoja Music Agency is dedicated to delivering exceptional live music for weddings, hotels, private events, and corporate occasions across Boston and Los Angeles.
               </p>
               <p className="text-gray-500 mb-4 leading-relaxed">
                 Alexander maintains an active online presence featuring professional recordings, live performance videos, an artist website, and engaging social media channels, showcasing his artistry and commitment to excellence.
@@ -259,8 +259,8 @@ export default function Home() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
             <div className="bg-white p-5 sm:p-8 text-center border border-border">
               <Music size={40} className="mx-auto mb-4 text-gold" />
-              <h3 className="font-serif text-base sm:text-xl font-medium mb-2 sm:mb-3">Personalized Lessons</h3>
-              <p className="text-gray-500 text-xs sm:text-sm">Tailored music instruction for all skill levels, from beginners to advanced musicians.</p>
+              <h3 className="font-serif text-base sm:text-xl font-medium mb-2 sm:mb-3">Curated Ensembles</h3>
+              <p className="text-gray-500 text-xs sm:text-sm">Solo piano to full bands — handpicked musicians matched to your room, program, and guests.</p>
             </div>
             <div className="bg-white p-5 sm:p-8 text-center border border-border">
               <Calendar size={40} className="mx-auto mb-3 sm:mb-4 text-gold" />
@@ -318,7 +318,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-4">Ready To Create Musical Magic?</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Whether you're looking to learn an instrument, book musicians for your event, or collaborate with talented artists, we're here to make it happen.
+            Whether you're planning a wedding, a corporate gala, or an intimate celebration, we're here to make it unforgettable.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

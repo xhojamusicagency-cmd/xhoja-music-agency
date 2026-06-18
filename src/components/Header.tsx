@@ -9,7 +9,6 @@ export default function Header() {
   const links = [
     { label: 'HOME', href: '/' },
     { label: 'EVENT BOOKINGS', href: '/ensembles' },
-    { label: 'LESSONS', href: '/lessons' },
     { label: 'MEET THE TEAM', href: '/team' },
     { label: 'CONTACT', href: '/contact' },
   ];

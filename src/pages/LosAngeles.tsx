@@ -33,7 +33,7 @@ const FAQS: FAQ[] = [
   {
     question: 'How is XMA different from a local LA agency?',
     answer:
-      'Five years of refined event-music curation built in Boston — Berklee-trained leadership, a vetted East Coast roster, and a reputation among the region\'s leading planners. The same standard, the same Berklee-trained leadership, the same hands-on oversight — now defining our Los Angeles bookings.',
+      'Refined event-music curation built in Boston — Berklee-trained leadership, a vetted East Coast roster, and a reputation among the region\'s leading planners. The same standard, the same hands-on oversight — now defining our Los Angeles bookings.',
   },
 ];
 
@@ -48,14 +48,14 @@ const PRINCIPLES = [
   },
   {
     label: 'East Coast Pedigree',
-    text: 'Five years of refined event-music curation across Greater Boston — trusted by the region\'s leading planners, hotels, and venues. The same standard, now brought to Los Angeles.',
+    text: 'Refined event-music curation built across Greater Boston — trusted by leading planners and private hosts. The same standard, now brought to Los Angeles.',
   },
 ];
 
 const REASONS = [
   'A curated West Coast roster, vetted by Berklee-trained founder Alexander Xhoja. No anonymous subcontracting.',
   'Personal contact with Alex from the first inquiry through the last note of your event. One point of contact, every time.',
-  'Five years of refined event-music experience — applied to a curated Los Angeles roster, by appointment only.',
+  'Refined event-music experience from Greater Boston — applied to a curated Los Angeles roster, by appointment only.',
   'Tailored repertoire — every song matched to your venue, program, and guests. We listen first, then we play.',
   'Discreet, professional, dressed for the room. The standard your venue and your guests expect.',
 ];

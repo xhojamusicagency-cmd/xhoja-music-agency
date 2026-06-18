@@ -4,8 +4,8 @@ import usePageTitle from '../hooks/usePageTitle';
 
 export default function Team() {
   usePageTitle(
-    'Meet The Team — Musicians & Instructors',
-    'Meet the Xhoja Music Agency team: Berklee-trained pianists, guitarists, bassists, drummers, vocalists, and DJs serving Boston-area weddings, corporate events, and private lessons.'
+    'Meet The Team — Our Musicians',
+    'Meet the Xhoja Music Agency roster — pianists, string players, jazz musicians, vocalists, and DJs performing at weddings, corporate events, and private celebrations across Boston and Los Angeles.'
   );
   const [selectedMember, setSelectedMember] = useState<number | null>(null);
 
@@ -27,49 +27,49 @@ export default function Team() {
     {
       id: 3,
       name: 'Elton Xhoja',
-      role: 'Chairman of Education & Piano Instructor',
-      bio: 'Elton Xhoja, a Berklee-trained educator and performer, leads educational direction at Xhoja Music Agency, crafting clear lesson objectives and inspiring students through creativity, improvisation, and a lifelong love of music.',
+      role: 'Pianist & Music Director',
+      bio: 'Elton Xhoja is a Berklee-trained pianist and music director at Xhoja Music Agency, shaping the artistic direction of performances with creativity, improvisation, and a lifelong love of music.',
       image: '/elton-c.jpg'
     },
     {
       id: 4,
       name: 'Jude Seiner',
-      role: 'Bass & Guitar Instructor',
+      role: 'Bassist & Guitarist',
       bio: 'Jude Seiner is a scholarship recipient at Berklee College of Music, where he is currently studying performance and developing his voice as a modern jazz and contemporary musician. Recognized with a full scholarship for his artistic excellence and musical potential, Jude is an active performer known for his strong groove, musical sensitivity, and collaborative approach on stage.',
       image: '/jude-base.jpg'
     },
     {
       id: 5,
       name: 'Kai Kitch',
-      role: 'Drum Instructor',
+      role: 'Drummer',
       bio: 'Kai Kitch is a dynamic Boston-based drummer and versatile musician with a strong foundation in jazz and fluency across R&B, pop, and funk. His well-rounded and adaptable approach makes him an excellent fit for a wide range of performances and ensemble settings.',
       image: '/kai-drum.jpg'
     },
     {
       id: 6,
       name: 'Jakob Kobal',
-      role: 'Accordion & Piano Instructor',
+      role: 'Pianist & Accordionist',
       bio: "Jakob Kobal is a Slovenian accordionist and pianist based in Boston. Classically and jazz-trained, he moves fluidly between tango, Balkan folk, jazz, and contemporary music — bringing a refined yet creative approach to every performance.",
       image: '/jakob-jamiliee.png'
     },
     {
       id: 7,
       name: 'Ellis Cordaro',
-      role: 'Drum Instructor',
+      role: 'Drummer',
       bio: 'Ellis Cordaro is a versatile drummer and performing artist with a deep passion for jazz and global music traditions. Specializing in jazz, pop, R&B, rock, and Latin music, he brings a dynamic and culturally informed approach to every performance. He began his formal jazz training at the New England Conservatory Preparatory School before continuing his studies at the University of Massachusetts Amherst.',
       image: '/ellis-cordaro.jpg'
     },
     {
       id: 8,
       name: 'Calele (Carolina Perez)',
-      role: 'Vocals & Trumpet Instructor',
-      bio: "Calele (Carolina Perez) is a Panamanian-Chilean Jazz and Latin vocalist and trumpeter currently studying Performance and Contemporary Writing and Production at Berklee College of Music. She has experience teaching children’s music classes and summer workshops (ages 6–15) at Fundación Danilo Pérez, as well as working as a freelance private instructor (in person and online).",
+      role: 'Vocalist & Trumpeter',
+      bio: "Calele (Carolina Perez) is a Panamanian-Chilean Jazz and Latin vocalist and trumpeter currently studying Performance and Contemporary Writing and Production at Berklee College of Music. She has experience teaching children’s music classes and summer workshops (ages 6–15) at Fundación Danilo Pérez.",
       image: '/calele-perez.jpg'
     },
     {
       id: 9,
       name: 'Gabriel Lopez',
-      role: 'Bass & Guitar Instructor',
+      role: 'Bassist & Guitarist',
       bio: 'Gabriel Lopez is a Puerto Rican electric bassist based in Boston. Deeply rooted in Latin music and jazz, his playing is driven by strong groove, time, and musical sensitivity. While bass is his primary instrument, Gabriel also brings a solid background in congas, which strongly informs his rhythmic approach and feel.',
       image: '/gabriel-lopez.jpg'
     },
@@ -83,29 +83,29 @@ export default function Team() {
     {
       id: 11,
       name: 'Ella Xhoja',
-      role: 'Saxophone Instructor & Performer',
-      bio: 'Ella Xhoja is a saxophonist and performer deeply rooted in the jazz scene, with experience from Jazz at Lincoln Center to the Mingus Festival. Featured on WICN\'s Jazz for New England with JazzHers and a member of the Post Underground Jazz Collective, she brings real stage experience into every lesson, helping students develop strong technique, confidence, and a personal artistic voice.',
+      role: 'Saxophonist',
+      bio: 'Ella Xhoja is a saxophonist and performer deeply rooted in the jazz scene, with experience from Jazz at Lincoln Center to the Mingus Festival. Featured on WICN\'s Jazz for New England with JazzHers and a member of the Post Underground Jazz Collective, she brings real stage experience and a distinctive artistic voice to every performance.',
       image: '/ella-xhoja.jpg'
     },
     {
       id: 12,
       name: 'Jamiliee Haddad Zamorano',
-      role: 'Vocal & Songwriting Instructor',
-      bio: 'Jamiliee Haddad Zamorano is a trilingual songwriting and vocal coach of Mexican and Syrian descent, professionally shaped by her studies at Berklee College of Music. A classically trained bel canto vocalist, she bridges jazz and contemporary styles, guiding artists through a technique-driven yet emotionally grounded approach.',
+      role: 'Vocalist & Songwriter',
+      bio: 'Jamiliee Haddad Zamorano is a trilingual songwriter and vocalist of Mexican and Syrian descent, professionally shaped by her studies at Berklee College of Music. A classically trained bel canto vocalist, she bridges jazz and contemporary styles with a technique-driven yet emotionally grounded artistry.',
       image: '/jamiliee-haddad.jpg'
     },
     {
       id: 13,
       name: 'Dani Calderon',
-      role: 'Vocal Instructor',
-      bio: 'Dani is a passionate, hardworking and knowledgeable teacher, manager and vocalist! She creates an exciting learning environment that helps young singers build healthy vocal technique, musical literacy, and personal style. She strives to make every student feel like singing can be expressive and freeing, not something to be ashamed about!',
+      role: 'Vocalist',
+      bio: 'Dani is a passionate and versatile vocalist and performer with a strong foundation in healthy vocal technique, musical literacy, and personal style. She brings expressive, joyful energy to every performance.',
       image: '/dani-calderon.jpg'
     },
     {
       id: 14,
       name: 'Gregory Ayriyan',
       role: 'Violinist & Composer',
-      bio: "Gregory Ayriyan is a violinist, soloist, and award-winning composer based in Rhode Island. A graduate of the Baku Conservatory and current concertmaster of the Worcester Symphony Orchestra, Gregory brings classical depth and international training to performances ranging from solo recitals to ensemble work. His repertoire spans Bach, Bartók, Stravinsky, and Ravel, alongside his own award-winning compositions. An Armenian-American whose journey took him from Baku to America as a refugee, he brings cultural depth and emotional resonance to every performance.",
+      bio: "Gregory Ayriyan is a violinist, soloist, and award-winning composer based in Rhode Island. A graduate of the Baku Conservatory, Gregory brings classical depth and international training to performances ranging from solo recitals to ensemble work. His repertoire spans Bach, Bartók, Stravinsky, and Ravel, alongside his own award-winning compositions. An Armenian-American whose journey took him from Baku to America as a refugee, he brings cultural depth and emotional resonance to every performance.",
       image: '/gregory-ayriyan.jpg',
       videoUrl: 'https://youtu.be/cEgIoQhDtuU',
       website: 'https://gregoryayriyan.wordpress.com'
@@ -144,7 +144,7 @@ export default function Team() {
           <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">THE FACES BEHIND THE MUSIC</p>
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-light leading-[1.1] tracking-[1.5px] mb-4">Meet The Team</h1>
           <p className="text-gray-500 text-base max-w-2xl mx-auto">
-            Our talented musicians and dedicated staff are committed to delivering exceptional experiences, whether you're learning an instrument or booking live entertainment.
+            Our musicians and team are committed to delivering an exceptional experience for every event we play.
           </p>
         </div>
       </section>
@@ -257,7 +257,7 @@ export default function Team() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-[0.9px] mb-4">Join Our Team</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Are you a talented musician looking for performance opportunities or teaching positions? We're always looking for exceptional artists to join the Xhoja Music Agency family.
+            Are you a talented musician looking for performance opportunities? We're always looking for exceptional artists to join the Xhoja Music Agency family.
           </p>
           <Link
             to="/contact"

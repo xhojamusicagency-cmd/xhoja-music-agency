@@ -43,7 +43,6 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-gray-400">
               <li><Link to="/ensembles" className="hover:text-gold transition-colors">Event Bookings</Link></li>
               <li><Link to="/los-angeles" className="hover:text-gold transition-colors">Los Angeles</Link></li>
-              <li><Link to="/lessons" className="hover:text-gold transition-colors">Music Lessons</Link></li>
               <li><Link to="/team" className="hover:text-gold transition-colors">Meet The Team</Link></li>
               <li><Link to="/faq" className="hover:text-gold transition-colors">FAQ</Link></li>
               <li><Link to="/contact" className="hover:text-gold transition-colors">Contact Us</Link></li>
@@ -62,9 +61,9 @@ export default function Footer() {
                 <p className="mt-0.5">Los Angeles, California</p>
               </li>
               <li className="pt-2">
-                <p>Mon-Fri: 9:00 AM - 7:00 PM</p>
-                <p className="mt-1">Sat: 10:00 AM - 5:00 PM</p>
-                <p className="mt-1">Sun: 10:00 AM - 5:00 PM</p>
+                <p>Mon-Fri: 9:00 AM - 6:00 PM</p>
+                <p className="mt-1">Sat: 10:00 AM - 4:00 PM</p>
+                <p className="mt-1">Sun: Closed</p>
               </li>
             </ul>
           </div>
