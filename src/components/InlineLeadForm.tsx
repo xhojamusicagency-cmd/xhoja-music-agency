@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../utils/emailjs';
+import { buildLeadMailto } from '../utils/leadFallback';
 
 interface InlineLeadFormProps {
   /** Tag where this lead originated for source attribution in inbox */
@@ -152,9 +153,22 @@ export default function InlineLeadForm({
           />
 
           {submitStatus === 'error' && (
-            <p className="text-red-600 text-sm text-center">
-              Something went wrong. Please try calling us at (857) 498-8487 or emailing directly.
-            </p>
+            <div className="text-center space-y-3">
+              <p className="text-red-600 text-sm">
+                We couldn't send your message automatically — send it to us directly instead:
+              </p>
+              <a
+                href={buildLeadMailto(`Inline lead from ${source}`, {
+                  Name: formData.fullName,
+                  Email: formData.email,
+                  Message: formData.message,
+                })}
+                className="inline-block px-8 py-3 bg-gold text-dark text-[11px] font-medium tracking-[3px] uppercase hover:bg-cream-light transition-all"
+              >
+                Email Us Directly
+              </a>
+              <p className="text-gray-500 text-sm">or call (857) 498-8487</p>
+            </div>
           )}
 
           <button

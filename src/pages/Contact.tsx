@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../utils/emailjs';
+import { buildLeadMailto } from '../utils/leadFallback';
 import usePageTitle from '../hooks/usePageTitle';
 
 export default function Contact() {
@@ -289,7 +290,23 @@ export default function Contact() {
                   {submitStatus === 'error' && (
                     <div className="p-6 bg-red-50 border border-red-200 text-center">
                       <h4 className="font-serif text-xl font-medium text-red-800 mb-2">Something Went Wrong</h4>
-                      <p className="text-red-700 text-sm">We couldn't send your message. Please try again or contact us directly at xhojamusicagency@gmail.com or (857) 498-8487.</p>
+                      <p className="text-red-700 text-sm mb-4">We couldn't send your message automatically — but we don't want to lose your inquiry. Send it to us directly with one click:</p>
+                      <a
+                        href={buildLeadMailto(
+                          `Event inquiry from ${formData.fullName || 'website visitor'}`,
+                          {
+                            Name: formData.fullName,
+                            Email: formData.email,
+                            Phone: formData.phone ? formatPhone(formData.phone) : undefined,
+                            Subject: formData.subject,
+                            Message: formData.message,
+                          }
+                        )}
+                        className="inline-block px-6 py-3 bg-gold text-dark font-normal hover:bg-gold/90 transition-colors"
+                      >
+                        Email us with your details
+                      </a>
+                      <p className="text-red-700 text-sm mt-3">or call <a href="tel:+18574988487" className="underline font-medium">(857) 498-8487</a></p>
                     </div>
                   )}
                 </form>
