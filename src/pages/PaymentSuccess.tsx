@@ -10,14 +10,26 @@ export default function PaymentSuccess() {
     const raw = localStorage.getItem('pendingPurchase');
     if (!raw) return;
 
+    let purchase;
     try {
-      const purchase = JSON.parse(raw);
+      purchase = JSON.parse(raw);
+    } catch (err) {
+      // Corrupt entry can't be retried — clear it so it doesn't linger.
+      console.error('Could not parse pending purchase; clearing corrupt entry:', err);
       localStorage.removeItem('pendingPurchase');
+      return;
+    }
 
-      emailjs.send(
+    // Claim the purchase immediately so a StrictMode re-mount or a quick refresh
+    // can't fire a duplicate notification; it's restored below if the send fails.
+    localStorage.removeItem('pendingPurchase');
+
+    emailjs
+      .send(
         EMAILJS_CONFIG.SERVICE_ID,
         EMAILJS_CONFIG.CONTACT_TEMPLATE,
         {
+          to_email: 'xhojamusicagency@gmail.com',
           from_name: `${purchase.firstName} ${purchase.lastName}`,
           reply_to: purchase.email,
           message: [
@@ -34,10 +46,12 @@ export default function PaymentSuccess() {
           ].filter(Boolean).join('\n'),
         },
         EMAILJS_CONFIG.PUBLIC_KEY
-      );
-    } catch (err) {
-      console.error('Failed to send payment notification:', err);
-    }
+      )
+      .catch((err) => {
+        // Restore so a failed notification retries on the next visit instead of vanishing.
+        console.error('Failed to send payment notification (restored for retry):', err);
+        localStorage.setItem('pendingPurchase', raw);
+      });
   }, []);
 
   return (
