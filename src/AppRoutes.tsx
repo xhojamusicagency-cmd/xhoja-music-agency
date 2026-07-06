@@ -15,6 +15,7 @@ import FuneralMusicServices from './pages/FuneralMusicServices';
 import Faq from './pages/Faq';
 import LosAngeles from './pages/LosAngeles';
 import WeddingMusicLosAngeles from './pages/WeddingMusicLosAngeles';
+import NotFound from './pages/NotFound';
 
 /**
  * Shared route definitions used by BOTH the client App and the prerender script.
@@ -67,8 +68,8 @@ export default function AppRoutes() {
       <Route path="/bio" element={<Navigate to="/team" replace />} />
       <Route path="/event-bookings" element={<Navigate to="/events" replace />} />
       <Route path="/book-event" element={<Navigate to="/events" replace />} />
-      {/* Catch-all redirect to home */}
-      <Route path="*" element={<Navigate to="/" replace />} />
+      {/* Catch-all — branded 404 page */}
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

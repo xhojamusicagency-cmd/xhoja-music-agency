@@ -515,7 +515,7 @@ export default function Events() {
                       {isActive ? (
                         <iframe
                           key={v.id}
-                          src={`https://www.youtube.com/embed/${v.id}?autoplay=1`}
+                          src={`https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1`}
                           title={v.label}
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
