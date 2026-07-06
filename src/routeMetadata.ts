@@ -51,14 +51,14 @@ export const ROUTE_METADATA: Record<string, RouteMeta> = {
       'Get in touch with Xhoja Music Agency. Email, phone, and a quick contact form for event bookings, partnerships, and general inquiries across Boston and Los Angeles.',
   },
   '/wedding-music-boston': {
-    title: 'Wedding Music Boston',
+    title: 'Live Wedding Music in Boston — Ceremony to Reception',
     description:
-      'Live music for Boston weddings — solo piano, string quartets, jazz trios, DJ. Curated ceremony, cocktail hour, and reception music tailored to your day.',
+      'Live wedding music across Greater Boston — solo piano, string quartets, jazz trios, and DJs for ceremony, cocktail hour, and reception. Get a tailored quote.',
   },
   '/for-wedding-planners': {
-    title: 'For Wedding Planners',
+    title: 'Wedding Planner Music Partner — Greater Boston',
     description:
-      'Trusted music partner for Greater Boston wedding planners. One vetted roster, one point of contact, dependable musicians for every booking.',
+      'A dependable music partner for Greater Boston wedding planners — one vetted roster, one point of contact, and reliable musicians for every wedding you book.',
   },
   '/hotel-music-boston': {
     title: 'Hotel & Restaurant Music Boston',

@@ -51,8 +51,8 @@ const REASONS = [
 
 export default function WeddingMusicBoston() {
   usePageTitle(
-    'Wedding Music Boston',
-    'Live music for Boston weddings — solo piano, string quartets, jazz trios, DJ. Curated ceremony, cocktail hour, and reception music tailored to your day.',
+    'Live Wedding Music in Boston — Ceremony to Reception',
+    'Live wedding music across Greater Boston — solo piano, string quartets, jazz trios, and DJs for ceremony, cocktail hour, and reception. Get a tailored quote.',
   );
 
   return (
@@ -143,6 +143,21 @@ export default function WeddingMusicBoston() {
             Start The Conversation
             <span>→</span>
           </Link>
+        </div>
+      </section>
+
+      {/* Wedding planner cross-link */}
+      <section className="bg-cream-light py-10 border-t border-gold/15">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="font-serif italic text-[15px] text-gray-500 leading-[1.7]">
+            Planning weddings professionally?{' '}
+            <Link
+              to="/for-wedding-planners"
+              className="not-italic text-dark border-b border-gold pb-0.5 hover:text-gold transition-colors"
+            >
+              See how XMA partners with wedding planners →
+            </Link>
+          </p>
         </div>
       </section>
     </div>

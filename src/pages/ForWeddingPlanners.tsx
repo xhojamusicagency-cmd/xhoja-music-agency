@@ -51,8 +51,8 @@ const REASONS = [
 
 export default function ForWeddingPlanners() {
   usePageTitle(
-    'For Wedding Planners',
-    'Trusted music partner for Greater Boston wedding planners. One vetted roster, one point of contact, dependable musicians for every booking.',
+    'Wedding Planner Music Partner — Greater Boston',
+    'A dependable music partner for Greater Boston wedding planners — one vetted roster, one point of contact, and reliable musicians for every wedding you book.',
   );
 
   return (
