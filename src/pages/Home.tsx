@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Music, Calendar, Users, Star, Phone, Mail, MapPin } from 'lucide-react';
 import usePageTitle from '../hooks/usePageTitle';
@@ -8,6 +9,27 @@ export default function Home() {
     'Live Music for Events in Boston & Los Angeles',
     'XMA (Xhoja Music Agency) — curated live music for events in Boston and Los Angeles. Solo piano, jazz trios, string quartets, DJs, and full bands for weddings, corporate events, and private celebrations. Founded by Berklee pianist Alexander Xhoja.'
   );
+
+  // Defer the large dj-video: only mount it once its section scrolls near the
+  // viewport, so the file isn't downloaded on initial homepage load.
+  const djSectionRef = useRef<HTMLElement>(null);
+  const [showDjVideo, setShowDjVideo] = useState(false);
+  useEffect(() => {
+    const el = djSectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShowDjVideo(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: '300px' }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
     <div>
       {/* Hero Section — Cinematic Video. Capped on mobile so content stays within reach on short viewports. */}
@@ -177,17 +199,20 @@ export default function Home() {
       <ReviewsCarousel />
 
       {/* From Jazz to DJ Sets Section - Video Background */}
-      <section id="live-entertainment" className="relative overflow-hidden" style={{ minHeight: '85vh' }}>
-        {/* Video Background */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover scale-105"
-        >
-          <source src="/dj-video.mp4" type="video/mp4" />
-        </video>
+      <section ref={djSectionRef} id="live-entertainment" className="relative overflow-hidden bg-dark" style={{ minHeight: '85vh' }}>
+        {/* Video Background — lazy-mounted so the large file isn't fetched on initial load */}
+        {showDjVideo && (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover scale-105"
+          >
+            <source src="/dj-video.mp4" type="video/mp4" />
+          </video>
+        )}
         {/* Luxury Gradient Overlay */}
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.8) 100%)' }}></div>
         {/* Top Gold Accent Line */}

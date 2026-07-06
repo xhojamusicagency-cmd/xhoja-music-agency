@@ -129,6 +129,7 @@ export default function InlineLeadForm({
               value={formData.fullName}
               onChange={handleChange}
               placeholder="Your name"
+              aria-label="Your name"
               className="w-full px-5 py-4 bg-white border border-border focus:border-gold outline-none text-dark placeholder-gray-400 transition-colors"
             />
             <input
@@ -138,6 +139,7 @@ export default function InlineLeadForm({
               value={formData.email}
               onChange={handleChange}
               placeholder="Your email"
+              aria-label="Your email"
               className="w-full px-5 py-4 bg-white border border-border focus:border-gold outline-none text-dark placeholder-gray-400 transition-colors"
             />
           </div>
@@ -149,6 +151,7 @@ export default function InlineLeadForm({
             value={formData.message}
             onChange={handleChange}
             placeholder={messagePlaceholder}
+            aria-label="Your event details"
             className="w-full px-5 py-4 bg-white border border-border focus:border-gold outline-none text-dark placeholder-gray-400 resize-none transition-colors"
           />
 
