@@ -5,6 +5,16 @@ import { EMAILJS_CONFIG } from '../utils/emailjs';
 import { buildLeadMailto } from '../utils/leadFallback';
 import usePageTitle from '../hooks/usePageTitle';
 
+// Map the <select> values to human-readable labels so the client's confirmation
+// email reads "Event Booking Inquiry" instead of the raw value "events".
+const SUBJECT_LABELS: Record<string, string> = {
+  partnership: 'Wedding Planner / Partnership',
+  events: 'Event Booking Inquiry',
+  collaboration: 'Collaboration / Join Team',
+  general: 'General Question',
+  other: 'Other',
+};
+
 export default function Contact() {
   usePageTitle(
     'Contact Us — Get in Touch',
@@ -59,7 +69,7 @@ export default function Contact() {
       from_name: formData.fullName,
       from_email: formData.email,
       phone: formData.phone ? formatPhone(formData.phone) : 'Not provided',
-      subject: formData.subject,
+      subject: SUBJECT_LABELS[formData.subject] || formData.subject,
       message: formData.message,
       to_email: formData.email,
       client_first_name: formData.fullName.split(' ')[0],
@@ -298,7 +308,7 @@ export default function Contact() {
                             Name: formData.fullName,
                             Email: formData.email,
                             Phone: formData.phone ? formatPhone(formData.phone) : undefined,
-                            Subject: formData.subject,
+                            Subject: SUBJECT_LABELS[formData.subject] || formData.subject,
                             Message: formData.message,
                           }
                         )}
