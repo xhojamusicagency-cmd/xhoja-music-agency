@@ -35,11 +35,6 @@ export const ROUTE_METADATA: Record<string, RouteMeta> = {
     description:
       'Book live musicians for your wedding, corporate event, donor dinner, or private party in Boston. Request a personalized quote from Xhoja Music Agency — every ensemble tailored to your room, program, and guests.',
   },
-  '/lessons': {
-    title: 'Music Lessons in Boston — Piano, Guitar, Drums & More',
-    description:
-      'Private music lessons in Boston with Berklee-trained instructors. Piano, guitar, bass, drums, vocals, saxophone, and more — all skill levels. Book a trial lesson or full package online.',
-  },
   '/team': {
     title: 'Meet The Team — Our Musicians',
     description:

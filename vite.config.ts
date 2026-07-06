@@ -9,7 +9,6 @@ const PRERENDER_ROUTES = [
   '/',
   '/ensembles',
   '/events',
-  '/lessons',
   '/team',
   '/contact',
   '/wedding-music-boston',
