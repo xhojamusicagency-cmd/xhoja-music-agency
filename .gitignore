@@ -26,3 +26,6 @@ vite.config.js.timestamp-*
 *.njsproj
 *.sln
 *.sw?
+
+# Local Claude Code tooling (launch configs, machine-specific)
+.claude/
