@@ -555,26 +555,6 @@ export default function Events() {
         </div>
       </section>
 
-      {/* FAQ Section — content mirrors FAQ_ITEMS so the JSON-LD schema stays in sync. */}
-      <section className="bg-white py-16 md:py-24" aria-labelledby="faq-heading">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">FREQUENTLY ASKED</p>
-            <h2 id="faq-heading" className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-normal mb-4">
-              Booking Questions
-            </h2>
-          </div>
-          <div className="space-y-6">
-            {FAQ_ITEMS.map((item, i) => (
-              <div key={i}>
-                <h3 className="font-serif text-lg text-dark mb-2">{item.q}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{item.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Booking Form Section */}
       <section className="bg-cream py-16 md:py-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -990,6 +970,26 @@ export default function Events() {
               <p className="text-red-700 text-sm mt-3">or call <a href="tel:+18574988487" className="underline font-medium">(857) 498-8487</a></p>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* FAQ Section — content mirrors FAQ_ITEMS so the JSON-LD schema stays in sync. */}
+      <section className="bg-white py-16 md:py-24" aria-labelledby="faq-heading">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <p className="text-gold uppercase tracking-[2.4px] text-xs mb-2">FREQUENTLY ASKED</p>
+            <h2 id="faq-heading" className="font-serif text-3xl sm:text-4xl font-medium leading-[1.1] tracking-normal mb-4">
+              Booking Questions
+            </h2>
+          </div>
+          <div className="space-y-6">
+            {FAQ_ITEMS.map((item, i) => (
+              <div key={i}>
+                <h3 className="font-serif text-lg text-dark mb-2">{item.q}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
