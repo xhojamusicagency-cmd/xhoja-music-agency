@@ -46,8 +46,16 @@ export const teamMembers: TeamMember[] = [
     id: 18,
     name: 'Jesse Katz',
     role: 'Upright Bassist',
-    bio: "Jesse Katz is a Los Angeles–based upright bassist, composer, and educator, rooted in the jazz tradition and shaped by American folk and 60s–70s soul. A full-scholarship graduate of the Frost School of Music and holder of a master's from Berklee's Global Jazz Institute, he has shared the stage with jazz luminaries including Danilo Pérez, Brian Blade, and John Patitucci. On the bass he is known for a grounded, warm, and empathetic approach — the anchor of any jazz trio or quartet.",
+    bio: "Jesse Katz is an upright and electric bassist and composer based in Los Angeles. With a decade's worth of professional experience playing jazz, R&B, pop, and funk/rock music, he has become one of the area's busiest bassists — in demand for bringing a grounded yet dynamic groove to any musical situation. Jesse is a graduate of the University of Miami's Frost School of Music and the Global Jazz Institute at Berklee College of Music.",
     image: '/jesse-katz.jpg',
+    region: 'la',
+  },
+  {
+    id: 19,
+    name: 'Carlos Ramos',
+    role: 'Trumpeter',
+    bio: "Carlos Ramos is a Los Angeles–based trumpeter whose work spans jazz, commercial music, and international touring. His bold, expressive sound has reached some of the world's most renowned stages — including Coachella, Camp Flog Gnaw, Lollapalooza, and the Montreux Jazz Festival — and he brings that main-stage energy to every event.",
+    image: '/carlos-ramos.jpg',
     region: 'la',
   },
 
