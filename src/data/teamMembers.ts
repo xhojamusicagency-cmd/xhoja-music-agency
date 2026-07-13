@@ -21,8 +21,8 @@ export const teamMembers: TeamMember[] = [
   {
     id: 15,
     name: 'Patrick Boylan',
-    role: 'Jazz & Singing Pianist',
-    bio: "Patrick Boylan is a Los Angeles–based jazz and singing pianist with a warm baritone voice and a wonderfully varied performance career. He brings talent, infectious joy, and energy to weddings, corporate events, private parties, and intimate dinners across the LA area.",
+    role: 'Pianist & Vocalist',
+    bio: "Patrick Boylan is a Los Angeles–based pianist and vocalist with a warm baritone voice and a wonderfully varied performance career. He brings talent, infectious joy, and energy to weddings, corporate events, private parties, and intimate dinners across the LA area.",
     image: '/patrick-boylan.jpg',
     region: 'la',
   },
@@ -37,8 +37,8 @@ export const teamMembers: TeamMember[] = [
   {
     id: 17,
     name: 'Chiara Elgold',
-    role: 'Vocalist',
-    bio: "Chiara Elgold is a Los Angeles–based vocalist and recording artist with original music on Spotify and Apple Music. Her versatile, expressive voice moves effortlessly between an intimate ceremony moment and a full evening jazz set at weddings, private parties, and refined events across the LA area.",
+    role: 'Vocalist, Pianist & Guitarist',
+    bio: "Chiara Elgold is a Los Angeles–based vocalist and recording artist with original music on Spotify and Apple Music. She also plays piano and guitar. Her versatile, expressive voice moves effortlessly between an intimate ceremony moment and a full evening jazz set at weddings, private parties, and refined events across the LA area.",
     image: '/chiara-elgold.jpg',
     region: 'la',
   },
