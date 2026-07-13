@@ -7,7 +7,7 @@ import { bostonMembers, laMembers, type TeamMember } from '../data/teamMembers';
 // or 404 on a musician who has no photo yet (e.g. shows initials instead).
 const initialsFallback = (name: string) => {
   const initials = name.split(' ').map((w) => w[0]).join('').slice(0, 2);
-  return `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23141414'/><text x='150' y='170' font-family='Georgia, serif' font-size='100' fill='%23CC9433' text-anchor='middle' font-style='italic'>${initials}</text></svg>`)}`;
+  return `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='#141414'/><text x='150' y='170' font-family='Georgia, serif' font-size='100' fill='#CC9433' text-anchor='middle' font-style='italic'>${initials}</text></svg>`)}`;
 };
 
 export default function Team() {
