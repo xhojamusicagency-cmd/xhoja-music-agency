@@ -25,7 +25,6 @@ export const teamMembers: TeamMember[] = [
     bio: "Patrick Boylan is a Los Angeles–based jazz and singing pianist with a warm baritone voice and a wonderfully varied performance career. He brings talent, infectious joy, and energy to weddings, corporate events, private parties, and intimate dinners across the LA area.",
     image: '/patrick-boylan.jpg',
     region: 'la',
-    website: 'https://thepatrickboylan.com/musician',
   },
   {
     id: 16,
@@ -34,7 +33,6 @@ export const teamMembers: TeamMember[] = [
     bio: "Hope Easton is a Los Angeles–based cellist and multi-instrumentalist, classically trained and equally at home in classical, jazz, and pop. She is the founder of Sonos Chamber Players, an LA chamber ensemble offering everything from solo cello to full string quartet, and performs at weddings, corporate events, and private celebrations across Los Angeles.",
     image: '/hope-easton.jpg',
     region: 'la',
-    website: 'https://hopeeaston.com',
   },
   {
     id: 17,
@@ -51,7 +49,6 @@ export const teamMembers: TeamMember[] = [
     bio: "Jesse Katz is a Los Angeles–based upright bassist, composer, and educator, rooted in the jazz tradition and shaped by American folk and 60s–70s soul. A full-scholarship graduate of the Frost School of Music and holder of a master's from Berklee's Global Jazz Institute, he has shared the stage with jazz luminaries including Danilo Pérez, Brian Blade, and John Patitucci. On the bass he is known for a grounded, warm, and empathetic approach — the anchor of any jazz trio or quartet.",
     image: '/jesse-katz.jpg',
     region: 'la',
-    website: 'https://www.jessekatzmusic.com',
   },
 
   // ───────────────────────────── BOSTON ─────────────────────────────
@@ -167,7 +164,6 @@ export const teamMembers: TeamMember[] = [
     image: '/gregory-ayriyan.jpg',
     region: 'boston',
     videoUrl: 'https://youtu.be/cEgIoQhDtuU',
-    website: 'https://gregoryayriyan.wordpress.com',
   },
 ];
 
