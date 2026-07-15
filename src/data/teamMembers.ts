@@ -173,6 +173,14 @@ export const teamMembers: TeamMember[] = [
     region: 'boston',
     videoUrl: 'https://youtu.be/cEgIoQhDtuU',
   },
+  {
+    id: 20,
+    name: 'Kristýna Sibinská',
+    role: 'Drummer',
+    bio: "Kristýna Sibinská is a Czech-born, Boston-based drummer known for her versatility across rock, pop, jazz, fusion, and contemporary music. She has performed on international festival stages, including the Batumi Jazz Festival in Georgia and Smetanova Litomyšl in Czechia, and works in both live and studio settings. Champion of the international Hit Like a Girl competition in 2019, she went on to earn a full-tuition scholarship to Berklee College of Music. With a strong sense of groove, musicality, and adaptability, she brings dynamic energy to weddings, corporate events, and private celebrations across the Boston area.",
+    image: '/kristyna-sibinska.jpg',
+    region: 'boston',
+  },
 ];
 
 export const laMembers = teamMembers.filter((m) => m.region === 'la');
