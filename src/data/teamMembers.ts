@@ -58,6 +58,14 @@ export const teamMembers: TeamMember[] = [
     image: '/carlos-ramos.jpg',
     region: 'la',
   },
+  {
+    id: 21,
+    name: 'Sam McClurg',
+    role: 'Drummer & Percussionist',
+    bio: "Sam McClurg is a versatile drummer, percussionist, and composer specializing in jazz, global fusion, and improvised music. A graduate of Berklee College of Music, he has performed across three continents — including the Gnaoua and World Music Festival in Morocco — and has shared the stage with jazz greats such as Danilo Pérez, John Patitucci, and Marquis Hill, as well as rapper Lupe Fiasco. Formerly a staff jazz accompanist at MIT, Sam brings refined musicianship and an adaptable groove to weddings, corporate events, and private celebrations across Los Angeles.",
+    image: '/sam-mcclurg.jpg',
+    region: 'la',
+  },
 
   // ───────────────────────────── BOSTON ─────────────────────────────
   {
