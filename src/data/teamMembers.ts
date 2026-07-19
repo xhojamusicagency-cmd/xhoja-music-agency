@@ -59,6 +59,14 @@ export const teamMembers: TeamMember[] = [
     region: 'la',
   },
   {
+    id: 22,
+    name: 'Charlee Loyst',
+    role: 'Pianist',
+    bio: "Charlee Loyst is a pianist who began classical studies at age three before discovering jazz, going on to Berklee College of Music's acclaimed Global Jazz Institute and the Frost School of Music, where he studied with Danilo Pérez, John Patitucci, and Joe Lovano. He has performed at Dizzy's Club with Etienne Charles, the Adrienne Arsht Center with Jason Moran, and the JAS Aspen Snowmass Festival alongside Christian McBride. Rooted in the jazz tradition and embracing collaboration, he brings refined, expressive artistry to weddings, corporate events, and private celebrations across Los Angeles.",
+    image: '/charlee-loyst.jpg',
+    region: 'la',
+  },
+  {
     id: 21,
     name: 'Sam McClurg',
     role: 'Drummer & Percussionist',
