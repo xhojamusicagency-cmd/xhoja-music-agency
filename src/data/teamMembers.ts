@@ -74,6 +74,15 @@ export const teamMembers: TeamMember[] = [
     image: '/sam-mcclurg.jpg',
     region: 'la',
   },
+  {
+    id: 23,
+    name: 'Philip Vaiman',
+    role: 'Violinist',
+    bio: "Philip Vaiman is a Moscow-born, Los Angeles–based concert violinist and recording artist. Admitted to Moscow's Gnesin Academy of Music at age five, he earned his Master of Music cum laude from USC's Thornton School of Music and has been a Grammy Voting Member of the Recording Academy since 2018. A first-call session violinist, his playing can be heard on major-label albums — including a 2024 Grammy-winning release — and on blockbuster film soundtracks. As founder of The Red Quartet, he brings both solo violin and full string-quartet options to events across Greater Los Angeles.",
+    image: '/philip-vaiman.jpg',
+    region: 'la',
+    website: 'https://philipvaiman.com',
+  },
 
   // ───────────────────────────── BOSTON ─────────────────────────────
   {
