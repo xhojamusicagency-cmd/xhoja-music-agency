@@ -15,7 +15,7 @@ const FAQS: FAQ[] = [
   },
   {
     question: 'What is the price range for a private event?',
-    answer: 'Solo musicians start at $550 for a typical engagement; duos at $950; trios at $1,400; full ensembles scale from there. We quote your specific event transparently — no surprise fees, no markup on travel within Greater Boston.',
+    answer: 'Solo musicians start at $550 for a typical engagement; duos from $950; trios from $1,500; full ensembles scale from there. We quote your specific event transparently — no surprise fees, no markup on travel within Greater Boston.',
   },
   {
     question: 'How far in advance should we book?',

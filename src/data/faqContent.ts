@@ -28,7 +28,7 @@ export const FAQS: Faq[] = [
   {
     question: 'What is the typical cost to hire live music for a wedding?',
     answer:
-      'Our most-booked ensembles range from $550 for a solo pianist or guitarist to $4,500 for our Grand Wedding Experience (ceremony, cocktail hour, and reception, fully curated). String quartets start at $2,400, cocktail duos at $950, and jazz or classical trios at $1,400. Every event is custom-quoted based on date, duration, and venue.',
+      'Our most-booked ensembles start at $550 for a solo pianist or guitarist, with cocktail duos from $950 and jazz or classical trios from $1,500. String quartets start at $2,400, and our fully-curated Grand Wedding Experience (ceremony, cocktail hour, and reception) starts from $4,500 and scales to the celebration. Every event is custom-quoted based on date, duration, and venue.',
   },
   {
     question: 'What types of ensembles do you offer?',
