@@ -88,7 +88,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: 1,
     name: 'Alexander Xhoja',
-    role: 'Artistic Director & CEO',
+    role: 'Founder & CEO',
     bio: 'Alexander Xhoja is a Boston-based, twenty-one-year-old pianist who is a recent recipient of a full-ride scholarship to the prestigious Berklee College of Music. With immense dedication and drive, he enriches the lives and hearts of his listeners by implementing emotional depth into his sound.',
     image: '/alexander-xhoja.jpg',
     region: 'boston',
