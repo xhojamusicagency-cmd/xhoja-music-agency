@@ -25,7 +25,14 @@
     { "source": "/vocal-lessons", "destination": "/", "permanent": true },
     { "source": "/trumpet-lessons", "destination": "/", "permanent": true },
     { "source": "/clarinet-lessons", "destination": "/", "permanent": true },
-    { "source": "/music-lessons", "destination": "/", "permanent": true }
+    { "source": "/music-lessons", "destination": "/", "permanent": true },
+    { "source": "/service-page/:path*", "destination": "/", "permanent": true },
+    { "source": "/challenge-page/:path*", "destination": "/", "permanent": true },
+    { "source": "/alex-piano-lessons/:path*", "destination": "/", "permanent": true },
+    { "source": "/clarinet-booking-page/:path*", "destination": "/", "permanent": true },
+    { "source": "/copy-of-piano-lessons-item", "destination": "/", "permanent": true },
+    { "source": "/copy-of-guitar-lessons", "destination": "/", "permanent": true },
+    { "source": "/blank-2", "destination": "/", "permanent": true }
   ],
   "rewrites": [
     {
