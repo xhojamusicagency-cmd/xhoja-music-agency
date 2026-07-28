@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +25,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -40,12 +40,29 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+          <a
+            href="tel:+18574988487"
+            aria-label="Call Xhoja Music Agency at (857) 498-8487"
+            className="flex items-center gap-1.5 text-sm font-medium text-dark/80 hover:text-gold transition-colors"
+          >
+            <Phone size={15} />
+            <span className="hidden lg:inline tracking-wide">(857) 498-8487</span>
+          </a>
+          <Link
+            to="/contact"
+            className="bg-gold text-dark px-5 py-2.5 text-xs font-medium uppercase tracking-[2px] hover:bg-gold/90 transition-colors"
+          >
+            Get a Quote
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
         <button
           className="md:hidden p-2"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
         >
           {isOpen ? <X size={30} /> : <Menu size={30} />}
         </button>
@@ -53,7 +70,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-border">
+        <div id="mobile-menu" className="md:hidden bg-white border-t border-border">
           <div className="px-6 py-4">
             {links.map((link, index) => (
               <Link
@@ -72,6 +89,13 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              to="/contact"
+              onClick={() => setIsOpen(false)}
+              className="block mt-5 bg-gold text-dark text-center px-5 py-3 text-sm font-medium uppercase tracking-[2px] hover:bg-gold/90 transition-colors"
+            >
+              Get a Quote
+            </Link>
             <div className="mt-4 pt-4 border-t border-border/60">
               <a
                 href="tel:+18574988487"
