@@ -32,7 +32,13 @@
     { "source": "/clarinet-booking-page/:path*", "destination": "/", "permanent": true },
     { "source": "/copy-of-piano-lessons-item", "destination": "/", "permanent": true },
     { "source": "/copy-of-guitar-lessons", "destination": "/", "permanent": true },
-    { "source": "/blank-2", "destination": "/", "permanent": true }
+    { "source": "/blank-2", "destination": "/", "permanent": true },
+    { "source": "/lessons-type-page", "destination": "/", "permanent": true },
+    { "source": "/book-online", "destination": "/ensembles", "permanent": true },
+    { "source": "/bookings", "destination": "/ensembles", "permanent": true },
+    { "source": "/challenges", "destination": "/", "permanent": true },
+    { "source": "/copy-of-base-lessons", "destination": "/", "permanent": true },
+    { "source": "/fluete-booking-page/:path*", "destination": "/", "permanent": true }
   ],
   "rewrites": [
     {
@@ -45,6 +51,18 @@
     }
   ],
   "headers": [
+    {
+      "source": "/(.*).(jpg|jpeg|png|gif|webp|avif|svg|ico|mp4|webm|woff|woff2)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=2592000" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
     {
       "source": "/(.*)",
       "headers": [

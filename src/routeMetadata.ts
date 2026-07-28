@@ -23,82 +23,82 @@ export const ROUTE_METADATA: Record<string, RouteMeta> = {
   '/': {
     title: 'Live Music for Events in Boston & Los Angeles',
     description:
-      "XMA (Xhoja Music Agency) — curated live music for events in Boston and Los Angeles. Solo piano, jazz trios, string quartets, DJs, and full bands for weddings, corporate events, and private celebrations. Founded by Berklee pianist Alexander Xhoja.",
+      'Curated live music for Boston & Los Angeles events — solo piano, jazz trios, string quartets, DJs, and bands for weddings, galas, and private parties.',
   },
   '/ensembles': {
     title: 'Book Live Musicians in Boston — Weddings, Galas, Events',
     description:
-      "Boston live music for every event: wedding ceremonies, cocktail hours, corporate galas, donor dinners, b'nai mitzvah, and more. Solo piano, jazz trio, string quartet, DJ — fully curated by Xhoja Music Agency.",
+      'Boston live music for every event — solo piano, jazz trio, string quartet, and DJ for weddings, cocktail hours, corporate galas, and private celebrations.',
   },
   '/events': {
     title: 'Event Bookings — Live Musicians for Hire in Boston',
     description:
-      'Book live musicians for your wedding, corporate event, donor dinner, or private party in Boston. Request a personalized quote from Xhoja Music Agency — every ensemble tailored to your room, program, and guests.',
+      'Book live musicians for your Boston wedding, corporate event, or private party. Get a personalized quote — every ensemble tailored to your event.',
   },
   '/team': {
     title: 'Meet The Team — Our Musicians',
     description:
-      'Meet the Xhoja Music Agency roster — pianists, string players, jazz musicians, vocalists, and DJs performing at weddings, corporate events, and private celebrations across Boston and Los Angeles.',
+      'Meet the Xhoja Music Agency roster — pianists, string players, jazz musicians, vocalists, and DJs for events across Boston and Los Angeles.',
   },
   '/contact': {
     title: 'Contact Us — Get in Touch',
     description:
-      'Get in touch with Xhoja Music Agency. Email, phone, and a quick contact form for event bookings, partnerships, and general inquiries across Boston and Los Angeles.',
+      'Get in touch with Xhoja Music Agency — quick contact form, email, and phone for event bookings and partnerships in Boston and Los Angeles.',
   },
   '/wedding-music-boston': {
     title: 'Live Wedding Music in Boston — Ceremony to Reception',
     description:
-      'Live wedding music across Greater Boston — solo piano, string quartets, jazz trios, and DJs for ceremony, cocktail hour, and reception. Get a tailored quote.',
+      'Live wedding music in Greater Boston — solo piano, string quartets, jazz trios, and DJs for ceremony, cocktail hour, and reception. Get a tailored quote.',
   },
   '/for-wedding-planners': {
     title: 'Wedding Planner Music Partner — Greater Boston',
     description:
-      'A dependable music partner for Greater Boston wedding planners — one vetted roster, one point of contact, and reliable musicians for every wedding you book.',
+      'A dependable music partner for Greater Boston wedding planners — one vetted roster, one point of contact, and reliable musicians for every wedding.',
   },
   '/hotel-music-boston': {
     title: 'Hotel & Restaurant Music Boston',
     description:
-      'Refined live music for Boston hotel lobbies, fine dining rooms, and hospitality events. Recurring residencies or one-off bookings — vetted professional musicians.',
+      'Refined live music for Boston hotel lobbies, restaurants, and hospitality events — recurring residencies or one-off bookings by vetted musicians.',
   },
   '/senior-living-music': {
     title: 'Senior Living Music Programs MA',
     description:
-      'Live music programming for senior communities across Greater Boston — regular concert series, holiday events, memory-care-friendly programs, intergenerational concerts.',
+      'Live music programming for Greater Boston senior communities — concert series, holiday events, and memory-care-friendly, intergenerational programs.',
   },
   '/church-music-boston': {
     title: 'Church Music Boston',
     description:
-      'Live church music for Greater Boston congregations — Sunday service accompaniment, special services, weddings, and funerals. Substitute pianists and organists available on short notice.',
+      'Live church music for Greater Boston congregations — Sunday services, special services, weddings, and funerals. Substitute pianists & organists available.',
   },
   '/private-event-music-boston': {
     title: 'Private Event Music Boston',
     description:
-      'Live music for private celebrations across Greater Boston — anniversaries, milestone birthdays, dinner parties, holiday gatherings. Solo piano, jazz trios, and chamber ensembles.',
+      'Live music for private celebrations across Greater Boston — anniversaries, birthdays, and dinner parties. Solo piano, jazz trios, and chamber ensembles.',
   },
   '/bnai-mitzvah-music-boston': {
     title: "B'nai Mitzvah Music Boston",
     description:
-      "Live music for b'nai mitzvah celebrations in Greater Boston — ceremony, cocktail hour, and reception. Traditional klezmer, Israeli music, contemporary repertoire, and a dedicated Jewish Ensemble.",
+      "Live music for b'nai mitzvah celebrations in Greater Boston — ceremony, cocktail hour, and reception, with klezmer, Israeli, and contemporary repertoire.",
   },
   '/funeral-music-services': {
     title: 'Funeral & Memorial Music Services',
     description:
-      'Live music for funeral and memorial services across Greater Boston — chapel, graveside, and celebrations of life. Musicians experienced in honoring meaningful moments.',
+      'Live music for funeral and memorial services across Greater Boston — chapel, graveside, and celebrations of life, performed with care and experience.',
   },
   '/faq': {
     title: 'Frequently Asked Questions',
     description:
-      'Common questions about hiring live musicians for weddings, corporate events, and private parties in Boston — pricing, lead times, ensemble options, custom configurations, and more.',
+      'Common questions about hiring live musicians in Boston — pricing, lead times, ensemble options, custom configurations, and how booking works.',
   },
   '/los-angeles': {
     title: 'Live Music in Los Angeles — By Appointment',
     description:
-      'XMA — curated live music for Los Angeles events, by appointment. Founded and led by Berklee pianist Alexander Xhoja. A vetted West Coast roster, personal oversight on every booking, the same standard our East Coast clients trust.',
+      'Curated live music for Los Angeles events, by appointment — led by Berklee pianist Alexander Xhoja, with a vetted roster and personal oversight.',
   },
   '/wedding-music-los-angeles': {
     title: 'Wedding Music Los Angeles',
     description:
-      'Curated live music for Los Angeles weddings — solo piano, string quartets, jazz ensembles. By appointment with founder Alexander Xhoja, Berklee-trained pianist. Bookings accepted for select Los Angeles wedding dates.',
+      'Curated live music for Los Angeles weddings — solo piano, string quartets, and jazz ensembles, by appointment with Berklee pianist Alexander Xhoja.',
   },
 };
 
