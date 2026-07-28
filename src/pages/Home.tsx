@@ -207,7 +207,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            preload="auto"
+            preload="metadata"
             className="absolute inset-0 w-full h-full object-cover scale-105"
           >
             <source src="/dj-video.mp4" type="video/mp4" />

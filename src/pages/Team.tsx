@@ -57,7 +57,7 @@ export default function Team() {
         <img
           src={member.image || initialsFallback(member.name)}
           alt={member.name}
-          loading="eager"
+          loading="lazy"
           className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
           onError={(e) => {
             (e.target as HTMLImageElement).src = initialsFallback(member.name);
