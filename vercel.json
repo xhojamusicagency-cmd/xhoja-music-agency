@@ -1,6 +1,32 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "redirects": [
+    { "source": "/book", "destination": "/ensembles", "permanent": true },
+    { "source": "/book-event", "destination": "/events", "permanent": true },
+    { "source": "/event-bookings", "destination": "/events", "permanent": true },
+    { "source": "/meet-the-team", "destination": "/team", "permanent": true },
+    { "source": "/la", "destination": "/los-angeles", "permanent": true },
+    { "source": "/contact-8", "destination": "/contact", "permanent": true },
+    { "source": "/bio", "destination": "/team", "permanent": true },
+    { "source": "/alexanders-bio", "destination": "/team", "permanent": true },
+    { "source": "/alexander-xhoja", "destination": "/team", "permanent": true },
+    { "source": "/biography", "destination": "/team", "permanent": true },
+    { "source": "/biography/:path*", "destination": "/team", "permanent": true },
+    { "source": "/instructors", "destination": "/", "permanent": true },
+    { "source": "/copy-of-instructors", "destination": "/", "permanent": true },
+    { "source": "/copy-of-base-lessons-1", "destination": "/", "permanent": true },
+    { "source": "/copy-of-drum-lessons", "destination": "/", "permanent": true },
+    { "source": "/pricing-plans", "destination": "/", "permanent": true },
+    { "source": "/pricing-plans/:path*", "destination": "/", "permanent": true },
+    { "source": "/piano-lessons", "destination": "/", "permanent": true },
+    { "source": "/guitar-lessons", "destination": "/", "permanent": true },
+    { "source": "/drum-lessons", "destination": "/", "permanent": true },
+    { "source": "/vocal-lessons", "destination": "/", "permanent": true },
+    { "source": "/trumpet-lessons", "destination": "/", "permanent": true },
+    { "source": "/clarinet-lessons", "destination": "/", "permanent": true },
+    { "source": "/music-lessons", "destination": "/", "permanent": true }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",
