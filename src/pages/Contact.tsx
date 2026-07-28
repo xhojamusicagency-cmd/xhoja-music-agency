@@ -199,9 +199,10 @@ export default function Contact() {
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-xs font-medium uppercase tracking-[2.4px] text-gray-500 mb-2">Full Name *</label>
+                      <label htmlFor="contact-fullName" className="block text-xs font-medium uppercase tracking-[2.4px] text-gray-500 mb-2">Full Name *</label>
                       <input
                         type="text"
+                        id="contact-fullName"
                         name="fullName"
                         value={formData.fullName}
                         onChange={handleChange}
@@ -211,9 +212,10 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium uppercase tracking-[2.4px] text-gray-500 mb-2">Email *</label>
+                      <label htmlFor="contact-email" className="block text-xs font-medium uppercase tracking-[2.4px] text-gray-500 mb-2">Email *</label>
                       <input
                         type="email"
+                        id="contact-email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
@@ -226,9 +228,10 @@ export default function Contact() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-xs font-medium uppercase tracking-[2.4px] text-gray-500 mb-2">Phone</label>
+                      <label htmlFor="contact-phone" className="block text-xs font-medium uppercase tracking-[2.4px] text-gray-500 mb-2">Phone</label>
                       <input
                         type="tel"
+                        id="contact-phone"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
@@ -237,8 +240,9 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium uppercase tracking-[2.4px] text-gray-500 mb-2">Subject *</label>
+                      <label htmlFor="contact-subject" className="block text-xs font-medium uppercase tracking-[2.4px] text-gray-500 mb-2">Subject *</label>
                       <select
+                        id="contact-subject"
                         name="subject"
                         value={formData.subject}
                         onChange={handleChange}
@@ -256,8 +260,9 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium uppercase tracking-[2.4px] text-gray-500 mb-2">Message *</label>
+                    <label htmlFor="contact-message" className="block text-xs font-medium uppercase tracking-[2.4px] text-gray-500 mb-2">Message *</label>
                     <textarea
+                      id="contact-message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
@@ -271,12 +276,13 @@ export default function Contact() {
                   <div className="flex items-start gap-3">
                     <input
                       type="checkbox"
+                      id="contact-consent"
                       checked={agreedToTerms}
                       onChange={(e) => setAgreedToTerms(e.target.checked)}
                       className="mt-1"
                       required
                     />
-                    <label className="text-sm text-gray-500">
+                    <label htmlFor="contact-consent" className="text-sm text-gray-500">
                       By submitting this form, I consent to Xhoja Music Agency contacting me regarding my inquiry. Your information will only be used to respond to your message and will not be shared with third parties. *
                     </label>
                   </div>

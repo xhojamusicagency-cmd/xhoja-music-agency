@@ -615,9 +615,10 @@ export default function Events() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                    <label htmlFor="events-firstName" className="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
                     <input
                       type="text"
+                      id="events-firstName"
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleInputChange}
@@ -627,9 +628,10 @@ export default function Events() {
                     {validationErrors.firstName && <p className="text-red-500 text-xs mt-1">{validationErrors.firstName}</p>}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                    <label htmlFor="events-lastName" className="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
                     <input
                       type="text"
+                      id="events-lastName"
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleInputChange}
@@ -640,9 +642,10 @@ export default function Events() {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                  <label htmlFor="events-email" className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
                   <input
                     type="email"
+                    id="events-email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
@@ -652,9 +655,10 @@ export default function Events() {
                   {validationErrors.email && <p className="text-red-500 text-xs mt-1">{validationErrors.email}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                  <label htmlFor="events-phone" className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
                   <input
                     type="tel"
+                    id="events-phone"
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
@@ -681,11 +685,12 @@ export default function Events() {
                   </div>
                 )}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="events-eventDate" className="block text-sm font-medium text-gray-700 mb-2">
                     {isWeddingPackage ? 'Wedding Date *' : 'Event Date *'}
                   </label>
                   <input
                     type="date"
+                    id="events-eventDate"
                     name="eventDate"
                     value={formData.eventDate}
                     onChange={handleInputChange}
@@ -699,9 +704,10 @@ export default function Events() {
 
                 {isWeddingPackage ? (
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Venue or Location *</label>
+                    <label htmlFor="events-weddingVenue" className="block text-sm font-medium text-gray-700 mb-2">Venue or Location *</label>
                     <input
                       type="text"
+                      id="events-weddingVenue"
                       name="weddingVenue"
                       value={formData.weddingVenue}
                       onChange={handleInputChange}
@@ -712,8 +718,9 @@ export default function Events() {
                   </div>
                 ) : (
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Event Type *</label>
+                    <label htmlFor="events-eventType" className="block text-sm font-medium text-gray-700 mb-2">Event Type *</label>
                     <select
+                      id="events-eventType"
                       name="eventType"
                       value={formData.eventType}
                       onChange={handleInputChange}
@@ -733,9 +740,10 @@ export default function Events() {
                 )}
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Guest Count *</label>
+                  <label htmlFor="events-guestCount" className="block text-sm font-medium text-gray-700 mb-2">Guest Count *</label>
                   <input
                     type="number"
+                    id="events-guestCount"
                     name="guestCount"
                     value={formData.guestCount}
                     onChange={handleInputChange}
@@ -760,10 +768,11 @@ export default function Events() {
                   </p>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="events-weddingVision" className="block text-sm font-medium text-gray-700 mb-2">
                     Your Wedding Vision <span className="text-gray-400 font-normal">(optional)</span>
                   </label>
                   <textarea
+                    id="events-weddingVision"
                     name="weddingVision"
                     value={formData.weddingVision}
                     onChange={(e) => {
@@ -786,8 +795,9 @@ export default function Events() {
             {currentStep === 3 && !skipGenreStep && !isWeddingPackage && (
               <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Genre *</label>
+                  <label htmlFor="events-genre" className="block text-sm font-medium text-gray-700 mb-2">Preferred Genre *</label>
                   <select
+                    id="events-genre"
                     name="genre"
                     value={formData.genre}
                     onChange={handleInputChange}

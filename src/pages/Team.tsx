@@ -43,6 +43,19 @@ export default function Team() {
     history.pushState(null, '', window.location.pathname);
   };
 
+  // Close the bio modal on Escape.
+  useEffect(() => {
+    if (selectedMember === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedMember(null);
+        history.pushState(null, '', window.location.pathname);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [selectedMember]);
+
   const activeMember = teamMembers.find(m => m.id === selectedMember);
 
   const renderCard = (member: TeamMember) => (
@@ -113,6 +126,17 @@ export default function Team() {
               </div>
             </>
           )}
+
+          {/* Crawlable bios — visually hidden (the modal surfaces them on click).
+              Keeps the keyword-rich bio text in the prerendered HTML for search engines. */}
+          <div className="sr-only">
+            {teamMembers.map((m) => (
+              <div key={`seo-bio-${m.id}`}>
+                <h3>{m.name} — {m.role}</h3>
+                <p>{m.bio}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -124,12 +148,16 @@ export default function Team() {
         >
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
           <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="bio-modal-title"
             className="relative bg-white max-w-lg w-full p-6 sm:p-8 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               type="button"
               onClick={closeBio}
+              aria-label="Close bio"
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -149,7 +177,7 @@ export default function Team() {
                   />
                 </div>
               </div>
-              <h3 className="font-serif text-2xl sm:text-3xl font-medium mb-1">{activeMember.name}</h3>
+              <h3 id="bio-modal-title" className="font-serif text-2xl sm:text-3xl font-medium mb-1">{activeMember.name}</h3>
               <p className="text-gold text-xs font-medium uppercase tracking-[2.4px] mb-4">{activeMember.role}</p>
               <div className="w-12 h-px bg-gold/30 mb-4" />
               <p className="text-gray-500 text-sm sm:text-base leading-relaxed">{activeMember.bio}</p>
