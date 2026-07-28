@@ -43,6 +43,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-gray-400">
               <li><Link to="/ensembles" className="hover:text-gold transition-colors">Event Bookings</Link></li>
               <li><Link to="/los-angeles" className="hover:text-gold transition-colors">Los Angeles</Link></li>
+              <li><Link to="/wedding-music-los-angeles" className="hover:text-gold transition-colors">LA Wedding Music</Link></li>
               <li><Link to="/team" className="hover:text-gold transition-colors">Meet The Team</Link></li>
               <li><Link to="/faq" className="hover:text-gold transition-colors">FAQ</Link></li>
               <li><Link to="/contact" className="hover:text-gold transition-colors">Contact Us</Link></li>

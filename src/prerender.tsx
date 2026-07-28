@@ -15,8 +15,23 @@ import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom/server';
 import Layout from './components/Layout';
 import AppRoutes from './AppRoutes';
-import { getRouteMeta, PRERENDER_ROUTES } from './routeMetadata';
+import { getRouteMeta, PRERENDER_ROUTES, ROUTE_METADATA } from './routeMetadata';
 import { FAQ_PAGE_SCHEMA_JSON } from './data/faqContent';
+
+/**
+ * Service-schema metadata for the service/landing pages. Injected as schema.org
+ * `Service` JSON-LD so Google understands each page's offering + service area.
+ */
+const SERVICE_META: Record<string, { name: string; serviceType: string; area: string }> = {
+  '/wedding-music-boston': { name: 'Live Wedding Music', serviceType: 'Wedding music', area: 'Boston' },
+  '/hotel-music-boston': { name: 'Hotel & Restaurant Music', serviceType: 'Hospitality music', area: 'Boston' },
+  '/senior-living-music': { name: 'Senior Living Music Programs', serviceType: 'Senior community music programming', area: 'Greater Boston' },
+  '/church-music-boston': { name: 'Church Music', serviceType: 'Church & liturgical music', area: 'Boston' },
+  '/private-event-music-boston': { name: 'Private Event Music', serviceType: 'Private event music', area: 'Boston' },
+  '/bnai-mitzvah-music-boston': { name: "B'nai Mitzvah Music", serviceType: "B'nai mitzvah music", area: 'Boston' },
+  '/funeral-music-services': { name: 'Funeral & Memorial Music', serviceType: 'Funeral & memorial music', area: 'Greater Boston' },
+  '/wedding-music-los-angeles': { name: 'Live Wedding Music', serviceType: 'Wedding music', area: 'Los Angeles' },
+};
 
 interface PrerenderData {
   url: string;
@@ -65,6 +80,45 @@ export async function prerender(data: PrerenderData): Promise<PrerenderResult> {
       props: {
         type: 'application/ld+json',
         children: FAQ_PAGE_SCHEMA_JSON,
+      },
+    });
+  }
+
+  // BreadcrumbList on every non-home page (Home > Page) — richer SERP display + crawl context.
+  if (data.url !== '/') {
+    const pageName = ROUTE_METADATA[data.url]?.title ?? fullTitle;
+    headElements.add({
+      type: 'script',
+      props: {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.xhojamusicagency.com' },
+            { '@type': 'ListItem', position: 2, name: pageName, item: canonical },
+          ],
+        }),
+      },
+    });
+  }
+
+  // Service schema on the service/landing pages — tells Google the offering + service area.
+  const svc = SERVICE_META[data.url];
+  if (svc) {
+    headElements.add({
+      type: 'script',
+      props: {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          name: `${svc.name} in ${svc.area}`,
+          serviceType: svc.serviceType,
+          provider: { '@type': 'LocalBusiness', name: 'Xhoja Music Agency', '@id': 'https://www.xhojamusicagency.com' },
+          areaServed: { '@type': 'Place', name: svc.area },
+          url: canonical,
+        }),
       },
     });
   }
