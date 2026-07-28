@@ -61,7 +61,7 @@ export default function PrivateEventMusicBoston() {
         eyebrow="Private Event Music"
         headline="A soundtrack made for your celebration."
         subhead="Live music for the gatherings that matter — anniversaries, milestone birthdays, dinner parties, and the moments in between."
-        backgroundImage="/string-trio-placeholder.jpg"
+        backgroundImage="/string-trio-placeholder.webp"
       />
 
       {/* Three use cases */}

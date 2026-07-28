@@ -23,7 +23,7 @@ const ENSEMBLES: Ensemble[] = [
       'One curated team for your entire day — string ensemble for the ceremony, jazz trio for cocktail hour, and a DJ to carry the reception into the night. Designed, rehearsed, and produced as a single seamless experience.',
     flagship: true,
     includes: ['Ceremony', 'Cocktail Hour', 'Reception'],
-    image: '/wedding-reception.jpg?v=6',
+    image: '/wedding-reception.webp?v=6',
     startingFrom: 4500,
   },
   {
@@ -38,7 +38,7 @@ const ENSEMBLES: Ensemble[] = [
     name: 'Cocktail Duo',
     description:
       'Choose your pairing — piano and vocals, piano and saxophone, guitar and vocals, or another combination tailored to your event.',
-    image: '/duo-performance.jpg',
+    image: '/duo-performance.webp',
     startingFrom: 950,
   },
   {
@@ -46,14 +46,14 @@ const ENSEMBLES: Ensemble[] = [
     name: 'Dinner Jazz/Classical Trio',
     description: 'Piano, bass, and drums — or strings — the warm backbone of any gala or fine-dining moment.',
     featured: true,
-    image: '/trio-performance.jpg',
+    image: '/trio-performance.webp',
     startingFrom: 1400,
   },
   {
     tag: 'Quartet',
     name: 'String Quartet',
     description: 'Two violins, viola, and cello — with optional double bass — for weddings, ceremonies, and refined receptions.',
-    image: '/string-trio-placeholder.jpg',
+    image: '/string-trio-placeholder.webp',
     startingFrom: 2400,
   },
   {
@@ -61,7 +61,7 @@ const ENSEMBLES: Ensemble[] = [
     name: 'DJ Set',
     description:
       'Curated sets for weddings, receptions, parties, and late-night programs — open or vinyl format.',
-    image: '/dj-performance.jpg',
+    image: '/dj-performance.webp',
     startingFrom: 1200,
   },
   {
@@ -69,7 +69,7 @@ const ENSEMBLES: Ensemble[] = [
     name: 'Jewish Ensemble',
     description:
       "Musicians for b'nai mitzvah, weddings, donor dinners, and cultural events — traditional and contemporary repertoire.",
-    image: '/jewish-ensemble-placeholder.jpg',
+    image: '/jewish-ensemble-placeholder.webp',
     startingFrom: 2800,
   },
   {
@@ -77,7 +77,7 @@ const ENSEMBLES: Ensemble[] = [
     name: 'Latin Jazz',
     description:
       'Piano, bass, drums, percussion, and vocals — for evenings that want warmth, rhythm, and energy.',
-    image: '/latin-jazz-placeholder.jpg',
+    image: '/latin-jazz-placeholder.webp',
     startingFrom: 2800,
   },
   {
@@ -85,7 +85,7 @@ const ENSEMBLES: Ensemble[] = [
     name: 'Custom Ensemble',
     description: "Have a vision that isn't on this page? Tell us and we will design the right group around it.",
     custom: true,
-    image: '/gregory-ayriyan-evening.jpg',
+    image: '/gregory-ayriyan-evening.webp',
   },
 ];
 
@@ -306,7 +306,7 @@ export default function Ensembles() {
                       muted
                       loop
                       playsInline
-                      poster="/hero-piano-poster.jpg"
+                      poster="/hero-piano-poster.webp"
                       className="absolute inset-0 w-full h-full object-cover"
                     >
                       <source src={e.video} type="video/mp4" />

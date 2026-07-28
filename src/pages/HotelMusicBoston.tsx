@@ -61,7 +61,7 @@ export default function HotelMusicBoston() {
         eyebrow="Hotel & Hospitality Music"
         headline="Music for lobbies, dining rooms, and hospitality moments."
         subhead="Refined, unobtrusive live music designed to elevate the room — for one-night events or recurring residencies."
-        backgroundImage="/duo-performance.jpg"
+        backgroundImage="/duo-performance.webp"
       />
 
       {/* Three use cases */}

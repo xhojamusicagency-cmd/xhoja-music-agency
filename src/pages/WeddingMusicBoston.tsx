@@ -61,7 +61,7 @@ export default function WeddingMusicBoston() {
         eyebrow="Wedding Music In Boston"
         headline="Live music for every moment of your day."
         subhead="From the first note of the processional to the last song of the night — one curated team, one seamless experience."
-        backgroundImage="/wedding-reception.jpg"
+        backgroundImage="/wedding-reception.webp"
         imagePosition="center top"
       />
 

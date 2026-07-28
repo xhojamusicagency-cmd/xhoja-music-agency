@@ -23,7 +23,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Patrick Boylan',
     role: 'Pianist & Vocalist',
     bio: "Patrick Boylan is a Los Angeles–based pianist and vocalist with a warm baritone voice and a wonderfully varied performance career. He brings talent, infectious joy, and energy to weddings, corporate events, private parties, and intimate dinners across the LA area.",
-    image: '/patrick-boylan.jpg',
+    image: '/patrick-boylan.webp',
     region: 'la',
   },
   {
@@ -31,7 +31,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Hope Easton',
     role: 'Cellist',
     bio: "Hope Easton is a Los Angeles–based cellist and multi-instrumentalist, classically trained and equally at home in classical, jazz, and pop. She is the founder of Sonos Chamber Players, an LA chamber ensemble offering everything from solo cello to full string quartet, and performs at weddings, corporate events, and private celebrations across Los Angeles.",
-    image: '/hope-easton.jpg',
+    image: '/hope-easton.webp',
     region: 'la',
   },
   {
@@ -39,7 +39,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Chiara Elgold',
     role: 'Vocalist, Pianist & Guitarist',
     bio: "Chiara Elgold is a Los Angeles–based vocalist and recording artist with original music on Spotify and Apple Music. She also plays piano and guitar. Her versatile, expressive voice moves effortlessly between an intimate ceremony moment and a full evening jazz set at weddings, private parties, and refined events across the LA area.",
-    image: '/chiara-elgold.jpg',
+    image: '/chiara-elgold.webp',
     region: 'la',
   },
   {
@@ -47,7 +47,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Jesse Katz',
     role: 'Upright Bassist',
     bio: "Jesse Katz is an upright and electric bassist and composer based in Los Angeles. With a decade's worth of professional experience playing jazz, R&B, pop, and funk/rock music, he has become one of the area's busiest bassists — in demand for bringing a grounded yet dynamic groove to any musical situation. Jesse is a graduate of the University of Miami's Frost School of Music and the Global Jazz Institute at Berklee College of Music.",
-    image: '/jesse-katz.jpg',
+    image: '/jesse-katz.webp',
     region: 'la',
   },
   {
@@ -55,7 +55,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Carlos Ramos',
     role: 'Trumpeter',
     bio: "Carlos Ramos is a Los Angeles–based trumpeter whose work spans jazz, commercial music, and international touring. His bold, expressive sound has reached some of the world's most renowned stages — including Coachella, Camp Flog Gnaw, Lollapalooza, and the Montreux Jazz Festival — and he brings that main-stage energy to every event.",
-    image: '/carlos-ramos.jpg',
+    image: '/carlos-ramos.webp',
     region: 'la',
   },
   {
@@ -63,7 +63,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Charlee Loyst',
     role: 'Pianist',
     bio: "Charlee Loyst is a pianist who began classical studies at age three before discovering jazz, going on to Berklee College of Music's acclaimed Global Jazz Institute and the Frost School of Music, where he studied with Danilo Pérez, John Patitucci, and Joe Lovano. He has performed at Dizzy's Club with Etienne Charles, the Adrienne Arsht Center with Jason Moran, and the JAS Aspen Snowmass Festival alongside Christian McBride. Rooted in the jazz tradition and embracing collaboration, he brings refined, expressive artistry to weddings, corporate events, and private celebrations across Los Angeles.",
-    image: '/charlee-loyst.jpg',
+    image: '/charlee-loyst.webp',
     region: 'la',
   },
   {
@@ -71,7 +71,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Sam McClurg',
     role: 'Drummer & Percussionist',
     bio: "Sam McClurg is a versatile drummer, percussionist, and composer specializing in jazz, global fusion, and improvised music. A graduate of Berklee College of Music, he has performed across three continents — including the Gnaoua and World Music Festival in Morocco — and has shared the stage with jazz greats such as Danilo Pérez, John Patitucci, and Marquis Hill, as well as rapper Lupe Fiasco. Formerly a staff jazz accompanist at MIT, Sam brings refined musicianship and an adaptable groove to weddings, corporate events, and private celebrations across Los Angeles.",
-    image: '/sam-mcclurg.jpg',
+    image: '/sam-mcclurg.webp',
     region: 'la',
   },
   {
@@ -79,7 +79,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Philip Vaiman',
     role: 'Violinist',
     bio: "Philip Vaiman is a Moscow-born, Los Angeles–based concert violinist and recording artist. Admitted to Moscow's Gnesin Academy of Music at age five, he earned his Master of Music cum laude from USC's Thornton School of Music and has been a Grammy Voting Member of the Recording Academy since 2018. A first-call session violinist, his playing can be heard on major-label albums — including a 2024 Grammy-winning release — and on blockbuster film soundtracks. As founder of The Red Quartet, he brings both solo violin and full string-quartet options to events across Greater Los Angeles.",
-    image: '/philip-vaiman.jpg',
+    image: '/philip-vaiman.webp',
     region: 'la',
     website: 'https://philipvaiman.com',
   },
@@ -90,7 +90,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Alexander Xhoja',
     role: 'Founder & CEO',
     bio: 'Alexander Xhoja is a Boston-based, twenty-one-year-old pianist who is a recent recipient of a full-ride scholarship to the prestigious Berklee College of Music. With immense dedication and drive, he enriches the lives and hearts of his listeners by implementing emotional depth into his sound.',
-    image: '/alexander-xhoja.jpg',
+    image: '/alexander-xhoja.webp',
     region: 'boston',
   },
   {
@@ -98,7 +98,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Caelan Quadra',
     role: 'Executive Director',
     bio: "Caelan Quadra manages the Xhoja Music Agency's website, communication, and artist relations, ensuring seamless operations and a professional online presence that connects audiences with the agency's creative vision.",
-    image: '/jamiliee-team.jpg',
+    image: '/jamiliee-team.webp',
     region: 'boston',
   },
   {
@@ -106,7 +106,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Elton Xhoja',
     role: 'Pianist & Music Director',
     bio: 'Elton Xhoja is a Berklee-trained pianist and music director at Xhoja Music Agency, shaping the artistic direction of performances with creativity, improvisation, and a lifelong love of music.',
-    image: '/elton-c.jpg',
+    image: '/elton-c.webp',
     region: 'boston',
   },
   {
@@ -114,7 +114,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Jude Seiner',
     role: 'Bassist & Guitarist',
     bio: 'Jude Seiner is a scholarship recipient at Berklee College of Music, where he is currently studying performance and developing his voice as a modern jazz and contemporary musician. Recognized with a full scholarship for his artistic excellence and musical potential, Jude is an active performer known for his strong groove, musical sensitivity, and collaborative approach on stage.',
-    image: '/jude-base.jpg',
+    image: '/jude-base.webp',
     region: 'boston',
   },
   {
@@ -122,7 +122,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Kai Kitch',
     role: 'Drummer',
     bio: 'Kai Kitch is a dynamic Boston-based drummer and versatile musician with a strong foundation in jazz and fluency across R&B, pop, and funk. His well-rounded and adaptable approach makes him an excellent fit for a wide range of performances and ensemble settings.',
-    image: '/kai-drum.jpg',
+    image: '/kai-drum.webp',
     region: 'boston',
   },
   {
@@ -130,7 +130,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Jakob Kobal',
     role: 'Pianist & Accordionist',
     bio: "Jakob Kobal is a Slovenian accordionist and pianist based in Boston. Classically and jazz-trained, he moves fluidly between tango, Balkan folk, jazz, and contemporary music — bringing a refined yet creative approach to every performance.",
-    image: '/jakob-jamiliee.png',
+    image: '/jakob-jamiliee.webp',
     region: 'boston',
   },
   {
@@ -138,7 +138,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Ellis Cordaro',
     role: 'Drummer',
     bio: 'Ellis Cordaro is a versatile drummer and performing artist with a deep passion for jazz and global music traditions. Specializing in jazz, pop, R&B, rock, and Latin music, he brings a dynamic and culturally informed approach to every performance. He began his formal jazz training at the New England Conservatory Preparatory School before continuing his studies at the University of Massachusetts Amherst.',
-    image: '/ellis-cordaro.jpg',
+    image: '/ellis-cordaro.webp',
     region: 'boston',
   },
   {
@@ -146,7 +146,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Calele (Carolina Perez)',
     role: 'Vocalist & Trumpeter',
     bio: "Calele (Carolina Perez) is a Panamanian-Chilean Jazz and Latin vocalist and trumpeter currently studying Performance and Contemporary Writing and Production at Berklee College of Music. She has experience teaching children’s music classes and summer workshops (ages 6–15) at Fundación Danilo Pérez.",
-    image: '/calele-perez.jpg',
+    image: '/calele-perez.webp',
     region: 'boston',
   },
   {
@@ -154,7 +154,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Gabriel Lopez',
     role: 'Bassist & Guitarist',
     bio: 'Gabriel Lopez is a Puerto Rican electric bassist based in Boston. Deeply rooted in Latin music and jazz, his playing is driven by strong groove, time, and musical sensitivity. While bass is his primary instrument, Gabriel also brings a solid background in congas, which strongly informs his rhythmic approach and feel.',
-    image: '/gabriel-lopez.jpg',
+    image: '/gabriel-lopez.webp',
     region: 'boston',
   },
   {
@@ -162,7 +162,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Meshach Modebe',
     role: 'DJ',
     bio: "Meshach is a Boston-based DJ known for his polished style, sharp musical instincts, and ability to read any room. With experience performing at private events, weddings, and corporate functions, he brings professionalism and energy to every set — curating seamless mixes that keep the dance floor alive from start to finish.",
-    image: '/meshach-dj.jpg',
+    image: '/meshach-dj.webp',
     region: 'boston',
   },
   {
@@ -170,7 +170,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Ella Xhoja',
     role: 'Saxophonist',
     bio: 'Ella Xhoja is a saxophonist and performer deeply rooted in the jazz scene, with experience from Jazz at Lincoln Center to the Mingus Festival. Featured on WICN\'s Jazz for New England with JazzHers and a member of the Post Underground Jazz Collective, she brings real stage experience and a distinctive artistic voice to every performance.',
-    image: '/ella-xhoja.jpg',
+    image: '/ella-xhoja.webp',
     region: 'boston',
   },
   {
@@ -178,7 +178,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Jamiliee Haddad Zamorano',
     role: 'Vocalist & Songwriter',
     bio: 'Jamiliee Haddad Zamorano is a trilingual songwriter and vocalist of Mexican and Syrian descent, professionally shaped by her studies at Berklee College of Music. A classically trained bel canto vocalist, she bridges jazz and contemporary styles with a technique-driven yet emotionally grounded artistry.',
-    image: '/jamiliee-haddad.jpg',
+    image: '/jamiliee-haddad.webp',
     region: 'boston',
   },
   {
@@ -186,7 +186,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Dani Calderon',
     role: 'Vocalist',
     bio: 'Dani is a passionate and versatile vocalist and performer with a strong foundation in healthy vocal technique, musical literacy, and personal style. She brings expressive, joyful energy to every performance.',
-    image: '/dani-calderon.jpg',
+    image: '/dani-calderon.webp',
     region: 'boston',
   },
   {
@@ -194,7 +194,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Gregory Ayriyan',
     role: 'Violinist & Composer',
     bio: "Gregory Ayriyan is a violinist, soloist, and award-winning composer based in Rhode Island. A graduate of the Baku Conservatory, Gregory brings classical depth and international training to performances ranging from solo recitals to ensemble work. His repertoire spans Bach, Bartók, Stravinsky, and Ravel, alongside his own award-winning compositions. An Armenian-American whose journey took him from Baku to America as a refugee, he brings cultural depth and emotional resonance to every performance.",
-    image: '/gregory-ayriyan.jpg',
+    image: '/gregory-ayriyan.webp',
     region: 'boston',
     videoUrl: 'https://youtu.be/cEgIoQhDtuU',
   },
@@ -203,7 +203,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Kristýna Sibinská',
     role: 'Drummer',
     bio: "Kristýna Sibinská is a Czech-born, Boston-based drummer known for her versatility across rock, pop, jazz, fusion, and contemporary music. She has performed on international festival stages, including the Batumi Jazz Festival in Georgia and Smetanova Litomyšl in Czechia, and works in both live and studio settings. Champion of the international Hit Like a Girl competition in 2019, she went on to earn a full-tuition scholarship to Berklee College of Music. With a strong sense of groove, musicality, and adaptability, she brings dynamic energy to weddings, corporate events, and private celebrations across the Boston area.",
-    image: '/kristyna-sibinska.jpg',
+    image: '/kristyna-sibinska.webp',
     region: 'boston',
   },
 ];

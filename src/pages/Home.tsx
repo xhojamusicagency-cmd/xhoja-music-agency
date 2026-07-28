@@ -40,7 +40,7 @@ export default function Home() {
           muted
           loop
           playsInline
-          poster="/hero-piano-poster.jpg"
+          poster="/hero-piano-poster.webp"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/hero-piano.mp4" type="video/mp4" />
@@ -186,7 +186,7 @@ export default function Home() {
             </div>
             <div>
               <img
-                src="/alexander-xhoja-recital.jpg"
+                src="/alexander-xhoja-recital.webp"
                 alt="Alexander Xhoja"
                 className="shadow-xl w-full h-auto aspect-[4/3] object-cover"
               />
@@ -265,7 +265,7 @@ export default function Home() {
             </div>
             <div>
               <img
-                src="/wedding-piano-setup.jpg"
+                src="/wedding-piano-setup.webp"
                 alt="Piano setup at an elegant wedding venue"
                 className="shadow-lg w-full h-auto"
               />

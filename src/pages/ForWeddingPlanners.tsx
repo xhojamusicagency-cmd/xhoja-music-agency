@@ -61,7 +61,7 @@ export default function ForWeddingPlanners() {
         eyebrow="For Wedding Planners"
         headline="A music partner you can rely on."
         subhead="One vetted roster, one point of contact, and a planner-first workflow built around how you already work."
-        backgroundImage="/trio-performance.jpg"
+        backgroundImage="/trio-performance.webp"
       />
 
       {/* Three benefits */}

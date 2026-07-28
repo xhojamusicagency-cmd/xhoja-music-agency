@@ -61,7 +61,7 @@ export default function BnaiMitzvahMusicBoston() {
         eyebrow="B'nai Mitzvah Music"
         headline="Music for the whole celebration."
         subhead="From the ceremony's first note to the last hora of the night — one curated team, one coordinated day."
-        backgroundImage="/jewish-ensemble-placeholder.jpg"
+        backgroundImage="/jewish-ensemble-placeholder.webp"
       />
 
       {/* Three use cases */}

@@ -7,7 +7,7 @@ interface PageHeroProps {
   subhead?: string;
   /** Show tap-to-call phone line below subhead */
   showPhone?: boolean;
-  /** Optional background image path (e.g. "/wedding-reception.jpg"). When provided, renders a cinematic hero with overlay and white text. */
+  /** Optional background image path (e.g. "/wedding-reception.webp"). When provided, renders a cinematic hero with overlay and white text. */
   backgroundImage?: string;
   /** Optional vertical position for background image (e.g. "center", "top", "bottom"). Defaults to "center". */
   imagePosition?: string;
