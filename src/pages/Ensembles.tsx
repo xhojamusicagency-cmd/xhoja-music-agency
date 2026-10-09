@@ -47,7 +47,7 @@ const ENSEMBLES: Ensemble[] = [
     description: 'Piano, bass, and drums — or strings — the warm backbone of any gala or fine-dining moment.',
     featured: true,
     image: '/trio-performance.webp',
-    startingFrom: 1400,
+    startingFrom: 1500,
   },
   {
     tag: 'Quartet',
