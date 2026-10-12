@@ -180,7 +180,7 @@ export default function Team() {
               <h3 id="bio-modal-title" className="font-serif text-2xl sm:text-3xl font-medium mb-1">{activeMember.name}</h3>
               <p className="text-gold text-xs font-medium uppercase tracking-[2.4px] mb-4">{activeMember.role}</p>
               <div className="w-12 h-px bg-gold/30 mb-4" />
-              <p className="text-gray-500 text-sm sm:text-base leading-relaxed">{activeMember.bio}</p>
+              <p className="text-gray-500 text-sm sm:text-base leading-relaxed whitespace-pre-line text-left">{activeMember.bio}</p>
               {('videoUrl' in activeMember && activeMember.videoUrl) || ('website' in activeMember && activeMember.website) ? (
                 <div className="flex flex-col items-center gap-3 mt-6 pt-6 border-t border-gold/15 w-full">
                   {'videoUrl' in activeMember && activeMember.videoUrl ? (
