@@ -83,6 +83,14 @@ export const teamMembers: TeamMember[] = [
     region: 'la',
     website: 'https://philipvaiman.com',
   },
+  {
+    id: 24,
+    name: 'Daniel Avidon',
+    role: 'Accordionist',
+    bio: "Daniel Avidon is a Los Angeles–based accordionist with over ten years of experience across klezmer, Jewish, and Eastern European folk music, as well as jazz. He has performed as a soloist, bandleader, and ensemble musician with organizations including the UCLA Klezmer Ensemble, the Klezmer Arts Institute of LA, and Holocaust Museum LA, bringing deep authenticity to Jewish and Eastern European repertoire at weddings, cultural events, and private celebrations across Los Angeles.",
+    image: '/daniel-avidon.webp',
+    region: 'la',
+  },
 
   // ───────────────────────────── BOSTON ─────────────────────────────
   {
