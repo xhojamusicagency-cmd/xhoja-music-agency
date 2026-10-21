@@ -114,7 +114,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Elton Xhoja',
     role: 'Pianist & Music Director',
     bio: 'Elton Xhoja is a Berklee-trained pianist and music director at Xhoja Music Agency, shaping the artistic direction of performances with creativity, improvisation, and a lifelong love of music.',
-    image: '/elton-c.webp',
+    image: '/elton-xhoja-2.webp',
     region: 'boston',
   },
   {
