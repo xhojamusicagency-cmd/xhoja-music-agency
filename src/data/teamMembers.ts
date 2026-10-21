@@ -214,6 +214,14 @@ export const teamMembers: TeamMember[] = [
     image: '/kristyna-sibinska.webp',
     region: 'boston',
   },
+  {
+    id: 25,
+    name: 'Jure Slapar',
+    role: 'Guitarist',
+    bio: "Jure Slapar is a New York City–based guitarist, composer, and improviser active on the international jazz scene as both bandleader and sideman. Originally from Slovenia, he began classical guitar at age eight before turning to jazz, continuing his studies at the Conservatory of Music and Ballet in Ljubljana, Jazz Campus Basel, and the Jazz Institute Berlin, where his mentors included Lionel Loueke, Wolfgang Muthspiel, and David Friedman. In 2025 he was accepted into Berklee College of Music's Global Jazz Institute on a full scholarship, graduating in 2026. A three-time first-prize winner at the TEMSIG competition for young musicians, he has performed alongside artists including Kurt Rosenwinkel, Danilo Pérez, Miguel Zenón, and Lionel Loueke.",
+    image: '/jure-slapar.webp',
+    region: 'boston',
+  },
 ];
 
 export const laMembers = teamMembers.filter((m) => m.region === 'la');
