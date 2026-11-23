@@ -10,8 +10,9 @@ export default function Home() {
     'XMA (Xhoja Music Agency) — curated live music for events in Boston and Los Angeles. Solo piano, jazz trios, string quartets, DJs, and full bands for weddings, corporate events, and private celebrations. Founded by Berklee pianist Alexander Xhoja.'
   );
 
-  // Defer the large dj-video: only mount it once its section scrolls near the
-  // viewport, so the file isn't downloaded on initial homepage load.
+  // Defer the large dj-video and alice-vocal videos: only mount each once its
+  // section scrolls near the viewport, so the files aren't downloaded on
+  // initial homepage load.
   const djSectionRef = useRef<HTMLElement>(null);
   const [showDjVideo, setShowDjVideo] = useState(false);
   useEffect(() => {
@@ -21,6 +22,24 @@ export default function Home() {
       (entries) => {
         if (entries[0].isIntersecting) {
           setShowDjVideo(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: '300px' }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const vocalSectionRef = useRef<HTMLElement>(null);
+  const [showVocalVideo, setShowVocalVideo] = useState(false);
+  useEffect(() => {
+    const el = vocalSectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShowVocalVideo(true);
           io.disconnect();
         }
       },
@@ -235,6 +254,50 @@ export default function Home() {
               className="inline-block px-12 py-4 border border-gold text-gold text-xs sm:text-sm font-light tracking-[3px] uppercase hover:bg-gold hover:text-white transition-all duration-500"
             >
               REQUEST A QUOTE
+            </Link>
+          </div>
+        </div>
+        {/* Bottom Gold Accent Line */}
+        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+      </section>
+
+      {/* Vocals Spotlight Section - Video Background */}
+      <section ref={vocalSectionRef} id="vocals-spotlight" className="relative overflow-hidden bg-dark" style={{ minHeight: '85vh' }}>
+        {/* Video Background — lazy-mounted so the large file isn't fetched on initial load */}
+        {showVocalVideo && (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 w-full h-full object-cover scale-105"
+          >
+            <source src="/alice-vocal.mp4" type="video/mp4" />
+          </video>
+        )}
+        {/* Luxury Gradient Overlay */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.8) 100%)' }}></div>
+        {/* Top Gold Accent Line */}
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+        {/* Content */}
+        <div className="relative z-10 flex items-center justify-center" style={{ minHeight: '85vh' }}>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p className="text-gold uppercase tracking-[4px] text-xs sm:text-sm mb-4 font-light">VOCALS THAT MOVE A ROOM</p>
+            <div className="w-12 h-[1px] bg-gold/60 mx-auto mb-6"></div>
+            <h2 className="font-serif text-4xl sm:text-5xl md:text-7xl font-light leading-[1.05] tracking-[2px] mb-6 text-white">From Ceremony To Last Dance</h2>
+            <div className="w-20 h-[1px] bg-gold mx-auto mb-8"></div>
+            <p className="text-white/80 mb-4 leading-relaxed max-w-2xl mx-auto text-sm sm:text-base font-light tracking-wide">
+              Our vocalists bring soulful, versatile voices to every part of your event — an intimate ceremony moment, a jazz-lounge cocktail hour, or a full band set that fills the dance floor.
+            </p>
+            <p className="text-white/70 mb-10 leading-relaxed max-w-2xl mx-auto text-sm sm:text-base font-light tracking-wide">
+              Featured here: Alice Brutskaya, a jazz and contemporary vocalist on our Los Angeles roster.
+            </p>
+            <Link
+              to="/wedding-music-los-angeles"
+              className="inline-block px-12 py-4 border border-gold text-gold text-xs sm:text-sm font-light tracking-[3px] uppercase hover:bg-gold hover:text-white transition-all duration-500"
+            >
+              EXPLORE LA WEDDING MUSIC
             </Link>
           </div>
         </div>

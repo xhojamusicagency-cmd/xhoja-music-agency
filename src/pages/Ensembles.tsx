@@ -227,12 +227,13 @@ export default function Ensembles() {
           </div>
           {(() => {
             const FEATURED_VIDEOS = [
+              { id: 'oAt7qzZ4z60', label: 'Alice Brutskaya — vocalist' },
               { id: 'X3erxpEimGI', label: 'Mia McIntosh & Alexander Xhoja' },
               { id: 'rW3igUSTYfU', label: 'Live private gig — Gregory Ayriyan' },
               { id: 'P3rkiosJ9ac', label: 'Live wedding gig — Gregory Ayriyan' },
             ];
             return (
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 max-w-5xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 max-w-6xl mx-auto">
                 {FEATURED_VIDEOS.map(v => {
                   const isActive = v.id === activeVideoId;
                   return (
