@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import usePageTitle from '../hooks/usePageTitle';
 import PageHero from '../components/PageHero';
 import InlineLeadForm from '../components/InlineLeadForm';
 import FAQSection, { type FAQ } from '../components/FAQSection';
+
+const FEATURED_VIDEO = { id: 'oAt7qzZ4z60', label: 'Alice Brutskaya — vocalist, XMA Los Angeles roster' };
 
 const FAQS: FAQ[] = [
   {
@@ -60,6 +63,8 @@ export default function WeddingMusicLosAngeles() {
     'Curated live music for Los Angeles weddings — solo piano, string quartets, jazz ensembles. By appointment with founder Alexander Xhoja, Berklee-trained pianist. Bookings accepted for select Los Angeles wedding dates.',
   );
 
+  const [videoPlaying, setVideoPlaying] = useState(false);
+
   return (
     <div className="bg-cream-light">
       <PageHero
@@ -89,6 +94,54 @@ export default function WeddingMusicLosAngeles() {
               More About Our Los Angeles Service
               <span>→</span>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured performance — proof before the lead form */}
+      <section className="bg-cream-light pb-16 md:pb-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <p className="text-gold uppercase tracking-[4px] text-[11px] mb-3 font-medium">Hear It For Yourself</p>
+            <div className="w-12 h-px bg-gold mx-auto mb-5"></div>
+            <h2 className="font-serif text-[28px] sm:text-[34px] font-light leading-[1.15] text-dark">
+              Vocals that make a reception.
+            </h2>
+          </div>
+          <div className="relative aspect-video overflow-hidden bg-dark shadow-xl">
+            {videoPlaying ? (
+              <iframe
+                src={`https://www.youtube.com/embed/${FEATURED_VIDEO.id}?autoplay=1`}
+                title={FEATURED_VIDEO.label}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              ></iframe>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setVideoPlaying(true)}
+                aria-label={`Watch ${FEATURED_VIDEO.label}`}
+                className="group block absolute inset-0 w-full h-full cursor-pointer"
+              >
+                <img
+                  src={`https://i.ytimg.com/vi/${FEATURED_VIDEO.id}/hqdefault.jpg`}
+                  alt={FEATURED_VIDEO.label}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/85 via-dark/25 to-transparent" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gold/95 group-hover:bg-gold rounded-full flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-105">
+                    <svg className="w-6 h-6 sm:w-8 sm:h-8 text-dark ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 text-left">
+                  <p className="text-white text-sm sm:text-base font-serif italic leading-tight">{FEATURED_VIDEO.label}</p>
+                </div>
+              </button>
+            )}
           </div>
         </div>
       </section>
