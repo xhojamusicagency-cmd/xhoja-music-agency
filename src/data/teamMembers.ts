@@ -91,6 +91,16 @@ export const teamMembers: TeamMember[] = [
     image: '/daniel-avidon.webp',
     region: 'la',
   },
+  {
+    id: 26,
+    name: 'Alice Brutskaya',
+    role: 'Vocalist',
+    bio: "Alice Brutskaya is a Los Angeles–based vocalist specializing in jazz, pop, and contemporary music, with a soulful, versatile voice suited to everything from an intimate ceremony moment to a full evening set. She holds a Master of Music in Jazz Studies from California State University, Long Beach, and her credits include session vocals for the 2024 feature film Kraven the Hunter and performances with the GRAMMY-winning vocal ensemble Tonality. She brings refined artistry and stage-ready polish to weddings, private events, and collaborations across Los Angeles.",
+    image: '/alice-brutskaya.webp',
+    region: 'la',
+    videoUrl: 'https://youtu.be/oAt7qzZ4z60',
+    website: 'https://alicebrutskaya.com',
+  },
 
   // ───────────────────────────── BOSTON ─────────────────────────────
   {
